@@ -1,3 +1,7 @@
+"""Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+"""
+
 import logging
 import logging.config
 import sys
@@ -5,7 +9,6 @@ import time
 from pathlib import Path
 
 import pyomo.environ as pyoe
-from pyomo.common.tempfiles import TempfileManager
 from pyomo.opt import SolverFactory, TerminationCondition
 
 import wattadvisor.data_models.enums as enums

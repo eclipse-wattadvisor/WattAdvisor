@@ -1,7 +1,10 @@
 """This module runs a single WattAdvisor 
 optimization by using a static JSON file as input.
 Results are exported as JSON file containing the response body
-and as an Excel file containing all detailed time series data. 
+and as an Excel file containing all detailed time series data.
+
+Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 """
 
 from pprint import pprint
