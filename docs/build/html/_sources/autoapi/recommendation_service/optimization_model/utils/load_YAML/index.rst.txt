@@ -1,0 +1,30 @@
+:py:mod:`recommendation_service.optimization_model.utils.load_YAML`
+===================================================================
+
+.. py:module:: recommendation_service.optimization_model.utils.load_YAML
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.optimization_model.utils.load_YAML.load_yaml
+
+
+
+.. py:function:: load_yaml(path: str) -> dict
+
+   Function to load data from a YAML file into a python dictionary
+
+   :param path: path to the YAML file
+   :type path: str
+
+   :returns: data from YAML file
+   :rtype: dict
+
+

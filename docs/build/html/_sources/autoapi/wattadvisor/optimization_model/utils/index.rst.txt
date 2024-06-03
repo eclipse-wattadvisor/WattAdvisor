@@ -1,0 +1,22 @@
+:py:mod:`wattadvisor.optimization_model.utils`
+==============================================
+
+.. py:module:: wattadvisor.optimization_model.utils
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   calc_cops/index.rst
+   config_loader/index.rst
+   demand_tools/index.rst
+   feedin_tools/index.rst
+   load_YAML/index.rst
+   logger_writer/index.rst
+   results_composition/index.rst
+   weather_data/index.rst
+
+

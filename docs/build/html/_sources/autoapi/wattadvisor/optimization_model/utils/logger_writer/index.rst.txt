@@ -1,0 +1,45 @@
+:py:mod:`wattadvisor.optimization_model.utils.logger_writer`
+============================================================
+
+.. py:module:: wattadvisor.optimization_model.utils.logger_writer
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.logger_writer.LoggerWriter
+
+
+
+
+.. py:class:: LoggerWriter(writer: logging.Logger)
+
+
+   Bases: :py:obj:`object`
+
+   
+   Custom writer object for the `logging` module to redirect `sys.sdtout` and `sys.stderr` to a logger.
+
+   :param writer: Logger to redirect `sys.sdtout` and `sys.stderr` to
+   :type writer: logging.Logger
+
+   .. py:method:: write(message: str)
+
+      Appends new messages to logging channel.
+
+      :param message: Message to append to logging channel
+      :type message: str
+
+
+   .. py:method:: flush()
+
+      Flushes the logging channel
+
+
+
+

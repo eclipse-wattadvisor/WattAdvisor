@@ -1,0 +1,45 @@
+:py:mod:`recommendation_service.data_models.input_model_demand_object`
+======================================================================
+
+.. py:module:: recommendation_service.data_models.input_model_demand_object
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.data_models.input_model_demand_object.InputModelDemandObject
+
+
+
+
+.. py:class:: InputModelDemandObject
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: demand_values
+      :type: list[confloat(ge=0)]
+
+      
+
+   .. py:attribute:: resolution
+      :type: recommendation_service.data_models.enums.Resolution
+
+      
+
+   .. py:attribute:: unit
+      :type: recommendation_service.data_models.enums.EnergyUnit
+
+      
+
+   .. py:attribute:: energy_type
+      :type: recommendation_service.data_models.enums.EnergyType
+
+      
+
+

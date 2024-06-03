@@ -1,0 +1,47 @@
+:py:mod:`recommendation_service.optimization_model.components.energy_demand`
+============================================================================
+
+.. py:module:: recommendation_service.optimization_model.components.energy_demand
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.optimization_model.components.energy_demand.EnergyDemand
+
+
+
+
+.. py:class:: EnergyDemand(name: str, energy_type: recommendation_service.data_models.enums.EnergyType, demand_profile: pandas.Series | None = None, demand_sum: float | None = None, profile_type: str | None = None, weather_temp_air_data: pandas.Series | None = None)
+
+
+   Bases: :py:obj:`recommendation_service.optimization_model.components.base.Component`
+
+   
+   Component which consumes energy of a certain ``EnergyType`` to fulfill an energy demand.
+
+   :param name: Name of the component
+   :type name: str
+   :param energy_type: Energy type which is consumed
+   :type energy_type: enums.EnergyType
+   :param demand_profile: Time series representing an hourly demand profile for one year, by default None
+   :type demand_profile: pd.Series | None, optional
+   :param demand_sum: Sum of energy demanded per year, by default None
+   :type demand_sum: float | None, optional
+   :param profile_type: Type of energy demand profile to generate a profile for if ``demand_profile`` not provided, by default None.
+                        See parameter ``demand_group`` of functions ``..utils.demand_tools.generate_electrical_demand_profile()``
+                        and ``..utils.demand_tools.generate_heat_demand_profile()`` for more information.
+   :type profile_type: str | None, optional
+   :param weather_temp_air_data: Time series of hourly air temperature values, by default None.
+                                 Only required if ``energy_type`` is ``THERMAL`` or ``NATURAL_GAS`` and ``demand_profile`` is ``None``
+   :type weather_temp_air_data: pd.Series | None, optional
+
+   :raises ValueError: If no ``demand_profile`` and no `demand_sum` or no `profile_type` given
+   :raises ValueError: If no ``demand_profile`` and no `weather_temp_air_data` given and `energy_type` is `THERMAL` or `NATURAL_GAS`
+
+

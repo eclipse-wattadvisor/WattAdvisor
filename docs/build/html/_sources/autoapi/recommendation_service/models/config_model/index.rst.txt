@@ -1,0 +1,108 @@
+:py:mod:`recommendation_service.models.config_model`
+====================================================
+
+.. py:module:: recommendation_service.models.config_model
+
+.. autoapi-nested-parse::
+
+   Contains the defintion for pydantic models
+   representing the recommendation service optimization model config.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.models.config_model.ConfigModelDataDependencies
+   recommendation_service.models.config_model.ConfigModelLogging
+   recommendation_service.models.config_model.ConfigModel
+
+
+
+
+.. py:class:: ConfigModelDataDependencies
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: weather
+      :type: str
+
+      
+
+   .. py:attribute:: parameters
+      :type: str
+
+      
+
+   .. py:method:: is_file(v)
+
+
+
+.. py:class:: ConfigModelLogging
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: version
+      :type: int
+
+      
+
+   .. py:attribute:: formatters
+      :type: dict | None
+
+      
+
+   .. py:attribute:: handlers
+      :type: dict
+
+      
+
+   .. py:attribute:: loggers
+      :type: dict
+
+      
+
+   .. py:attribute:: root
+      :type: dict | None
+
+      
+
+
+.. py:class:: ConfigModel
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: solver
+      :type: recommendation_service.models.enums.SupportedSolver
+
+      
+
+   .. py:attribute:: solver_timeout
+      :type: int
+
+      
+
+   .. py:attribute:: default_interest_rate
+      :type: float
+
+      
+
+   .. py:attribute:: data_dependencies
+      :type: ConfigModelDataDependencies
+
+      
+
+   .. py:attribute:: logging
+      :type: ConfigModelLogging | None
+
+      
+
+

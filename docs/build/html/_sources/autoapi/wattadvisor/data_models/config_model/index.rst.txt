@@ -1,0 +1,108 @@
+:py:mod:`wattadvisor.data_models.config_model`
+==============================================
+
+.. py:module:: wattadvisor.data_models.config_model
+
+.. autoapi-nested-parse::
+
+   Contains the defintion for pydantic models
+   representing the WattAdvisor optimization model config.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.data_models.config_model.ConfigModelDataDependencies
+   wattadvisor.data_models.config_model.ConfigModelLogging
+   wattadvisor.data_models.config_model.ConfigModel
+
+
+
+
+.. py:class:: ConfigModelDataDependencies
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: weather
+      :type: str
+
+      
+
+   .. py:attribute:: parameters
+      :type: str
+
+      
+
+   .. py:method:: is_file(v)
+
+
+
+.. py:class:: ConfigModelLogging
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: version
+      :type: int
+
+      
+
+   .. py:attribute:: formatters
+      :type: dict | None
+
+      
+
+   .. py:attribute:: handlers
+      :type: dict
+
+      
+
+   .. py:attribute:: loggers
+      :type: dict
+
+      
+
+   .. py:attribute:: root
+      :type: dict | None
+
+      
+
+
+.. py:class:: ConfigModel
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: solver
+      :type: wattadvisor.data_models.enums.SupportedSolver
+
+      
+
+   .. py:attribute:: solver_timeout
+      :type: int
+
+      
+
+   .. py:attribute:: default_interest_rate
+      :type: float
+
+      
+
+   .. py:attribute:: data_dependencies
+      :type: ConfigModelDataDependencies
+
+      
+
+   .. py:attribute:: logging
+      :type: ConfigModelLogging | None
+
+      
+
+

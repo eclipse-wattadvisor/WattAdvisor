@@ -1,0 +1,40 @@
+:py:mod:`wattadvisor.data_models.input_model_single_tariff_energy_object`
+=========================================================================
+
+.. py:module:: wattadvisor.data_models.input_model_single_tariff_energy_object
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.data_models.input_model_single_tariff_energy_object.InputModelSingleTariffEnergyObject
+
+
+
+
+.. py:class:: InputModelSingleTariffEnergyObject
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: price_values
+      :type: List[float]
+
+      
+
+   .. py:attribute:: resolution
+      :type: wattadvisor.data_models.enums.Resolution
+
+      
+
+   .. py:attribute:: unit
+      :type: wattadvisor.data_models.enums.EnergyPriceUnit
+
+      
+
+

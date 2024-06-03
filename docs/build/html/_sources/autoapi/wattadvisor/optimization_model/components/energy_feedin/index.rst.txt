@@ -1,0 +1,57 @@
+:py:mod:`wattadvisor.optimization_model.components.energy_feedin`
+=================================================================
+
+.. py:module:: wattadvisor.optimization_model.components.energy_feedin
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.components.energy_feedin.EnergyFeedin
+
+
+
+
+.. py:class:: EnergyFeedin(name: str, parameters: dict, energy_type: wattadvisor.data_models.enums.EnergyType, energy_price_scalar: float | None = None, energy_price_profile: pandas.Series | None = None, power_price: float | None = None)
+
+
+   Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
+
+   
+   Component that feeds surplus energy into grid .
+
+   :param name: Name of the component
+   :type name: str
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: dict
+   :param energy_type: Energy type which is fed in
+   :type energy_type: enums.EnergyType
+   :param energy_price_scalar: Scalar price for feeding in per energy unit [€/kWh], by default None
+   :type energy_price_scalar: float | None, optional
+   :param energy_price_profile: Time series containing hourly variant energy prices for one year, by default None
+   :type energy_price_profile: pd.Series | None, optional
+   :param power_price: Price to pay for maximum grid load per year [€/(kW * a)], by default None
+   :type power_price: float | None, optional
+
+

@@ -1,0 +1,9 @@
+external_licenses
+test
+*.xlsx
+api-wattadvisor.yaml
+/model.log
+/test_output.json
+__pycache__
+/wattadvisor/optimization_model/cbc.exe
+/wattadvisor/optimization_model/data/weather.nc

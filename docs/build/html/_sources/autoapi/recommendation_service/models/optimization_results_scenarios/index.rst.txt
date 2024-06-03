@@ -1,0 +1,35 @@
+:py:mod:`recommendation_service.models.optimization_results_scenarios`
+======================================================================
+
+.. py:module:: recommendation_service.models.optimization_results_scenarios
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.models.optimization_results_scenarios.OptimizationResultsScenarios
+
+
+
+
+.. py:class:: OptimizationResultsScenarios
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: target_scenario
+      :type: recommendation_service.models.optimization_results_scenario_object.OptimizationResultsScenarioObject
+
+      
+
+   .. py:attribute:: current_scenario
+      :type: Optional[recommendation_service.models.optimization_results_scenario_object.OptimizationResultsScenarioObject]
+
+      
+
+

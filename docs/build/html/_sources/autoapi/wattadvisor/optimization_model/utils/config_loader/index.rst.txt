@@ -1,0 +1,34 @@
+:py:mod:`wattadvisor.optimization_model.utils.config_loader`
+============================================================
+
+.. py:module:: wattadvisor.optimization_model.utils.config_loader
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.config_loader.load_config
+
+
+
+.. py:function:: load_config(base_path: pathlib.Path, filename: str = 'model_config.yaml') -> wattadvisor.data_models.config_model.ConfigModel
+
+   Loads the config file for the WattAdvisor service optimization model.
+
+   :param base_path: Base path of the whole service
+   :type base_path: Path
+   :param filename: Filename of the config file, by default "model_config.yaml"
+   :type filename: str, optional
+
+   :returns: Config File represented as a pydantic object
+   :rtype: ConfigModel
+
+   :raises FileNotFoundError: If file `filename` cannot be found under `base_path`
+
+

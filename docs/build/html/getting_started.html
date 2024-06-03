@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using WattAdvisor &mdash; wattadvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="autoapi/index.html" />
+    <link rel="prev" title="WattAdvisor documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            wattadvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using WattAdvisor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-required-environment">Installation of required environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-via-conda">Installation via conda</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-anaconda-or-miniconda">Install Anaconda or Miniconda</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-conda-environment">Create the conda environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-an-input-request">Defining an input request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-optimization">Running the optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-results">Understanding the results</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">wattadvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using WattAdvisor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting_started.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-wattadvisor">
+<h1>Using WattAdvisor<a class="headerlink" href="#using-wattadvisor" title="Link to this heading"></a></h1>
+<section id="installation-of-required-environment">
+<h2>Installation of required environment<a class="headerlink" href="#installation-of-required-environment" title="Link to this heading"></a></h2>
+<p>Two ways to create the required environment are proposed.
+Make sure you run the listed commands from the project directory <em>WattAdvisor/</em> which should at least contain these sub-directories and files:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>├── WattAdvisor/
+│   ├── docs/...
+│   ├── wattadvisor/...
+│   ├── test/...
+│   ├── setup_service.bat
+│   ├── Dockerfile
+│   ├── main.py
+│   ├── environment.yaml
+</pre></div>
+</div>
+<!-- ### Installation via docker
+
+You can use docker to create a container to run the service inside of it. Docker must be installed to follow this instruction.
+
+#### Create docker image
+
+In the project directory, there is a **Dockerfile** provided. Run the following command inside the project directory to create the docker image:
+
+`docker build -t wattadvisor .`
+
+#### Run the image
+
+Run a container with the previously created image with the following command from the project directory:
+
+`docker run -p 8001:8001 -it -v "%cd%"/config.yaml:/tmp/config.yaml wattadvisor`
+
+After that, the service will be available on the host system port 8001.  -->
+<section id="installation-via-conda">
+<h3>Installation via conda<a class="headerlink" href="#installation-via-conda" title="Link to this heading"></a></h3>
+<p>To create the required python environment containing all essential packages, you can use <em>conda</em>.
+In this way, common OS such as <em>Windows</em>, <em>Linux</em> and <em>Mac OS</em> are supported.</p>
+<section id="install-anaconda-or-miniconda">
+<h4>Install Anaconda or Miniconda<a class="headerlink" href="#install-anaconda-or-miniconda" title="Link to this heading"></a></h4>
+<p>To use <em>conda</em> you have to install <strong>Anaconda</strong> or <strong>Miniconda</strong>. Take a look at their documentations to find installation instructions for your OS:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.anaconda.com/free/anaconda/install/">Anaconda Installation</a></p></li>
+<li><p><a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">Miniconda Installation</a></p></li>
+</ul>
+<p>Remember to <a class="reference external" href="https://docs.anaconda.com/free/anaconda/configurations/proxy/">configure conda to use your company proxy connection</a> if existing.</p>
+</section>
+<section id="create-the-conda-environment">
+<h4>Create the conda environment<a class="headerlink" href="#create-the-conda-environment" title="Link to this heading"></a></h4>
+<p>Open the project directory and run the following script:</p>
+<ul class="simple">
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">setup_service.bat</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="defining-an-input-request">
+<h2>Defining an input request<a class="headerlink" href="#defining-an-input-request" title="Link to this heading"></a></h2>
+<p>To create a new input request, use the prepared data model. Be careful to run these commands inside the newly created conda environment</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wattadvisor.data_models.input_model</span> <span class="kn">import</span> <span class="n">InputModel</span>
+<span class="kn">from</span> <span class="nn">wattadvisor.data_models.input_model_location</span> <span class="kn">import</span> <span class="n">InputModelLocation</span>
+<span class="kn">from</span> <span class="nn">wattadvisor.data_models.input_model_demand_object</span> <span class="kn">import</span> <span class="n">InputModelDemandObject</span>
+<span class="kn">from</span> <span class="nn">wattadvisor.data_models.input_model_energy_tariffs</span> <span class="kn">import</span> <span class="n">InputModelEnergyTariffs</span>
+<span class="kn">from</span> <span class="nn">wattadvisor.data_models.input_model_component_object</span> <span class="kn">import</span> <span class="n">InputModelComponentPower</span>
+<span class="kn">from</span> <span class="nn">wattadvisor.data_models.input_model_single_tariff_object</span> <span class="kn">import</span> <span class="n">InputModelSingleTariffObject</span>
+<span class="kn">from</span> <span class="nn">wattadvisor.data_models.input_model_single_tariff_energy_object</span> <span class="kn">import</span> <span class="n">InputModelSingleTariffEnergyObject</span>
+<span class="kn">from</span> <span class="nn">wattadvisor.data_models.enums</span> <span class="kn">import</span> <span class="n">EnergyType</span><span class="p">,</span> <span class="n">Resolution</span><span class="p">,</span> <span class="n">EnergyUnit</span><span class="p">,</span> <span class="n">PowerUnitComponent</span><span class="p">,</span> <span class="n">EnergyPriceUnit</span>
+
+<span class="n">location</span> <span class="o">=</span> <span class="n">InputModelLocation</span><span class="p">(</span>
+    <span class="n">longitude</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">latitude</span><span class="o">=</span><span class="mi">50</span>
+<span class="p">)</span>
+
+<span class="n">energy_demands</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">InputModelDemandObject</span><span class="p">(</span>
+        <span class="n">demand_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10000</span><span class="p">],</span>
+        <span class="n">resolution</span><span class="o">=</span><span class="n">Resolution</span><span class="o">.</span><span class="n">R1Y</span><span class="p">,</span>
+        <span class="n">unit</span><span class="o">=</span><span class="n">EnergyUnit</span><span class="o">.</span><span class="n">KWH</span><span class="p">,</span>
+        <span class="n">energy_type</span><span class="o">=</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">energy_components</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">InputModelComponentPower</span><span class="p">(</span>
+        <span class="n">component_type</span><span class="o">=</span><span class="n">PowerUnitComponent</span><span class="o">.</span><span class="n">PHOTOVOLTAIK_ROOF</span><span class="p">,</span>
+        <span class="n">installed_power</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">potential_power</span><span class="o">=</span><span class="mi">20</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">electrical_energy_purchase</span> <span class="o">=</span> <span class="n">InputModelSingleTariffObject</span><span class="p">(</span>
+    <span class="n">energy</span><span class="o">=</span><span class="n">InputModelSingleTariffEnergyObject</span><span class="p">(</span>
+        <span class="n">price_values</span><span class="o">=</span><span class="p">[</span><span class="mf">0.35</span><span class="p">],</span>
+        <span class="n">resolution</span><span class="o">=</span><span class="n">Resolution</span><span class="o">.</span><span class="n">R1Y</span><span class="p">,</span>
+        <span class="n">unit</span><span class="o">=</span><span class="n">EnergyPriceUnit</span><span class="o">.</span><span class="n">EUR_PER_KWH</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">energy_tariffs</span> <span class="o">=</span> <span class="n">InputModelEnergyTariffs</span><span class="p">(</span>
+    <span class="n">electrical_energy_purchase</span><span class="o">=</span><span class="n">electrical_energy_purchase</span>
+<span class="p">)</span>
+
+<span class="n">new_input</span> <span class="o">=</span> <span class="n">InputModel</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">,</span>
+    <span class="n">energy_demands</span><span class="o">=</span><span class="n">energy_demands</span><span class="p">,</span>
+    <span class="n">energy_components</span><span class="o">=</span><span class="n">energy_components</span><span class="p">,</span>
+    <span class="n">energy_tariffs</span><span class="o">=</span><span class="n">energy_tariffs</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This defines the following scenario:</p>
+<ul class="simple">
+<li><p>annual sum of electrical energy demand of 10.000 kWh</p></li>
+<li><p>existing photovoltaic system on the roof with 10 kWp</p></li>
+<li><p>potential for an additional 10 kWp of photovoltaic modules</p></li>
+<li><p>electrical energy can be purchased from the grid with a static price of 35 cents per kWh</p></li>
+</ul>
+</section>
+<section id="running-the-optimization">
+<h2>Running the optimization<a class="headerlink" href="#running-the-optimization" title="Link to this heading"></a></h2>
+<p>By running the optimization, recommendations to the following questions can be expected:</p>
+<ul class="simple">
+<li><p>Should more photovoltaic modules be added to the roof system to exceed the cost minimum?</p>
+<ul>
+<li><p>If yes: How much modules expressed in kWp should be added?</p></li>
+<li><p>What are the resulting investment cost for the photovoltaic modules?</p></li>
+</ul>
+</li>
+<li><p>How much electrical energy is still required to purchased from the electrical grid to fulfill the electrical demands?</p></li>
+<li><p>Which annual cost can be expected for electrical energy purchase from the grid?</p></li>
+</ul>
+<p>Use :py:module:<code class="docutils literal notranslate"><span class="pre">wattadvisor.optimization_model.process_runner</span></code> to initiate a new optimization with the created input:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wattadvisor.optimization_model</span> <span class="kn">import</span> <span class="n">process_runner</span>
+
+<span class="c1"># use &#39;export=True&#39; to create an Excel file of detailed results and time series to inspect  </span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">process_runner</span><span class="o">.</span><span class="n">run_direct</span><span class="p">(</span><span class="n">new_input</span><span class="p">,</span> <span class="n">export</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">results</span></code> contains the optimization results.
+After a short wait, there should also be a new Excel file at the project directory containing the results.</p>
+</section>
+<section id="understanding-the-results">
+<h2>Understanding the results<a class="headerlink" href="#understanding-the-results" title="Link to this heading"></a></h2>
+<p>Let’s inspect the variable <code class="docutils literal notranslate"><span class="pre">results</span></code>. It is a data model which can be accessed to retrieve the optimal values of our scenario:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">pprint</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+</pre></div>
+</div>
+<details>
+<summary>This prints out the following:</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;requested_input&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;energy_components&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;capex&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                                            <span class="s1">&#39;component_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">PowerUnitComponent</span><span class="o">.</span><span class="n">PHOTOVOLTAIK_ROOF</span><span class="p">:</span> <span class="s1">&#39;PHOTOVOLTAIK_ROOF&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                            <span class="s1">&#39;installed_power&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                                            <span class="s1">&#39;lifespan&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                                            <span class="s1">&#39;opex&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                                            <span class="s1">&#39;potential_power&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">}],</span>
+                     <span class="s1">&#39;energy_demands&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;demand_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10000.0</span><span class="p">],</span>
+                                         <span class="s1">&#39;energy_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                         <span class="s1">&#39;resolution&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Resolution</span><span class="o">.</span><span class="n">R1Y</span><span class="p">:</span> <span class="s1">&#39;1Y&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                         <span class="s1">&#39;unit&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyUnit</span><span class="o">.</span><span class="n">KWH</span><span class="p">:</span> <span class="s1">&#39;KWH&#39;</span><span class="o">&gt;</span><span class="p">}],</span>
+                     <span class="s1">&#39;energy_tariffs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;electrical_energy_feedin&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;energy&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;price_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">],</span>
+                                                                                <span class="s1">&#39;resolution&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Resolution</span><span class="o">.</span><span class="n">R1Y</span><span class="p">:</span> <span class="s1">&#39;1Y&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                                                                <span class="s1">&#39;unit&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyPriceUnit</span><span class="o">.</span><span class="n">EUR_PER_KWH</span><span class="p">:</span> <span class="s1">&#39;EUR_PER_KWH&#39;</span><span class="o">&gt;</span><span class="p">},</span>
+                                                                     <span class="s1">&#39;power&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+                                        <span class="s1">&#39;electrical_energy_purchase&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;energy&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;price_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.35</span><span class="p">],</span>
+                                                                                  <span class="s1">&#39;resolution&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Resolution</span><span class="o">.</span><span class="n">R1Y</span><span class="p">:</span> <span class="s1">&#39;1Y&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                                                                  <span class="s1">&#39;unit&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyPriceUnit</span><span class="o">.</span><span class="n">EUR_PER_KWH</span><span class="p">:</span> <span class="s1">&#39;EUR_PER_KWH&#39;</span><span class="o">&gt;</span><span class="p">},</span>
+                                                                       <span class="s1">&#39;power&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+                                        <span class="s1">&#39;natural_gas_purchase&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                                        <span class="s1">&#39;thermal_energy_purchase&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+                     <span class="s1">&#39;interest_rate&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
+                     <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">}},</span>
+ <span class="s1">&#39;results&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;current_scenario&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;components&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;annuity&#39;</span><span class="p">:</span> <span class="mf">351.5678815510371</span><span class="p">,</span>
+                                                  <span class="s1">&#39;component_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">PowerUnitComponent</span><span class="o">.</span><span class="n">PHOTOVOLTAIK_ROOF</span><span class="p">:</span> <span class="s1">&#39;PHOTOVOLTAIK_ROOF&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                                  <span class="s1">&#39;installed_power&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+                                                  <span class="s1">&#39;investment_cost&#39;</span><span class="p">:</span> <span class="mf">3750.0</span><span class="p">,</span>
+                                                  <span class="s1">&#39;operational_cost&#39;</span><span class="p">:</span> <span class="mf">107.625</span><span class="p">,</span>
+                                                  <span class="s1">&#39;produced_energy&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="mf">5987.854562366385</span><span class="p">,</span>
+                                                                       <span class="s1">&#39;energy_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">}]},</span>
+                                                 <span class="p">{</span><span class="s1">&#39;annuity&#39;</span><span class="p">:</span> <span class="mf">2007.7232143177137</span><span class="p">,</span>
+                                                  <span class="s1">&#39;component_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">PurchaseComponent</span><span class="o">.</span><span class="n">ELECTRICAL_ENERGY_PURCHASE</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL_ENERGY_PURCHASE&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                                  <span class="s1">&#39;produced_energy&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="mf">5736.352040907731</span><span class="p">,</span>
+                                                                       <span class="s1">&#39;energy_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">}],</span>
+                                                  <span class="s1">&#39;purchase_cost&#39;</span><span class="p">:</span> <span class="mf">2007.7232143177137</span><span class="p">},</span>
+                                                 <span class="p">{</span><span class="s1">&#39;annuity&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">,</span>
+                                                  <span class="s1">&#39;component_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">FeedinComponent</span><span class="o">.</span><span class="n">ELECTRICAL_ENERGY_FEEDIN</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL_ENERGY_FEEDIN&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                                  <span class="s1">&#39;produced_energy&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1724.2066032741272</span><span class="p">,</span>
+                                                                       <span class="s1">&#39;energy_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">}],</span>
+                                                  <span class="s1">&#39;purchase_cost&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">}],</span>
+                                  <span class="s1">&#39;kpis&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;total_annuities&#39;</span><span class="p">:</span> <span class="mf">2359.2910958687507</span><span class="p">,</span>
+                                           <span class="s1">&#39;total_income&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">,</span>
+                                           <span class="s1">&#39;total_investment_cost&#39;</span><span class="p">:</span> <span class="mf">3750.0</span><span class="p">,</span>
+                                           <span class="s1">&#39;total_operational_cost&#39;</span><span class="p">:</span> <span class="mf">107.625</span><span class="p">,</span>
+                                           <span class="s1">&#39;total_purchase_cost&#39;</span><span class="p">:</span> <span class="mf">2007.7232143177137</span><span class="p">}},</span>
+             <span class="s1">&#39;target_scenario&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;components&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;annuity&#39;</span><span class="p">:</span> <span class="mf">427.88506844356255</span><span class="p">,</span>
+                                                 <span class="s1">&#39;component_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">PowerUnitComponent</span><span class="o">.</span><span class="n">PHOTOVOLTAIK_ROOF</span><span class="p">:</span> <span class="s1">&#39;PHOTOVOLTAIK_ROOF&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                                 <span class="s1">&#39;installed_power&#39;</span><span class="p">:</span> <span class="mf">6.085383376829411</span><span class="p">,</span>
+                                                 <span class="s1">&#39;investment_cost&#39;</span><span class="p">:</span> <span class="mf">4564.037532622058</span><span class="p">,</span>
+                                                 <span class="s1">&#39;operational_cost&#39;</span><span class="p">:</span> <span class="mf">130.98787718625306</span><span class="p">,</span>
+                                                 <span class="s1">&#39;produced_energy&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="mf">7287.6781233393185</span><span class="p">,</span>
+                                                                      <span class="s1">&#39;energy_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">}]},</span>
+                                                <span class="p">{</span><span class="s1">&#39;annuity&#39;</span><span class="p">:</span> <span class="mf">1914.447492981199</span><span class="p">,</span>
+                                                 <span class="s1">&#39;component_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">PurchaseComponent</span><span class="o">.</span><span class="n">ELECTRICAL_ENERGY_PURCHASE</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL_ENERGY_PURCHASE&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                                 <span class="s1">&#39;produced_energy&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="mf">5469.84997994623</span><span class="p">,</span>
+                                                                      <span class="s1">&#39;energy_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">}],</span>
+                                                 <span class="s1">&#39;purchase_cost&#39;</span><span class="p">:</span> <span class="mf">1914.447492981199</span><span class="p">},</span>
+                                                <span class="p">{</span><span class="s1">&#39;annuity&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">,</span>
+                                                 <span class="s1">&#39;component_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">FeedinComponent</span><span class="o">.</span><span class="n">ELECTRICAL_ENERGY_FEEDIN</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL_ENERGY_FEEDIN&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+                                                 <span class="s1">&#39;produced_energy&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2757.528103285579</span><span class="p">,</span>
+                                                                      <span class="s1">&#39;energy_type&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">}],</span>
+                                                 <span class="s1">&#39;purchase_cost&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">}],</span>
+                                 <span class="s1">&#39;kpis&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;total_annuities&#39;</span><span class="p">:</span> <span class="mf">2342.3325614247615</span><span class="p">,</span>
+                                          <span class="s1">&#39;total_income&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.0</span><span class="p">,</span>
+                                          <span class="s1">&#39;total_investment_cost&#39;</span><span class="p">:</span> <span class="mf">4564.037532622058</span><span class="p">,</span>
+                                          <span class="s1">&#39;total_operational_cost&#39;</span><span class="p">:</span> <span class="mf">130.98787718625306</span><span class="p">,</span>
+                                          <span class="s1">&#39;total_purchase_cost&#39;</span><span class="p">:</span> <span class="mf">1914.447492981199</span><span class="p">}}},</span>
+ <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;error_message&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">OptimizationStatus</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">:</span> <span class="s1">&#39;SUCCESS&#39;</span><span class="o">&gt;</span><span class="p">}}</span>
+
+</pre></div>
+</div>
+</details>
+<br>
+You can also access single values from this big result object. For example, if you just want to know the cost-minimum amount of photovoltaic modules for the scenario, do this:
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">target_scenario</span><span class="o">.</span><span class="n">components</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">OptimizationResultsComponentObjectPower</span><span class="p">(</span><span class="n">component_type</span><span class="o">=&lt;</span><span class="n">PowerUnitComponent</span><span class="o">.</span><span class="n">PHOTOVOLTAIK_ROOF</span><span class="p">:</span> <span class="s1">&#39;PHOTOVOLTAIK_ROOF&#39;</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">installed_power</span><span class="o">=</span><span class="mf">6.085383376829411</span><span class="p">,</span> <span class="n">investment_cost</span><span class="o">=</span><span class="mf">4564.037532622058</span><span class="p">,</span> <span class="n">operational_cost</span><span class="o">=</span><span class="mf">130.98787718625306</span><span class="p">,</span> <span class="n">annuity</span><span class="o">=</span><span class="mf">427.88506844356255</span><span class="p">,</span> <span class="n">produced_energy</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationResultsComponentEnergyProductionObject</span><span class="p">(</span><span class="n">energy_type</span><span class="o">=&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mf">7287.6781233393185</span><span class="p">)]),</span>
+ <span class="n">OptimizationResultsComponentObjectPurchaseFeedin</span><span class="p">(</span><span class="n">component_type</span><span class="o">=&lt;</span><span class="n">PurchaseComponent</span><span class="o">.</span><span class="n">ELECTRICAL_ENERGY_PURCHASE</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL_ENERGY_PURCHASE&#39;</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">purchase_cost</span><span class="o">=</span><span class="mf">1914.447492981199</span><span class="p">,</span> <span class="n">annuity</span><span class="o">=</span><span class="mf">1914.447492981199</span><span class="p">,</span> <span class="n">produced_energy</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationResultsComponentEnergyProductionObject</span><span class="p">(</span><span class="n">energy_type</span><span class="o">=&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mf">5469.84997994623</span><span class="p">)]),</span>
+ <span class="n">OptimizationResultsComponentObjectPurchaseFeedin</span><span class="p">(</span><span class="n">component_type</span><span class="o">=&lt;</span><span class="n">FeedinComponent</span><span class="o">.</span><span class="n">ELECTRICAL_ENERGY_FEEDIN</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL_ENERGY_FEEDIN&#39;</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">purchase_cost</span><span class="o">=-</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">annuity</span><span class="o">=-</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">produced_energy</span><span class="o">=</span><span class="p">[</span><span class="n">OptimizationResultsComponentEnergyProductionObject</span><span class="p">(</span><span class="n">energy_type</span><span class="o">=&lt;</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">:</span> <span class="s1">&#39;ELECTRICAL&#39;</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">amount</span><span class="o">=-</span><span class="mf">2757.528103285579</span><span class="p">)])]</span>
+</pre></div>
+</div>
+<p>Now, the installed power (including the already installed power of 5 kW) for the photovoltaic component is accessible at list index 0:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">target_scenario</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">installed_power</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">6.085383376829411</span>
+</pre></div>
+</div>
+<p>To conclude, it seems as the cost-minimum to add around 1.08 kWp of photovoltaic modules to the existing amount of 5 kWp.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="WattAdvisor documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+:py:mod:`wattadvisor.data_models.input_model_single_tariff_object`
+==================================================================
+
+.. py:module:: wattadvisor.data_models.input_model_single_tariff_object
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.data_models.input_model_single_tariff_object.InputModelSingleTariffObject
+
+
+
+
+.. py:class:: InputModelSingleTariffObject
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: energy
+      :type: wattadvisor.data_models.input_model_single_tariff_energy_object.InputModelSingleTariffEnergyObject
+
+      
+
+   .. py:attribute:: power
+      :type: Optional[float]
+
+      
+
+

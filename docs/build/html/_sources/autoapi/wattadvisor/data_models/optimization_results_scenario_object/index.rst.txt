@@ -1,0 +1,35 @@
+:py:mod:`wattadvisor.data_models.optimization_results_scenario_object`
+======================================================================
+
+.. py:module:: wattadvisor.data_models.optimization_results_scenario_object
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioObject
+
+
+
+
+.. py:class:: OptimizationResultsScenarioObject
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: components
+      :type: list[Union[wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPower, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPurchaseFeedin, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectArea, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectStorage]]
+
+      
+
+   .. py:attribute:: kpis
+      :type: wattadvisor.data_models.optimization_results_scenario_kpis.OptimizationResultsScenarioKpis
+
+      
+
+

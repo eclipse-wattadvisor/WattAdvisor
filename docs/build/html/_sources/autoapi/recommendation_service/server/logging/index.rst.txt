@@ -1,0 +1,46 @@
+:py:mod:`recommendation_service.server.logging`
+===============================================
+
+.. py:module:: recommendation_service.server.logging
+
+.. autoapi-nested-parse::
+
+   This module contains the function to setup the logger for the recommendation service.
+   Furthermore, the function is called, which defines the logger globally to be imported by other modules.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.server.logging.setup_logger
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.server.logging.logger
+
+
+.. py:function:: setup_logger() -> logging.Logger
+
+   Creates the logger for the recommendation service
+   using the information from the service config.
+
+   :returns: python logging logger object
+   :rtype: logging.Logger
+
+
+.. py:data:: logger
+
+   
+

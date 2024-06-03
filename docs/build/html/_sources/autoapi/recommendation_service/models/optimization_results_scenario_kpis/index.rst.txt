@@ -1,0 +1,50 @@
+:py:mod:`recommendation_service.models.optimization_results_scenario_kpis`
+==========================================================================
+
+.. py:module:: recommendation_service.models.optimization_results_scenario_kpis
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.models.optimization_results_scenario_kpis.OptimizationResultsScenarioKpis
+
+
+
+
+.. py:class:: OptimizationResultsScenarioKpis
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: total_investment_cost
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: total_operational_cost
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: total_purchase_cost
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: total_income
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: total_annuities
+      :type: float
+
+      
+
+

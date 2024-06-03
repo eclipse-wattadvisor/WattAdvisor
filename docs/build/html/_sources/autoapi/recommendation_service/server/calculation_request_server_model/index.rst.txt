@@ -1,0 +1,61 @@
+:py:mod:`recommendation_service.server.calculation_request_server_model`
+========================================================================
+
+.. py:module:: recommendation_service.server.calculation_request_server_model
+
+.. autoapi-nested-parse::
+
+   This module contains the SQLModel of the Calculation Request.
+   With the model the database table will be generated.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.server.calculation_request_server_model.CalculationRequest
+
+
+
+
+.. py:class:: CalculationRequest(**data: Any)
+
+
+   Bases: :py:obj:`sqlmodel.SQLModel`
+
+   .. py:attribute:: calculation_id
+      :type: uuid.UUID
+
+      
+
+   .. py:attribute:: request_timestamp
+      :type: datetime.datetime
+
+      
+
+   .. py:attribute:: status
+      :type: recommendation_service.data_models.enums.OptimizationStatus
+
+      
+
+   .. py:attribute:: input_json
+      :type: str
+
+      
+
+   .. py:attribute:: results_json
+      :type: str | None
+
+      
+
+   .. py:attribute:: results_tables
+      :type: str | None
+
+      
+
+

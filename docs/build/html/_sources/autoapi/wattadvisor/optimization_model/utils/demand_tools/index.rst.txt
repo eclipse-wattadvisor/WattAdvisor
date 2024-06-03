@@ -1,0 +1,63 @@
+:py:mod:`wattadvisor.optimization_model.utils.demand_tools`
+===========================================================
+
+.. py:module:: wattadvisor.optimization_model.utils.demand_tools
+
+.. autoapi-nested-parse::
+
+   Contains functions to generate demand profiles
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.demand_tools.generate_electrical_demand_profile
+   wattadvisor.optimization_model.utils.demand_tools.generate_heat_demand_profile
+
+
+
+.. py:function:: generate_electrical_demand_profile(demand_amount: float, demand_group: Literal[G0, G1, G2, G3, G4, G5, G6, G7, L0, L1, L2, H0, H0_dyn, H0/H0_dyn], year: int, target_resolution: wattadvisor.data_models.enums.Resolution = Resolution.R1H) -> pandas.Series
+
+   Generates an hourly electrical energy demand profile based on a yearly electrical energy demand sum.
+
+   :param demand_amount: Sum of the yearly electrical energy demand
+   :type demand_amount: float
+   :param demand_group: Demand group to generate the profile for. See [demandlib documention](https://demandlib.readthedocs.io/en/latest/bdew.html#id3) for an explanation of all possible values.
+   :type demand_group: Literal["G0", "G1", "G2", "G3", "G4", "G5", "G6", "G7", "L0", "L1", "L2", "H0", "H0_dyn", "H0/H0_dyn"]
+   :param year: Year to generate the profile for
+   :type year: int
+   :param target_resolution: Time step resolution of the profile to be generated, by default Resolution.R1H
+   :type target_resolution: Resolution, optional
+
+   :returns: Hourly electrical energy demand profile
+   :rtype: pd.Series
+
+
+.. py:function:: generate_heat_demand_profile(demand_amount: float, demand_group: Literal[EFH, MFH, GMK, GHA, GKO, GBD, GGA, GBH, GWA, GGB, GBA, GPD, GMF, GHD], year: int, temperature_series: pandas.Series, building_class: int = 0, wind_class: int = 0) -> pandas.Series
+
+   Generates an hourly heat demand profile based on a yearly heat demand sum.
+
+   :param demand_amount: Sum of the yearly heat demand
+   :type demand_amount: float
+   :param demand_group: Demand group to generate the profile for. See [demandlib documention](https://demandlib.readthedocs.io/en/latest/bdew.html#description) for an explanation of all possible values.
+   :type demand_group: Literal["EFH", "MFH", "GMK", "GHA", "GKO", "GBD", "GGA", "GBH", "GWA", "GGB", "GBA", "GPD", "GMF", "GHD"]
+   :param year: Year to generate the profile for
+   :type year: int
+   :param temperature_series: Base air temperature series [°C] for the location
+   :type temperature_series: pd.Series
+   :param building_class: The parameter building_class (German: Baualtersklasse) can assume values in the range 1-11, by default 0
+   :type building_class: int, optional
+   :param wind_class: Influence of wind, by default 0
+   :type wind_class: int, optional
+
+   :returns: hourly heat demand profile
+   :rtype: pd.Series
+
+

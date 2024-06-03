@@ -1,0 +1,435 @@
+:py:mod:`recommendation_service.models.enums`
+=============================================
+
+.. py:module:: recommendation_service.models.enums
+
+.. autoapi-nested-parse::
+
+   Contains several enum definitions to be used
+   by the optimization model of the recommendation service
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.models.enums.EnergyType
+   recommendation_service.models.enums.Resolution
+   recommendation_service.models.enums.EnergyUnit
+   recommendation_service.models.enums.PurchaseComponent
+   recommendation_service.models.enums.FeedinComponent
+   recommendation_service.models.enums.PowerUnitComponent
+   recommendation_service.models.enums.StorageComponent
+   recommendation_service.models.enums.AreaUnitComponent
+   recommendation_service.models.enums.EnergyPriceUnit
+   recommendation_service.models.enums.EnergyPurchaseTitle
+   recommendation_service.models.enums.OptimizationStatus
+   recommendation_service.models.enums.SupportedSolver
+   recommendation_service.models.enums.WeatherDataLib
+
+
+
+
+.. py:class:: EnergyType(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Energy types usable by the optimization model
+
+
+
+   .. py:attribute:: ELECTRICAL
+      :value: 'ELECTRICAL'
+
+      
+
+   .. py:attribute:: THERMAL
+      :value: 'THERMAL'
+
+      
+
+   .. py:attribute:: NATURAL_GAS
+      :value: 'NATURAL_GAS'
+
+      
+
+   .. py:method:: get_demand_component_title() -> str
+
+      Returns the title of the energy type demand used in the input request.
+
+
+
+
+   .. py:method:: get_external_purchase_type()
+
+      Returns the purchase type of the energy type from the `PurchaseComponent` enum used in the input request.
+
+
+
+
+   .. py:method:: get_external_feedin_type()
+
+      Returns the feedin type of the energy type from the `FeedinComponent` enum used in the input request.
+
+
+
+
+
+.. py:class:: Resolution(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Time series resolution as defined by pandas
+
+
+
+
+.. py:class:: EnergyUnit(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Accepted energy units
+
+
+
+   .. py:attribute:: KWH
+      :value: 'KWH'
+
+      
+
+
+.. py:class:: PurchaseComponent(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Purchase components used in the input request.
+
+
+
+   .. py:attribute:: ELECTRICAL_ENERGY_PURCHASE
+      :value: 'ELECTRICAL_ENERGY_PURCHASE'
+
+      
+
+   .. py:attribute:: THERMAL_ENERGY_PURCHASE
+      :value: 'THERMAL_ENERGY_PURCHASE'
+
+      
+
+   .. py:attribute:: NATURAL_GAS_PURCHASE
+      :value: 'NATURAL_GAS_PURCHASE'
+
+      
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the purchase component.
+
+
+
+
+
+.. py:class:: FeedinComponent(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Feedin components used in the input request.
+
+
+
+   .. py:attribute:: ELECTRICAL_ENERGY_FEEDIN
+      :value: 'ELECTRICAL_ENERGY_FEEDIN'
+
+      
+
+   .. py:attribute:: THERMAL_ENERGY_FEEDIN
+      :value: 'THERMAL_ENERGY_FEEDIN'
+
+      
+
+   .. py:attribute:: NATURAL_GAS_FEEDIN
+      :value: 'NATURAL_GAS_FEEDIN'
+
+      
+
+   .. py:method:: get_energy_type()
+
+      Returns the corresponding `EnergyType` of the feedin component.
+
+
+
+
+
+.. py:class:: PowerUnitComponent(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Energy components used in the input request which are defined by a 'power' field.
+
+
+
+   .. py:attribute:: PHOTOVOLTAIK_ROOF
+      :value: 'PHOTOVOLTAIK_ROOF'
+
+      
+
+   .. py:attribute:: PHOTOVOLTAIK_FREE_FIELD
+      :value: 'PHOTOVOLTAIK_FREE_FIELD'
+
+      
+
+   .. py:attribute:: WIND_POWER
+      :value: 'WIND_POWER'
+
+      
+
+   .. py:attribute:: COMBINED_HEAT_POWER
+      :value: 'COMBINED_HEAT_POWER'
+
+      
+
+   .. py:attribute:: HEAT_PUMP_AIR
+      :value: 'HEAT_PUMP_AIR'
+
+      
+
+   .. py:attribute:: HEAT_PUMP_GROUND
+      :value: 'HEAT_PUMP_GROUND'
+
+      
+
+   .. py:attribute:: GAS_BOILER
+      :value: 'GAS_BOILER'
+
+      
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+.. py:class:: StorageComponent(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Energy components used in the input request which are defined by a 'capacity' field.
+
+
+
+   .. py:attribute:: ELECTRICAL_ENERGY_STORAGE
+      :value: 'ELECTRICAL_ENERGY_STORAGE'
+
+      
+
+   .. py:attribute:: THERMAL_ENERGY_STORAGE
+      :value: 'THERMAL_ENERGY_STORAGE'
+
+      
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the component.
+
+
+
+
+
+.. py:class:: AreaUnitComponent(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access::
+
+   >>> Color.RED
+   <Color.RED: 1>
+
+   - value lookup:
+
+   >>> Color(1)
+   <Color.RED: 1>
+
+   - name lookup:
+
+   >>> Color['RED']
+   <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+   .. py:attribute:: SOLARTHERMAL_ENERGY
+      :value: 'SOLARTHERMAL_ENERGY'
+
+      
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the component.
+
+
+
+
+
+.. py:class:: EnergyPriceUnit(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Accepted energy price units
+
+
+
+   .. py:attribute:: EUR_PER_KWH
+      :value: 'EUR_PER_KWH'
+
+      
+
+
+.. py:class:: EnergyPurchaseTitle(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Accepted energy purchase titles in the input request
+
+
+
+   .. py:attribute:: ELECTRICAL
+      :value: 'ELECTRICAL_ENERGY_PURCHASE'
+
+      
+
+   .. py:attribute:: THERMAL
+      :value: 'THERMAL_ENERGY_PURCHASE'
+
+      
+
+   .. py:attribute:: NATURAL_GAS
+      :value: 'NATURAL_GAS_PURCHASE'
+
+      
+
+
+.. py:class:: OptimizationStatus(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Optimization status titles used by the optimization result response
+
+
+
+   .. py:attribute:: NEW
+      :value: 'NEW'
+
+      
+
+   .. py:attribute:: PROCESSING
+      :value: 'PROCESSING'
+
+      
+
+   .. py:attribute:: SUCCESS
+      :value: 'SUCCESS'
+
+      
+
+   .. py:attribute:: ERROR
+      :value: 'ERROR'
+
+      
+
+
+.. py:class:: SupportedSolver(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Supported optimization solvers to be selected in the optimization model config
+
+
+
+   .. py:attribute:: CBC
+      :value: 'CBC'
+
+      
+
+   .. py:attribute:: HIGHS
+      :value: 'HIGHS'
+
+      
+
+
+.. py:class:: WeatherDataLib(*args, **kwds)
+
+
+   Bases: :py:obj:`enum.Enum`
+
+   Supported libraries for weather data acquiring
+
+
+
+   .. py:attribute:: PVLIB
+      :value: 'pvlib'
+
+      
+
+   .. py:attribute:: TEMPERATURE
+      :value: 'temperature'
+
+      
+
+   .. py:attribute:: WINDPOWERLIB
+      :value: 'windpowerlib'
+
+      
+
+

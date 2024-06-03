@@ -1,0 +1,35 @@
+:py:mod:`recommendation_service.data_models.optimization_results_component_energy_production_object`
+====================================================================================================
+
+.. py:module:: recommendation_service.data_models.optimization_results_component_energy_production_object
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject
+
+
+
+
+.. py:class:: OptimizationResultsComponentEnergyProductionObject
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: energy_type
+      :type: recommendation_service.data_models.enums.EnergyType
+
+      
+
+   .. py:attribute:: amount
+      :type: float
+
+      
+
+

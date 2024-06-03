@@ -1,0 +1,55 @@
+:py:mod:`recommendation_service.models.input_model`
+===================================================
+
+.. py:module:: recommendation_service.models.input_model
+
+.. autoapi-nested-parse::
+
+   Definition of the accepted input request body
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.models.input_model.InputModel
+
+
+
+
+.. py:class:: InputModel
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: location
+      :type: recommendation_service.models.input_model_location.InputModelLocation
+
+      
+
+   .. py:attribute:: interest_rate
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: energy_demands
+      :type: list[recommendation_service.models.input_model_demand_object.InputModelDemandObject]
+
+      
+
+   .. py:attribute:: energy_components
+      :type: Optional[list[Union[recommendation_service.models.input_model_component_object.InputModelComponentObject1, recommendation_service.models.input_model_component_object.InputModelComponentObject2, recommendation_service.models.input_model_component_object.InputModelComponentObject3]]]
+
+      
+
+   .. py:attribute:: energy_tariffs
+      :type: Optional[recommendation_service.models.input_model_energy_tariffs.InputModelEnergyTariffs]
+
+      
+
+

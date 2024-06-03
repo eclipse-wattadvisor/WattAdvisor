@@ -1,0 +1,17 @@
+:py:mod:`recommendation_service`
+================================
+
+.. py:module:: recommendation_service
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   data_models/index.rst
+   optimization_model/index.rst
+   server/index.rst
+
+

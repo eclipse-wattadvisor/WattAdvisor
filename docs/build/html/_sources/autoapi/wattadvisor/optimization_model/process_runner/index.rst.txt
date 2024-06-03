@@ -1,0 +1,53 @@
+:py:mod:`wattadvisor.optimization_model.process_runner`
+=======================================================
+
+.. py:module:: wattadvisor.optimization_model.process_runner
+
+.. autoapi-nested-parse::
+
+   Collection of functions to start the optization process
+   - invoked by a HTTP Request which writes the request and result to the request database
+   - invoked by a single call with a static json input file without any database connection
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.process_runner.run_direct
+   wattadvisor.optimization_model.process_runner.run_via_db
+
+
+
+.. py:function:: run_direct(inputdata: wattadvisor.data_models.input_model.InputModel, export: bool = False) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
+
+   Starts the optimization by using static input data from memory without any database connection.
+
+   :param inputdata: input data to build the optimization model
+   :type inputdata: InputModel
+   :param export: whether to export detailed result time series to separate excel file, by default False
+   :type export: bool, optional
+
+   :returns: pydantic object representing optimization results
+   :rtype: OptimizationResultsModel
+
+
+.. py:function:: run_via_db(calculation_id: uuid.UUID, database_path: str, export: bool = False) -> None
+
+   Starts the optimization by connecting to the request database querying request information.
+   Optimization results are written to the database at the end.
+
+   :param calculation_id: ID under which the request information is queried from the request database
+   :type calculation_id: UUID
+   :param database_path: URL under which the database is accessible
+   :type database_path: str
+   :param export: whether to export detailed result time series to separate excel file, by default False
+   :type export: bool, optional
+
+

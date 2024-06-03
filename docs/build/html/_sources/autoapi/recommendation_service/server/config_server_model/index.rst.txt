@@ -1,0 +1,62 @@
+:py:mod:`recommendation_service.server.config_server_model`
+===========================================================
+
+.. py:module:: recommendation_service.server.config_server_model
+
+.. autoapi-nested-parse::
+
+   This module contains the pydantic model schema of the server config.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.server.config_server_model.CredentialsModel
+   recommendation_service.server.config_server_model.ConfigServerModel
+
+
+
+
+.. py:class:: CredentialsModel
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: username
+      :type: str
+
+      
+
+   .. py:attribute:: password
+      :type: str
+
+      
+
+
+.. py:class:: ConfigServerModel
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: database_path
+      :type: str
+
+      
+
+   .. py:attribute:: credentials
+      :type: list[CredentialsModel]
+
+      
+
+   .. py:attribute:: logging
+      :type: recommendation_service.data_models.config_model.ConfigModelLogging
+
+      
+
+

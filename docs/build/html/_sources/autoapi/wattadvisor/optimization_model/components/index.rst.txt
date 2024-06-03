@@ -1,0 +1,26 @@
+:py:mod:`wattadvisor.optimization_model.components`
+===================================================
+
+.. py:module:: wattadvisor.optimization_model.components
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   base/index.rst
+   combined_heat_power/index.rst
+   electrical_energy_storage/index.rst
+   energy_demand/index.rst
+   energy_feedin/index.rst
+   energy_purchase/index.rst
+   gas_boiler/index.rst
+   heat_pump/index.rst
+   photovoltaik/index.rst
+   solarthemal_energy/index.rst
+   thermal_energy_storage/index.rst
+   wind_power/index.rst
+
+

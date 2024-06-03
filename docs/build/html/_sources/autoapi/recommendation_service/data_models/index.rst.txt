@@ -1,0 +1,31 @@
+:py:mod:`recommendation_service.data_models`
+============================================
+
+.. py:module:: recommendation_service.data_models
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bilance_variables/index.rst
+   config_model/index.rst
+   enums/index.rst
+   input_model/index.rst
+   input_model_component_object/index.rst
+   input_model_demand_object/index.rst
+   input_model_energy_tariffs/index.rst
+   input_model_location/index.rst
+   input_model_single_tariff_energy_object/index.rst
+   input_model_single_tariff_object/index.rst
+   optimization_results_component_energy_production_object/index.rst
+   optimization_results_component_object/index.rst
+   optimization_results_model/index.rst
+   optimization_results_scenario_kpis/index.rst
+   optimization_results_scenario_object/index.rst
+   optimization_results_scenarios/index.rst
+   optimization_results_status/index.rst
+
+

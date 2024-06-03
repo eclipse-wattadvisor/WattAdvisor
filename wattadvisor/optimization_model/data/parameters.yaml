@@ -1,0 +1,91 @@
+ELECTRICAL_ENERGY_STORAGE:
+  scalars:
+    eff: 0.9 # electrical efficiency [0...1]
+    relative_losses: 0.00014 # amount of stored energy which is lost every time step [%/2h]
+    capex_capacity: 500 # installation cost capacity-related [Euro per kWh]
+    capex_power: 500 # installation cost power-related [Euro per kW]
+    opex: 0.1 # running cost [% of CAPEX/year]
+    lifespan: 15 # assumed component lifespan [years]
+
+GAS_BOILER:
+  scalars:
+    eff: 0.75 # heat efficiency [0...1]
+    capex: 300 # installation cost [Euro per kW]
+    opex: 2 # running cost [% of CAPEX/year]
+    lifespan: 20 # assumed component lifespan [years]
+
+ELECTRICAL_ENERGY_PURCHASE:
+  scalars:
+    co2_intensity: 394.3 # CO2 intensity [grams per kWh]
+
+ELECTRICAL_ENERGY_FEEDIN:
+  scalars:
+    co2_intensity: 0 # CO2 intensity [grams per kWh]
+
+THERMAL_ENERGY_PURCHASE:
+  scalars:
+    co2_intensity: 394.3 # CO2 intensity [grams per kWh]
+
+NATURAL_GAS_PURCHASE:
+  scalars:
+    co2_intensity: 394.3 # CO2 intensity [grams per kWh]
+
+PHOTOVOLTAIK_FREE_FIELD:
+  scalars:
+    capex: 530 # installation cost [Euro per kW]
+    opex: 2.5 # running cost [% of CAPEX/year]
+    lifespan: 30 # assumed component lifespan [years]
+    performanceratio: 1 # performance ratio of the component [0...1]
+
+PHOTOVOLTAIK_ROOF:
+  scalars:
+    capex: 750 # installation cost [Euro per kW]
+    opex: 2.87 # running cost [% of CAPEX/year]
+    lifespan: 30 # assumed component lifespan [years]
+    performanceratio: 1 # performance ratio of the component [0...1]
+
+SOLARTHERMAL_ENERGY:
+  scalars:
+    eff: 0.6 # heat efficiency [0...1]
+    capex: 500 # installation cost [Euro per m²]
+    opex: 1 # running cost [% of CAPEX/year]
+    lifespan: 20 # assumed component lifespan [years]
+
+COMBINED_HEAT_POWER:
+  scalars:
+    effelt: 0.3 # electrical effiency [0...1]
+    effheat: 0.55 # heat effiency [0...1]
+    capex: 2000 # installation cost [Euro per kW_el]
+    opex: 5 # running cost [% of CAPEX/year]
+    lifespan: 15 # assumed component lifespan [years]
+
+HEAT_PUMP_AIR:
+  scalars:
+    quality_grade: 0.4 # scale-down factor to calculate efficiency [0...1]
+    temp_high: 50 # target heating temperature [°C]
+    capex: 1300 # installation cost [Euro per kW]
+    opex: 2 # running cost [% of CAPEX/year]
+    lifespan: 20 # assumed component lifespan [years]
+
+HEAT_PUMP_GROUND:
+  scalars:
+    quality_grade: 0.55 # scale-down factor to calculate efficiency [0...1]
+    temp_high: 50 # target heating temperature [°C]
+    capex: 2000 # installation cost [Euro per kW]
+    opex: 2 # running cost [% of CAPEX/year]
+    lifespan: 20 # assumed component lifespan [years]
+
+THERMAL_ENERGY_STORAGE:
+  scalars:
+    eff: 0.75 # heat effiency [0...1]
+    capex_capacity: 5 # installation cost capacity-related [Euro per kWh]
+    capex_power: 100 # installation cost power-related [Euro per kW]
+    opex: 2 # running cost [% of CAPEX/year]
+    lifespan: 20 # assumed component lifespan [years]
+    relative_losses: 0.00138 # amount of stored energy which is lost every time step [%/2h]
+
+WIND_POWER:
+  scalars:
+    capex: 1500 # installation cost [Euro per kW]
+    opex: 2 # running cost [% of CAPEX/year]
+    lifespan: 25 # assumed component lifespan [years]

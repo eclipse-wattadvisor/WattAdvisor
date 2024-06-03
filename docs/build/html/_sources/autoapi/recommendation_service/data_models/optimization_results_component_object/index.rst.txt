@@ -1,0 +1,156 @@
+:py:mod:`recommendation_service.data_models.optimization_results_component_object`
+==================================================================================
+
+.. py:module:: recommendation_service.data_models.optimization_results_component_object
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPower
+   recommendation_service.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPurchaseFeedin
+   recommendation_service.data_models.optimization_results_component_object.OptimizationResultsComponentObjectArea
+   recommendation_service.data_models.optimization_results_component_object.OptimizationResultsComponentObjectStorage
+
+
+
+
+.. py:class:: OptimizationResultsComponentObjectPower
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: component_type
+      :type: recommendation_service.data_models.enums.PowerUnitComponent
+
+      
+
+   .. py:attribute:: installed_power
+      :type: float
+
+      
+
+   .. py:attribute:: investment_cost
+      :type: float
+
+      
+
+   .. py:attribute:: operational_cost
+      :type: float
+
+      
+
+   .. py:attribute:: annuity
+      :type: float
+
+      
+
+   .. py:attribute:: produced_energy
+      :type: Optional[List[recommendation_service.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+      
+
+
+.. py:class:: OptimizationResultsComponentObjectPurchaseFeedin
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: component_type
+      :type: Union[recommendation_service.data_models.enums.PurchaseComponent, recommendation_service.data_models.enums.FeedinComponent]
+
+      
+
+   .. py:attribute:: purchase_cost
+      :type: float
+
+      
+
+   .. py:attribute:: annuity
+      :type: float
+
+      
+
+   .. py:attribute:: produced_energy
+      :type: Optional[List[recommendation_service.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+      
+
+
+.. py:class:: OptimizationResultsComponentObjectArea
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: component_type
+      :type: recommendation_service.data_models.enums.AreaUnitComponent
+
+      
+
+   .. py:attribute:: installed_power
+      :type: float
+
+      
+
+   .. py:attribute:: investment_cost
+      :type: float
+
+      
+
+   .. py:attribute:: operational_cost
+      :type: float
+
+      
+
+   .. py:attribute:: annuity
+      :type: float
+
+      
+
+   .. py:attribute:: produced_energy
+      :type: Optional[List[recommendation_service.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+      
+
+
+.. py:class:: OptimizationResultsComponentObjectStorage
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: component_type
+      :type: recommendation_service.data_models.enums.StorageComponent
+
+      
+
+   .. py:attribute:: installed_power
+      :type: float
+
+      
+
+   .. py:attribute:: installed_capacity
+      :type: float
+
+      
+
+   .. py:attribute:: investment_cost
+      :type: float
+
+      
+
+   .. py:attribute:: operational_cost
+      :type: float
+
+      
+
+   .. py:attribute:: annuity
+      :type: float
+
+      
+
+

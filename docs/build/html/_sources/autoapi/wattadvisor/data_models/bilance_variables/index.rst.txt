@@ -1,0 +1,39 @@
+:py:mod:`wattadvisor.data_models.bilance_variables`
+===================================================
+
+.. py:module:: wattadvisor.data_models.bilance_variables
+
+.. autoapi-nested-parse::
+
+   Contains a dataclass which defines a structure of input and output variables/parameters
+   and their EnergyType of an optimization component of WattAdvisor
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.data_models.bilance_variables.BilanceVariables
+
+
+
+
+.. py:class:: BilanceVariables
+
+
+   .. py:attribute:: input
+      :type: dict[wattadvisor.data_models.enums.EnergyType, pyomo.core.base.indexed_component.IndexedComponent]
+
+      
+
+   .. py:attribute:: output
+      :type: dict[wattadvisor.data_models.enums.EnergyType, pyomo.core.base.indexed_component.IndexedComponent]
+
+      
+
+

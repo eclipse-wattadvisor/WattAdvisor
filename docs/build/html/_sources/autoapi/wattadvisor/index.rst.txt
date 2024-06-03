@@ -1,0 +1,17 @@
+:py:mod:`wattadvisor`
+=====================
+
+.. py:module:: wattadvisor
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   data_models/index.rst
+   optimization_model/index.rst
+   server/index.rst
+
+

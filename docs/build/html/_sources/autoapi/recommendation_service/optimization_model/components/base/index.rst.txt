@@ -1,0 +1,77 @@
+:py:mod:`recommendation_service.optimization_model.components.base`
+===================================================================
+
+.. py:module:: recommendation_service.optimization_model.components.base
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.optimization_model.components.base.Component
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.optimization_model.components.base.logger
+
+
+.. py:data:: logger
+
+   
+
+.. py:class:: Component(name: str, interest_rate: None | float = None, parameters: None | dict = None)
+
+
+   
+   Parent base class for all optimization energy components.
+   Contains empty methods which are overidden by child classes.
+
+   :param name: Name of the component
+   :type name: str
+   :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component, by default None
+   :type interest_rate: None | float, optional
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: None | dict, optional
+
+   :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
+
+   .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
+
+      Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by `model`.
+
+      :param model: Pyomo model to which the parameters, variables and constraints will be added.
+      :type model: Model
+      :param t: Time set over which time-variant parameters, variables and constraints will be added.
+      :type t: RangeSet
+
+      :returns: Pyomo model with the added parameters, variables and constraints
+      :rtype: Model
+
+
+

@@ -1,0 +1,144 @@
+:py:mod:`recommendation_service.models.input_model_component_object`
+====================================================================
+
+.. py:module:: recommendation_service.models.input_model_component_object
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.models.input_model_component_object.InputModelComponentObject1
+   recommendation_service.models.input_model_component_object.InputModelComponentObject2
+   recommendation_service.models.input_model_component_object.InputModelComponentObject3
+
+
+
+
+.. py:class:: InputModelComponentObject1
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: component_type
+      :type: recommendation_service.models.enums.PowerUnitComponent
+
+      
+
+   .. py:attribute:: installed_power
+      :type: float
+
+      
+
+   .. py:attribute:: potential_power
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: capex
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: opex
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: lifespan
+      :type: Optional[float]
+
+      
+
+
+.. py:class:: InputModelComponentObject2
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: component_type
+      :type: recommendation_service.models.enums.AreaUnitComponent
+
+      
+
+   .. py:attribute:: installed_area
+      :type: float
+
+      
+
+   .. py:attribute:: potential_area
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: capex
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: opex
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: lifespan
+      :type: Optional[float]
+
+      
+
+
+.. py:class:: InputModelComponentObject3
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: component_type
+      :type: recommendation_service.models.enums.StorageComponent
+
+      
+
+   .. py:attribute:: installed_power
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: potential_power
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: installed_capacity
+      :type: float
+
+      
+
+   .. py:attribute:: potential_capacity
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: capex_capacity
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: capex_power
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: opex
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: lifespan
+      :type: Optional[float]
+
+      
+
+

@@ -1,0 +1,35 @@
+:py:mod:`recommendation_service.data_models.input_model_single_tariff_object`
+=============================================================================
+
+.. py:module:: recommendation_service.data_models.input_model_single_tariff_object
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.data_models.input_model_single_tariff_object.InputModelSingleTariffObject
+
+
+
+
+.. py:class:: InputModelSingleTariffObject
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: energy
+      :type: recommendation_service.data_models.input_model_single_tariff_energy_object.InputModelSingleTariffEnergyObject
+
+      
+
+   .. py:attribute:: power
+      :type: Optional[float]
+
+      
+
+

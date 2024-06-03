@@ -1,0 +1,35 @@
+:py:mod:`recommendation_service.data_models.input_model_location`
+=================================================================
+
+.. py:module:: recommendation_service.data_models.input_model_location
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.data_models.input_model_location.InputModelLocation
+
+
+
+
+.. py:class:: InputModelLocation
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: longitude
+      :type: float
+
+      
+
+   .. py:attribute:: latitude
+      :type: float
+
+      
+
+

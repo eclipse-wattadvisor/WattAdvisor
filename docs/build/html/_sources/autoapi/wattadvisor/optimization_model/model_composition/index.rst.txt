@@ -1,0 +1,54 @@
+:py:mod:`wattadvisor.optimization_model.model_composition`
+==========================================================
+
+.. py:module:: wattadvisor.optimization_model.model_composition
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.model_composition.compose
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.model_composition.logger
+
+
+.. py:data:: logger
+
+   
+
+.. py:function:: compose(input: wattadvisor.data_models.input_model.InputModel, parameters: dict, config: wattadvisor.data_models.config_model.ConfigModel, pyomo_model: pyomo.core.base.PyomoModel.Model, t: pyomo.core.base.set.RangeSet, model_path: pathlib.Path) -> tuple[pyomo.core.base.PyomoModel.Model, list[wattadvisor.optimization_model.components.base.Component]]
+
+   Adds all relevant components to the pyomo optimization model `pyomo_model` based on the parameterization in the input request `input` and creates the objective.
+
+   :param input: Input request containing the parameterization of the optimization model components
+   :type input: InputModel
+   :param parameters: Techno-economic data for the energy components
+   :type parameters: dict
+   :param config: Configuration of the optimization model
+   :type config: ConfigModel
+   :param pyomo_model: Pyomo model to add the components and objective to
+   :type pyomo_model: Model
+   :param t: Time set to use for variable, parameter and constraint creation
+   :type t: RangeSet
+   :param model_path: Path of the model base directory
+   :type model_path: Path
+
+   :returns: The optimization model with all components added and a separate list of all component objects added to the model.
+   :rtype: tuple[Model, list[Component]]
+
+   :raises ValueError: If for one energy type a demand but no production component is parameterized, the bilance for this energy type cannot be built
+
+

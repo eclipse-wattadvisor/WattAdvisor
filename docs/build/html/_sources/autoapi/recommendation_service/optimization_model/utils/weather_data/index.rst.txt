@@ -1,0 +1,36 @@
+:py:mod:`recommendation_service.optimization_model.utils.weather_data`
+======================================================================
+
+.. py:module:: recommendation_service.optimization_model.utils.weather_data
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.optimization_model.utils.weather_data.get_weather_data_from_file
+
+
+
+.. py:function:: get_weather_data_from_file(file_path: pathlib.Path, longitude: float, latitude: float, lib: recommendation_service.data_models.enums.WeatherDataLib) -> pandas.DataFrame
+
+   Reads weather data from a raw weather data NETCDF file obtained from ERA5 Climate Data Store.
+
+   :param file_path: Path to the NETCDF file containing raw weather data from ERA5 Climate Data Store
+   :type file_path: Path
+   :param longitude: longitude of the location to obtain weather data for
+   :type longitude: float
+   :param latitude: latitude of the location to obtain weather data for
+   :type latitude: float
+   :param lib: Library to obtain weather data for
+   :type lib: WeatherDataLib
+
+   :returns: Weather data
+   :rtype: pd.DataFrame
+
+

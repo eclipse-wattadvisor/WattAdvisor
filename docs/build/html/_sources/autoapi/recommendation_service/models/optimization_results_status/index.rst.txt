@@ -1,0 +1,35 @@
+:py:mod:`recommendation_service.models.optimization_results_status`
+===================================================================
+
+.. py:module:: recommendation_service.models.optimization_results_status
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   recommendation_service.models.optimization_results_status.OptimizationResultsStatus
+
+
+
+
+.. py:class:: OptimizationResultsStatus
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: status
+      :type: recommendation_service.models.enums.OptimizationStatus
+
+      
+
+   .. py:attribute:: error_message
+      :type: Optional[str]
+
+      
+
+

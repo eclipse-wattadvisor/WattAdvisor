@@ -1,0 +1,33 @@
+default_interest_rate: 0.05
+solver: CBC
+solver_timeout: 3600
+data_dependencies:
+  weather: "./data/weather.nc"
+  parameters: "./data/parameters.yaml"
+logging: 
+  version: 1
+  formatters:
+    simple:
+      format: '%(asctime)s - PID%(process)-6d - %(levelname)-7s - %(message)s'
+      datefmt: '%Y-%m-%d %H:%M:%S'
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: simple
+      stream: ext://sys.stdout
+    file:
+      class: logging.FileHandler
+      level: DEBUG
+      formatter: simple
+      filename: model.log
+      encoding: utf8
+      mode: a
+  loggers:
+    opt_model:
+      level: DEBUG
+      handlers: [console, file]
+      propagate: no
+  root:
+    level: DEBUG
+    handlers: [console, file]

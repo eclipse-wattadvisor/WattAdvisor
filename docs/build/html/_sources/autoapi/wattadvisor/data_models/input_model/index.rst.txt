@@ -1,0 +1,55 @@
+:py:mod:`wattadvisor.data_models.input_model`
+=============================================
+
+.. py:module:: wattadvisor.data_models.input_model
+
+.. autoapi-nested-parse::
+
+   Definition of the accepted input request body
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wattadvisor.data_models.input_model.InputModel
+
+
+
+
+.. py:class:: InputModel
+
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: location
+      :type: wattadvisor.data_models.input_model_location.InputModelLocation
+
+      
+
+   .. py:attribute:: interest_rate
+      :type: Optional[float]
+
+      
+
+   .. py:attribute:: energy_demands
+      :type: list[wattadvisor.data_models.input_model_demand_object.InputModelDemandObject]
+
+      
+
+   .. py:attribute:: energy_components
+      :type: Optional[list[Union[wattadvisor.data_models.input_model_component_object.InputModelComponentPower, wattadvisor.data_models.input_model_component_object.InputModelComponentArea, wattadvisor.data_models.input_model_component_object.InputModelComponentStorage]]]
+
+      
+
+   .. py:attribute:: energy_tariffs
+      :type: Optional[wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs]
+
+      
+
+
