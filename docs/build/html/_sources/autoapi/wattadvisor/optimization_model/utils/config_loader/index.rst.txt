@@ -1,20 +1,57 @@
-:py:mod:`wattadvisor.optimization_model.utils.config_loader`
-============================================================
+wattadvisor.optimization_model.utils.config_loader
+==================================================
 
 .. py:module:: wattadvisor.optimization_model.utils.config_loader
 
+.. autoapi-nested-parse::
 
-Module Contents
----------------
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.config_loader.ConfigModel
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    wattadvisor.optimization_model.utils.config_loader.load_config
 
+
+Module Contents
+---------------
+
+.. py:class:: ConfigModel
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: solver
+      :type:  wattadvisor.data_models.enums.SupportedSolver
+
+
+   .. py:attribute:: solver_timeout
+      :type:  int
+
+
+   .. py:attribute:: default_interest_rate
+      :type:  float
+
+
+   .. py:attribute:: data_dependencies
+      :type:  ConfigModelDataDependencies
+
+
+   .. py:attribute:: logging
+      :type:  ConfigModelLogging | None
 
 
 .. py:function:: load_config(base_path: pathlib.Path, filename: str = 'model_config.yaml') -> wattadvisor.data_models.config_model.ConfigModel

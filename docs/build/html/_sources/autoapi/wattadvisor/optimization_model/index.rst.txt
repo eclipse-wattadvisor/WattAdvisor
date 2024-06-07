@@ -1,27 +1,27 @@
-:py:mod:`wattadvisor.optimization_model`
-========================================
+wattadvisor.optimization_model
+==============================
 
 .. py:module:: wattadvisor.optimization_model
 
 
 Subpackages
 -----------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 3
 
-   components/index.rst
-   utils/index.rst
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/wattadvisor/optimization_model/components/index
+   /autoapi/wattadvisor/optimization_model/utils/index
 
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   model_composition/index.rst
-   opt_model/index.rst
-   process_runner/index.rst
+   /autoapi/wattadvisor/optimization_model/model_composition/index
+   /autoapi/wattadvisor/optimization_model/opt_model/index
+   /autoapi/wattadvisor/optimization_model/process_runner/index
 
 

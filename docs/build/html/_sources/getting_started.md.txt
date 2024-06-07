@@ -1,45 +1,21 @@
 # Using WattAdvisor
 
-## Installation of required environment
+## 1. Installation
 
-Two ways to create the required environment are proposed.
-Make sure you run the listed commands from the project directory *WattAdvisor/* which should at least contain these sub-directories and files:
+Make sure you run the listed commands from a project directory, e.g. *WattAdvisor/* which should at least contain these sub-directories and files:
 
 ```text
 ├── WattAdvisor/
-│   ├── docs/...
 │   ├── wattadvisor/...
-│   ├── test/...
-│   ├── setup_service.bat
-│   ├── Dockerfile
-│   ├── main.py
 │   ├── environment.yaml
 ```
 
-<!-- ### Installation via docker
-
-You can use docker to create a container to run the service inside of it. Docker must be installed to follow this instruction.
-
-#### Create docker image
-
-In the project directory, there is a **Dockerfile** provided. Run the following command inside the project directory to create the docker image:
-
-`docker build -t wattadvisor .`
-
-#### Run the image
-
-Run a container with the previously created image with the following command from the project directory:
-
-`docker run -p 8001:8001 -it -v "%cd%"/config.yaml:/tmp/config.yaml wattadvisor`
-
-After that, the service will be available on the host system port 8001.  -->
-
-### Installation via conda
+### 1.1 Set up the python environment via conda
 
 To create the required python environment containing all essential packages, you can use *conda*.
 In this way, common OS such as *Windows*, *Linux* and *Mac OS* are supported.
 
-#### Install Anaconda or Miniconda 
+#### 1.1.1 Install Anaconda or Miniconda 
 
 To use *conda* you have to install **Anaconda** or **Miniconda**. Take a look at their documentations to find installation instructions for your OS:
 
@@ -48,13 +24,118 @@ To use *conda* you have to install **Anaconda** or **Miniconda**. Take a look at
 
 Remember to [configure conda to use your company proxy connection](https://docs.anaconda.com/free/anaconda/configurations/proxy/) if existing.
 
-#### Create the conda environment
+#### 1.1.2 Create the conda environment
 
-Open the project directory and run the following script:
+Use the provided `environment.yaml` file to create a new conda environment including all necessary third-party python libraries:
 
-- Windows: ``setup_service.bat``
+```shell
+conda env create -f environment.yaml
+``` 
 
-## Defining an input request
+### 1.2 Install or add a solver to the project
+
+An optimization problem solver is required to use WattAdvisor. The conda environment of WattAdvisor already contains the solver *HiGHS*.
+Furthermore, *CBC* solver is currently supported directly, but needs to be installed separately.
+
+### 1.2.1 Installation of CBC solver under Linux or Mac OS
+
+If you are using Linux or Mac OS, you can use conda to install *CBC* solver to the WattAdvisor environment:
+
+```shell
+conda activate wattadvisor
+conda install conda-forge::coincbc
+``` 
+
+### 1.2.2 Installation of CBC solver under Windows
+
+Under Windows, you have to download a pre-compiled executable of *CBC* solver and place it into the WattAdvisor project directory.
+
+Download the latest Windows release as a ZIP archive (choose the file ending with "x86_64-w64-mingw64.zip") from the [CBC Github Repository](https://github.com/coin-or/Cbc/releases/latest).
+
+Extract the "cbc.exe" file and place it into the following directory: */WattAdvisor/wattadvisor/optimization_model/*
+
+### 1.3 Add weather data
+
+WattAdvisor depends on weather data to estimate the power generation profile from renewable energy plants or to generate synthetical heat demand profiles from annual sums of heat demands. You have to manually download weather data from Copernicus Climate Change Service and place it into the data directory.
+
+### 1.3.1 Download weather data from Copernicus Climate Change Service
+
+To download weather data from Copernicus Climate Change Service, you have to [create an account.](https://cds.climate.copernicus.eu/user/register)
+After creation, visit your [account page](https://cds.climate.copernicus.eu/user) to collect your API key and UID which is needed to download weather data. You find the key and UID at the bottom of the page: 
+![image](./CDS_API_key.png)
+
+After that, copy the following code snippet to a new Python script:
+
+```python
+
+import cdsapi
+
+# paste your uid here:
+uid = 
+# paste your API key here:
+key = 
+
+c = cdsapi.Client(key=f"{uid}:{key}", url="https://cds.climate.copernicus.eu/api/v2")
+
+c.retrieve(
+    'reanalysis-era5-single-levels',
+    {
+        'product_type': 'reanalysis',
+        'variable': [
+            '100m_u_component_of_wind', '100m_v_component_of_wind', '10m_u_component_of_wind',
+            '10m_v_component_of_wind', '2m_temperature', 'forecast_surface_roughness',
+            'soil_temperature_level_4', 'surface_pressure', 'surface_solar_radiation_downwards',
+            'total_sky_direct_solar_radiation_at_surface',
+        ],
+        'year': '2022',
+        'month': [
+            '01', '02', '03',
+            '04', '05', '06',
+            '07', '08', '09',
+            '10', '11', '12',
+        ],
+        'day': [
+            '01', '02', '03',
+            '04', '05', '06',
+            '07', '08', '09',
+            '10', '11', '12',
+            '13', '14', '15',
+            '16', '17', '18',
+            '19', '20', '21',
+            '22', '23', '24',
+            '25', '26', '27',
+            '28', '29', '30',
+            '31',
+        ],
+        'time': [
+            '00:00', '01:00', '02:00',
+            '03:00', '04:00', '05:00',
+            '06:00', '07:00', '08:00',
+            '09:00', '10:00', '11:00',
+            '12:00', '13:00', '14:00',
+            '15:00', '16:00', '17:00',
+            '18:00', '19:00', '20:00',
+            '21:00', '22:00', '23:00',
+        ],
+        'format': 'netcdf',
+    },
+    'weather.nc')
+```
+
+Paste your Climate Data Store UID and API key at the corresponding position and run the script from the wattadvisor conda environment. If everything is configured correctly, you will get a similar output like:
+```bash
+2024-06-07 13:44:26,667 INFO Welcome to the CDS
+2024-06-07 13:44:26,667 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/reanalysis-era5-single-levels
+2024-06-07 13:44:26,776 INFO Request is queued
+2024-06-07 13:44:27,865 INFO Request is running
+2024-06-07 13:46:20,994 INFO Request is completed
+2024-06-07 13:46:20,994 INFO Downloading https://download-0015-clone.copernicus-climate.eu/cache-compute-0015/cache/data5/adaptor.mars.internal-1717760725.....nc to weather.nc (1.4G)  
+```
+
+After the download has completed, move the downloaded *weather.nc*-file to the following directory: */WattAdvisor/wattadvisor/optimization_model/data*
+Installation of WattAdvisor is now completed.
+
+## 2. Defining an input request
 
 To create a new input request, use the prepared data model. Be careful to run these commands inside the newly created conda environment
 
@@ -116,7 +197,7 @@ This defines the following scenario:
 - potential for an additional 10 kWp of photovoltaic modules
 - electrical energy can be purchased from the grid with a static price of 35 cents per kWh
 
-## Running the optimization
+## 3. Running the optimization
 
 By running the optimization, recommendations to the following questions can be expected:
 - Should more photovoltaic modules be added to the roof system to exceed the cost minimum?
@@ -137,7 +218,7 @@ results = process_runner.run_direct(new_input, export=True)
 The variable `results` contains the optimization results.
 After a short wait, there should also be a new Excel file at the project directory containing the results.
 
-## Understanding the results
+## 4. Understanding the results
 
 Let's inspect the variable `results`. It is a data model which can be accessed to retrieve the optimal values of our scenario:
 

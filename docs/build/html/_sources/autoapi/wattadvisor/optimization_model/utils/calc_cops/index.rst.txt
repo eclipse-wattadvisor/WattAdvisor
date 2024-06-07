@@ -1,23 +1,27 @@
-:py:mod:`wattadvisor.optimization_model.utils.calc_cops`
-========================================================
+wattadvisor.optimization_model.utils.calc_cops
+==============================================
 
 .. py:module:: wattadvisor.optimization_model.utils.calc_cops
 
+.. autoapi-nested-parse::
 
-Module Contents
----------------
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
    wattadvisor.optimization_model.utils.calc_cops.calc_cops
 
 
+Module Contents
+---------------
 
-.. py:function:: calc_cops(mode: Literal[heat_pump, chiller], temp_high: list | pandas.Series, temp_low: list | pandas.Series, quality_grade: float, temp_threshold_icing: float = 2, factor_icing: float | None = None) -> list
+.. py:function:: calc_cops(mode: Literal['heat_pump', 'chiller'], temp_high: list | pandas.Series, temp_low: list | pandas.Series, quality_grade: float, temp_threshold_icing: float = 2, factor_icing: float | None = None) -> list
 
    Calculates the Coefficient of Performance (COP) of heat pumps and chillers
    based on the Carnot efficiency (ideal process) and a scale-down factor.

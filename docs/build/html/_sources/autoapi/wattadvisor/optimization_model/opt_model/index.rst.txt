@@ -1,24 +1,161 @@
-:py:mod:`wattadvisor.optimization_model.opt_model`
-==================================================
+wattadvisor.optimization_model.opt_model
+========================================
 
 .. py:module:: wattadvisor.optimization_model.opt_model
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.opt_model.ConfigModel
+   wattadvisor.optimization_model.opt_model.InputModel
+   wattadvisor.optimization_model.opt_model.OptimizationResultsModel
+   wattadvisor.optimization_model.opt_model.OptModel
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.opt_model.compose
+   wattadvisor.optimization_model.opt_model.generate_results_object
+   wattadvisor.optimization_model.opt_model.write_detailed_results
 
 
 Module Contents
 ---------------
 
-Classes
-~~~~~~~
+.. py:class:: ConfigModel
 
-.. autoapisummary::
-
-   wattadvisor.optimization_model.opt_model.OptModel
+   Bases: :py:obj:`pydantic.BaseModel`
 
 
+   .. py:attribute:: solver
+      :type:  wattadvisor.data_models.enums.SupportedSolver
+
+
+   .. py:attribute:: solver_timeout
+      :type:  int
+
+
+   .. py:attribute:: default_interest_rate
+      :type:  float
+
+
+   .. py:attribute:: data_dependencies
+      :type:  ConfigModelDataDependencies
+
+
+   .. py:attribute:: logging
+      :type:  ConfigModelLogging | None
+
+
+.. py:class:: InputModel
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: location
+      :type:  wattadvisor.data_models.input_model_location.InputModelLocation
+
+
+   .. py:attribute:: interest_rate
+      :type:  Optional[float]
+
+
+   .. py:attribute:: energy_demands
+      :type:  list[wattadvisor.data_models.input_model_demand_object.InputModelDemandObject]
+
+
+   .. py:attribute:: energy_components
+      :type:  Optional[list[Union[wattadvisor.data_models.input_model_component_object.InputModelComponentPower, wattadvisor.data_models.input_model_component_object.InputModelComponentArea, wattadvisor.data_models.input_model_component_object.InputModelComponentStorage]]]
+
+
+   .. py:attribute:: energy_tariffs
+      :type:  Optional[wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs]
+
+
+.. py:class:: OptimizationResultsModel
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: status
+      :type:  wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus
+
+
+   .. py:attribute:: requested_input
+      :type:  wattadvisor.data_models.input_model.InputModel
+
+
+   .. py:attribute:: results
+      :type:  Optional[wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios]
+
+
+.. py:function:: compose(input: wattadvisor.data_models.input_model.InputModel, parameters: dict, config: wattadvisor.data_models.config_model.ConfigModel, pyomo_model: pyomo.core.base.PyomoModel.Model, t: pyomo.core.base.set.RangeSet, model_path: pathlib.Path) -> tuple[pyomo.core.base.PyomoModel.Model, list[wattadvisor.optimization_model.components.base.Component]]
+
+   Adds all relevant components to the pyomo optimization model `pyomo_model` based on the parameterization in the input request `input` and creates the objective.
+
+   :param input: Input request containing the parameterization of the optimization model components
+   :type input: InputModel
+   :param parameters: Techno-economic data for the energy components
+   :type parameters: dict
+   :param config: Configuration of the optimization model
+   :type config: ConfigModel
+   :param pyomo_model: Pyomo model to add the components and objective to
+   :type pyomo_model: Model
+   :param t: Time set to use for variable, parameter and constraint creation
+   :type t: RangeSet
+   :param model_path: Path of the model base directory
+   :type model_path: Path
+
+   :returns: The optimization model with all components added and a separate list of all component objects added to the model.
+   :rtype: tuple[Model, list[Component]]
+
+   :raises ValueError: If for one energy type a demand but no production component is parameterized, the bilance for this energy type cannot be built
+
+
+.. py:function:: generate_results_object(opt_model_object: wattadvisor.optimization_model.opt_model.OptModel, input: wattadvisor.data_models.input_model.InputModel, components_list: List[wattadvisor.optimization_model.components.base.Component], status: wattadvisor.data_models.enums.OptimizationStatus) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
+
+   Creates the complete `OptimizationResultsModel` which is returned as the response of the WattAdvisor.
+
+   :param opt_model_object: Object of the optimization model
+   :type opt_model_object: OptModel
+   :param input: Input request given to the WattAdvisor
+   :type input: InputModel
+   :param components_list: List of all optimization components added to the optimiziation model
+   :type components_list: List[Component]
+   :param status: Status of the completed optimization
+   :type status: OptimizationStatus
+
+   :returns: Object which contains all optimization results (cost, produced energy, power) for the WattAdvisor response
+   :rtype: OptimizationResultsModel
+
+
+.. py:function:: write_detailed_results(pyomo_model: pyomo.core.base.PyomoModel.Model, components_list: List[wattadvisor.optimization_model.components.base.Component], calculation_time: float, filename: str = None)
+
+   Creates a DataFrame with all optimization time series data and writes it to a excel file.
+
+   :param pyomo_model: Pyomo optimization model containing all parameters, variables and constraints aswell as the objective function.
+   :type pyomo_model: Model
+   :param components_list: List of all optimization components added to the optimiziation model
+   :type components_list: List[Component]
+   :param calculation_time: Time in seconds it took for the solver to solve the optimization model
+   :type calculation_time: float
+   :param filename: name of the Excel file to export, by default None
+   :type filename: str, optional
 
 
 .. py:class:: OptModel(input_data: wattadvisor.data_models.input_model.InputModel, config: wattadvisor.data_models.config_model.ConfigModel)
-
 
    
    Creates the basic template to calculate an optimization model.
@@ -29,6 +166,7 @@ Classes
    :type config: ConfigModel
 
    :raises FileNotFoundError: If parameter file not found under path set in `config.data_dependencies.parameters`
+
 
    .. py:method:: run_calculation(export: bool = False, export_filename: str = None) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
 

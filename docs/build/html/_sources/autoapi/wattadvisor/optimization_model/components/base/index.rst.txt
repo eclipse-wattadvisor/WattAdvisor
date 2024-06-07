@@ -1,36 +1,37 @@
-:py:mod:`wattadvisor.optimization_model.components.base`
-========================================================
+wattadvisor.optimization_model.components.base
+==============================================
 
 .. py:module:: wattadvisor.optimization_model.components.base
 
+.. autoapi-nested-parse::
 
-Module Contents
----------------
-
-Classes
-~~~~~~~
-
-.. autoapisummary::
-
-   wattadvisor.optimization_model.components.base.Component
-
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 
 
 Attributes
-~~~~~~~~~~
+----------
 
 .. autoapisummary::
 
    wattadvisor.optimization_model.components.base.logger
 
 
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.components.base.Component
+
+
+Module Contents
+---------------
+
 .. py:data:: logger
 
-   
-
 .. py:class:: Component(name: str, interest_rate: None | float = None, parameters: None | dict = None)
-
 
    
    Parent base class for all optimization energy components.
@@ -60,6 +61,7 @@ Attributes
    :type parameters: None | dict, optional
 
    :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
+
 
    .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
 

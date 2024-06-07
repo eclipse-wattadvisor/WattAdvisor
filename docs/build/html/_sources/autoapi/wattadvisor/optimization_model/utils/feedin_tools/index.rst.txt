@@ -1,15 +1,17 @@
-:py:mod:`wattadvisor.optimization_model.utils.feedin_tools`
-===========================================================
+wattadvisor.optimization_model.utils.feedin_tools
+=================================================
 
 .. py:module:: wattadvisor.optimization_model.utils.feedin_tools
 
+.. autoapi-nested-parse::
 
-Module Contents
----------------
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
 
 
 Functions
-~~~~~~~~~
+---------
 
 .. autoapisummary::
 
@@ -17,8 +19,10 @@ Functions
    wattadvisor.optimization_model.utils.feedin_tools.windpower_normed_feedin_from_era5
 
 
+Module Contents
+---------------
 
-.. py:function:: pv_normed_feedin_from_era5(latitude: float, longitude: float, azimuth: float, tilt: float, surface_type: Literal[urban, grass, fresh grass, soil, sand, snow, fresh snow, asphalt, concrete, aluminum, copper, fresh steel, dirty steel, sea], start_date: datetime.datetime, end_date: datetime.datetime, cds_api_key: str | None = None, path_era5_file: str | None = None, pvlib_df: pandas.DataFrame | None = None, path_export_csv: str | None = None, normalized: bool = True, elevation: float | None = None) -> pandas.Series
+.. py:function:: pv_normed_feedin_from_era5(latitude: float, longitude: float, azimuth: float, tilt: float, surface_type: Literal['urban', 'grass', 'fresh grass', 'soil', 'sand', 'snow', 'fresh snow', 'asphalt', 'concrete', 'aluminum', 'copper', 'fresh steel', 'dirty steel', 'sea'], start_date: datetime.datetime, end_date: datetime.datetime, cds_api_key: str | None = None, path_era5_file: str | None = None, pvlib_df: pandas.DataFrame | None = None, path_export_csv: str | None = None, normalized: bool = True, elevation: float | None = None) -> pandas.Series
 
    Calculates photovoltaic power plant generation profile for a certain location and time range by
    using weather data from ERA5 Climate Data Store, either downloaded by this function or downloaded before

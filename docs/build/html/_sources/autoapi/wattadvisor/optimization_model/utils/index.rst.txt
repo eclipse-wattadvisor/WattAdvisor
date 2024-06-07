@@ -1,22 +1,22 @@
-:py:mod:`wattadvisor.optimization_model.utils`
-==============================================
+wattadvisor.optimization_model.utils
+====================================
 
 .. py:module:: wattadvisor.optimization_model.utils
 
 
 Submodules
 ----------
+
 .. toctree::
-   :titlesonly:
    :maxdepth: 1
 
-   calc_cops/index.rst
-   config_loader/index.rst
-   demand_tools/index.rst
-   feedin_tools/index.rst
-   load_YAML/index.rst
-   logger_writer/index.rst
-   results_composition/index.rst
-   weather_data/index.rst
+   /autoapi/wattadvisor/optimization_model/utils/calc_cops/index
+   /autoapi/wattadvisor/optimization_model/utils/config_loader/index
+   /autoapi/wattadvisor/optimization_model/utils/demand_tools/index
+   /autoapi/wattadvisor/optimization_model/utils/feedin_tools/index
+   /autoapi/wattadvisor/optimization_model/utils/load_YAML/index
+   /autoapi/wattadvisor/optimization_model/utils/logger_writer/index
+   /autoapi/wattadvisor/optimization_model/utils/results_composition/index
+   /autoapi/wattadvisor/optimization_model/utils/weather_data/index
 
 

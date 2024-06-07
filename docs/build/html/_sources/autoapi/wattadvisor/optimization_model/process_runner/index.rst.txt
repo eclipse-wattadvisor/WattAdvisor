@@ -1,33 +1,107 @@
-:py:mod:`wattadvisor.optimization_model.process_runner`
-=======================================================
+wattadvisor.optimization_model.process_runner
+=============================================
 
 .. py:module:: wattadvisor.optimization_model.process_runner
 
 .. autoapi-nested-parse::
 
    Collection of functions to start the optization process
-   - invoked by a HTTP Request which writes the request and result to the request database
-   - invoked by a single call with a static json input file without any database connection
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.process_runner.InputModel
+   wattadvisor.optimization_model.process_runner.OptimizationResultsModel
+   wattadvisor.optimization_model.process_runner.ConfigModel
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.process_runner.run_direct
 
 
 Module Contents
 ---------------
 
+.. py:class:: InputModel
 
-Functions
-~~~~~~~~~
+   Bases: :py:obj:`pydantic.BaseModel`
 
-.. autoapisummary::
 
-   wattadvisor.optimization_model.process_runner.run_direct
-   wattadvisor.optimization_model.process_runner.run_via_db
+   .. py:attribute:: location
+      :type:  wattadvisor.data_models.input_model_location.InputModelLocation
 
+
+   .. py:attribute:: interest_rate
+      :type:  Optional[float]
+
+
+   .. py:attribute:: energy_demands
+      :type:  list[wattadvisor.data_models.input_model_demand_object.InputModelDemandObject]
+
+
+   .. py:attribute:: energy_components
+      :type:  Optional[list[Union[wattadvisor.data_models.input_model_component_object.InputModelComponentPower, wattadvisor.data_models.input_model_component_object.InputModelComponentArea, wattadvisor.data_models.input_model_component_object.InputModelComponentStorage]]]
+
+
+   .. py:attribute:: energy_tariffs
+      :type:  Optional[wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs]
+
+
+.. py:class:: OptimizationResultsModel
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: status
+      :type:  wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus
+
+
+   .. py:attribute:: requested_input
+      :type:  wattadvisor.data_models.input_model.InputModel
+
+
+   .. py:attribute:: results
+      :type:  Optional[wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios]
+
+
+.. py:class:: ConfigModel
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: solver
+      :type:  wattadvisor.data_models.enums.SupportedSolver
+
+
+   .. py:attribute:: solver_timeout
+      :type:  int
+
+
+   .. py:attribute:: default_interest_rate
+      :type:  float
+
+
+   .. py:attribute:: data_dependencies
+      :type:  ConfigModelDataDependencies
+
+
+   .. py:attribute:: logging
+      :type:  ConfigModelLogging | None
 
 
 .. py:function:: run_direct(inputdata: wattadvisor.data_models.input_model.InputModel, export: bool = False) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
 
-   Starts the optimization by using static input data from memory without any database connection.
+   Starts the optimization by using static input data from memory.
 
    :param inputdata: input data to build the optimization model
    :type inputdata: InputModel
@@ -36,18 +110,5 @@ Functions
 
    :returns: pydantic object representing optimization results
    :rtype: OptimizationResultsModel
-
-
-.. py:function:: run_via_db(calculation_id: uuid.UUID, database_path: str, export: bool = False) -> None
-
-   Starts the optimization by connecting to the request database querying request information.
-   Optimization results are written to the database at the end.
-
-   :param calculation_id: ID under which the request information is queried from the request database
-   :type calculation_id: UUID
-   :param database_path: URL under which the database is accessible
-   :type database_path: str
-   :param export: whether to export detailed result time series to separate excel file, by default False
-   :type export: bool, optional
 
 
