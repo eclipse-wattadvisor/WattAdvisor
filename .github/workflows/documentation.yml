@@ -28,6 +28,7 @@ jobs:
         with:
           repository: eclipse-wattadvisor/website
           path: website
+          clean: false
 
       - name: Copy Documentation to Repository B
         run: cp -r docs/build/html/* website
