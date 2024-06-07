@@ -128,7 +128,12 @@ class OptModel:
             # sys.stdout = logger_writer.LoggerWriter(self.logger.debug)
             # sys.stderr = logger_writer.LoggerWriter(self.logger.error)
 
+            # try to call CBC solver by specifying the path to the executable (useful under Windows)
             slv = SolverFactory(solver.value, executable=self.model_path.joinpath("cbc.exe"))
+            
+            if isinstance(slv, pyoe.UnknownSolver):
+                # try to call CBC solver by its path saved in an environment variable (useful under Linux or Mac OS)
+                slv = SolverFactory(solver.value)
 
             #slv.options['allowableGap'] = 0.01
             slv.options['threads'] = 8
