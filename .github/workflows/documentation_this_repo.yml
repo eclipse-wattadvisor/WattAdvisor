@@ -1,0 +1,50 @@
+name: Build and Commit Documentation
+
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          path: code
+        
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+          
+      - name: Install Sphinx packages
+        run: pip install sphinx sphinx-autoapi sphinx-math-dollar myst-nb sphinx-rtd-theme
+
+      - name: Build Documentation
+        run: |
+          cd code/docs
+          make html
+      
+      # - name: Checkout website repository
+      #   uses: actions/checkout@v2
+      #   with:
+      #     repository: eclipse-wattadvisor/website
+      #     path: website
+      #     clean: false
+
+      # - name: Copy Documentation to Repository B
+      #   run: cp -r docs/build/html/* website
+
+      - name: Commit and Push Changes
+        run: |
+          cd code
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add -A
+          git commit -m "Update documentation"
+          git push
