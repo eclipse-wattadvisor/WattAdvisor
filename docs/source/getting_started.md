@@ -1,6 +1,6 @@
-# Using WattAdvisor
+# Using Eclipse WattAdvisor
 
-## 1. Installation
+## 1 Installation
 
 Make sure you run the listed commands from a project directory, e.g. *WattAdvisor/* which should at least contain these sub-directories and files:
 
@@ -135,7 +135,7 @@ Paste your Climate Data Store UID and API key at the corresponding position and 
 After the download has completed, move the downloaded *weather.nc*-file to the following directory: */WattAdvisor/wattadvisor/optimization_model/data*
 Installation of WattAdvisor is now completed.
 
-## 2. Defining an input request
+## 2 Defining an input request
 
 To create a new input request, use the prepared data model. Be careful to run these commands inside the newly created conda environment
 
@@ -197,7 +197,7 @@ This defines the following scenario:
 - potential for an additional 10 kWp of photovoltaic modules
 - electrical energy can be purchased from the grid with a static price of 35 cents per kWh
 
-## 3. Running the optimization
+## 3 Running the optimization
 
 By running the optimization, recommendations to the following questions can be expected:
 - Should more photovoltaic modules be added to the roof system to exceed the cost minimum?
@@ -218,7 +218,7 @@ results = process_runner.run_direct(new_input, export=True)
 The variable `results` contains the optimization results.
 After a short wait, there should also be a new Excel file at the project directory containing the results.
 
-## 4. Understanding the results
+## 4 Understanding the results
 
 Let's inspect the variable `results`. It is a data model which can be accessed to retrieve the optimal values of our scenario:
 
