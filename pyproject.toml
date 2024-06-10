@@ -1,0 +1,32 @@
+[project]
+name = "WattAdvisor"
+description = "Eclipse WattAdvisor"
+version = "0.1"
+authors = [
+    { name = "Jonas Pemsel", email = "jonas.pemsel@iosb-ast.fraunhofer.de" }
+]
+requires-python = ">= 3.11"
+readme = "README.md"
+license = {file = "LICENSE.md"}
+keywords = [
+    "energy",
+    "optimization",
+    "economics",
+    "transformation", 
+    "energy-system", 
+    "renewable-energy"
+]
+
+dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+optional-dependencies = {dev = { file = ["requirements-dev.txt"] }}
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/eclipse-wattadvisor/WattAdvisor"
+Issues = "https://github.com/eclipse-wattadvisor/WattAdvisor/issues"
