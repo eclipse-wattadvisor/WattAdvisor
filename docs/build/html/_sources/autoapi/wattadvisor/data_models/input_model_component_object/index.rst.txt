@@ -1,0 +1,280 @@
+wattadvisor.data_models.input_model_component_object
+====================================================
+
+.. py:module:: wattadvisor.data_models.input_model_component_object
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.input_model_component_object.PowerUnitComponent
+   wattadvisor.data_models.input_model_component_object.AreaUnitComponent
+   wattadvisor.data_models.input_model_component_object.StorageComponent
+   wattadvisor.data_models.input_model_component_object.InputModelComponentPower
+   wattadvisor.data_models.input_model_component_object.InputModelComponentArea
+   wattadvisor.data_models.input_model_component_object.InputModelComponentStorage
+
+
+Module Contents
+---------------
+
+.. py:class:: PowerUnitComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Energy components used in the input request which are defined by a 'power' field.
+
+
+
+
+   .. py:attribute:: PHOTOVOLTAIK_ROOF
+      :value: 'PHOTOVOLTAIK_ROOF'
+
+
+
+   .. py:attribute:: PHOTOVOLTAIK_FREE_FIELD
+      :value: 'PHOTOVOLTAIK_FREE_FIELD'
+
+
+
+   .. py:attribute:: WIND_POWER
+      :value: 'WIND_POWER'
+
+
+
+   .. py:attribute:: COMBINED_HEAT_POWER
+      :value: 'COMBINED_HEAT_POWER'
+
+
+
+   .. py:attribute:: HEAT_PUMP_AIR
+      :value: 'HEAT_PUMP_AIR'
+
+
+
+   .. py:attribute:: HEAT_PUMP_GROUND
+      :value: 'HEAT_PUMP_GROUND'
+
+
+
+   .. py:attribute:: GAS_BOILER
+      :value: 'GAS_BOILER'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+.. py:class:: AreaUnitComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access::
+
+   >>> Color.RED
+   <Color.RED: 1>
+
+   - value lookup:
+
+   >>> Color(1)
+   <Color.RED: 1>
+
+   - name lookup:
+
+   >>> Color['RED']
+   <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+
+   .. py:attribute:: SOLARTHERMAL_ENERGY
+      :value: 'SOLARTHERMAL_ENERGY'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the component.
+
+
+
+
+
+.. py:class:: StorageComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Energy components used in the input request which are defined by a 'capacity' field.
+
+
+
+
+   .. py:attribute:: ELECTRICAL_ENERGY_STORAGE
+      :value: 'ELECTRICAL_ENERGY_STORAGE'
+
+
+
+   .. py:attribute:: THERMAL_ENERGY_STORAGE
+      :value: 'THERMAL_ENERGY_STORAGE'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the component.
+
+
+
+
+
+.. py:class:: InputModelComponentPower
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.PowerUnitComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: potential_power
+      :type:  Optional[float]
+
+
+   .. py:attribute:: capex
+      :type:  Optional[float]
+
+
+   .. py:attribute:: opex
+      :type:  Optional[float]
+
+
+   .. py:attribute:: lifespan
+      :type:  Optional[float]
+
+
+.. py:class:: InputModelComponentArea
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.AreaUnitComponent
+
+
+   .. py:attribute:: installed_area
+      :type:  float
+
+
+   .. py:attribute:: potential_area
+      :type:  Optional[float]
+
+
+   .. py:attribute:: capex
+      :type:  Optional[float]
+
+
+   .. py:attribute:: opex
+      :type:  Optional[float]
+
+
+   .. py:attribute:: lifespan
+      :type:  Optional[float]
+
+
+.. py:class:: InputModelComponentStorage
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.StorageComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  Optional[float]
+
+
+   .. py:attribute:: potential_power
+      :type:  Optional[float]
+
+
+   .. py:attribute:: installed_capacity
+      :type:  float
+
+
+   .. py:attribute:: potential_capacity
+      :type:  Optional[float]
+
+
+   .. py:attribute:: capex_capacity
+      :type:  Optional[float]
+
+
+   .. py:attribute:: capex_power
+      :type:  Optional[float]
+
+
+   .. py:attribute:: opex
+      :type:  Optional[float]
+
+
+   .. py:attribute:: lifespan
+      :type:  Optional[float]
+
+

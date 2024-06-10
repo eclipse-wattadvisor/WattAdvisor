@@ -1,0 +1,51 @@
+wattadvisor.optimization_model.utils.logger_writer
+==================================================
+
+.. py:module:: wattadvisor.optimization_model.utils.logger_writer
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.logger_writer.LoggerWriter
+
+
+Module Contents
+---------------
+
+.. py:class:: LoggerWriter(writer: logging.Logger)
+
+   Bases: :py:obj:`object`
+
+
+   
+   Custom writer object for the `logging` module to redirect `sys.sdtout` and `sys.stderr` to a logger.
+
+   :param writer: Logger to redirect `sys.sdtout` and `sys.stderr` to
+   :type writer: logging.Logger
+
+
+   .. py:method:: write(message: str)
+
+      Appends new messages to logging channel.
+
+      :param message: Message to append to logging channel
+      :type message: str
+
+
+
+   .. py:method:: flush()
+
+      Flushes the logging channel
+
+
+
+

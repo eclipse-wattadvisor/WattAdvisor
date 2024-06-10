@@ -1,0 +1,174 @@
+wattadvisor.data_models.optimization_results_scenario_object
+============================================================
+
+.. py:module:: wattadvisor.data_models.optimization_results_scenario_object
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsComponentObjectPower
+   wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsComponentObjectPurchaseFeedin
+   wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsComponentObjectArea
+   wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsComponentObjectStorage
+   wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioKpis
+   wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioObject
+
+
+Module Contents
+---------------
+
+.. py:class:: OptimizationResultsComponentObjectPower
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.PowerUnitComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectPurchaseFeedin
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  Union[wattadvisor.data_models.enums.PurchaseComponent, wattadvisor.data_models.enums.FeedinComponent]
+
+
+   .. py:attribute:: purchase_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectArea
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.AreaUnitComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectStorage
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.StorageComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: installed_capacity
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+.. py:class:: OptimizationResultsScenarioKpis
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: total_investment_cost
+      :type:  Optional[float]
+
+
+   .. py:attribute:: total_operational_cost
+      :type:  Optional[float]
+
+
+   .. py:attribute:: total_purchase_cost
+      :type:  Optional[float]
+
+
+   .. py:attribute:: total_income
+      :type:  Optional[float]
+
+
+   .. py:attribute:: total_annuities
+      :type:  float
+
+
+.. py:class:: OptimizationResultsScenarioObject
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: components
+      :type:  list[Union[wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPower, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPurchaseFeedin, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectArea, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectStorage]]
+
+
+   .. py:attribute:: kpis
+      :type:  wattadvisor.data_models.optimization_results_scenario_kpis.OptimizationResultsScenarioKpis
+
+

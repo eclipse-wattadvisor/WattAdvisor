@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Eclipse WattAdvisor &mdash; wattadvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using Eclipse WattAdvisor" href="getting_started.html" />
+    <link rel="prev" title="WattAdvisor documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            wattadvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About WattAdvisor</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About Eclipse WattAdvisor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input-data">1 Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodological-approach">2 Methodological approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#energy-system-coverage">3 Energy system coverage</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Using Eclipse WattAdvisor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">wattadvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">About Eclipse WattAdvisor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/about.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="about-eclipse-wattadvisor">
+<h1>About Eclipse WattAdvisor<a class="headerlink" href="#about-eclipse-wattadvisor" title="Link to this heading"></a></h1>
+<p>Eclipse WattAdvisor provides a Python library that consists of several functions and classes to build and solve a linear optimization model based on certain input data and parameters. The optimization model represents a local energy system composed of different energy components to produce, store, or transform energy.</p>
+<section id="input-data">
+<h2>1 Input data<a class="headerlink" href="#input-data" title="Link to this heading"></a></h2>
+<p>Input data can contain information about the following aspects of the local energy system:</p>
+<ul class="simple">
+<li><p>geographical location</p></li>
+<li><p>annual energy demands per energy type</p></li>
+<li><p>Installed power and/or capacity per energy component already existing in the system</p></li>
+<li><p>Potential power per energy component that can be added to the system at maximum</p></li>
+<li><p>Custom cost parameters per energy component</p></li>
+<li><p>Prices of tariffs to purchase energy from external sources for the energy system</p></li>
+</ul>
+</section>
+<section id="methodological-approach">
+<h2>2 Methodological approach<a class="headerlink" href="#methodological-approach" title="Link to this heading"></a></h2>
+<p>With this input data, a predefined function to start the automatic processing of the model can be called. At first, it builds a generic optimization model formulated with the Python library Pyomo and parameterizes it according to the input data to create a specific optimization problem. Here, the target function to minimize equals the sum of the total cost of all components to be used for the component composition. The total cost per component consists of at most:</p>
+<ul class="simple">
+<li><p>Investment costs converted into annual costs by an annuity factor based on the expected lifespan of the component</p></li>
+<li><p>Annual operational cost</p></li>
+<li><p>Annual energy purchase cost</p></li>
+</ul>
+<p>Investment and operational costs are calculated by applying specific cost factors of a component, while annual operational costs are determined using the expected amount of energy purchased by the component and energy tariff prices given as input. It should be mentioned that the total cost of each component is formed by an individual combination of the three possible cost factors, e.g., the total cost of an energy purchase component consists only of the annual energy purchase cost.</p>
+<p>The optimization problem is then passed to an open-source solver to create a solution. This leads to a solution that follows the fundamental target function to find the cost-minimal composition of energy components and remaining energy purchases to supply the parameterized demands.</p>
+<p>After a valid solution is found, the relevant result data is exported either in machine-readable (JSON) or human-readable (Excel) format.</p>
+</section>
+<section id="energy-system-coverage">
+<h2>3 Energy system coverage<a class="headerlink" href="#energy-system-coverage" title="Link to this heading"></a></h2>
+<p>Energy balances are formulated in the model for these energy carriers:</p>
+<ul class="simple">
+<li><p>Electrical energy</p></li>
+<li><p>Thermal energy</p></li>
+<li><p>Natural gas</p></li>
+</ul>
+<p>Currently, classes to implement the following component groups are predefined and available in the project:</p>
+<ul class="simple">
+<li><p>Combined heat and power plant</p>
+<ul>
+<li><p>Transforming natural gas into electrical energy</p></li>
+</ul>
+</li>
+<li><p>Electrical energy storage</p>
+<ul>
+<li><p>Storing electrical energy</p></li>
+</ul>
+</li>
+<li><p>Energy demand</p>
+<ul>
+<li><p>Consuming energy for the system</p></li>
+<li><p>Can be parameterized for all energy carriers</p></li>
+</ul>
+</li>
+<li><p>Energy feed-in</p>
+<ul>
+<li><p>Consuming energy from the system and generating income</p></li>
+<li><p>Can be parameterized only for electrical energy</p></li>
+</ul>
+</li>
+<li><p>Energy purchase</p>
+<ul>
+<li><p>Producing energy for the system</p></li>
+<li><p>Can be parameterized for all energy carriers</p></li>
+</ul>
+</li>
+<li><p>Gas boiler</p>
+<ul>
+<li><p>Transforming natural gas into thermal energy</p></li>
+</ul>
+</li>
+<li><p>Heat pump</p>
+<ul>
+<li><p>Transforming electrical energy into thermal energy</p></li>
+<li><p>Efficiency estimation by the usage of historical air or ground temperature weather data</p></li>
+</ul>
+</li>
+<li><p>Photovoltaic plant</p>
+<ul>
+<li><p>Roof surface</p></li>
+<li><p>Free field</p></li>
+<li><p>Producing electrical energy for the system</p></li>
+<li><p>Energy production estimation by the usage of historical solar radiation weather data</p></li>
+</ul>
+</li>
+<li><p>Solar thermal energy plant</p>
+<ul>
+<li><p>Producing thermal energy for the system</p></li>
+<li><p>Energy production estimation by the usage of historical solar radiation weather data</p></li>
+</ul>
+</li>
+<li><p>Thermal energy storage</p>
+<ul>
+<li><p>Storing thermal energy</p></li>
+</ul>
+</li>
+<li><p>Wind power plant</p>
+<ul>
+<li><p>Producing electrical energy for the system</p></li>
+<li><p>Energy production estimation by the usage of historical wind speed weather data</p></li>
+</ul>
+</li>
+</ul>
+<p>By adding new component groups, this list can be extended, which in turn contributes to extending the scope and applicability of the model.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="WattAdvisor documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Using Eclipse WattAdvisor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

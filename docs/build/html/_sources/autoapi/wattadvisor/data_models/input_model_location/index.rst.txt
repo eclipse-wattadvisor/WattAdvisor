@@ -1,0 +1,36 @@
+wattadvisor.data_models.input_model_location
+============================================
+
+.. py:module:: wattadvisor.data_models.input_model_location
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.input_model_location.InputModelLocation
+
+
+Module Contents
+---------------
+
+.. py:class:: InputModelLocation
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: longitude
+      :type:  float
+
+
+   .. py:attribute:: latitude
+      :type:  float
+
+

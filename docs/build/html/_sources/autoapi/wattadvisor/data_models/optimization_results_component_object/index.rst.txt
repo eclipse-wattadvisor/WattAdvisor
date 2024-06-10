@@ -1,0 +1,372 @@
+wattadvisor.data_models.optimization_results_component_object
+=============================================================
+
+.. py:module:: wattadvisor.data_models.optimization_results_component_object
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.optimization_results_component_object.PowerUnitComponent
+   wattadvisor.data_models.optimization_results_component_object.StorageComponent
+   wattadvisor.data_models.optimization_results_component_object.AreaUnitComponent
+   wattadvisor.data_models.optimization_results_component_object.FeedinComponent
+   wattadvisor.data_models.optimization_results_component_object.PurchaseComponent
+   wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentEnergyProductionObject
+   wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPower
+   wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPurchaseFeedin
+   wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectArea
+   wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectStorage
+
+
+Module Contents
+---------------
+
+.. py:class:: PowerUnitComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Energy components used in the input request which are defined by a 'power' field.
+
+
+
+
+   .. py:attribute:: PHOTOVOLTAIK_ROOF
+      :value: 'PHOTOVOLTAIK_ROOF'
+
+
+
+   .. py:attribute:: PHOTOVOLTAIK_FREE_FIELD
+      :value: 'PHOTOVOLTAIK_FREE_FIELD'
+
+
+
+   .. py:attribute:: WIND_POWER
+      :value: 'WIND_POWER'
+
+
+
+   .. py:attribute:: COMBINED_HEAT_POWER
+      :value: 'COMBINED_HEAT_POWER'
+
+
+
+   .. py:attribute:: HEAT_PUMP_AIR
+      :value: 'HEAT_PUMP_AIR'
+
+
+
+   .. py:attribute:: HEAT_PUMP_GROUND
+      :value: 'HEAT_PUMP_GROUND'
+
+
+
+   .. py:attribute:: GAS_BOILER
+      :value: 'GAS_BOILER'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+.. py:class:: StorageComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Energy components used in the input request which are defined by a 'capacity' field.
+
+
+
+
+   .. py:attribute:: ELECTRICAL_ENERGY_STORAGE
+      :value: 'ELECTRICAL_ENERGY_STORAGE'
+
+
+
+   .. py:attribute:: THERMAL_ENERGY_STORAGE
+      :value: 'THERMAL_ENERGY_STORAGE'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the component.
+
+
+
+
+
+.. py:class:: AreaUnitComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access::
+
+   >>> Color.RED
+   <Color.RED: 1>
+
+   - value lookup:
+
+   >>> Color(1)
+   <Color.RED: 1>
+
+   - name lookup:
+
+   >>> Color['RED']
+   <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+
+   .. py:attribute:: SOLARTHERMAL_ENERGY
+      :value: 'SOLARTHERMAL_ENERGY'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the component.
+
+
+
+
+
+.. py:class:: FeedinComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Feedin components used in the input request.
+
+
+
+
+   .. py:attribute:: ELECTRICAL_ENERGY_FEEDIN
+      :value: 'ELECTRICAL_ENERGY_FEEDIN'
+
+
+
+   .. py:attribute:: THERMAL_ENERGY_FEEDIN
+      :value: 'THERMAL_ENERGY_FEEDIN'
+
+
+
+   .. py:attribute:: NATURAL_GAS_FEEDIN
+      :value: 'NATURAL_GAS_FEEDIN'
+
+
+
+   .. py:method:: get_energy_type()
+
+      Returns the corresponding `EnergyType` of the feedin component.
+
+
+
+
+
+.. py:class:: PurchaseComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Purchase components used in the input request.
+
+
+
+
+   .. py:attribute:: ELECTRICAL_ENERGY_PURCHASE
+      :value: 'ELECTRICAL_ENERGY_PURCHASE'
+
+
+
+   .. py:attribute:: THERMAL_ENERGY_PURCHASE
+      :value: 'THERMAL_ENERGY_PURCHASE'
+
+
+
+   .. py:attribute:: NATURAL_GAS_PURCHASE
+      :value: 'NATURAL_GAS_PURCHASE'
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the purchase component.
+
+
+
+
+
+.. py:class:: OptimizationResultsComponentEnergyProductionObject
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: energy_type
+      :type:  wattadvisor.data_models.enums.EnergyType
+
+
+   .. py:attribute:: amount
+      :type:  float
+
+
+.. py:class:: OptimizationResultsComponentObjectPower
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.PowerUnitComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectPurchaseFeedin
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  Union[wattadvisor.data_models.enums.PurchaseComponent, wattadvisor.data_models.enums.FeedinComponent]
+
+
+   .. py:attribute:: purchase_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectArea
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.AreaUnitComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectStorage
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.StorageComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: installed_capacity
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+

@@ -1,0 +1,34 @@
+wattadvisor.optimization_model.utils.load_YAML
+==============================================
+
+.. py:module:: wattadvisor.optimization_model.utils.load_YAML
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.load_YAML.load_yaml
+
+
+Module Contents
+---------------
+
+.. py:function:: load_yaml(path: str) -> dict
+
+   Function to load data from a YAML file into a python dictionary
+
+   :param path: path to the YAML file
+   :type path: str
+
+   :returns: data from YAML file
+   :rtype: dict
+
+

@@ -1,0 +1,156 @@
+wattadvisor.data_models.input_model_demand_object
+=================================================
+
+.. py:module:: wattadvisor.data_models.input_model_demand_object
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.input_model_demand_object.EnergyType
+   wattadvisor.data_models.input_model_demand_object.Resolution
+   wattadvisor.data_models.input_model_demand_object.EnergyUnit
+   wattadvisor.data_models.input_model_demand_object.InputModelDemandObject
+
+
+Module Contents
+---------------
+
+.. py:class:: EnergyType(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Energy types usable by the optimization model
+
+
+
+
+   .. py:attribute:: ELECTRICAL
+      :value: 'ELECTRICAL'
+
+
+
+   .. py:attribute:: THERMAL
+      :value: 'THERMAL'
+
+
+
+   .. py:attribute:: NATURAL_GAS
+      :value: 'NATURAL_GAS'
+
+
+
+   .. py:method:: get_demand_component_title() -> str
+
+      Returns the title of the energy type demand used in the input request.
+
+
+
+
+
+   .. py:method:: get_external_purchase_type()
+
+      Returns the purchase type of the energy type from the `PurchaseComponent` enum used in the input request.
+
+
+
+
+
+   .. py:method:: get_external_feedin_type()
+
+      Returns the feedin type of the energy type from the `FeedinComponent` enum used in the input request.
+
+
+
+
+
+.. py:class:: Resolution(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Time series resolution as defined by pandas
+
+
+
+
+   .. py:attribute:: R1Y
+      :value: '1Y'
+
+
+
+   .. py:attribute:: R1M
+      :value: '1M'
+
+
+
+   .. py:attribute:: R1W
+      :value: '1W'
+
+
+
+   .. py:attribute:: R1D
+      :value: '1D'
+
+
+
+   .. py:attribute:: R1H
+      :value: '1H'
+
+
+
+   .. py:attribute:: R15T
+      :value: '15T'
+
+
+
+   .. py:attribute:: R1T
+      :value: '1T'
+
+
+
+.. py:class:: EnergyUnit(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Accepted energy units
+
+
+
+
+   .. py:attribute:: KWH
+      :value: 'KWH'
+
+
+
+.. py:class:: InputModelDemandObject
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: demand_values
+      :type:  list[confloat(ge=0)]
+
+
+   .. py:attribute:: resolution
+      :type:  wattadvisor.data_models.enums.Resolution
+
+
+   .. py:attribute:: unit
+      :type:  wattadvisor.data_models.enums.EnergyUnit
+
+
+   .. py:attribute:: energy_type
+      :type:  wattadvisor.data_models.enums.EnergyType
+
+

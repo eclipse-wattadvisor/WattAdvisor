@@ -1,0 +1,111 @@
+wattadvisor.optimization_model.components.energy_purchase
+=========================================================
+
+.. py:module:: wattadvisor.optimization_model.components.energy_purchase
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.components.energy_purchase.Component
+   wattadvisor.optimization_model.components.energy_purchase.EnergyPurchase
+
+
+Module Contents
+---------------
+
+.. py:class:: Component(name: str, interest_rate: None | float = None, parameters: None | dict = None)
+
+   
+   Parent base class for all optimization energy components.
+   Contains empty methods which are overidden by child classes.
+
+   :param name: Name of the component
+   :type name: str
+   :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component, by default None
+   :type interest_rate: None | float, optional
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: None | dict, optional
+
+   :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
+
+
+   .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
+
+      Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by `model`.
+
+      :param model: Pyomo model to which the parameters, variables and constraints will be added.
+      :type model: Model
+      :param t: Time set over which time-variant parameters, variables and constraints will be added.
+      :type t: RangeSet
+
+      :returns: Pyomo model with the added parameters, variables and constraints
+      :rtype: Model
+
+
+
+.. py:class:: EnergyPurchase(name: str, parameters: dict, energy_type: wattadvisor.data_models.enums.EnergyType, energy_price_scalar: float | None = None, energy_price_profile: pandas.Series | None = None, power_price: float | None = None)
+
+   Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
+
+
+   
+   Component that simulates the import and obtaining of energy from external sources
+   in different forms like gas, oil, electricity or heat.
+   This component imports electric power and applies a cost for the amount imported as
+   well as a monthly base rate depending on the consumption.
+
+   :param name: Name of the component
+   :type name: str
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: dict
+   :param energy_type: Energy type which is purchased
+   :type energy_type: enums.EnergyType
+   :param energy_price_scalar: Scalar price for purchasement per energy unit [€/kWh], by default None
+   :type energy_price_scalar: float | None, optional
+   :param energy_price_profile: Time series containing hourly variant energy prices for one year, by default None
+   :type energy_price_profile: pd.Series | None, optional
+   :param power_price: Price to pay for maximum grid load per year [€/(kW * a)], by default None
+   :type power_price: float | None, optional
+
+

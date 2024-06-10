@@ -1,0 +1,26 @@
+wattadvisor.optimization_model.components
+=========================================
+
+.. py:module:: wattadvisor.optimization_model.components
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/wattadvisor/optimization_model/components/base/index
+   /autoapi/wattadvisor/optimization_model/components/combined_heat_power/index
+   /autoapi/wattadvisor/optimization_model/components/electrical_energy_storage/index
+   /autoapi/wattadvisor/optimization_model/components/energy_demand/index
+   /autoapi/wattadvisor/optimization_model/components/energy_feedin/index
+   /autoapi/wattadvisor/optimization_model/components/energy_purchase/index
+   /autoapi/wattadvisor/optimization_model/components/gas_boiler/index
+   /autoapi/wattadvisor/optimization_model/components/heat_pump/index
+   /autoapi/wattadvisor/optimization_model/components/photovoltaik/index
+   /autoapi/wattadvisor/optimization_model/components/solarthemal_energy/index
+   /autoapi/wattadvisor/optimization_model/components/thermal_energy_storage/index
+   /autoapi/wattadvisor/optimization_model/components/wind_power/index
+
+

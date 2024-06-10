@@ -1,0 +1,100 @@
+wattadvisor.optimization_model.utils.feedin_tools
+=================================================
+
+.. py:module:: wattadvisor.optimization_model.utils.feedin_tools
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.feedin_tools.pv_normed_feedin_from_era5
+   wattadvisor.optimization_model.utils.feedin_tools.windpower_normed_feedin_from_era5
+
+
+Module Contents
+---------------
+
+.. py:function:: pv_normed_feedin_from_era5(latitude: float, longitude: float, azimuth: float, tilt: float, surface_type: Literal['urban', 'grass', 'fresh grass', 'soil', 'sand', 'snow', 'fresh snow', 'asphalt', 'concrete', 'aluminum', 'copper', 'fresh steel', 'dirty steel', 'sea'], start_date: datetime.datetime, end_date: datetime.datetime, cds_api_key: str | None = None, path_era5_file: str | None = None, pvlib_df: pandas.DataFrame | None = None, path_export_csv: str | None = None, normalized: bool = True, elevation: float | None = None) -> pandas.Series
+
+   Calculates photovoltaic power plant generation profile for a certain location and time range by
+   using weather data from ERA5 Climate Data Store, either downloaded by this function or downloaded before
+
+   :param latitude: latitude of the location point for which the wind power generation should be calculated
+   :type latitude: float
+   :param longitude: longitude of the location point for which the wind power generation should be calculated
+   :type longitude: float
+   :param azimuth: azimuth orientation [°] of the photovoltaic plant where the power will be generated
+                   * North=0
+                   * East=90
+                   * South=180
+                   * West=270
+   :type azimuth: float
+   :param tilt: tilt orientation [°] of the photovoltaic plant where the power will be generated
+                * Up=0
+                * horizon=90
+   :type tilt: float
+   :param surface_type: surface type of the surroundings of the photovoltaic plant where the power will be generated.
+   :type surface_type: Literal["urban", "grass", "fresh grass", "soil", "sand", "snow", "fresh snow", "asphalt", "concrete", "aluminum", "copper", "fresh steel", "dirty steel", "sea"]
+   :param start_date: datetime of the first time interval of the time range for which the photovoltaic power generation should be calculated
+   :type start_date: datetime
+   :param end_date: datetime of the last time interval of the time range for which the photovoltaic power generation should be calculated
+   :type end_date: datetime
+   :param cds_api_key: key to access the ERA5 Climate Data Store, more information [here](https://cds.climate.copernicus.eu/api-how-to), by default None
+   :type cds_api_key: str | None, optional
+   :param path_era5_file: path to a file with raw weather data from the climate data store, if already downloaded before, by default None
+   :type path_era5_file: str | None, optional
+   :param pvlib_df: DataFrame with already generated weather data for photovoltaic power generation from raw weather data from the climate data store, if already downloaded before, by default None
+   :type pvlib_df: pd.DataFrame | None, optional
+   :param path_export_csv: path to CSV file to write the resulted generation time series to, by default None
+   :type path_export_csv: str | None, optional
+   :param normalized: whether resulting power values should be normalized to installed power, by default True
+   :type normalized: bool, optional
+   :param elevation: elevation of the location of the photovoltaic plant above sea level [m], by default None
+   :type elevation: float | None, optional
+
+   :returns: time series of power generation values for each hourly time interval in the range between `start_date` and `end_date`
+   :rtype: pd.Series
+
+   :raises ValueError: if `pvlib_df`, `path_era5_file` and key for climate date store `cds_api_key` are not provided
+
+
+.. py:function:: windpower_normed_feedin_from_era5(latitude: float, longitude: float, hub_height: float, start_date: datetime.datetime, end_date: datetime.datetime, cds_api_key: str | None = None, path_era5_file: str | None = None, windpowerlib_df: pandas.DataFrame | None = None, path_export_csv: str | None = None, normalized: bool = True) -> pandas.Series
+
+   Calculates wind power plant generation profile for a certain location and time range by
+   using weather data from ERA5 Climate Data Store, either downloaded by this function or downloaded before
+
+   :param latitude: latitude of the location point for which the wind power generation should be calculated
+   :type latitude: float
+   :param longitude: longitude of the location point for which the wind power generation should be calculated
+   :type longitude: float
+   :param hub_height: height of the wind power plant hub where the power will be generated [m]
+   :type hub_height: float
+   :param start_date: datetime of the first time interval of the time range for which the wind power generation should be calculated
+   :type start_date: datetime
+   :param end_date: datetime of the last time interval of the time range for which the wind power generation should be calculated
+   :type end_date: datetime
+   :param cds_api_key: key to access the ERA5 Climate Data Store, more information [here](https://cds.climate.copernicus.eu/api-how-to), by default None
+   :type cds_api_key: str | None, optional
+   :param path_era5_file: path to a file with raw weather data from the climate data store, if already downloaded before, by default None
+   :type path_era5_file: str | None, optional
+   :param windpowerlib_df: DataFrame with already generated weather data for windpower from raw weather data from the climate data store, if already downloaded before, by default None
+   :type windpowerlib_df: pd.DataFrame | None, optional
+   :param path_export_csv: path to CSV file to write the resulted generation time series to, by default None
+   :type path_export_csv: str | None, optional
+   :param normalized: whether resulting power values should be normalized to installed power, by default True
+   :type normalized: bool, optional
+
+   :returns: time series of power generation values for each hourly time interval in the range between `start_date` and `end_date`
+   :rtype: pd.Series
+
+   :raises ValueError: if `windpowerlib_df`, `path_era5_file` and key for climate date store `cds_api_key` are not provided
+
+

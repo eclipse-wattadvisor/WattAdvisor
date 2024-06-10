@@ -1,0 +1,659 @@
+wattadvisor.optimization_model.utils.results_composition
+========================================================
+
+.. py:module:: wattadvisor.optimization_model.utils.results_composition
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.results_composition.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.results_composition.AreaUnitComponent
+   wattadvisor.optimization_model.utils.results_composition.PowerUnitComponent
+   wattadvisor.optimization_model.utils.results_composition.StorageComponent
+   wattadvisor.optimization_model.utils.results_composition.OptimizationStatus
+   wattadvisor.optimization_model.utils.results_composition.InputModel
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsComponentEnergyProductionObject
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsComponentObjectArea
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsComponentObjectPower
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsComponentObjectPurchaseFeedin
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsComponentObjectStorage
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsModel
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsScenarioKpis
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsScenarioObject
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsScenarios
+   wattadvisor.optimization_model.utils.results_composition.OptimizationResultsStatus
+   wattadvisor.optimization_model.utils.results_composition.Component
+   wattadvisor.optimization_model.utils.results_composition.EnergyDemand
+   wattadvisor.optimization_model.utils.results_composition.EnergyFeedin
+   wattadvisor.optimization_model.utils.results_composition.EnergyPurchase
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.results_composition.write_detailed_results
+   wattadvisor.optimization_model.utils.results_composition.generate_results_object
+
+
+Module Contents
+---------------
+
+.. py:class:: AreaUnitComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access::
+
+   >>> Color.RED
+   <Color.RED: 1>
+
+   - value lookup:
+
+   >>> Color(1)
+   <Color.RED: 1>
+
+   - name lookup:
+
+   >>> Color['RED']
+   <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+
+   .. py:attribute:: SOLARTHERMAL_ENERGY
+      :value: 'SOLARTHERMAL_ENERGY'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the component.
+
+
+
+
+
+.. py:class:: PowerUnitComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Energy components used in the input request which are defined by a 'power' field.
+
+
+
+
+   .. py:attribute:: PHOTOVOLTAIK_ROOF
+      :value: 'PHOTOVOLTAIK_ROOF'
+
+
+
+   .. py:attribute:: PHOTOVOLTAIK_FREE_FIELD
+      :value: 'PHOTOVOLTAIK_FREE_FIELD'
+
+
+
+   .. py:attribute:: WIND_POWER
+      :value: 'WIND_POWER'
+
+
+
+   .. py:attribute:: COMBINED_HEAT_POWER
+      :value: 'COMBINED_HEAT_POWER'
+
+
+
+   .. py:attribute:: HEAT_PUMP_AIR
+      :value: 'HEAT_PUMP_AIR'
+
+
+
+   .. py:attribute:: HEAT_PUMP_GROUND
+      :value: 'HEAT_PUMP_GROUND'
+
+
+
+   .. py:attribute:: GAS_BOILER
+      :value: 'GAS_BOILER'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+.. py:class:: StorageComponent(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Energy components used in the input request which are defined by a 'capacity' field.
+
+
+
+
+   .. py:attribute:: ELECTRICAL_ENERGY_STORAGE
+      :value: 'ELECTRICAL_ENERGY_STORAGE'
+
+
+
+   .. py:attribute:: THERMAL_ENERGY_STORAGE
+      :value: 'THERMAL_ENERGY_STORAGE'
+
+
+
+   .. py:method:: get_component_class()
+
+      Returns the corresponding optimization model component class of the component.
+
+
+
+
+
+   .. py:method:: get_energy_type() -> EnergyType
+
+      Returns the corresponding `EnergyType` of the component.
+
+
+
+
+
+.. py:class:: OptimizationStatus(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Optimization status titles used by the optimization result response
+
+
+
+
+   .. py:attribute:: NEW
+      :value: 'NEW'
+
+
+
+   .. py:attribute:: PROCESSING
+      :value: 'PROCESSING'
+
+
+
+   .. py:attribute:: SUCCESS
+      :value: 'SUCCESS'
+
+
+
+   .. py:attribute:: UNBOUNDED
+      :value: 'UNBOUNDED'
+
+
+
+   .. py:attribute:: ERROR
+      :value: 'ERROR'
+
+
+
+.. py:class:: InputModel
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: location
+      :type:  wattadvisor.data_models.input_model_location.InputModelLocation
+
+
+   .. py:attribute:: interest_rate
+      :type:  Optional[float]
+
+
+   .. py:attribute:: energy_demands
+      :type:  list[wattadvisor.data_models.input_model_demand_object.InputModelDemandObject]
+
+
+   .. py:attribute:: energy_components
+      :type:  Optional[list[Union[wattadvisor.data_models.input_model_component_object.InputModelComponentPower, wattadvisor.data_models.input_model_component_object.InputModelComponentArea, wattadvisor.data_models.input_model_component_object.InputModelComponentStorage]]]
+
+
+   .. py:attribute:: energy_tariffs
+      :type:  Optional[wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs]
+
+
+.. py:class:: OptimizationResultsComponentEnergyProductionObject
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: energy_type
+      :type:  wattadvisor.data_models.enums.EnergyType
+
+
+   .. py:attribute:: amount
+      :type:  float
+
+
+.. py:class:: OptimizationResultsComponentObjectArea
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.AreaUnitComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectPower
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.PowerUnitComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectPurchaseFeedin
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  Union[wattadvisor.data_models.enums.PurchaseComponent, wattadvisor.data_models.enums.FeedinComponent]
+
+
+   .. py:attribute:: purchase_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+   .. py:attribute:: produced_energy
+      :type:  Optional[List[wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject]]
+
+
+.. py:class:: OptimizationResultsComponentObjectStorage
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: component_type
+      :type:  wattadvisor.data_models.enums.StorageComponent
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: installed_capacity
+      :type:  float
+
+
+   .. py:attribute:: investment_cost
+      :type:  float
+
+
+   .. py:attribute:: operational_cost
+      :type:  float
+
+
+   .. py:attribute:: annuity
+      :type:  float
+
+
+.. py:class:: OptimizationResultsModel
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: status
+      :type:  wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus
+
+
+   .. py:attribute:: requested_input
+      :type:  wattadvisor.data_models.input_model.InputModel
+
+
+   .. py:attribute:: results
+      :type:  Optional[wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios]
+
+
+.. py:class:: OptimizationResultsScenarioKpis
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: total_investment_cost
+      :type:  Optional[float]
+
+
+   .. py:attribute:: total_operational_cost
+      :type:  Optional[float]
+
+
+   .. py:attribute:: total_purchase_cost
+      :type:  Optional[float]
+
+
+   .. py:attribute:: total_income
+      :type:  Optional[float]
+
+
+   .. py:attribute:: total_annuities
+      :type:  float
+
+
+.. py:class:: OptimizationResultsScenarioObject
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: components
+      :type:  list[Union[wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPower, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPurchaseFeedin, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectArea, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectStorage]]
+
+
+   .. py:attribute:: kpis
+      :type:  wattadvisor.data_models.optimization_results_scenario_kpis.OptimizationResultsScenarioKpis
+
+
+.. py:class:: OptimizationResultsScenarios
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: target_scenario
+      :type:  wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioObject
+
+
+   .. py:attribute:: current_scenario
+      :type:  Optional[wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioObject]
+
+
+.. py:class:: OptimizationResultsStatus
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: status
+      :type:  wattadvisor.data_models.enums.OptimizationStatus
+
+
+   .. py:attribute:: error_message
+      :type:  Optional[str]
+
+
+.. py:class:: Component(name: str, interest_rate: None | float = None, parameters: None | dict = None)
+
+   
+   Parent base class for all optimization energy components.
+   Contains empty methods which are overidden by child classes.
+
+   :param name: Name of the component
+   :type name: str
+   :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component, by default None
+   :type interest_rate: None | float, optional
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: None | dict, optional
+
+   :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
+
+
+   .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
+
+      Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by `model`.
+
+      :param model: Pyomo model to which the parameters, variables and constraints will be added.
+      :type model: Model
+      :param t: Time set over which time-variant parameters, variables and constraints will be added.
+      :type t: RangeSet
+
+      :returns: Pyomo model with the added parameters, variables and constraints
+      :rtype: Model
+
+
+
+.. py:class:: EnergyDemand(name: str, energy_type: wattadvisor.data_models.enums.EnergyType, demand_profile: pandas.Series | None = None, demand_sum: float | None = None, profile_type: str | None = None, weather_temp_air_data: pandas.Series | None = None)
+
+   Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
+
+
+   
+   Component which consumes energy of a certain ``EnergyType`` to fulfill an energy demand.
+
+   :param name: Name of the component
+   :type name: str
+   :param energy_type: Energy type which is consumed
+   :type energy_type: enums.EnergyType
+   :param demand_profile: Time series representing an hourly demand profile for one year, by default None
+   :type demand_profile: pd.Series | None, optional
+   :param demand_sum: Sum of energy demanded per year, by default None
+   :type demand_sum: float | None, optional
+   :param profile_type: Type of energy demand profile to generate a profile for if ``demand_profile`` not provided, by default None.
+                        See parameter ``demand_group`` of functions ``..utils.demand_tools.generate_electrical_demand_profile()``
+                        and ``..utils.demand_tools.generate_heat_demand_profile()`` for more information.
+   :type profile_type: str | None, optional
+   :param weather_temp_air_data: Time series of hourly air temperature values, by default None.
+                                 Only required if ``energy_type`` is ``THERMAL`` or ``NATURAL_GAS`` and ``demand_profile`` is ``None``
+   :type weather_temp_air_data: pd.Series | None, optional
+
+   :raises ValueError: If no ``demand_profile`` and no `demand_sum` or no `profile_type` given
+   :raises ValueError: If no ``demand_profile`` and no `weather_temp_air_data` given and `energy_type` is `THERMAL` or `NATURAL_GAS`
+
+
+.. py:class:: EnergyFeedin(name: str, parameters: dict, energy_type: wattadvisor.data_models.enums.EnergyType, energy_price_scalar: float | None = None, energy_price_profile: pandas.Series | None = None, power_price: float | None = None)
+
+   Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
+
+
+   
+   Component that feeds surplus energy into grid .
+
+   :param name: Name of the component
+   :type name: str
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: dict
+   :param energy_type: Energy type which is fed in
+   :type energy_type: enums.EnergyType
+   :param energy_price_scalar: Scalar price for feeding in per energy unit [€/kWh], by default None
+   :type energy_price_scalar: float | None, optional
+   :param energy_price_profile: Time series containing hourly variant energy prices for one year, by default None
+   :type energy_price_profile: pd.Series | None, optional
+   :param power_price: Price to pay for maximum grid load per year [€/(kW * a)], by default None
+   :type power_price: float | None, optional
+
+
+.. py:class:: EnergyPurchase(name: str, parameters: dict, energy_type: wattadvisor.data_models.enums.EnergyType, energy_price_scalar: float | None = None, energy_price_profile: pandas.Series | None = None, power_price: float | None = None)
+
+   Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
+
+
+   
+   Component that simulates the import and obtaining of energy from external sources
+   in different forms like gas, oil, electricity or heat.
+   This component imports electric power and applies a cost for the amount imported as
+   well as a monthly base rate depending on the consumption.
+
+   :param name: Name of the component
+   :type name: str
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: dict
+   :param energy_type: Energy type which is purchased
+   :type energy_type: enums.EnergyType
+   :param energy_price_scalar: Scalar price for purchasement per energy unit [€/kWh], by default None
+   :type energy_price_scalar: float | None, optional
+   :param energy_price_profile: Time series containing hourly variant energy prices for one year, by default None
+   :type energy_price_profile: pd.Series | None, optional
+   :param power_price: Price to pay for maximum grid load per year [€/(kW * a)], by default None
+   :type power_price: float | None, optional
+
+
+.. py:data:: logger
+
+.. py:function:: write_detailed_results(pyomo_model: pyomo.core.base.PyomoModel.Model, components_list: List[wattadvisor.optimization_model.components.base.Component], calculation_time: float, filename: str = None)
+
+   Creates a DataFrame with all optimization time series data and writes it to a excel file.
+
+   :param pyomo_model: Pyomo optimization model containing all parameters, variables and constraints aswell as the objective function.
+   :type pyomo_model: Model
+   :param components_list: List of all optimization components added to the optimiziation model
+   :type components_list: List[Component]
+   :param calculation_time: Time in seconds it took for the solver to solve the optimization model
+   :type calculation_time: float
+   :param filename: name of the Excel file to export, by default None
+   :type filename: str, optional
+
+
+.. py:function:: generate_results_object(opt_model_object: wattadvisor.optimization_model.opt_model.OptModel, input: wattadvisor.data_models.input_model.InputModel, components_list: List[wattadvisor.optimization_model.components.base.Component], status: wattadvisor.data_models.enums.OptimizationStatus) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
+
+   Creates the complete `OptimizationResultsModel` which is returned as the response of the WattAdvisor.
+
+   :param opt_model_object: Object of the optimization model
+   :type opt_model_object: OptModel
+   :param input: Input request given to the WattAdvisor
+   :type input: InputModel
+   :param components_list: List of all optimization components added to the optimiziation model
+   :type components_list: List[Component]
+   :param status: Status of the completed optimization
+   :type status: OptimizationStatus
+
+   :returns: Object which contains all optimization results (cost, produced energy, power) for the WattAdvisor response
+   :rtype: OptimizationResultsModel
+
+

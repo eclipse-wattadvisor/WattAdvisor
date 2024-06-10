@@ -1,0 +1,70 @@
+wattadvisor.optimization_model.utils.calc_cops
+==============================================
+
+.. py:module:: wattadvisor.optimization_model.utils.calc_cops
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.utils.calc_cops.calc_cops
+
+
+Module Contents
+---------------
+
+.. py:function:: calc_cops(mode: Literal['heat_pump', 'chiller'], temp_high: list | pandas.Series, temp_low: list | pandas.Series, quality_grade: float, temp_threshold_icing: float = 2, factor_icing: float | None = None) -> list
+
+   Calculates the Coefficient of Performance (COP) of heat pumps and chillers
+   based on the Carnot efficiency (ideal process) and a scale-down factor.
+   This function is part of project oemof (github.com/oemof/oemof-thermal). It's copyrighted
+   by the contributors recorded in the version control history of the file,
+   available from its original location:
+   https://github.com/oemof/oemof-thermal/blob/17761c4d9c768d0f3aab023509a72aa27a6bf11c/src/oemof/thermal/compression_heatpumps_and_chillers.py
+
+   SPDX-License-Identifier: MIT
+
+   ``mode`` = "heat_pump":
+
+       :math:`COP = \eta\cdot\frac{T_\mathrm{high}}{T_\mathrm{high}-T_\mathrm{low}}`
+
+       :math:`COP = f_\mathrm{icing}\cdot\eta\cdot\frac{T_\mathrm{high}}{T_\mathrm{high}-T_\mathrm{low}}`
+
+   ``mode`` = "chiller":
+
+       :math:`COP = \eta\cdot\frac{T_\mathrm{low}}{T_\mathrm{high}-T_\mathrm{low}}`
+
+   .. note::
+
+      Applications of air-source heat pumps should consider icing
+      at the heat exchanger at air-temperatures around 2 [°C].
+      Icing causes a reduction of the efficiency.
+
+   :param temp_high: Temperature of the high temperature reservoir [°C]
+   :type temp_high: list or pandas.Series of numerical values
+   :param temp_low: Temperature of the low temperature reservoir [°C]
+   :type temp_low: list or pandas.Series of numerical values
+   :param quality_grade: Factor that scales down the efficiency of the real heat pump
+                         (or chiller) process from the ideal process (Carnot efficiency), where
+                         a factor of 1 means the real process is equal to the ideal one.
+   :type quality_grade: numerical value
+   :param factor_icing: Sets the relative COP drop caused by icing, where 1 stands for no
+                        efficiency-drop.
+   :type factor_icing: numerical value
+   :param mode: Two possible modes: "heat_pump" or "chiller"
+   :type mode: Literal["heat_pump", "chiller"]
+   :param t_threshold: Temperature [°C] below which icing at heat exchanger
+                       occurs (default 2)
+
+   :returns: **cops** -- List of Coefficients of Performance (COPs)
+   :rtype: list of numerical values
+
+

@@ -1,0 +1,50 @@
+wattadvisor.data_models.optimization_results_scenarios
+======================================================
+
+.. py:module:: wattadvisor.data_models.optimization_results_scenarios
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarioObject
+   wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios
+
+
+Module Contents
+---------------
+
+.. py:class:: OptimizationResultsScenarioObject
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: components
+      :type:  list[Union[wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPower, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectPurchaseFeedin, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectArea, wattadvisor.data_models.optimization_results_component_object.OptimizationResultsComponentObjectStorage]]
+
+
+   .. py:attribute:: kpis
+      :type:  wattadvisor.data_models.optimization_results_scenario_kpis.OptimizationResultsScenarioKpis
+
+
+.. py:class:: OptimizationResultsScenarios
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: target_scenario
+      :type:  wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioObject
+
+
+   .. py:attribute:: current_scenario
+      :type:  Optional[wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioObject]
+
+

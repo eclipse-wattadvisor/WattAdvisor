@@ -1,0 +1,112 @@
+wattadvisor.optimization_model.components.gas_boiler
+====================================================
+
+.. py:module:: wattadvisor.optimization_model.components.gas_boiler
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.components.gas_boiler.Component
+   wattadvisor.optimization_model.components.gas_boiler.GasBoiler
+
+
+Module Contents
+---------------
+
+.. py:class:: Component(name: str, interest_rate: None | float = None, parameters: None | dict = None)
+
+   
+   Parent base class for all optimization energy components.
+   Contains empty methods which are overidden by child classes.
+
+   :param name: Name of the component
+   :type name: str
+   :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component, by default None
+   :type interest_rate: None | float, optional
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: None | dict, optional
+
+   :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
+
+
+   .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
+
+      Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by `model`.
+
+      :param model: Pyomo model to which the parameters, variables and constraints will be added.
+      :type model: Model
+      :param t: Time set over which time-variant parameters, variables and constraints will be added.
+      :type t: RangeSet
+
+      :returns: Pyomo model with the added parameters, variables and constraints
+      :rtype: Model
+
+
+
+.. py:class:: GasBoiler(name: str, interest_rate: float, parameters: dict, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None)
+
+   Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
+
+
+   
+   Component to turn an energy carrying medium like gas into thermal power.
+
+   :param name: Name of the component
+   :type name: str
+   :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component, by default None
+   :type interest_rate: float
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expeceted.
+                      At least one key at first level ("scalars" or "tabs") is required:
+
+                      .. code-block:: json
+
+                          {
+                              "scalars": {
+                                  "parameter_title": 0
+                              },
+                              "tabs": {
+                                  "tab_title": {
+                                      "key_1": 1,
+                                      "key_2": 2
+                                  }
+                              }
+                          }
+   :type parameters: dict
+   :param installed_power: Already installed thermal power of the component [kW] which acts as a lower bound
+   :type installed_power: float
+   :param potential_power: Maximum installable thermal power of the component [kW], by default None
+   :type potential_power: float | None, optional
+   :param capex: Capital expenditure cost of the component per thermal power [€/kW], by default None
+   :type capex: float | None, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default None
+   :type opex: float | None, optional
+   :param lifespan: Expected lifespan of the component [a], by default None
+   :type lifespan: float | None, optional
+
+

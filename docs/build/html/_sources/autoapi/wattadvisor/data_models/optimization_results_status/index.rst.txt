@@ -1,0 +1,72 @@
+wattadvisor.data_models.optimization_results_status
+===================================================
+
+.. py:module:: wattadvisor.data_models.optimization_results_status
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.optimization_results_status.OptimizationStatus
+   wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus
+
+
+Module Contents
+---------------
+
+.. py:class:: OptimizationStatus(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Optimization status titles used by the optimization result response
+
+
+
+
+   .. py:attribute:: NEW
+      :value: 'NEW'
+
+
+
+   .. py:attribute:: PROCESSING
+      :value: 'PROCESSING'
+
+
+
+   .. py:attribute:: SUCCESS
+      :value: 'SUCCESS'
+
+
+
+   .. py:attribute:: UNBOUNDED
+      :value: 'UNBOUNDED'
+
+
+
+   .. py:attribute:: ERROR
+      :value: 'ERROR'
+
+
+
+.. py:class:: OptimizationResultsStatus
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: status
+      :type:  wattadvisor.data_models.enums.OptimizationStatus
+
+
+   .. py:attribute:: error_message
+      :type:  Optional[str]
+
+
