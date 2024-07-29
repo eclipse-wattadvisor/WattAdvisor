@@ -28,8 +28,8 @@ def _get_config(base_path: str = "wattadvisor/optimization_model") -> ConfigMode
     config = config_loader.load_config(Path().absolute().joinpath(base_path))
     return config
 
-def _run(config: ConfigModel, inputdata: InputModel, export: bool = False) -> OptimizationResultsModel:
-    """Starts an optimization.
+def run(config: ConfigModel, inputdata: InputModel, export: bool = False) -> OptimizationResultsModel:
+    """Starts an optimization by using static input data from memory.
 
     Parameters
     ----------
@@ -46,30 +46,11 @@ def _run(config: ConfigModel, inputdata: InputModel, export: bool = False) -> Op
         pydantic object representing optimization results
     """
     
+    config = _get_config()
+
     optimization = opt_model.OptModel(inputdata, config)
 
     #Start the optimization 
     results = optimization.run_calculation(export=export)
-
-    return results
-
-def run_direct(inputdata: InputModel, export: bool = False) -> OptimizationResultsModel:
-    """Starts the optimization by using static input data from memory. 
-
-    Parameters
-    ----------
-    inputdata : InputModel
-        input data to build the optimization model
-    export : bool, optional
-        whether to export detailed result time series to separate excel file, by default False
-
-    Returns
-    -------
-    OptimizationResultsModel
-        pydantic object representing optimization results
-    """
-    
-    config = _get_config()
-    results = _run(config, inputdata, export=export)
 
     return results
