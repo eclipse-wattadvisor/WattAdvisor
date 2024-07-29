@@ -22,6 +22,6 @@ Submodules
 
    /autoapi/wattadvisor/optimization_model/model_composition/index
    /autoapi/wattadvisor/optimization_model/opt_model/index
-   /autoapi/wattadvisor/optimization_model/process_runner/index
+   /autoapi/wattadvisor/optimization_model/run_optimization/index
 
 
