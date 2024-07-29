@@ -7,8 +7,8 @@ from pathlib import Path
 
 from ..data_models.input_model import InputModel
 from ..data_models.optimization_results_model import OptimizationResultsModel
-from ..optimization_model import opt_model
-from ..optimization_model.utils import config_loader
+from . import opt_model
+from .utils import config_loader
 from ..data_models.config_model import ConfigModel
 
 

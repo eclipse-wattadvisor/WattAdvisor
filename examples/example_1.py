@@ -11,7 +11,7 @@ from pprint import pprint
 import sys
 from pathlib import Path
 
-from wattadvisor.optimization_model import process_runner
+from wattadvisor.optimization_model import run_optimization
 from wattadvisor.data_models.input_model import InputModel
 from wattadvisor.data_models.input_model_location import InputModelLocation
 from wattadvisor.data_models.input_model_demand_object import InputModelDemandObject
@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
 
     # use 'export=True' to create an Excel file of detailed results and time series to inspect
-    results = process_runner.run_direct(new_input, export=True)
+    results = run_optimization.run_direct(new_input, export=True)
 
     pprint(results.dict())
 
