@@ -9,8 +9,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 
 from pprint import pprint
 import sys
-
-sys.path.append("../wattadvisor")
+from pathlib import Path
 
 from wattadvisor.optimization_model import process_runner
 from wattadvisor.data_models.input_model import InputModel
@@ -41,7 +40,7 @@ if __name__ == "__main__":
     energy_components = [
         InputModelComponentPower(
             component_type=PowerUnitComponent.PHOTOVOLTAIK_ROOF,
-            installed_power=10,
+            installed_power=0,
             potential_power=20
         )
     ]

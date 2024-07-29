@@ -23,6 +23,9 @@ dynamic = ["dependencies", "optional-dependencies"]
 dependencies = {file = ["requirements.txt"]}
 optional-dependencies = {dev = { file = ["requirements-dev.txt"] }}
 
+[tool.setuptools]
+packages = ["wattadvisor"]
+
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"

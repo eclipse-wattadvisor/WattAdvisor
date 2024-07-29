@@ -7,3 +7,5 @@ api-wattadvisor.yaml
 __pycache__
 /wattadvisor/optimization_model/cbc.exe
 /wattadvisor/optimization_model/data/weather.nc
+/venv
+/WattAdvisor.egg-info
