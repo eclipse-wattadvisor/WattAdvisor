@@ -102,16 +102,6 @@
 <span id="wattadvisor-optimization-model-utils-weather-data"></span><h1>wattadvisor.optimization_model.utils.weather_data<a class="headerlink" href="#module-wattadvisor.optimization_model.utils.weather_data" title="Link to this heading"></a></h1>
 <p>Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
 Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.utils.weather_data.WeatherDataLib" title="wattadvisor.optimization_model.utils.weather_data.WeatherDataLib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeatherDataLib</span></code></a></p></td>
-<td><p>Supported libraries for weather data acquiring</p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
@@ -124,28 +114,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.weather_data.WeatherDataLib">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.utils.weather_data.</span></span><span class="sig-name descname"><span class="pre">WeatherDataLib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.optimization_model.utils.weather_data.WeatherDataLib" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Supported libraries for weather data acquiring</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.weather_data.WeatherDataLib.PVLIB">
-<span class="sig-name descname"><span class="pre">PVLIB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pvlib'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.weather_data.WeatherDataLib.PVLIB" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.weather_data.WeatherDataLib.TEMPERATURE">
-<span class="sig-name descname"><span class="pre">TEMPERATURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'temperature'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.weather_data.WeatherDataLib.TEMPERATURE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.weather_data.WeatherDataLib.WINDPOWERLIB">
-<span class="sig-name descname"><span class="pre">WINDPOWERLIB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'windpowerlib'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.weather_data.WeatherDataLib.WINDPOWERLIB" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.weather_data.get_weather_data_from_file">
 <span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.utils.weather_data.</span></span><span class="sig-name descname"><span class="pre">get_weather_data_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../data_models/enums/index.html#wattadvisor.data_models.enums.WeatherDataLib" title="wattadvisor.data_models.enums.WeatherDataLib"><span class="pre">wattadvisor.data_models.enums.WeatherDataLib</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#wattadvisor.optimization_model.utils.weather_data.get_weather_data_from_file" title="Link to this definition"></a></dt>
@@ -156,7 +124,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <li><p><strong>file_path</strong> (<em>Path</em>) – Path to the NETCDF file containing raw weather data from ERA5 Climate Data Store</p></li>
 <li><p><strong>longitude</strong> (<em>float</em>) – longitude of the location to obtain weather data for</p></li>
 <li><p><strong>latitude</strong> (<em>float</em>) – latitude of the location to obtain weather data for</p></li>
-<li><p><strong>lib</strong> (<a class="reference internal" href="#wattadvisor.optimization_model.utils.weather_data.WeatherDataLib" title="wattadvisor.optimization_model.utils.weather_data.WeatherDataLib"><em>WeatherDataLib</em></a>) – Library to obtain weather data for</p></li>
+<li><p><strong>lib</strong> (<a class="reference internal" href="../../../data_models/enums/index.html#wattadvisor.data_models.enums.WeatherDataLib" title="wattadvisor.data_models.enums.WeatherDataLib"><em>WeatherDataLib</em></a>) – Library to obtain weather data for</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>

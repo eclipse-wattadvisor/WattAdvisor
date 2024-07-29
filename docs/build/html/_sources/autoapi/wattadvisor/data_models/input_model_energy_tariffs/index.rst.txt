@@ -15,105 +15,11 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.data_models.input_model_energy_tariffs.InputModelSingleTariffObject
-   wattadvisor.data_models.input_model_energy_tariffs.InputModelSingleTariffEnergyObject
-   wattadvisor.data_models.input_model_energy_tariffs.EnergyPriceUnit
-   wattadvisor.data_models.input_model_energy_tariffs.Resolution
    wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs
 
 
 Module Contents
 ---------------
-
-.. py:class:: InputModelSingleTariffObject
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: energy
-      :type:  wattadvisor.data_models.input_model_single_tariff_energy_object.InputModelSingleTariffEnergyObject
-
-
-   .. py:attribute:: power
-      :type:  Optional[float]
-
-
-.. py:class:: InputModelSingleTariffEnergyObject
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: price_values
-      :type:  List[float]
-
-
-   .. py:attribute:: resolution
-      :type:  wattadvisor.data_models.enums.Resolution
-
-
-   .. py:attribute:: unit
-      :type:  wattadvisor.data_models.enums.EnergyPriceUnit
-
-
-.. py:class:: EnergyPriceUnit(*args, **kwds)
-
-   Bases: :py:obj:`enum.Enum`
-
-
-   Accepted energy price units
-
-
-
-
-   .. py:attribute:: EUR_PER_KWH
-      :value: 'EUR_PER_KWH'
-
-
-
-.. py:class:: Resolution(*args, **kwds)
-
-   Bases: :py:obj:`enum.Enum`
-
-
-   Time series resolution as defined by pandas
-
-
-
-
-   .. py:attribute:: R1Y
-      :value: '1Y'
-
-
-
-   .. py:attribute:: R1M
-      :value: '1M'
-
-
-
-   .. py:attribute:: R1W
-      :value: '1W'
-
-
-
-   .. py:attribute:: R1D
-      :value: '1D'
-
-
-
-   .. py:attribute:: R1H
-      :value: '1H'
-
-
-
-   .. py:attribute:: R15T
-      :value: '15T'
-
-
-
-   .. py:attribute:: R1T
-      :value: '1T'
-
-
 
 .. py:class:: InputModelEnergyTariffs
 

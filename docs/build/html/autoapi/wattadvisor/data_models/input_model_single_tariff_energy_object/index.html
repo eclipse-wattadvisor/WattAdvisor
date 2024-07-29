@@ -105,12 +105,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.EnergyPriceUnit" title="wattadvisor.data_models.input_model_single_tariff_energy_object.EnergyPriceUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnergyPriceUnit</span></code></a></p></td>
-<td><p>Accepted energy price units</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution" title="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Resolution</span></code></a></p></td>
-<td><p>Time series resolution as defined by pandas</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.InputModelSingleTariffEnergyObject" title="wattadvisor.data_models.input_model_single_tariff_energy_object.InputModelSingleTariffEnergyObject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputModelSingleTariffEnergyObject</span></code></a></p></td>
 <td><p></p></td>
 </tr>
@@ -119,60 +113,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.EnergyPriceUnit">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.input_model_single_tariff_energy_object.</span></span><span class="sig-name descname"><span class="pre">EnergyPriceUnit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.EnergyPriceUnit" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Accepted energy price units</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.EnergyPriceUnit.EUR_PER_KWH">
-<span class="sig-name descname"><span class="pre">EUR_PER_KWH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'EUR_PER_KWH'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.EnergyPriceUnit.EUR_PER_KWH" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.input_model_single_tariff_energy_object.</span></span><span class="sig-name descname"><span class="pre">Resolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Time series resolution as defined by pandas</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1Y">
-<span class="sig-name descname"><span class="pre">R1Y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1Y'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1Y" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1M">
-<span class="sig-name descname"><span class="pre">R1M</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1M'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1M" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1W">
-<span class="sig-name descname"><span class="pre">R1W</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1W'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1W" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1D">
-<span class="sig-name descname"><span class="pre">R1D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1D'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1D" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1H">
-<span class="sig-name descname"><span class="pre">R1H</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1H'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1H" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R15T">
-<span class="sig-name descname"><span class="pre">R15T</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'15T'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R15T" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1T">
-<span class="sig-name descname"><span class="pre">R1T</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1T'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.Resolution.R1T" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.data_models.input_model_single_tariff_energy_object.InputModelSingleTariffEnergyObject">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.input_model_single_tariff_energy_object.</span></span><span class="sig-name descname"><span class="pre">InputModelSingleTariffEnergyObject</span></span><a class="headerlink" href="#wattadvisor.data_models.input_model_single_tariff_energy_object.InputModelSingleTariffEnergyObject" title="Link to this definition"></a></dt>

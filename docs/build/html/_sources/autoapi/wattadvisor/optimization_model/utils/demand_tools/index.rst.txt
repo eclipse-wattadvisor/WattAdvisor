@@ -11,14 +11,6 @@ wattadvisor.optimization_model.utils.demand_tools
 
 
 
-Classes
--------
-
-.. autoapisummary::
-
-   wattadvisor.optimization_model.utils.demand_tools.Resolution
-
-
 Functions
 ---------
 
@@ -30,51 +22,6 @@ Functions
 
 Module Contents
 ---------------
-
-.. py:class:: Resolution(*args, **kwds)
-
-   Bases: :py:obj:`enum.Enum`
-
-
-   Time series resolution as defined by pandas
-
-
-
-
-   .. py:attribute:: R1Y
-      :value: '1Y'
-
-
-
-   .. py:attribute:: R1M
-      :value: '1M'
-
-
-
-   .. py:attribute:: R1W
-      :value: '1W'
-
-
-
-   .. py:attribute:: R1D
-      :value: '1D'
-
-
-
-   .. py:attribute:: R1H
-      :value: '1H'
-
-
-
-   .. py:attribute:: R15T
-      :value: '15T'
-
-
-
-   .. py:attribute:: R1T
-      :value: '1T'
-
-
 
 .. py:function:: generate_electrical_demand_profile(demand_amount: float, demand_group: Literal['G0', 'G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'L0', 'L1', 'L2', 'H0', 'H0_dyn', 'H0/H0_dyn'], year: int, target_resolution: wattadvisor.data_models.enums.Resolution = Resolution.R1H) -> pandas.Series
 

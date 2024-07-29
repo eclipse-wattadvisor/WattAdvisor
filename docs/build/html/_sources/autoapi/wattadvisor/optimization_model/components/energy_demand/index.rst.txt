@@ -15,105 +15,11 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.optimization_model.components.energy_demand.Component
    wattadvisor.optimization_model.components.energy_demand.EnergyDemand
-
-
-Functions
----------
-
-.. autoapisummary::
-
-   wattadvisor.optimization_model.components.energy_demand.generate_electrical_demand_profile
-   wattadvisor.optimization_model.components.energy_demand.generate_heat_demand_profile
 
 
 Module Contents
 ---------------
-
-.. py:class:: Component(name: str, interest_rate: None | float = None, parameters: None | dict = None)
-
-   
-   Parent base class for all optimization energy components.
-   Contains empty methods which are overidden by child classes.
-
-   :param name: Name of the component
-   :type name: str
-   :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component, by default None
-   :type interest_rate: None | float, optional
-   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
-                      A dict of the following structure is expeceted.
-                      At least one key at first level ("scalars" or "tabs") is required:
-
-                      .. code-block:: json
-
-                          {
-                              "scalars": {
-                                  "parameter_title": 0
-                              },
-                              "tabs": {
-                                  "tab_title": {
-                                      "key_1": 1,
-                                      "key_2": 2
-                                  }
-                              }
-                          }
-   :type parameters: None | dict, optional
-
-   :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
-
-
-   .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
-
-      Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by `model`.
-
-      :param model: Pyomo model to which the parameters, variables and constraints will be added.
-      :type model: Model
-      :param t: Time set over which time-variant parameters, variables and constraints will be added.
-      :type t: RangeSet
-
-      :returns: Pyomo model with the added parameters, variables and constraints
-      :rtype: Model
-
-
-
-.. py:function:: generate_electrical_demand_profile(demand_amount: float, demand_group: Literal['G0', 'G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'L0', 'L1', 'L2', 'H0', 'H0_dyn', 'H0/H0_dyn'], year: int, target_resolution: wattadvisor.data_models.enums.Resolution = Resolution.R1H) -> pandas.Series
-
-   Generates an hourly electrical energy demand profile based on a yearly electrical energy demand sum.
-
-   :param demand_amount: Sum of the yearly electrical energy demand
-   :type demand_amount: float
-   :param demand_group: Demand group to generate the profile for. See [demandlib documention](https://demandlib.readthedocs.io/en/latest/bdew.html#id3) for an explanation of all possible values.
-   :type demand_group: Literal["G0", "G1", "G2", "G3", "G4", "G5", "G6", "G7", "L0", "L1", "L2", "H0", "H0_dyn", "H0/H0_dyn"]
-   :param year: Year to generate the profile for
-   :type year: int
-   :param target_resolution: Time step resolution of the profile to be generated, by default Resolution.R1H
-   :type target_resolution: Resolution, optional
-
-   :returns: Hourly electrical energy demand profile
-   :rtype: pd.Series
-
-
-.. py:function:: generate_heat_demand_profile(demand_amount: float, demand_group: Literal['EFH', 'MFH', 'GMK', 'GHA', 'GKO', 'GBD', 'GGA', 'GBH', 'GWA', 'GGB', 'GBA', 'GPD', 'GMF', 'GHD'], year: int, temperature_series: pandas.Series, building_class: int = 0, wind_class: int = 0) -> pandas.Series
-
-   Generates an hourly heat demand profile based on a yearly heat demand sum.
-
-   :param demand_amount: Sum of the yearly heat demand
-   :type demand_amount: float
-   :param demand_group: Demand group to generate the profile for. See [demandlib documention](https://demandlib.readthedocs.io/en/latest/bdew.html#description) for an explanation of all possible values.
-   :type demand_group: Literal["EFH", "MFH", "GMK", "GHA", "GKO", "GBD", "GGA", "GBH", "GWA", "GGB", "GBA", "GPD", "GMF", "GHD"]
-   :param year: Year to generate the profile for
-   :type year: int
-   :param temperature_series: Base air temperature series [°C] for the location
-   :type temperature_series: pd.Series
-   :param building_class: The parameter building_class (German: Baualtersklasse) can assume values in the range 1-11, by default 0
-   :type building_class: int, optional
-   :param wind_class: Influence of wind, by default 0
-   :type wind_class: int, optional
-
-   :returns: hourly heat demand profile
-   :rtype: pd.Series
-
 
 .. py:class:: EnergyDemand(name: str, energy_type: wattadvisor.data_models.enums.EnergyType, demand_profile: pandas.Series | None = None, demand_sum: float | None = None, profile_type: str | None = None, weather_temp_air_data: pandas.Series | None = None)
 
@@ -141,5 +47,20 @@ Module Contents
 
    :raises ValueError: If no ``demand_profile`` and no `demand_sum` or no `profile_type` given
    :raises ValueError: If no ``demand_profile`` and no `weather_temp_air_data` given and `energy_type` is `THERMAL` or `NATURAL_GAS`
+
+
+   .. py:attribute:: energy_type
+
+
+   .. py:attribute:: demand_profile
+
+
+   .. py:attribute:: demand_sum
+
+
+   .. py:attribute:: profile_type
+
+
+   .. py:attribute:: weather_temp_air_data
 
 

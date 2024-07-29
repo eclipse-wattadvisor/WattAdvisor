@@ -15,47 +15,11 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.data_models.optimization_results_status.OptimizationStatus
    wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus
 
 
 Module Contents
 ---------------
-
-.. py:class:: OptimizationStatus(*args, **kwds)
-
-   Bases: :py:obj:`enum.Enum`
-
-
-   Optimization status titles used by the optimization result response
-
-
-
-
-   .. py:attribute:: NEW
-      :value: 'NEW'
-
-
-
-   .. py:attribute:: PROCESSING
-      :value: 'PROCESSING'
-
-
-
-   .. py:attribute:: SUCCESS
-      :value: 'SUCCESS'
-
-
-
-   .. py:attribute:: UNBOUNDED
-      :value: 'UNBOUNDED'
-
-
-
-   .. py:attribute:: ERROR
-      :value: 'ERROR'
-
-
 
 .. py:class:: OptimizationResultsStatus
 

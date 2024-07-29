@@ -63,6 +63,25 @@ Module Contents
    :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
 
 
+   .. py:attribute:: name
+
+
+   .. py:attribute:: interest_rate
+
+
+   .. py:attribute:: annuity_factor
+      :value: None
+
+
+
+   .. py:attribute:: lifespan
+      :value: None
+
+
+
+   .. py:attribute:: bilance_variables
+
+
    .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
 
       Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by `model`.

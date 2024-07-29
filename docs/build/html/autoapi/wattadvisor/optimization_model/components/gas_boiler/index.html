@@ -106,10 +106,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.gas_boiler.Component" title="wattadvisor.optimization_model.components.gas_boiler.Component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Component</span></code></a></p></td>
-<td><p>Parent base class for all optimization energy components.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.gas_boiler.GasBoiler" title="wattadvisor.optimization_model.components.gas_boiler.GasBoiler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GasBoiler</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.gas_boiler.GasBoiler" title="wattadvisor.optimization_model.components.gas_boiler.GasBoiler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GasBoiler</span></code></a></p></td>
 <td><p>Component to turn an energy carrying medium like gas into thermal power.</p></td>
 </tr>
 </tbody>
@@ -117,61 +114,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.gas_boiler.Component">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.components.gas_boiler.</span></span><span class="sig-name descname"><span class="pre">Component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interest_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.optimization_model.components.gas_boiler.Component" title="Link to this definition"></a></dt>
-<dd><p>Parent base class for all optimization energy components.
-Contains empty methods which are overidden by child classes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – Name of the component</p></li>
-<li><p><strong>interest_rate</strong> (<em>None</em><em> | </em><em>float</em><em>, </em><em>optional</em>) – Interest rate to determine annuity factor for investment calculation of the component, by default None</p></li>
-<li><p><strong>parameters</strong> (<em>None</em><em> | </em><em>dict</em><em>, </em><em>optional</em>) – <p>Dictionary of techno-economic parameters of the component, by default None.
-A dict of the following structure is expeceted.
-At least one key at first level (“scalars” or “tabs”) is required:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;scalars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;parameter_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;tabs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;tab_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;key_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;key_2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If values of <code class="docutils literal notranslate"><span class="pre">interest_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">lifespan</span></code> (from <code class="docutils literal notranslate"><span class="pre">parameters</span></code>) are <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.gas_boiler.Component.add_to_model">
-<span class="sig-name descname"><span class="pre">add_to_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pyomo.core.Model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pyomo.core.RangeSet</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pyomo.core.Model</span></span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.gas_boiler.Component.add_to_model" title="Link to this definition"></a></dt>
-<dd><p>Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by <cite>model</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>Model</em>) – Pyomo model to which the parameters, variables and constraints will be added.</p></li>
-<li><p><strong>t</strong> (<em>RangeSet</em>) – Time set over which time-variant parameters, variables and constraints will be added.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pyomo model with the added parameters, variables and constraints</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Model</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.optimization_model.components.gas_boiler.GasBoiler">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.components.gas_boiler.</span></span><span class="sig-name descname"><span class="pre">GasBoiler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interest_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">installed_power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential_power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifespan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.optimization_model.components.gas_boiler.GasBoiler" title="Link to this definition"></a></dt>
@@ -207,6 +149,16 @@ At least one key at first level (“scalars” or “tabs”) is required:</p>
 </ul>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.gas_boiler.GasBoiler.installed_power">
+<span class="sig-name descname"><span class="pre">installed_power</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.gas_boiler.GasBoiler.installed_power" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.gas_boiler.GasBoiler.potential_power">
+<span class="sig-name descname"><span class="pre">potential_power</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.gas_boiler.GasBoiler.potential_power" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>

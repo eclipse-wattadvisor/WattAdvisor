@@ -18,7 +18,6 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.data_models.config_model.SupportedSolver
    wattadvisor.data_models.config_model.ConfigModelDataDependencies
    wattadvisor.data_models.config_model.ConfigModelLogging
    wattadvisor.data_models.config_model.ConfigModel
@@ -26,26 +25,6 @@ Classes
 
 Module Contents
 ---------------
-
-.. py:class:: SupportedSolver(*args, **kwds)
-
-   Bases: :py:obj:`enum.Enum`
-
-
-   Supported optimization solvers to be selected in the optimization model config
-
-
-
-
-   .. py:attribute:: CBC
-      :value: 'CBC'
-
-
-
-   .. py:attribute:: HIGHS
-      :value: 'HIGHS'
-
-
 
 .. py:class:: ConfigModelDataDependencies
 

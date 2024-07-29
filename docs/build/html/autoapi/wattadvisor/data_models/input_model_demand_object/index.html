@@ -105,16 +105,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.input_model_demand_object.EnergyType" title="wattadvisor.data_models.input_model_demand_object.EnergyType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnergyType</span></code></a></p></td>
-<td><p>Energy types usable by the optimization model</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.input_model_demand_object.Resolution" title="wattadvisor.data_models.input_model_demand_object.Resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Resolution</span></code></a></p></td>
-<td><p>Time series resolution as defined by pandas</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.input_model_demand_object.EnergyUnit" title="wattadvisor.data_models.input_model_demand_object.EnergyUnit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnergyUnit</span></code></a></p></td>
-<td><p>Accepted energy units</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.input_model_demand_object.InputModelDemandObject" title="wattadvisor.data_models.input_model_demand_object.InputModelDemandObject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputModelDemandObject</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.input_model_demand_object.InputModelDemandObject" title="wattadvisor.data_models.input_model_demand_object.InputModelDemandObject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputModelDemandObject</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -123,106 +114,12 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyType">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.input_model_demand_object.</span></span><span class="sig-name descname"><span class="pre">EnergyType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyType" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Energy types usable by the optimization model</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyType.ELECTRICAL">
-<span class="sig-name descname"><span class="pre">ELECTRICAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ELECTRICAL'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyType.ELECTRICAL" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyType.THERMAL">
-<span class="sig-name descname"><span class="pre">THERMAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'THERMAL'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyType.THERMAL" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyType.NATURAL_GAS">
-<span class="sig-name descname"><span class="pre">NATURAL_GAS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NATURAL_GAS'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyType.NATURAL_GAS" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyType.get_demand_component_title">
-<span class="sig-name descname"><span class="pre">get_demand_component_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyType.get_demand_component_title" title="Link to this definition"></a></dt>
-<dd><p>Returns the title of the energy type demand used in the input request.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyType.get_external_purchase_type">
-<span class="sig-name descname"><span class="pre">get_external_purchase_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyType.get_external_purchase_type" title="Link to this definition"></a></dt>
-<dd><p>Returns the purchase type of the energy type from the <cite>PurchaseComponent</cite> enum used in the input request.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyType.get_external_feedin_type">
-<span class="sig-name descname"><span class="pre">get_external_feedin_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyType.get_external_feedin_type" title="Link to this definition"></a></dt>
-<dd><p>Returns the feedin type of the energy type from the <cite>FeedinComponent</cite> enum used in the input request.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.Resolution">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.input_model_demand_object.</span></span><span class="sig-name descname"><span class="pre">Resolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.Resolution" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Time series resolution as defined by pandas</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.Resolution.R1Y">
-<span class="sig-name descname"><span class="pre">R1Y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1Y'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.Resolution.R1Y" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.Resolution.R1M">
-<span class="sig-name descname"><span class="pre">R1M</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1M'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.Resolution.R1M" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.Resolution.R1W">
-<span class="sig-name descname"><span class="pre">R1W</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1W'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.Resolution.R1W" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.Resolution.R1D">
-<span class="sig-name descname"><span class="pre">R1D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1D'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.Resolution.R1D" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.Resolution.R1H">
-<span class="sig-name descname"><span class="pre">R1H</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1H'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.Resolution.R1H" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.Resolution.R15T">
-<span class="sig-name descname"><span class="pre">R15T</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'15T'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.Resolution.R15T" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.Resolution.R1T">
-<span class="sig-name descname"><span class="pre">R1T</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1T'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.Resolution.R1T" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyUnit">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.input_model_demand_object.</span></span><span class="sig-name descname"><span class="pre">EnergyUnit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyUnit" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Accepted energy units</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.EnergyUnit.KWH">
-<span class="sig-name descname"><span class="pre">KWH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'KWH'</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.EnergyUnit.KWH" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.InputModelDemandObject">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.input_model_demand_object.</span></span><span class="sig-name descname"><span class="pre">InputModelDemandObject</span></span><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.InputModelDemandObject" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.data_models.input_model_demand_object.InputModelDemandObject.demand_values">
-<span class="sig-name descname"><span class="pre">demand_values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list[confloat(ge=0)]</span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.InputModelDemandObject.demand_values" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">demand_values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">confloat</span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">ge</span></span><span class="o"><span class="pre">=</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#wattadvisor.data_models.input_model_demand_object.InputModelDemandObject.demand_values" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">

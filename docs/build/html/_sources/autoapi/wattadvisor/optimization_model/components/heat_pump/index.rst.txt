@@ -15,115 +15,13 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.optimization_model.components.heat_pump.Component
    wattadvisor.optimization_model.components.heat_pump.HeatPump
    wattadvisor.optimization_model.components.heat_pump.HeatPumpAir
    wattadvisor.optimization_model.components.heat_pump.HeatPumpGround
 
 
-Functions
----------
-
-.. autoapisummary::
-
-   wattadvisor.optimization_model.components.heat_pump.calc_cops
-
-
 Module Contents
 ---------------
-
-.. py:class:: Component(name: str, interest_rate: None | float = None, parameters: None | dict = None)
-
-   
-   Parent base class for all optimization energy components.
-   Contains empty methods which are overidden by child classes.
-
-   :param name: Name of the component
-   :type name: str
-   :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component, by default None
-   :type interest_rate: None | float, optional
-   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
-                      A dict of the following structure is expeceted.
-                      At least one key at first level ("scalars" or "tabs") is required:
-
-                      .. code-block:: json
-
-                          {
-                              "scalars": {
-                                  "parameter_title": 0
-                              },
-                              "tabs": {
-                                  "tab_title": {
-                                      "key_1": 1,
-                                      "key_2": 2
-                                  }
-                              }
-                          }
-   :type parameters: None | dict, optional
-
-   :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
-
-
-   .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
-
-      Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by `model`.
-
-      :param model: Pyomo model to which the parameters, variables and constraints will be added.
-      :type model: Model
-      :param t: Time set over which time-variant parameters, variables and constraints will be added.
-      :type t: RangeSet
-
-      :returns: Pyomo model with the added parameters, variables and constraints
-      :rtype: Model
-
-
-
-.. py:function:: calc_cops(mode: Literal['heat_pump', 'chiller'], temp_high: list | pandas.Series, temp_low: list | pandas.Series, quality_grade: float, temp_threshold_icing: float = 2, factor_icing: float | None = None) -> list
-
-   Calculates the Coefficient of Performance (COP) of heat pumps and chillers
-   based on the Carnot efficiency (ideal process) and a scale-down factor.
-   This function is part of project oemof (github.com/oemof/oemof-thermal). It's copyrighted
-   by the contributors recorded in the version control history of the file,
-   available from its original location:
-   https://github.com/oemof/oemof-thermal/blob/17761c4d9c768d0f3aab023509a72aa27a6bf11c/src/oemof/thermal/compression_heatpumps_and_chillers.py
-
-   SPDX-License-Identifier: MIT
-
-   ``mode`` = "heat_pump":
-
-       :math:`COP = \eta\cdot\frac{T_\mathrm{high}}{T_\mathrm{high}-T_\mathrm{low}}`
-
-       :math:`COP = f_\mathrm{icing}\cdot\eta\cdot\frac{T_\mathrm{high}}{T_\mathrm{high}-T_\mathrm{low}}`
-
-   ``mode`` = "chiller":
-
-       :math:`COP = \eta\cdot\frac{T_\mathrm{low}}{T_\mathrm{high}-T_\mathrm{low}}`
-
-   .. note::
-
-      Applications of air-source heat pumps should consider icing
-      at the heat exchanger at air-temperatures around 2 [°C].
-      Icing causes a reduction of the efficiency.
-
-   :param temp_high: Temperature of the high temperature reservoir [°C]
-   :type temp_high: list or pandas.Series of numerical values
-   :param temp_low: Temperature of the low temperature reservoir [°C]
-   :type temp_low: list or pandas.Series of numerical values
-   :param quality_grade: Factor that scales down the efficiency of the real heat pump
-                         (or chiller) process from the ideal process (Carnot efficiency), where
-                         a factor of 1 means the real process is equal to the ideal one.
-   :type quality_grade: numerical value
-   :param factor_icing: Sets the relative COP drop caused by icing, where 1 stands for no
-                        efficiency-drop.
-   :type factor_icing: numerical value
-   :param mode: Two possible modes: "heat_pump" or "chiller"
-   :type mode: Literal["heat_pump", "chiller"]
-   :param t_threshold: Temperature [°C] below which icing at heat exchanger
-                       occurs (default 2)
-
-   :returns: **cops** -- List of Coefficients of Performance (COPs)
-   :rtype: list of numerical values
-
 
 .. py:class:: HeatPump(name: str, interest_rate: float, parameters: dict, weather_temp_data: pandas.Series, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None)
 
@@ -167,6 +65,15 @@ Module Contents
    :type opex: float | None, optional
    :param lifespan: Expected lifespan of the component [a], by default None
    :type lifespan: float | None, optional
+
+
+   .. py:attribute:: weather_temp_data
+
+
+   .. py:attribute:: installed_power
+
+
+   .. py:attribute:: potential_power
 
 
 .. py:class:: HeatPumpAir(name: str, interest_rate: float, parameters: dict, weather_temp_data: pandas.Series, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None)

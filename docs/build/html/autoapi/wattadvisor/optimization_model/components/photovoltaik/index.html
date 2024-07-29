@@ -106,129 +106,20 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.photovoltaik.Component" title="wattadvisor.optimization_model.components.photovoltaik.Component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Component</span></code></a></p></td>
-<td><p>Parent base class for all optimization energy components.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik" title="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Photovoltaik</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik" title="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Photovoltaik</span></code></a></p></td>
 <td><p>Component to generate electrical energy from solar energy.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.photovoltaik.PhotovoltaikRoof" title="wattadvisor.optimization_model.components.photovoltaik.PhotovoltaikRoof"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PhotovoltaikRoof</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.photovoltaik.PhotovoltaikRoof" title="wattadvisor.optimization_model.components.photovoltaik.PhotovoltaikRoof"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PhotovoltaikRoof</span></code></a></p></td>
 <td><p>Component to generate electrical energy from solar energy.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.photovoltaik.PhotovoltaikFreeField" title="wattadvisor.optimization_model.components.photovoltaik.PhotovoltaikFreeField"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PhotovoltaikFreeField</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.photovoltaik.PhotovoltaikFreeField" title="wattadvisor.optimization_model.components.photovoltaik.PhotovoltaikFreeField"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PhotovoltaikFreeField</span></code></a></p></td>
 <td><p>Component to generate electrical energy from solar energy.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.components.photovoltaik.pv_normed_feedin_from_era5" title="wattadvisor.optimization_model.components.photovoltaik.pv_normed_feedin_from_era5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv_normed_feedin_from_era5</span></code></a>(→ pandas.Series)</p></td>
-<td><p>Calculates photovoltaic power plant generation profile for a certain location and time range by</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.pv_normed_feedin_from_era5">
-<span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.components.photovoltaik.</span></span><span class="sig-name descname"><span class="pre">pv_normed_feedin_from_era5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tilt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'urban'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'grass'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fresh</span> <span class="pre">grass'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'soil'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sand'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'snow'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fresh</span> <span class="pre">snow'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'asphalt'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'concrete'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'aluminum'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'copper'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fresh</span> <span class="pre">steel'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'dirty</span> <span class="pre">steel'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sea'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cds_api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_era5_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvlib_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_export_csv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.Series</span></span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.pv_normed_feedin_from_era5" title="Link to this definition"></a></dt>
-<dd><p>Calculates photovoltaic power plant generation profile for a certain location and time range by
-using weather data from ERA5 Climate Data Store, either downloaded by this function or downloaded before</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>latitude</strong> (<em>float</em>) – latitude of the location point for which the wind power generation should be calculated</p></li>
-<li><p><strong>longitude</strong> (<em>float</em>) – longitude of the location point for which the wind power generation should be calculated</p></li>
-<li><p><strong>azimuth</strong> (<em>float</em>) – azimuth orientation [°] of the photovoltaic plant where the power will be generated
-* North=0
-* East=90
-* South=180
-* West=270</p></li>
-<li><p><strong>tilt</strong> (<em>float</em>) – tilt orientation [°] of the photovoltaic plant where the power will be generated
-* Up=0
-* horizon=90</p></li>
-<li><p><strong>surface_type</strong> (<em>Literal</em><em>[</em><em>&quot;urban&quot;</em><em>, </em><em>&quot;grass&quot;</em><em>, </em><em>&quot;fresh grass&quot;</em><em>, </em><em>&quot;soil&quot;</em><em>, </em><em>&quot;sand&quot;</em><em>, </em><em>&quot;snow&quot;</em><em>, </em><em>&quot;fresh snow&quot;</em><em>, </em><em>&quot;asphalt&quot;</em><em>, </em><em>&quot;concrete&quot;</em><em>, </em><em>&quot;aluminum&quot;</em><em>, </em><em>&quot;copper&quot;</em><em>, </em><em>&quot;fresh steel&quot;</em><em>, </em><em>&quot;dirty steel&quot;</em><em>, </em><em>&quot;sea&quot;</em><em>]</em>) – surface type of the surroundings of the photovoltaic plant where the power will be generated.</p></li>
-<li><p><strong>start_date</strong> (<em>datetime</em>) – datetime of the first time interval of the time range for which the photovoltaic power generation should be calculated</p></li>
-<li><p><strong>end_date</strong> (<em>datetime</em>) – datetime of the last time interval of the time range for which the photovoltaic power generation should be calculated</p></li>
-<li><p><strong>cds_api_key</strong> (<em>str</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – key to access the ERA5 Climate Data Store, more information [here](<a class="reference external" href="https://cds.climate.copernicus.eu/api-how-to">https://cds.climate.copernicus.eu/api-how-to</a>), by default None</p></li>
-<li><p><strong>path_era5_file</strong> (<em>str</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – path to a file with raw weather data from the climate data store, if already downloaded before, by default None</p></li>
-<li><p><strong>pvlib_df</strong> (<em>pd.DataFrame</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – DataFrame with already generated weather data for photovoltaic power generation from raw weather data from the climate data store, if already downloaded before, by default None</p></li>
-<li><p><strong>path_export_csv</strong> (<em>str</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – path to CSV file to write the resulted generation time series to, by default None</p></li>
-<li><p><strong>normalized</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether resulting power values should be normalized to installed power, by default True</p></li>
-<li><p><strong>elevation</strong> (<em>float</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – elevation of the location of the photovoltaic plant above sea level [m], by default None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>time series of power generation values for each hourly time interval in the range between <cite>start_date</cite> and <cite>end_date</cite></p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pd.Series</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – if <cite>pvlib_df</cite>, <cite>path_era5_file</cite> and key for climate date store <cite>cds_api_key</cite> are not provided</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Component">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.components.photovoltaik.</span></span><span class="sig-name descname"><span class="pre">Component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interest_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Component" title="Link to this definition"></a></dt>
-<dd><p>Parent base class for all optimization energy components.
-Contains empty methods which are overidden by child classes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – Name of the component</p></li>
-<li><p><strong>interest_rate</strong> (<em>None</em><em> | </em><em>float</em><em>, </em><em>optional</em>) – Interest rate to determine annuity factor for investment calculation of the component, by default None</p></li>
-<li><p><strong>parameters</strong> (<em>None</em><em> | </em><em>dict</em><em>, </em><em>optional</em>) – <p>Dictionary of techno-economic parameters of the component, by default None.
-A dict of the following structure is expeceted.
-At least one key at first level (“scalars” or “tabs”) is required:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;scalars&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;parameter_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;tabs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;tab_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;key_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;key_2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If values of <code class="docutils literal notranslate"><span class="pre">interest_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">lifespan</span></code> (from <code class="docutils literal notranslate"><span class="pre">parameters</span></code>) are <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Component.add_to_model">
-<span class="sig-name descname"><span class="pre">add_to_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pyomo.core.Model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pyomo.core.RangeSet</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pyomo.core.Model</span></span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Component.add_to_model" title="Link to this definition"></a></dt>
-<dd><p>Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by <cite>model</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>Model</em>) – Pyomo model to which the parameters, variables and constraints will be added.</p></li>
-<li><p><strong>t</strong> (<em>RangeSet</em>) – Time set over which time-variant parameters, variables and constraints will be added.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pyomo model with the added parameters, variables and constraints</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Model</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.components.photovoltaik.</span></span><span class="sig-name descname"><span class="pre">Photovoltaik</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interest_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weather_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">installed_power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential_power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifespan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">180</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tilt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik" title="Link to this definition"></a></dt>
@@ -293,6 +184,46 @@ At least one key at first level (“scalars” or “tabs”) is required:</p>
 <dt>elevation<span class="classifier">float, optional</span></dt><dd><p>elevation of the location of the photovoltaic plant above sea level [m], by default 0</p>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.installed_power">
+<span class="sig-name descname"><span class="pre">installed_power</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.installed_power" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.potential_power">
+<span class="sig-name descname"><span class="pre">potential_power</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.potential_power" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.weather_data">
+<span class="sig-name descname"><span class="pre">weather_data</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.weather_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.latitude" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.longitude" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.azimuth">
+<span class="sig-name descname"><span class="pre">azimuth</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.azimuth" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.tilt">
+<span class="sig-name descname"><span class="pre">tilt</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.tilt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.elevation">
+<span class="sig-name descname"><span class="pre">elevation</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.photovoltaik.Photovoltaik.elevation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">

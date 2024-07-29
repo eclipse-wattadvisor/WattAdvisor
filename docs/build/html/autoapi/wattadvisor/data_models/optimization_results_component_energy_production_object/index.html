@@ -105,10 +105,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType" title="wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnergyType</span></code></a></p></td>
-<td><p>Energy types usable by the optimization model</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject" title="wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OptimizationResultsComponentEnergyProductionObject</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject" title="wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OptimizationResultsComponentEnergyProductionObject</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -116,46 +113,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.optimization_results_component_energy_production_object.</span></span><span class="sig-name descname"><span class="pre">EnergyType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Energy types usable by the optimization model</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.ELECTRICAL">
-<span class="sig-name descname"><span class="pre">ELECTRICAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ELECTRICAL'</span></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.ELECTRICAL" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.THERMAL">
-<span class="sig-name descname"><span class="pre">THERMAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'THERMAL'</span></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.THERMAL" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.NATURAL_GAS">
-<span class="sig-name descname"><span class="pre">NATURAL_GAS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NATURAL_GAS'</span></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.NATURAL_GAS" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.get_demand_component_title">
-<span class="sig-name descname"><span class="pre">get_demand_component_title</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.get_demand_component_title" title="Link to this definition"></a></dt>
-<dd><p>Returns the title of the energy type demand used in the input request.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.get_external_purchase_type">
-<span class="sig-name descname"><span class="pre">get_external_purchase_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.get_external_purchase_type" title="Link to this definition"></a></dt>
-<dd><p>Returns the purchase type of the energy type from the <cite>PurchaseComponent</cite> enum used in the input request.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.get_external_feedin_type">
-<span class="sig-name descname"><span class="pre">get_external_feedin_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType.get_external_feedin_type" title="Link to this definition"></a></dt>
-<dd><p>Returns the feedin type of the energy type from the <cite>FeedinComponent</cite> enum used in the input request.</p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.optimization_results_component_energy_production_object.</span></span><span class="sig-name descname"><span class="pre">OptimizationResultsComponentEnergyProductionObject</span></span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject" title="Link to this definition"></a></dt>

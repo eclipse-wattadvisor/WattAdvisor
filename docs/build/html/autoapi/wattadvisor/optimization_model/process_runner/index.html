@@ -101,22 +101,6 @@
 <p>Collection of functions to start the optization process
 Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
 Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.process_runner.InputModel" title="wattadvisor.optimization_model.process_runner.InputModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InputModel</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.process_runner.OptimizationResultsModel" title="wattadvisor.optimization_model.process_runner.OptimizationResultsModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OptimizationResultsModel</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.process_runner.ConfigModel" title="wattadvisor.optimization_model.process_runner.ConfigModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModel</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
@@ -129,89 +113,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.InputModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.process_runner.</span></span><span class="sig-name descname"><span class="pre">InputModel</span></span><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.InputModel" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.InputModel.location">
-<span class="sig-name descname"><span class="pre">location</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/input_model_location/index.html#wattadvisor.data_models.input_model_location.InputModelLocation" title="wattadvisor.data_models.input_model_location.InputModelLocation"><span class="pre">wattadvisor.data_models.input_model_location.InputModelLocation</span></a></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.InputModel.location" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.InputModel.interest_rate">
-<span class="sig-name descname"><span class="pre">interest_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.InputModel.interest_rate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.InputModel.energy_demands">
-<span class="sig-name descname"><span class="pre">energy_demands</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../data_models/input_model_demand_object/index.html#wattadvisor.data_models.input_model_demand_object.InputModelDemandObject" title="wattadvisor.data_models.input_model_demand_object.InputModelDemandObject"><span class="pre">wattadvisor.data_models.input_model_demand_object.InputModelDemandObject</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.InputModel.energy_demands" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.InputModel.energy_components">
-<span class="sig-name descname"><span class="pre">energy_components</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../data_models/input_model_component_object/index.html#wattadvisor.data_models.input_model_component_object.InputModelComponentPower" title="wattadvisor.data_models.input_model_component_object.InputModelComponentPower"><span class="pre">wattadvisor.data_models.input_model_component_object.InputModelComponentPower</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/input_model_component_object/index.html#wattadvisor.data_models.input_model_component_object.InputModelComponentArea" title="wattadvisor.data_models.input_model_component_object.InputModelComponentArea"><span class="pre">wattadvisor.data_models.input_model_component_object.InputModelComponentArea</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/input_model_component_object/index.html#wattadvisor.data_models.input_model_component_object.InputModelComponentStorage" title="wattadvisor.data_models.input_model_component_object.InputModelComponentStorage"><span class="pre">wattadvisor.data_models.input_model_component_object.InputModelComponentStorage</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.InputModel.energy_components" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.InputModel.energy_tariffs">
-<span class="sig-name descname"><span class="pre">energy_tariffs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/input_model_energy_tariffs/index.html#wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs" title="wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs"><span class="pre">wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.InputModel.energy_tariffs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.OptimizationResultsModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.process_runner.</span></span><span class="sig-name descname"><span class="pre">OptimizationResultsModel</span></span><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.OptimizationResultsModel" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.OptimizationResultsModel.status">
-<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/optimization_results_status/index.html#wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus" title="wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus"><span class="pre">wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus</span></a></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.OptimizationResultsModel.status" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.OptimizationResultsModel.requested_input">
-<span class="sig-name descname"><span class="pre">requested_input</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/input_model/index.html#wattadvisor.data_models.input_model.InputModel" title="wattadvisor.data_models.input_model.InputModel"><span class="pre">wattadvisor.data_models.input_model.InputModel</span></a></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.OptimizationResultsModel.requested_input" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.OptimizationResultsModel.results">
-<span class="sig-name descname"><span class="pre">results</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/optimization_results_scenarios/index.html#wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios" title="wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios"><span class="pre">wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.OptimizationResultsModel.results" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.ConfigModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.process_runner.</span></span><span class="sig-name descname"><span class="pre">ConfigModel</span></span><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.ConfigModel" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.ConfigModel.solver">
-<span class="sig-name descname"><span class="pre">solver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/enums/index.html#wattadvisor.data_models.enums.SupportedSolver" title="wattadvisor.data_models.enums.SupportedSolver"><span class="pre">wattadvisor.data_models.enums.SupportedSolver</span></a></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.ConfigModel.solver" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.ConfigModel.solver_timeout">
-<span class="sig-name descname"><span class="pre">solver_timeout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.ConfigModel.solver_timeout" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.ConfigModel.default_interest_rate">
-<span class="sig-name descname"><span class="pre">default_interest_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.ConfigModel.default_interest_rate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.ConfigModel.data_dependencies">
-<span class="sig-name descname"><span class="pre">data_dependencies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/config_model/index.html#wattadvisor.data_models.config_model.ConfigModelDataDependencies" title="wattadvisor.data_models.config_model.ConfigModelDataDependencies"><span class="pre">ConfigModelDataDependencies</span></a></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.ConfigModel.data_dependencies" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.ConfigModel.logging">
-<span class="sig-name descname"><span class="pre">logging</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/config_model/index.html#wattadvisor.data_models.config_model.ConfigModelLogging" title="wattadvisor.data_models.config_model.ConfigModelLogging"><span class="pre">ConfigModelLogging</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.ConfigModel.logging" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="wattadvisor.optimization_model.process_runner.run_direct">
 <span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.process_runner.</span></span><span class="sig-name descname"><span class="pre">run_direct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputdata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/input_model/index.html#wattadvisor.data_models.input_model.InputModel" title="wattadvisor.data_models.input_model.InputModel"><span class="pre">wattadvisor.data_models.input_model.InputModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">export</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../data_models/optimization_results_model/index.html#wattadvisor.data_models.optimization_results_model.OptimizationResultsModel" title="wattadvisor.data_models.optimization_results_model.OptimizationResultsModel"><span class="pre">wattadvisor.data_models.optimization_results_model.OptimizationResultsModel</span></a></span></span><a class="headerlink" href="#wattadvisor.optimization_model.process_runner.run_direct" title="Link to this definition"></a></dt>
@@ -219,7 +120,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inputdata</strong> (<a class="reference internal" href="#wattadvisor.optimization_model.process_runner.InputModel" title="wattadvisor.optimization_model.process_runner.InputModel"><em>InputModel</em></a>) – input data to build the optimization model</p></li>
+<li><p><strong>inputdata</strong> (<a class="reference internal" href="../../data_models/input_model/index.html#wattadvisor.data_models.input_model.InputModel" title="wattadvisor.data_models.input_model.InputModel"><em>InputModel</em></a>) – input data to build the optimization model</p></li>
 <li><p><strong>export</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether to export detailed result time series to separate excel file, by default False</p></li>
 </ul>
 </dd>
@@ -227,7 +128,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <dd class="field-even"><p>pydantic object representing optimization results</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#wattadvisor.optimization_model.process_runner.OptimizationResultsModel" title="wattadvisor.optimization_model.process_runner.OptimizationResultsModel">OptimizationResultsModel</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../../data_models/optimization_results_model/index.html#wattadvisor.data_models.optimization_results_model.OptimizationResultsModel" title="wattadvisor.data_models.optimization_results_model.OptimizationResultsModel">OptimizationResultsModel</a></p>
 </dd>
 </dl>
 </dd></dl>

@@ -15,61 +15,11 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.data_models.optimization_results_component_energy_production_object.EnergyType
    wattadvisor.data_models.optimization_results_component_energy_production_object.OptimizationResultsComponentEnergyProductionObject
 
 
 Module Contents
 ---------------
-
-.. py:class:: EnergyType(*args, **kwds)
-
-   Bases: :py:obj:`enum.Enum`
-
-
-   Energy types usable by the optimization model
-
-
-
-
-   .. py:attribute:: ELECTRICAL
-      :value: 'ELECTRICAL'
-
-
-
-   .. py:attribute:: THERMAL
-      :value: 'THERMAL'
-
-
-
-   .. py:attribute:: NATURAL_GAS
-      :value: 'NATURAL_GAS'
-
-
-
-   .. py:method:: get_demand_component_title() -> str
-
-      Returns the title of the energy type demand used in the input request.
-
-
-
-
-
-   .. py:method:: get_external_purchase_type()
-
-      Returns the purchase type of the energy type from the `PurchaseComponent` enum used in the input request.
-
-
-
-
-
-   .. py:method:: get_external_feedin_type()
-
-      Returns the feedin type of the energy type from the `FeedinComponent` enum used in the input request.
-
-
-
-
 
 .. py:class:: OptimizationResultsComponentEnergyProductionObject
 

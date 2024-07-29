@@ -162,6 +162,31 @@ At least one key at first level (“scalars” or “tabs”) is required:</p>
 <dd class="field-even"><p><strong>ValueError</strong> – If values of <code class="docutils literal notranslate"><span class="pre">interest_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">lifespan</span></code> (from <code class="docutils literal notranslate"><span class="pre">parameters</span></code>) are <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.base.Component.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.base.Component.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.base.Component.interest_rate">
+<span class="sig-name descname"><span class="pre">interest_rate</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.base.Component.interest_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.base.Component.annuity_factor">
+<span class="sig-name descname"><span class="pre">annuity_factor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.optimization_model.components.base.Component.annuity_factor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.base.Component.lifespan">
+<span class="sig-name descname"><span class="pre">lifespan</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.optimization_model.components.base.Component.lifespan" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.optimization_model.components.base.Component.bilance_variables">
+<span class="sig-name descname"><span class="pre">bilance_variables</span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.base.Component.bilance_variables" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="wattadvisor.optimization_model.components.base.Component.add_to_model">
 <span class="sig-name descname"><span class="pre">add_to_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pyomo.core.Model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pyomo.core.RangeSet</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pyomo.core.Model</span></span></span><a class="headerlink" href="#wattadvisor.optimization_model.components.base.Component.add_to_model" title="Link to this definition"></a></dt>

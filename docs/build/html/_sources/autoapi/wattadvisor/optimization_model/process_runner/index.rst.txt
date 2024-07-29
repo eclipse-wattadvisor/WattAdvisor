@@ -11,16 +11,6 @@ wattadvisor.optimization_model.process_runner
 
 
 
-Classes
--------
-
-.. autoapisummary::
-
-   wattadvisor.optimization_model.process_runner.InputModel
-   wattadvisor.optimization_model.process_runner.OptimizationResultsModel
-   wattadvisor.optimization_model.process_runner.ConfigModel
-
-
 Functions
 ---------
 
@@ -31,73 +21,6 @@ Functions
 
 Module Contents
 ---------------
-
-.. py:class:: InputModel
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: location
-      :type:  wattadvisor.data_models.input_model_location.InputModelLocation
-
-
-   .. py:attribute:: interest_rate
-      :type:  Optional[float]
-
-
-   .. py:attribute:: energy_demands
-      :type:  list[wattadvisor.data_models.input_model_demand_object.InputModelDemandObject]
-
-
-   .. py:attribute:: energy_components
-      :type:  Optional[list[Union[wattadvisor.data_models.input_model_component_object.InputModelComponentPower, wattadvisor.data_models.input_model_component_object.InputModelComponentArea, wattadvisor.data_models.input_model_component_object.InputModelComponentStorage]]]
-
-
-   .. py:attribute:: energy_tariffs
-      :type:  Optional[wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs]
-
-
-.. py:class:: OptimizationResultsModel
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: status
-      :type:  wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus
-
-
-   .. py:attribute:: requested_input
-      :type:  wattadvisor.data_models.input_model.InputModel
-
-
-   .. py:attribute:: results
-      :type:  Optional[wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios]
-
-
-.. py:class:: ConfigModel
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: solver
-      :type:  wattadvisor.data_models.enums.SupportedSolver
-
-
-   .. py:attribute:: solver_timeout
-      :type:  int
-
-
-   .. py:attribute:: default_interest_rate
-      :type:  float
-
-
-   .. py:attribute:: data_dependencies
-      :type:  ConfigModelDataDependencies
-
-
-   .. py:attribute:: logging
-      :type:  ConfigModelLogging | None
-
 
 .. py:function:: run_direct(inputdata: wattadvisor.data_models.input_model.InputModel, export: bool = False) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
 

@@ -103,16 +103,6 @@
 <p>Contains functions to generate demand profiles
 Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
 Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution" title="wattadvisor.optimization_model.utils.demand_tools.Resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Resolution</span></code></a></p></td>
-<td><p>Time series resolution as defined by pandas</p></td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
@@ -128,48 +118,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 </section>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.Resolution">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.utils.demand_tools.</span></span><span class="sig-name descname"><span class="pre">Resolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Time series resolution as defined by pandas</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.Resolution.R1Y">
-<span class="sig-name descname"><span class="pre">R1Y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1Y'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution.R1Y" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.Resolution.R1M">
-<span class="sig-name descname"><span class="pre">R1M</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1M'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution.R1M" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.Resolution.R1W">
-<span class="sig-name descname"><span class="pre">R1W</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1W'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution.R1W" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.Resolution.R1D">
-<span class="sig-name descname"><span class="pre">R1D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1D'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution.R1D" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.Resolution.R1H">
-<span class="sig-name descname"><span class="pre">R1H</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1H'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution.R1H" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.Resolution.R15T">
-<span class="sig-name descname"><span class="pre">R15T</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'15T'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution.R15T" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.Resolution.R1T">
-<span class="sig-name descname"><span class="pre">R1T</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1T'</span></em><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution.R1T" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="wattadvisor.optimization_model.utils.demand_tools.generate_electrical_demand_profile">
 <span class="sig-prename descclassname"><span class="pre">wattadvisor.optimization_model.utils.demand_tools.</span></span><span class="sig-name descname"><span class="pre">generate_electrical_demand_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">demand_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demand_group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'G0'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'G1'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'G2'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'G3'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'G4'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'G5'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'G6'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'G7'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'L0'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'L1'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'L2'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'H0'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'H0_dyn'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'H0/H0_dyn'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_resolution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../data_models/enums/index.html#wattadvisor.data_models.enums.Resolution" title="wattadvisor.data_models.enums.Resolution"><span class="pre">wattadvisor.data_models.enums.Resolution</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Resolution.R1H</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.Series</span></span></span><a class="headerlink" href="#wattadvisor.optimization_model.utils.demand_tools.generate_electrical_demand_profile" title="Link to this definition"></a></dt>
@@ -180,7 +128,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <li><p><strong>demand_amount</strong> (<em>float</em>) – Sum of the yearly electrical energy demand</p></li>
 <li><p><strong>demand_group</strong> (<em>Literal</em><em>[</em><em>&quot;G0&quot;</em><em>, </em><em>&quot;G1&quot;</em><em>, </em><em>&quot;G2&quot;</em><em>, </em><em>&quot;G3&quot;</em><em>, </em><em>&quot;G4&quot;</em><em>, </em><em>&quot;G5&quot;</em><em>, </em><em>&quot;G6&quot;</em><em>, </em><em>&quot;G7&quot;</em><em>, </em><em>&quot;L0&quot;</em><em>, </em><em>&quot;L1&quot;</em><em>, </em><em>&quot;L2&quot;</em><em>, </em><em>&quot;H0&quot;</em><em>, </em><em>&quot;H0_dyn&quot;</em><em>, </em><em>&quot;H0/H0_dyn&quot;</em><em>]</em>) – Demand group to generate the profile for. See [demandlib documention](<a class="reference external" href="https://demandlib.readthedocs.io/en/latest/bdew.html#id3">https://demandlib.readthedocs.io/en/latest/bdew.html#id3</a>) for an explanation of all possible values.</p></li>
 <li><p><strong>year</strong> (<em>int</em>) – Year to generate the profile for</p></li>
-<li><p><strong>target_resolution</strong> (<a class="reference internal" href="#wattadvisor.optimization_model.utils.demand_tools.Resolution" title="wattadvisor.optimization_model.utils.demand_tools.Resolution"><em>Resolution</em></a><em>, </em><em>optional</em>) – Time step resolution of the profile to be generated, by default Resolution.R1H</p></li>
+<li><p><strong>target_resolution</strong> (<a class="reference internal" href="../../../data_models/enums/index.html#wattadvisor.data_models.enums.Resolution" title="wattadvisor.data_models.enums.Resolution"><em>Resolution</em></a><em>, </em><em>optional</em>) – Time step resolution of the profile to be generated, by default Resolution.R1H</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>

@@ -10,14 +10,6 @@ wattadvisor.optimization_model.utils.weather_data
 
 
 
-Classes
--------
-
-.. autoapisummary::
-
-   wattadvisor.optimization_model.utils.weather_data.WeatherDataLib
-
-
 Functions
 ---------
 
@@ -28,31 +20,6 @@ Functions
 
 Module Contents
 ---------------
-
-.. py:class:: WeatherDataLib(*args, **kwds)
-
-   Bases: :py:obj:`enum.Enum`
-
-
-   Supported libraries for weather data acquiring
-
-
-
-
-   .. py:attribute:: PVLIB
-      :value: 'pvlib'
-
-
-
-   .. py:attribute:: TEMPERATURE
-      :value: 'temperature'
-
-
-
-   .. py:attribute:: WINDPOWERLIB
-      :value: 'windpowerlib'
-
-
 
 .. py:function:: get_weather_data_from_file(file_path: pathlib.Path, longitude: float, latitude: float, lib: wattadvisor.data_models.enums.WeatherDataLib) -> pandas.DataFrame
 

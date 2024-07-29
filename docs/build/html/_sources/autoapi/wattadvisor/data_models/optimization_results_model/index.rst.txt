@@ -17,65 +17,11 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.data_models.optimization_results_model.OptimizationResultsStatus
-   wattadvisor.data_models.optimization_results_model.OptimizationResultsScenarios
-   wattadvisor.data_models.optimization_results_model.InputModel
    wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
 
 
 Module Contents
 ---------------
-
-.. py:class:: OptimizationResultsStatus
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: status
-      :type:  wattadvisor.data_models.enums.OptimizationStatus
-
-
-   .. py:attribute:: error_message
-      :type:  Optional[str]
-
-
-.. py:class:: OptimizationResultsScenarios
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: target_scenario
-      :type:  wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioObject
-
-
-   .. py:attribute:: current_scenario
-      :type:  Optional[wattadvisor.data_models.optimization_results_scenario_object.OptimizationResultsScenarioObject]
-
-
-.. py:class:: InputModel
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: location
-      :type:  wattadvisor.data_models.input_model_location.InputModelLocation
-
-
-   .. py:attribute:: interest_rate
-      :type:  Optional[float]
-
-
-   .. py:attribute:: energy_demands
-      :type:  list[wattadvisor.data_models.input_model_demand_object.InputModelDemandObject]
-
-
-   .. py:attribute:: energy_components
-      :type:  Optional[list[Union[wattadvisor.data_models.input_model_component_object.InputModelComponentPower, wattadvisor.data_models.input_model_component_object.InputModelComponentArea, wattadvisor.data_models.input_model_component_object.InputModelComponentStorage]]]
-
-
-   .. py:attribute:: energy_tariffs
-      :type:  Optional[wattadvisor.data_models.input_model_energy_tariffs.InputModelEnergyTariffs]
-
 
 .. py:class:: OptimizationResultsModel
 

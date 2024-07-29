@@ -15,29 +15,11 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.data_models.input_model_single_tariff_object.InputModelSingleTariffEnergyObject
    wattadvisor.data_models.input_model_single_tariff_object.InputModelSingleTariffObject
 
 
 Module Contents
 ---------------
-
-.. py:class:: InputModelSingleTariffEnergyObject
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: price_values
-      :type:  List[float]
-
-
-   .. py:attribute:: resolution
-      :type:  wattadvisor.data_models.enums.Resolution
-
-
-   .. py:attribute:: unit
-      :type:  wattadvisor.data_models.enums.EnergyPriceUnit
-
 
 .. py:class:: InputModelSingleTariffObject
 

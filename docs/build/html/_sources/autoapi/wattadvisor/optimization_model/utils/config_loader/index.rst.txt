@@ -10,14 +10,6 @@ wattadvisor.optimization_model.utils.config_loader
 
 
 
-Classes
--------
-
-.. autoapisummary::
-
-   wattadvisor.optimization_model.utils.config_loader.ConfigModel
-
-
 Functions
 ---------
 
@@ -28,31 +20,6 @@ Functions
 
 Module Contents
 ---------------
-
-.. py:class:: ConfigModel
-
-   Bases: :py:obj:`pydantic.BaseModel`
-
-
-   .. py:attribute:: solver
-      :type:  wattadvisor.data_models.enums.SupportedSolver
-
-
-   .. py:attribute:: solver_timeout
-      :type:  int
-
-
-   .. py:attribute:: default_interest_rate
-      :type:  float
-
-
-   .. py:attribute:: data_dependencies
-      :type:  ConfigModelDataDependencies
-
-
-   .. py:attribute:: logging
-      :type:  ConfigModelLogging | None
-
 
 .. py:function:: load_config(base_path: pathlib.Path, filename: str = 'model_config.yaml') -> wattadvisor.data_models.config_model.ConfigModel
 
