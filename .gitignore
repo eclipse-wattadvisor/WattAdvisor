@@ -11,3 +11,4 @@ __pycache__
 /WattAdvisor.egg-info
 /results.json
 /examples/cbc.exe
+/examples/weather.nc

@@ -9,9 +9,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 
 from pprint import pprint
 
-import sys
-sys.path.append("../wattadvisor")
-
 import pandas as pd
 
 from wattadvisor.optimization_model import run_optimization
@@ -79,8 +76,13 @@ if __name__ == "__main__":
     )
 
 
-    # use 'export=True' to create an Excel file of detailed results and time series to inspect
-    results = run_optimization.run(new_input, export_detailed_results=True)
+    # use 'export_detailed_results=True' to create an Excel file of detailed results and time series to inspect
+    # you can place and name the file like you want using `export_detailed_results_path` 
+    results = run_optimization.run(
+        new_input,
+        export_detailed_results=True,
+        export_detailed_results_path="examples/results.xlsx",
+        config_path="examples/config.yaml")
 
     pprint(results.dict())
 

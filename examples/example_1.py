@@ -8,8 +8,6 @@ Use of this source code is governed by a BSD-style license that can be found in 
 """
 
 from pprint import pprint
-import sys
-from pathlib import Path
 
 from wattadvisor.optimization_model import run_optimization
 from wattadvisor.data_models.input_model import InputModel

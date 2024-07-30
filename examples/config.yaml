@@ -1,18 +1,18 @@
 default_interest_rate: 0.05
 solver: 
-  use_solver: CBC
-  executable_path: "cbc.exe"
+  use_solver: cbc
+  executable_path: "examples/cbc.exe"
   timeout: 3600
 weather_data: 
   source: era5_netcdf
   path:
-    netcdf: "./wattadvisor/optimization_model/data/weather.nc"
+    netcdf: "examples/weather.nc"
   # source: custom_csv
   # path:
   #   csv_wind: "./test.csv"
   #   csv_solar: "./test.csv"
   #   csv_temperature: "./test.csv"
-parameters_path: "./wattadvisor/optimization_model/data/parameters.yaml"
+parameters_path: "examples/parameters.yaml"
 logging: 
   version: 1
   formatters:

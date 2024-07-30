@@ -250,8 +250,8 @@ class SupportedSolver(enum.Enum):
 
     """
 
-    CBC = "CBC"
-    HIGHS = "HIGHS"
+    CBC = "cbc"
+    HIGHS = "highs"
     GUROBI = "gurobi"
 
 class WeatherDataLib(enum.Enum):

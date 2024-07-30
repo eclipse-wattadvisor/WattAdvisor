@@ -101,7 +101,7 @@ class OptModel:
         """
 
         solver = self.config.solver.use_solver
-        executable = self.config.solver.executable_path
+        executable_path = self.config.solver.executable_path
 
         self.logger.info('Optimizing model')
         self.logger.debug(f'Using {solver.value} solver')
@@ -124,7 +124,7 @@ class OptModel:
             # sys.stderr = logger_writer.LoggerWriter(self.logger.error)
 
             # try to call CBC solver by specifying the path to the executable (useful under Windows)
-            slv = SolverFactory(solver.value, executable=executable)
+            slv = SolverFactory(solver.value, executable=executable_path)
             
             if isinstance(slv, pyoe.UnknownSolver):
                 # try to call CBC solver by its path saved in an environment variable (useful under Linux or Mac OS)
@@ -142,7 +142,7 @@ class OptModel:
             calculation_time = (time.process_time() - start)
 
         elif solver == enums.SupportedSolver.GUROBI:
-            slv = SolverFactory(solver.value, executable=executable)
+            slv = SolverFactory(solver.value, executable=executable_path)
             
             if isinstance(slv, pyoe.UnknownSolver):
                 # try to call CBC solver by its path saved in an environment variable (useful under Linux or Mac OS)
