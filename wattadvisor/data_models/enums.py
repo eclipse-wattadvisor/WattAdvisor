@@ -196,6 +196,9 @@ class StorageComponent(enum.Enum):
         return energy_types[self]
 
 class AreaUnitComponent(enum.Enum):
+    """Energy components used in the input request which are defined by a 'area' field.
+
+    """
     SOLARTHERMAL_ENERGY = "SOLARTHERMAL_ENERGY"
 
     def get_component_class(self):
