@@ -25,4 +25,5 @@ sphinx-autoapi
 sphinx-math-dollar
 myst-nb
 sphinx-rtd-theme
+esbonio
 feedinlib @ https://github.com/oemof/feedinlib/archive/dev.zip

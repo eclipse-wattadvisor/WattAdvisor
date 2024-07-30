@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'wattadvisor'
+project = 'WattAdvisor'
 copyright = '2023, Fraunhofer IOSB-AST'
 author = 'Fraunhofer IOSB-AST'
 release = '1'

@@ -12,3 +12,5 @@ __pycache__
 /results.json
 /examples/cbc.exe
 /examples/weather.nc
+/environment_dev.yaml
+/environment.yaml
