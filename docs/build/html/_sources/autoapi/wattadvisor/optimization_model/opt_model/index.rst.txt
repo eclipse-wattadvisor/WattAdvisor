@@ -61,15 +61,15 @@ Module Contents
    .. py:attribute:: logger
 
 
-   .. py:method:: run_calculation(export: bool = False, export_filename: str = None) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
+   .. py:method:: run_calculation(export_detailed_results: bool = False, export_detailed_results_path: None | pathlib.Path = None) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
 
       Starts the calculation of an optimization model including
       building of the pyomo model, optimization by solver and building result output.
 
-      :param export: Whether detailed result time series should be exported to an Excel file, by default False
-      :type export: bool, optional
-      :param export_filename: Path of the Excel file to write detailed results with time series to, by default None
-      :type export_filename: str, optional
+      :param export_detailed_results: Whether detailed result time series should be exported to an Excel file, by default False
+      :type export_detailed_results: bool, optional
+      :param export_detailed_results_path: Path of the Excel file to write detailed results with time series to
+      :type export_detailed_results_path: None or Path
 
       :returns: Results object which is returned by the service as response
       :rtype: OptimizationResultsModel

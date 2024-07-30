@@ -23,7 +23,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: Photovoltaik(name: str, interest_rate: float, parameters: dict, latitude: float, longitude: float, weather_data: pandas.DataFrame, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, azimuth: float = 180, tilt: float = 40, elevation: float = 0)
+.. py:class:: Photovoltaik(name: str, interest_rate: float, parameters: dict, latitude: float, longitude: float, weather_data: pandas.DataFrame, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, azimuth: float = 180, tilt: float = 40, elevation: float = 0, normed_production: pandas.Series | None = None)
 
    Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
 
@@ -86,6 +86,9 @@ Module Contents
 
    elevation : float, optional
        elevation of the location of the photovoltaic plant above sea level [m], by default 0
+   normed_production : pd.Series | None, optional
+       Determinated normed energy production series which can be given as an input. If given,
+       calculation of normed production by the usage of 'weather_data' is skipped.
 
 
    .. py:attribute:: installed_power
@@ -112,7 +115,10 @@ Module Contents
    .. py:attribute:: elevation
 
 
-.. py:class:: PhotovoltaikRoof(name: str, interest_rate: float, parameters: dict, latitude: float, longitude: float, weather_data: pandas.DataFrame, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, azimuth: float = 180, tilt: float = 40, elevation: float = 0)
+   .. py:attribute:: normed_production
+
+
+.. py:class:: PhotovoltaikRoof(name: str, interest_rate: float, parameters: dict, latitude: float, longitude: float, weather_data: pandas.DataFrame, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, azimuth: float = 180, tilt: float = 40, elevation: float = 0, normed_production: pandas.Series | None = None)
 
    Bases: :py:obj:`Photovoltaik`
 
@@ -175,9 +181,12 @@ Module Contents
 
    elevation : float, optional
        elevation of the location of the photovoltaic plant above sea level [m], by default 0
+   normed_production : pd.Series | None, optional
+       Determinated normed energy production series which can be given as an input. If given,
+       calculation of normed production by the usage of 'weather_data' is skipped.
 
 
-.. py:class:: PhotovoltaikFreeField(name: str, interest_rate: float, parameters: dict, latitude: float, longitude: float, weather_data: pandas.DataFrame, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, azimuth: float = 180, tilt: float = 40, elevation: float = 0)
+.. py:class:: PhotovoltaikFreeField(name: str, interest_rate: float, parameters: dict, latitude: float, longitude: float, weather_data: pandas.DataFrame, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, azimuth: float = 180, tilt: float = 40, elevation: float = 0, normed_production: pandas.Series | None = None)
 
    Bases: :py:obj:`Photovoltaik`
 
@@ -240,5 +249,8 @@ Module Contents
 
    elevation : float, optional
        elevation of the location of the photovoltaic plant above sea level [m], by default 0
+   normed_production : pd.Series | None, optional
+       Determinated normed energy production series which can be given as an input. If given,
+       calculation of normed production by the usage of 'weather_data' is skipped.
 
 

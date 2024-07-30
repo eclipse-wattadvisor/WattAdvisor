@@ -22,16 +22,19 @@ Functions
 Module Contents
 ---------------
 
-.. py:function:: run(config: wattadvisor.data_models.config_model.ConfigModel, inputdata: wattadvisor.data_models.input_model.InputModel, export: bool = False) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
+.. py:function:: run(input_model: wattadvisor.data_models.input_model.InputModel, config_path: None | pathlib.Path = None, export_detailed_results: bool = False, export_detailed_results_path: None | pathlib.Path = None) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
 
    Starts an optimization by using static input data from memory.
 
-   :param config: optimization model config object
-   :type config: ConfigModel
-   :param inputdata: input data to build the optimization model
-   :type inputdata: InputModel
-   :param export: whether to export detailed result time series to separate excel file, by default False
-   :type export: bool, optional
+   :param input_model:
+   :type input_model: InputModel
+   :param input data to build the optimization model:
+   :param config_path: path where the optimization model config file is located, by default "./wattadvisor/optimization_model/model_config.yaml"
+   :type config_path: None or Path
+   :param export_detailed_results: whether to export detailed result time series to separate excel file, by default False
+   :type export_detailed_results: bool, optional
+   :param export_detailed_results_path: path where detailed result file should be placed
+   :type export_detailed_results_path: None or Path, default None
 
    :returns: pydantic object representing optimization results
    :rtype: OptimizationResultsModel

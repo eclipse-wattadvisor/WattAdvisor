@@ -21,7 +21,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: SolarthermalEnergy(name: str, interest_rate: float, parameters: dict, weather_data: pandas.Series, installed_area: float, potential_area: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None)
+.. py:class:: SolarthermalEnergy(name: str, interest_rate: float, parameters: dict, weather_data: pandas.Series, installed_area: float, potential_area: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, normed_production: pandas.Series | None = None)
 
    Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
 
@@ -64,6 +64,9 @@ Module Contents
        Operational expenditure cost of the component per CAPEX per year [%/a], by default None
    lifespan : float | None, optional
        Expected lifespan of the component [a], by default None
+   normed_production : pd.Series | None, optional
+       Determinated normed energy production series which can be given as an input. If given,
+       calculation of normed production by the usage of 'weather_data' is skipped.
 
 
    .. py:attribute:: installed_area
@@ -73,5 +76,8 @@ Module Contents
 
 
    .. py:attribute:: weather_data
+
+
+   .. py:attribute:: normed_production
 
 

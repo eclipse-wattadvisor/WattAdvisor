@@ -14,6 +14,7 @@ Submodules
    /autoapi/wattadvisor/data_models/config_model/index
    /autoapi/wattadvisor/data_models/enums/index
    /autoapi/wattadvisor/data_models/input_model/index
+   /autoapi/wattadvisor/data_models/input_model_component_normed_production_object/index
    /autoapi/wattadvisor/data_models/input_model_component_object/index
    /autoapi/wattadvisor/data_models/input_model_demand_object/index
    /autoapi/wattadvisor/data_models/input_model_energy_tariffs/index

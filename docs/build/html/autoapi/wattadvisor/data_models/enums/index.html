@@ -146,6 +146,9 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.enums.WeatherDataLib" title="wattadvisor.data_models.enums.WeatherDataLib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeatherDataLib</span></code></a></p></td>
 <td><p>Supported libraries for weather data acquiring</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.enums.WeatherDataSource" title="wattadvisor.data_models.enums.WeatherDataSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeatherDataSource</span></code></a></p></td>
+<td><p>Supported sources for weather data</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -239,9 +242,25 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
 <p>Accepted energy units</p>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.enums.EnergyUnit.MWH">
+<span class="sig-name descname"><span class="pre">MWH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MWH'</span></em><a class="headerlink" href="#wattadvisor.data_models.enums.EnergyUnit.MWH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.data_models.enums.EnergyUnit.KWH">
 <span class="sig-name descname"><span class="pre">KWH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'KWH'</span></em><a class="headerlink" href="#wattadvisor.data_models.enums.EnergyUnit.KWH" title="Link to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.enums.EnergyUnit.WH">
+<span class="sig-name descname"><span class="pre">WH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WH'</span></em><a class="headerlink" href="#wattadvisor.data_models.enums.EnergyUnit.WH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wattadvisor.data_models.enums.EnergyUnit.get_conversion_factor">
+<span class="sig-name descname"><span class="pre">get_conversion_factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></span><a class="headerlink" href="#wattadvisor.data_models.enums.EnergyUnit.get_conversion_factor" title="Link to this definition"></a></dt>
+<dd><p>Returns the unit conversion factor to convert values into <code class="docutils literal notranslate"><span class="pre">EnergyUnit.KWH</span></code></p>
+</dd></dl>
 
 </dd></dl>
 
@@ -543,6 +562,23 @@ attributes – see the documentation for details.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.data_models.enums.WeatherDataLib.WINDPOWERLIB">
 <span class="sig-name descname"><span class="pre">WINDPOWERLIB</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'windpowerlib'</span></em><a class="headerlink" href="#wattadvisor.data_models.enums.WeatherDataLib.WINDPOWERLIB" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.enums.WeatherDataSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.enums.</span></span><span class="sig-name descname"><span class="pre">WeatherDataSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.enums.WeatherDataSource" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Supported sources for weather data</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.enums.WeatherDataSource.CUSTOM_CSV">
+<span class="sig-name descname"><span class="pre">CUSTOM_CSV</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'custom_csv'</span></em><a class="headerlink" href="#wattadvisor.data_models.enums.WeatherDataSource.CUSTOM_CSV" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.enums.WeatherDataSource.ERA5_NETCDF">
+<span class="sig-name descname"><span class="pre">ERA5_NETCDF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'era5_netcdf'</span></em><a class="headerlink" href="#wattadvisor.data_models.enums.WeatherDataSource.ERA5_NETCDF" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

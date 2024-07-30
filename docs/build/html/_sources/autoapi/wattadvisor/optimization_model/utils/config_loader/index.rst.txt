@@ -21,18 +21,16 @@ Functions
 Module Contents
 ---------------
 
-.. py:function:: load_config(base_path: pathlib.Path, filename: str = 'model_config.yaml') -> wattadvisor.data_models.config_model.ConfigModel
+.. py:function:: load_config(path: pathlib.Path | None = None) -> wattadvisor.data_models.config_model.ConfigModel
 
    Loads the config file for the WattAdvisor service optimization model.
 
-   :param base_path: Base path of the whole service
-   :type base_path: Path
-   :param filename: Filename of the config file, by default "model_config.yaml"
-   :type filename: str, optional
+   :param path: path where the config file is located, by default "./wattadvisor/optimization_model/model_config.yaml"
+   :type path: None or Path, optional
 
    :returns: Config File represented as a pydantic object
    :rtype: ConfigModel
 
-   :raises FileNotFoundError: If file `filename` cannot be found under `base_path`
+   :raises FileNotFoundError: If file cannot be found under `path`
 
 
