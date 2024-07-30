@@ -469,12 +469,17 @@ Module Contents
 
 
    .. py:attribute:: CBC
-      :value: 'CBC'
+      :value: 'cbc'
 
 
 
    .. py:attribute:: HIGHS
-      :value: 'HIGHS'
+      :value: 'highs'
+
+
+
+   .. py:attribute:: GUROBI
+      :value: 'gurobi'
 
 
 

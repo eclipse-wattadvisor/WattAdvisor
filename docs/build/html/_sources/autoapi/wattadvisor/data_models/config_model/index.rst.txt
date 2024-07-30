@@ -22,6 +22,7 @@ Classes
    wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf
    wattadvisor.data_models.config_model.ConfigModelWeatherData
    wattadvisor.data_models.config_model.ConfigModelLogging
+   wattadvisor.data_models.config_model.ConfigModelSolver
    wattadvisor.data_models.config_model.ConfigModel
 
 
@@ -98,17 +99,30 @@ Module Contents
       :type:  dict | None
 
 
+.. py:class:: ConfigModelSolver
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: use_solver
+      :type:  wattadvisor.data_models.enums.SupportedSolver
+
+
+   .. py:attribute:: timeout
+      :type:  int
+
+
+   .. py:attribute:: executable_path
+      :type:  str | None
+
+
 .. py:class:: ConfigModel
 
    Bases: :py:obj:`pydantic.BaseModel`
 
 
    .. py:attribute:: solver
-      :type:  wattadvisor.data_models.enums.SupportedSolver
-
-
-   .. py:attribute:: solver_timeout
-      :type:  int
+      :type:  ConfigModelSolver
 
 
    .. py:attribute:: default_interest_rate

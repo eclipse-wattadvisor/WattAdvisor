@@ -29,7 +29,7 @@ Module Contents
    :param input_model:
    :type input_model: InputModel
    :param input data to build the optimization model:
-   :param config_path: path where the optimization model config file is located, by default "./wattadvisor/optimization_model/model_config.yaml"
+   :param config_path: path where the optimization model config file is located, by default "config.yaml"
    :type config_path: None or Path
    :param export_detailed_results: whether to export detailed result time series to separate excel file, by default False
    :type export_detailed_results: bool, optional

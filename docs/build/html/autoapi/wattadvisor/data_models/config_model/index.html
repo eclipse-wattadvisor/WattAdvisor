@@ -119,7 +119,10 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelLogging" title="wattadvisor.data_models.config_model.ConfigModelLogging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelLogging</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModel" title="wattadvisor.data_models.config_model.ConfigModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModel</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelSolver" title="wattadvisor.data_models.config_model.ConfigModelSolver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelSolver</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModel" title="wattadvisor.data_models.config_model.ConfigModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModel</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -217,17 +220,33 @@ Use of this source code is governed by a BSD-style license that can be found in 
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelSolver</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.use_solver">
+<span class="sig-name descname"><span class="pre">use_solver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../enums/index.html#wattadvisor.data_models.enums.SupportedSolver" title="wattadvisor.data_models.enums.SupportedSolver"><span class="pre">wattadvisor.data_models.enums.SupportedSolver</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.use_solver" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.timeout" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.executable_path">
+<span class="sig-name descname"><span class="pre">executable_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.executable_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModel</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.solver">
-<span class="sig-name descname"><span class="pre">solver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../enums/index.html#wattadvisor.data_models.enums.SupportedSolver" title="wattadvisor.data_models.enums.SupportedSolver"><span class="pre">wattadvisor.data_models.enums.SupportedSolver</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.solver" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.solver_timeout">
-<span class="sig-name descname"><span class="pre">solver_timeout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.solver_timeout" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">solver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelSolver" title="wattadvisor.data_models.config_model.ConfigModelSolver"><span class="pre">ConfigModelSolver</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.solver" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
