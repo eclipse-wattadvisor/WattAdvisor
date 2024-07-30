@@ -1,0 +1,39 @@
+wattadvisor.optimization_model.run_optimization
+===============================================
+
+.. py:module:: wattadvisor.optimization_model.run_optimization
+
+.. autoapi-nested-parse::
+
+   Collection of functions to start the optization process
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.optimization_model.run_optimization.run
+
+
+Module Contents
+---------------
+
+.. py:function:: run(config: wattadvisor.data_models.config_model.ConfigModel, inputdata: wattadvisor.data_models.input_model.InputModel, export: bool = False) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
+
+   Starts an optimization by using static input data from memory.
+
+   :param config: optimization model config object
+   :type config: ConfigModel
+   :param inputdata: input data to build the optimization model
+   :type inputdata: InputModel
+   :param export: whether to export detailed result time series to separate excel file, by default False
+   :type export: bool, optional
+
+   :returns: pydantic object representing optimization results
+   :rtype: OptimizationResultsModel
+
+
