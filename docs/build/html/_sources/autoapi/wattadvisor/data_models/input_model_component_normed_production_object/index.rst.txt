@@ -1,0 +1,40 @@
+wattadvisor.data_models.input_model_component_normed_production_object
+======================================================================
+
+.. py:module:: wattadvisor.data_models.input_model_component_normed_production_object
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.input_model_component_normed_production_object.NormedProduction
+
+
+Module Contents
+---------------
+
+.. py:class:: NormedProduction
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: production_values
+      :type:  list[confloat(ge=0)]
+
+
+   .. py:attribute:: resolution
+      :type:  wattadvisor.data_models.enums.Resolution
+
+
+   .. py:attribute:: unit
+      :type:  wattadvisor.data_models.enums.EnergyUnit
+
+

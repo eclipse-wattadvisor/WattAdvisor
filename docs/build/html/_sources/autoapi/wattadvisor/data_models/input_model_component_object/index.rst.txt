@@ -52,6 +52,10 @@ Module Contents
       :type:  Optional[float]
 
 
+   .. py:attribute:: normed_production
+      :type:  Optional[wattadvisor.data_models.input_model_component_normed_production_object.NormedProduction]
+
+
 .. py:class:: InputModelComponentArea
 
    Bases: :py:obj:`pydantic.BaseModel`
@@ -79,6 +83,10 @@ Module Contents
 
    .. py:attribute:: lifespan
       :type:  Optional[float]
+
+
+   .. py:attribute:: normed_production
+      :type:  Optional[wattadvisor.data_models.input_model_component_normed_production_object.NormedProduction]
 
 
 .. py:class:: InputModelComponentStorage

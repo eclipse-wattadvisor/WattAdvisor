@@ -18,7 +18,9 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.data_models.config_model.ConfigModelDataDependencies
+   wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv
+   wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf
+   wattadvisor.data_models.config_model.ConfigModelWeatherData
    wattadvisor.data_models.config_model.ConfigModelLogging
    wattadvisor.data_models.config_model.ConfigModel
 
@@ -26,20 +28,49 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: ConfigModelDataDependencies
+.. py:class:: ConfigModelWeatherDataPathCsv
 
    Bases: :py:obj:`pydantic.BaseModel`
 
 
-   .. py:attribute:: weather
+   .. py:attribute:: csv_solar
       :type:  str
 
 
-   .. py:attribute:: parameters
+   .. py:attribute:: csv_temperature
+      :type:  str
+
+
+   .. py:attribute:: csv_wind
       :type:  str
 
 
    .. py:method:: is_file(v)
+
+
+.. py:class:: ConfigModelWeatherDataPathNetcdf
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: netcdf
+      :type:  str
+
+
+   .. py:method:: is_file(v)
+
+
+.. py:class:: ConfigModelWeatherData
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: source
+      :type:  wattadvisor.data_models.enums.WeatherDataSource
+
+
+   .. py:attribute:: path
+      :type:  ConfigModelWeatherDataPathNetcdf | ConfigModelWeatherDataPathCsv
 
 
 .. py:class:: ConfigModelLogging
@@ -84,8 +115,12 @@ Module Contents
       :type:  float
 
 
-   .. py:attribute:: data_dependencies
-      :type:  ConfigModelDataDependencies
+   .. py:attribute:: weather_data
+      :type:  ConfigModelWeatherData
+
+
+   .. py:attribute:: parameters_path
+      :type:  str
 
 
    .. py:attribute:: logging

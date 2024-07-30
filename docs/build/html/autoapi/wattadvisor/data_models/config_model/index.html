@@ -107,7 +107,13 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelDataDependencies" title="wattadvisor.data_models.config_model.ConfigModelDataDependencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelDataDependencies</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv" title="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelWeatherDataPathCsv</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf" title="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelWeatherDataPathNetcdf</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData" title="wattadvisor.data_models.config_model.ConfigModelWeatherData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelWeatherData</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelLogging" title="wattadvisor.data_models.config_model.ConfigModelLogging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelLogging</span></code></a></p></td>
@@ -122,22 +128,59 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelDataDependencies">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelDataDependencies</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelDataDependencies" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelWeatherDataPathCsv</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelDataDependencies.weather">
-<span class="sig-name descname"><span class="pre">weather</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelDataDependencies.weather" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_solar">
+<span class="sig-name descname"><span class="pre">csv_solar</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_solar" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelDataDependencies.parameters">
-<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelDataDependencies.parameters" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_temperature">
+<span class="sig-name descname"><span class="pre">csv_temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_temperature" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_wind">
+<span class="sig-name descname"><span class="pre">csv_wind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_wind" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelDataDependencies.is_file">
-<span class="sig-name descname"><span class="pre">is_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelDataDependencies.is_file" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.is_file">
+<span class="sig-name descname"><span class="pre">is_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.is_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelWeatherDataPathNetcdf</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.netcdf">
+<span class="sig-name descname"><span class="pre">netcdf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.netcdf" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.is_file">
+<span class="sig-name descname"><span class="pre">is_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.is_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelWeatherData</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.source">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../enums/index.html#wattadvisor.data_models.enums.WeatherDataSource" title="wattadvisor.data_models.enums.WeatherDataSource"><span class="pre">wattadvisor.data_models.enums.WeatherDataSource</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.source" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf" title="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf"><span class="pre">ConfigModelWeatherDataPathNetcdf</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv" title="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv"><span class="pre">ConfigModelWeatherDataPathCsv</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.path" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -193,8 +236,13 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.data_dependencies">
-<span class="sig-name descname"><span class="pre">data_dependencies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelDataDependencies" title="wattadvisor.data_models.config_model.ConfigModelDataDependencies"><span class="pre">ConfigModelDataDependencies</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.data_dependencies" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.weather_data">
+<span class="sig-name descname"><span class="pre">weather_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData" title="wattadvisor.data_models.config_model.ConfigModelWeatherData"><span class="pre">ConfigModelWeatherData</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.weather_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.parameters_path">
+<span class="sig-name descname"><span class="pre">parameters_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.parameters_path" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">

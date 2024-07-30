@@ -32,7 +32,7 @@ Module Contents
 
 .. py:data:: logger
 
-.. py:function:: write_detailed_results(pyomo_model: pyomo.core.base.PyomoModel.Model, components_list: List[wattadvisor.optimization_model.components.base.Component], calculation_time: float, filename: str = None)
+.. py:function:: write_detailed_results(pyomo_model: pyomo.core.base.PyomoModel.Model, components_list: List[wattadvisor.optimization_model.components.base.Component], calculation_time: float, filename: pathlib.Path | None = None)
 
    Creates a DataFrame with all optimization time series data and writes it to a excel file.
 
@@ -43,7 +43,7 @@ Module Contents
    :param calculation_time: Time in seconds it took for the solver to solve the optimization model
    :type calculation_time: float
    :param filename: name of the Excel file to export, by default None
-   :type filename: str, optional
+   :type filename: Path or None
 
 
 .. py:function:: generate_results_object(opt_model_object: wattadvisor.optimization_model.opt_model.OptModel, input: wattadvisor.data_models.input_model.InputModel, components_list: List[wattadvisor.optimization_model.components.base.Component], status: wattadvisor.data_models.enums.OptimizationStatus) -> wattadvisor.data_models.optimization_results_model.OptimizationResultsModel

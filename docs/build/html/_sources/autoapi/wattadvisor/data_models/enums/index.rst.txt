@@ -31,6 +31,7 @@ Classes
    wattadvisor.data_models.enums.OptimizationStatus
    wattadvisor.data_models.enums.SupportedSolver
    wattadvisor.data_models.enums.WeatherDataLib
+   wattadvisor.data_models.enums.WeatherDataSource
 
 
 Module Contents
@@ -140,8 +141,26 @@ Module Contents
 
 
 
+   .. py:attribute:: MWH
+      :value: 'MWH'
+
+
+
    .. py:attribute:: KWH
       :value: 'KWH'
+
+
+
+   .. py:attribute:: WH
+      :value: 'WH'
+
+
+
+   .. py:method:: get_conversion_factor() -> float | int
+
+      Returns the unit conversion factor to convert values into ``EnergyUnit.KWH``
+
+
 
 
 
@@ -481,6 +500,26 @@ Module Contents
 
    .. py:attribute:: WINDPOWERLIB
       :value: 'windpowerlib'
+
+
+
+.. py:class:: WeatherDataSource(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Supported sources for weather data
+
+
+
+
+   .. py:attribute:: CUSTOM_CSV
+      :value: 'custom_csv'
+
+
+
+   .. py:attribute:: ERA5_NETCDF
+      :value: 'era5_netcdf'
 
 
 

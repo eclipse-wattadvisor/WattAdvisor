@@ -21,7 +21,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: WindPower(name: str, interest_rate: float, parameters: dict, latitude: float, longitude: float, weather_data: pandas.DataFrame, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, hub_height: float = 100)
+.. py:class:: WindPower(name: str, interest_rate: float, parameters: dict, latitude: float, longitude: float, weather_data: pandas.DataFrame, installed_power: float, potential_power: float | None = None, capex: float | None = None, opex: float | None = None, lifespan: float | None = None, hub_height: float = 100, normed_production: pandas.Series | None = None)
 
    Bases: :py:obj:`wattadvisor.optimization_model.components.base.Component`
 
@@ -68,6 +68,9 @@ Module Contents
        Operational expenditure cost of the component per CAPEX per year [%/a], by default None
    hub_height: float
        height of the wind power plant hub above ground of the plant [m], by default 200
+   normed_production : pd.Series | None, optional
+       Determinated normed energy production series which can be given as an input. If given,
+       calculation of normed production by the usage of 'weather_data' is skipped.
 
 
    .. py:attribute:: installed_power
@@ -86,5 +89,8 @@ Module Contents
 
 
    .. py:attribute:: hub_height
+
+
+   .. py:attribute:: normed_production
 
 
