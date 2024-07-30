@@ -1,6 +1,8 @@
 default_interest_rate: 0.05
-solver: CBC
-solver_timeout: 3600
+solver: 
+  use_solver: CBC
+  executable_path: "cbc.exe"
+  timeout: 3600
 weather_data: 
   source: era5_netcdf
   path:

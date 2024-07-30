@@ -252,6 +252,7 @@ class SupportedSolver(enum.Enum):
 
     CBC = "CBC"
     HIGHS = "HIGHS"
+    GUROBI = "gurobi"
 
 class WeatherDataLib(enum.Enum):
     """Supported libraries for weather data acquiring

@@ -44,10 +44,13 @@ class ConfigModelLogging(BaseModel):
     loggers: dict
     root: dict | None
 
+class ConfigModelSolver(BaseModel):
+    use_solver: SupportedSolver
+    timeout: int
+    executable_path: str | None
 
 class ConfigModel(BaseModel):
-    solver: SupportedSolver
-    solver_timeout: int
+    solver: ConfigModelSolver
     default_interest_rate: float = Field(ge=0, lt=1)
     weather_data: ConfigModelWeatherData
     parameters_path: str

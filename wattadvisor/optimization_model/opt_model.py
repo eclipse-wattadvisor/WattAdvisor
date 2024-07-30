@@ -100,7 +100,8 @@ class OptModel:
             Status of the completed solve process and time in seconds the solver took to solve the model
         """
 
-        solver = self.config.solver
+        solver = self.config.solver.use_solver
+        executable = self.config.solver.executable_path
 
         self.logger.info('Optimizing model')
         self.logger.debug(f'Using {solver.value} solver')
@@ -123,7 +124,7 @@ class OptModel:
             # sys.stderr = logger_writer.LoggerWriter(self.logger.error)
 
             # try to call CBC solver by specifying the path to the executable (useful under Windows)
-            slv = SolverFactory(solver.value, executable="cbc.exe")
+            slv = SolverFactory(solver.value, executable=executable)
             
             if isinstance(slv, pyoe.UnknownSolver):
                 # try to call CBC solver by its path saved in an environment variable (useful under Linux or Mac OS)
@@ -131,9 +132,21 @@ class OptModel:
 
             #slv.options['allowableGap'] = 0.01
             slv.options['threads'] = 8
-            slv.options['seconds'] = self.config.solver_timeout #1 Stunde Timeout
+            slv.options['seconds'] = self.config.solver.timeout  # 1 Stunde Timeout
             slv.options['ratio'] = 1e-2
             slv.options['maxIterations'] = 99999999
+
+            start = time.process_time()
+            ################### Start Solver ###########################################################
+            results = slv.solve(self.pyomo_model, tee=True)
+            calculation_time = (time.process_time() - start)
+
+        elif solver == enums.SupportedSolver.GUROBI:
+            slv = SolverFactory(solver.value, executable=executable)
+            
+            if isinstance(slv, pyoe.UnknownSolver):
+                # try to call CBC solver by its path saved in an environment variable (useful under Linux or Mac OS)
+                slv = SolverFactory(solver.value)
 
             start = time.process_time()
             ################### Start Solver ###########################################################
