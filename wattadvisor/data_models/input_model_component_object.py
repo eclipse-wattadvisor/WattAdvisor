@@ -8,7 +8,7 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 from ..data_models.enums import PowerUnitComponent, AreaUnitComponent, StorageComponent
-
+from .input_model_component_normed_production_object import NormedProduction
 
 class InputModelComponentPower(BaseModel):
     component_type: PowerUnitComponent
@@ -17,6 +17,7 @@ class InputModelComponentPower(BaseModel):
     capex: Optional[float] = Field(ge=0)
     opex: Optional[float] = Field(ge=0)
     lifespan: Optional[float] = Field(ge=0)
+    normed_production: Optional[NormedProduction]
 
 class InputModelComponentArea(BaseModel):
     component_type: AreaUnitComponent
@@ -25,6 +26,7 @@ class InputModelComponentArea(BaseModel):
     capex: Optional[float] = Field(ge=0)
     opex: Optional[float] = Field(ge=0)
     lifespan: Optional[float] = Field(ge=0)
+    normed_production: Optional[NormedProduction]
 
 class InputModelComponentStorage(BaseModel):
     component_type: StorageComponent

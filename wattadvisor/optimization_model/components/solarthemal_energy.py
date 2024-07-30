@@ -19,7 +19,8 @@ class SolarthermalEnergy(Component):
                  potential_area: float | None = None,
                  capex: float | None = None, 
                  opex: float | None = None, 
-                 lifespan: float | None = None):
+                 lifespan: float | None = None,
+                 normed_production: pd.Series | None = None):
         
         """Component to generate thermal energy from solar energy.
 
@@ -61,6 +62,9 @@ class SolarthermalEnergy(Component):
             Operational expenditure cost of the component per CAPEX per year [%/a], by default None
         lifespan : float | None, optional
             Expected lifespan of the component [a], by default None
+        normed_production : pd.Series | None, optional
+            Determinated normed energy production series which can be given as an input. If given,
+            calculation of normed production by the usage of 'weather_data' is skipped.
         """
 
         super().__init__(name, interest_rate, parameters)
@@ -68,6 +72,7 @@ class SolarthermalEnergy(Component):
         self.installed_area = installed_area
         self.potential_area = potential_area
         self.weather_data = weather_data
+        self.normed_production = normed_production 
         
         if capex is not None:
             self.capex = capex
@@ -80,11 +85,12 @@ class SolarthermalEnergy(Component):
 
     def _load_params(self, model: pyoe.Model, t: pyoe.RangeSet) -> pyoe.Model:
         
-        normed_production = self.weather_data["ghi"] / 1000 * self.eff
+        if self.normed_production is None:
+            self.normed_production = self.weather_data["ghi"] / 1000 * self.eff
 
-        normed_production = normed_production.set_axis(t).to_dict()
+        self.normed_production = self.normed_production.set_axis(t).to_dict()
 
-        self.normed_production = pyoe.Param(t, initialize=normed_production)
+        self.normed_production = pyoe.Param(t, initialize=self.normed_production)
         model.add_component(f'{self.name}_normed_production', self.normed_production)
 
         return model

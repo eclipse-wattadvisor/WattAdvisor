@@ -44,13 +44,13 @@ class OptModel:
 
         self.model_path = Path(__file__).parent.absolute()
 
-        self.config = config_loader.load_config(self.model_path)
+        self.config = config
         
         logging.config.dictConfig(self.config.logging.dict(exclude_none=True))
         self.logger = logging.getLogger("opt_model")
 
         try: 
-            self.parameters = load_YAML.load_yaml(self.model_path.joinpath(self.config.data_dependencies.parameters))
+            self.parameters = load_YAML.load_yaml(self.config.parameters_path)
         except:
             error_msg = "Parameter file not found."
             self.logger.critical(error_msg)
@@ -64,16 +64,16 @@ class OptModel:
 
         # TempfileManager.tempdir = new_temp_path
     
-    def run_calculation(self, export: bool = False, export_filename: str = None) -> OptimizationResultsModel:
+    def run_calculation(self, export_detailed_results: bool = False, export_detailed_results_path: None | Path = None) -> OptimizationResultsModel:
         """Starts the calculation of an optimization model including 
         building of the pyomo model, optimization by solver and building result output.
 
         Parameters
         ----------
-        export : bool, optional
+        export_detailed_results : bool, optional
             Whether detailed result time series should be exported to an Excel file, by default False
-        export_filename : str, optional
-            Path of the Excel file to write detailed results with time series to, by default None
+        export_detailed_results_path : None or Path
+            Path of the Excel file to write detailed results with time series to
 
         Returns
         -------
@@ -87,8 +87,12 @@ class OptModel:
         # Transfer to optimization
         status, calculation_time = self._optimize()
 
-        if status == enums.OptimizationStatus.SUCCESS and export == True:
-            write_detailed_results(self.pyomo_model, self.components_list, calculation_time, filename=export_filename)
+        if status == enums.OptimizationStatus.SUCCESS and export_detailed_results:
+            write_detailed_results(
+                self.pyomo_model,
+                self.components_list,
+                calculation_time,
+                filename=export_detailed_results_path)
 
         self.logger.info('Write optimization results')
         results = generate_results_object(self, self.input_data, self.components_list, status)
@@ -177,4 +181,4 @@ class OptModel:
         self.pyomo_model = pyoe.ConcreteModel()
         self.t = pyoe.RangeSet(24 * 365)
         
-        self.pyomo_model, self.components_list = compose(self.input_data, self.parameters, self.config, self.pyomo_model, self.t, self.model_path)
+        self.pyomo_model, self.components_list = compose(self.input_data, self.parameters, self.config, self.pyomo_model, self.t)

@@ -27,7 +27,8 @@ class Photovoltaik(Component):
                  lifespan: float | None = None, 
                  azimuth: float = 180, 
                  tilt: float = 40, 
-                 elevation: float = 0):
+                 elevation: float = 0,
+                 normed_production: pd.Series | None = None):
         
         """Component to generate electrical energy from solar energy.
 
@@ -89,6 +90,9 @@ class Photovoltaik(Component):
 
         elevation : float, optional
             elevation of the location of the photovoltaic plant above sea level [m], by default 0
+        normed_production : pd.Series | None, optional
+            Determinated normed energy production series which can be given as an input. If given,
+            calculation of normed production by the usage of 'weather_data' is skipped.
         """
         
         super().__init__(name, interest_rate, parameters)
@@ -100,7 +104,8 @@ class Photovoltaik(Component):
         self.longitude = longitude
         self.azimuth = azimuth
         self.tilt = tilt
-        self.elevation = elevation 
+        self.elevation = elevation
+        self.normed_production = normed_production 
         
         if capex is not None:
             self.capex = capex
@@ -113,21 +118,22 @@ class Photovoltaik(Component):
 
     def _load_params(self, model: pyoe.Model, t: pyoe.RangeSet) -> pyoe.Model:
         
-        normed_production = pv_normed_feedin_from_era5(
-            latitude=self.latitude,
-            longitude=self.longitude,
-            azimuth=self.azimuth,
-            tilt=self.tilt,
-            surface_type="urban",
-            start_date=datetime(2022, 1, 1),
-            end_date=datetime(2023, 1, 1),
-            elevation=self.elevation,
-            pvlib_df=self.weather_data
-        )
+        if self.normed_production is None:
+            self.normed_production = pv_normed_feedin_from_era5(
+                latitude=self.latitude,
+                longitude=self.longitude,
+                azimuth=self.azimuth,
+                tilt=self.tilt,
+                surface_type="urban",
+                start_date=datetime(2022, 1, 1),
+                end_date=datetime(2023, 1, 1),
+                elevation=self.elevation,
+                pvlib_df=self.weather_data
+            )
         
-        normed_production = normed_production.clip(0).set_axis(t).to_dict()
+        self.normed_production = self.normed_production.clip(0).set_axis(t).to_dict()
 
-        self.normed_production = pyoe.Param(t, initialize=normed_production)
+        self.normed_production = pyoe.Param(t, initialize=self.normed_production)
         model.add_component(f'{self.name}_normed_production', self.normed_production)
 
         return model

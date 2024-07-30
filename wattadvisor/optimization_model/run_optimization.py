@@ -11,34 +11,42 @@ from . import opt_model
 from .utils import config_loader
 from ..data_models.config_model import ConfigModel
 
+import pandas as pd
 
-def _get_config(base_path: str = "wattadvisor/optimization_model") -> ConfigModel:
+
+def _get_config(path: Path | None = None) -> ConfigModel:
     """Loads the optimization model config from a given base path.
 
     Parameters
     ----------
-    base_path : str, optional
-        path to look for the config file, by default "wattadvisor/optimization_model"
+    path : None or Path, optional
+        path where the config file is located, by default "./wattadvisor/optimization_model/model_config.yaml"
 
     Returns
     -------
     ConfigModel
         pydantic object representation of the config file
     """
-    config = config_loader.load_config(Path().absolute().joinpath(base_path))
+
+    config = config_loader.load_config(path)
     return config
 
-def run(config: ConfigModel, inputdata: InputModel, export: bool = False) -> OptimizationResultsModel:
+def run(input_model: InputModel,
+        config_path: None | Path = None,
+        export_detailed_results: bool = False,
+        export_detailed_results_path: None | Path = None) -> OptimizationResultsModel:
     """Starts an optimization by using static input data from memory.
 
     Parameters
     ----------
-    config : ConfigModel
-        optimization model config object
-    inputdata : InputModel
-        input data to build the optimization model
-    export : bool, optional
+    input_model : InputModel
+    input data to build the optimization model
+    config_path : None or Path
+        path where the optimization model config file is located, by default "./wattadvisor/optimization_model/model_config.yaml"
+    export_detailed_results : bool, optional
         whether to export detailed result time series to separate excel file, by default False
+    export_detailed_results_path: None or Path, default None
+        path where detailed result file should be placed
 
     Returns
     -------
@@ -46,11 +54,14 @@ def run(config: ConfigModel, inputdata: InputModel, export: bool = False) -> Opt
         pydantic object representing optimization results
     """
     
-    config = _get_config()
+    config = _get_config(config_path)
 
-    optimization = opt_model.OptModel(inputdata, config)
+    optimization = opt_model.OptModel(input_model, config)
 
     #Start the optimization 
-    results = optimization.run_calculation(export=export)
+    results = optimization.run_calculation(
+        export_detailed_results=export_detailed_results,
+        export_detailed_results_path=export_detailed_results_path
+    )
 
     return results

@@ -26,7 +26,8 @@ class WindPower(Component):
                  capex: float | None = None, 
                  opex: float | None = None, 
                  lifespan: float | None = None, 
-                 hub_height: float=100):
+                 hub_height: float=100,
+                 normed_production: pd.Series | None = None):
         
         """Component to generate electrical energy from wind energy.
 
@@ -72,6 +73,9 @@ class WindPower(Component):
             Operational expenditure cost of the component per CAPEX per year [%/a], by default None
         hub_height: float
             height of the wind power plant hub above ground of the plant [m], by default 200
+        normed_production : pd.Series | None, optional
+            Determinated normed energy production series which can be given as an input. If given,
+            calculation of normed production by the usage of 'weather_data' is skipped.
         """
         
         super().__init__(name, interest_rate, parameters)
@@ -82,6 +86,7 @@ class WindPower(Component):
         self.longitude = longitude
         self.weather_data = weather_data
         self.hub_height = hub_height
+        self.normed_production = normed_production
         
         if capex is not None:
             self.capex = capex
@@ -94,18 +99,19 @@ class WindPower(Component):
 
     def _load_params(self, model: pyoe.Model, t: pyoe.RangeSet) -> pyoe.Model:
 
-        normed_production = windpower_normed_feedin_from_era5(
-            latitude=self.latitude,
-            longitude=self.longitude,
-            start_date=datetime(2022, 1, 1),
-            end_date=datetime(2023, 1, 1),
-            hub_height=self.hub_height,
-            windpowerlib_df=self.weather_data
-        )
-        
-        normed_production = normed_production.set_axis(t).to_dict()
+        if self.normed_production is None:
+            self.normed_production = windpower_normed_feedin_from_era5(
+                latitude=self.latitude,
+                longitude=self.longitude,
+                start_date=datetime(2022, 1, 1),
+                end_date=datetime(2023, 1, 1),
+                hub_height=self.hub_height,
+                windpowerlib_df=self.weather_data
+            )
+            
+        self.normed_production = self.normed_production.set_axis(t).to_dict()
 
-        self.normed_production = pyoe.Param(t, initialize=normed_production)
+        self.normed_production = pyoe.Param(t, initialize=self.normed_production)
         model.add_component(f'{self.name}_normed_production', self.normed_production)
 
         return model

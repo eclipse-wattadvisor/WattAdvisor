@@ -9,3 +9,4 @@ __pycache__
 /wattadvisor/optimization_model/data/weather.nc
 /venv
 /WattAdvisor.egg-info
+/results.json

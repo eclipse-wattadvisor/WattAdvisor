@@ -13,8 +13,7 @@ import wattadvisor.data_models.enums as enums
 class EnergyDemand(Component):
     def __init__(self, 
                  name: str, 
-                 energy_type: 
-                 enums.EnergyType, 
+                 energy_type: enums.EnergyType, 
                  demand_profile: pd.Series | None = None, 
                  demand_sum: float | None = None, 
                  profile_type: str | None = None, 

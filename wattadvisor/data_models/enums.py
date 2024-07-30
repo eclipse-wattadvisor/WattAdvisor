@@ -77,7 +77,21 @@ class EnergyUnit(enum.Enum):
 
     """
 
+    MWH = "MWH"
     KWH = "KWH"
+    WH = "WH"
+
+    def get_conversion_factor(self) -> float | int:
+        """Returns the unit conversion factor to convert values into ``EnergyUnit.KWH``
+        
+        """
+        conversion_factors = {
+            EnergyUnit.MWH: 1000,
+            EnergyUnit.KWH: 1,
+            EnergyUnit.WH: 1e-3
+        }
+
+        return conversion_factors[self]
 
 class PurchaseComponent(enum.Enum):
     """Purchase components used in the input request.
@@ -246,3 +260,10 @@ class WeatherDataLib(enum.Enum):
     PVLIB = "pvlib"
     TEMPERATURE = "temperature"
     WINDPOWERLIB = "windpowerlib"
+
+class WeatherDataSource(enum.Enum):
+    """Supported sources for weather data
+
+    """
+    CUSTOM_CSV = "custom_csv"
+    ERA5_NETCDF = "era5_netcdf"

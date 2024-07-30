@@ -6,6 +6,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import List, Optional, TYPE_CHECKING
 import logging
+from pathlib import Path
 
 import pandas as pd
 import pyomo.core.base.constraint
@@ -263,7 +264,7 @@ def _generate_current_scenario_results(opt_model_object: OptModel, components_li
 
     return _generate_scenario_results(opt_model_object.pyomo_model, components_list)
 
-def write_detailed_results(pyomo_model: Model, components_list: List[Component], calculation_time: float, filename: str=None):
+def write_detailed_results(pyomo_model: Model, components_list: List[Component], calculation_time: float, filename: Path | None = None):
     """Creates a DataFrame with all optimization time series data and writes it to a excel file.
 
     Parameters
@@ -274,7 +275,7 @@ def write_detailed_results(pyomo_model: Model, components_list: List[Component],
         List of all optimization components added to the optimiziation model
     calculation_time : float
         Time in seconds it took for the solver to solve the optimization model
-    filename : str, optional
+    filename : Path or None
         name of the Excel file to export, by default None
     """
 

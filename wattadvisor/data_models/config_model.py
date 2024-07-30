@@ -9,20 +9,33 @@ from pathlib import Path
 
 from pydantic import BaseModel, Field, validator
 
-from .enums import SupportedSolver
+from .enums import SupportedSolver, WeatherDataSource
 
+class ConfigModelWeatherDataPathCsv(BaseModel):
+    csv_solar: str
+    csv_temperature: str
+    csv_wind: str
 
-class ConfigModelDataDependencies(BaseModel):
-    weather: str
-    parameters: str
-
-    @validator("weather", "parameters")
+    @validator("csv_solar", "csv_temperature", "csv_wind")
     def is_file(cls, v):
-        path = Path(__file__).parent.parent.joinpath("optimization_model").joinpath(v)
+        path = Path(v)
         if not path.is_file():
             raise ValueError("Given path leads to no file!")
         return path
 
+class ConfigModelWeatherDataPathNetcdf(BaseModel):
+    netcdf: str
+
+    @validator("netcdf")
+    def is_file(cls, v):
+        path = Path(v)
+        if not path.is_file():
+            raise ValueError("Given path leads to no file!")
+        return path
+
+class ConfigModelWeatherData(BaseModel):
+    source: WeatherDataSource
+    path: ConfigModelWeatherDataPathNetcdf | ConfigModelWeatherDataPathCsv
 
 class ConfigModelLogging(BaseModel):
     version: int = Field(le=1, ge=1)
@@ -36,5 +49,6 @@ class ConfigModel(BaseModel):
     solver: SupportedSolver
     solver_timeout: int
     default_interest_rate: float = Field(ge=0, lt=1)
-    data_dependencies: ConfigModelDataDependencies
+    weather_data: ConfigModelWeatherData
+    parameters_path: str
     logging: ConfigModelLogging | None

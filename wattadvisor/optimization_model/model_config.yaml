@@ -1,9 +1,16 @@
 default_interest_rate: 0.05
 solver: CBC
 solver_timeout: 3600
-data_dependencies:
-  weather: "./data/weather.nc"
-  parameters: "./data/parameters.yaml"
+weather_data: 
+  source: era5_netcdf
+  path:
+    netcdf: "./wattadvisor/optimization_model/data/weather.nc"
+  # source: custom_csv
+  # path:
+  #   csv_wind: "./test.csv"
+  #   csv_solar: "./test.csv"
+  #   csv_temperature: "./test.csv"
+parameters_path: "./wattadvisor/optimization_model/data/parameters.yaml"
 logging: 
   version: 1
   formatters:

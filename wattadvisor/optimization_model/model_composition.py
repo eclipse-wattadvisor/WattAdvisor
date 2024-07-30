@@ -18,16 +18,41 @@ from ..data_models.config_model import ConfigModel
 from ..data_models.input_model import InputModel
 from ..data_models.input_model_single_tariff_object import \
     InputModelSingleTariffObject
+from ..data_models.input_model_component_normed_production_object import NormedProduction
 from .components.base import Component
 from .components.energy_demand import EnergyDemand
 from .components.energy_feedin import EnergyFeedin
 from .components.energy_purchase import EnergyPurchase
-from .utils.weather_data import WeatherDataLib, get_weather_data_from_file
+from .utils.weather_data import get_weather_data
 
 logger = logging.getLogger()
 
-def _generate_time_series(values: list[float], resolution: enums.Resolution) -> pd.Series:
+def _get_normed_production_series(normed_production: NormedProduction | None) -> pd.Series | None:
+    """Converts a list containing normed energy production values for renewable energy components from input list format 
+    with any temporal resolution into a pandas Series with hourly resolution describing a calendar year (8760 values).
+
+    Parameters
+    ----------
+    normed_production : NormedProduction or None
+        object from input which contains data about normed production or is None if not specified in input
+
+    Returns
+    -------
+    pd.Series or None
+        pandas series which contains the given values in the correct format for the optimization model 
+        or None, if given 'normed_production' is also None
+    """
+
+    # convert normed production input object to pd.Series
+    if isinstance(normed_production, NormedProduction):
+        normed_production = _generate_time_series(normed_production.production_values, normed_production.resolution, normed_production.unit)
+
+    return normed_production
+
+def _generate_time_series(values: list[float], resolution: enums.Resolution, unit: enums.EnergyUnit) -> pd.Series:
     """Creates a pandas ``Series`` with a ``DateTimeIndex`` of a full year with the temporal resolution given by `resolution` and the values given by `values`.
+    Converts the unit of the values to `EnergyUnit.KWH`.
+    Resamples the series to a temporal resolution of 1 hour if given `resolution` is higher than 1 hour (e.g. 1 or 15 minutes).
 
     Parameters
     ----------
@@ -35,11 +60,13 @@ def _generate_time_series(values: list[float], resolution: enums.Resolution) -> 
         Numerical values which the series should contain 
     resolution : enums.Resolution
         Temporal resolution of the given values
+    unit: enums.EnergyUnit
+        Energy unit in which the values are given
 
     Returns
     -------
     pd.Series[float]
-        Time series containing the ``values`` with the given ``resolution`` for one year.
+        Time series containing the ``values`` with the given ``resolution`` for one year in unit `EnergyUnit.KWH`.
 
     Raises
     ------
@@ -60,10 +87,19 @@ def _generate_time_series(values: list[float], resolution: enums.Resolution) -> 
     
     demand_profile = pd.Series(values, index=index)
 
+    demand_profile = demand_profile.multiply(unit.get_conversion_factor())
+
+    if resolution in [enums.Resolution.R15T, enums.Resolution.R1T]:
+        demand_profile = demand_profile.resample(enums.Resolution.R1H.value).sum()
+
     return demand_profile
     
 
-def compose(input: InputModel, parameters: dict, config: ConfigModel, pyomo_model: Model, t: RangeSet, model_path: Path) -> tuple[Model, list[Component]]:
+def compose(input: InputModel,
+            parameters: dict,
+            config: ConfigModel,
+            pyomo_model: Model,
+            t: RangeSet) -> tuple[Model, list[Component]]:
     """Adds all relevant components to the pyomo optimization model `pyomo_model` based on the parameterization in the input request `input` and creates the objective.
 
     Parameters
@@ -78,8 +114,8 @@ def compose(input: InputModel, parameters: dict, config: ConfigModel, pyomo_mode
         Pyomo model to add the components and objective to
     t : RangeSet
         Time set to use for variable, parameter and constraint creation
-    model_path : Path
-        Path of the model base directory
+    weather_data_path : Path or None, default None
+        Path where weather data is placed. 
 
     Returns
     -------
@@ -95,10 +131,13 @@ def compose(input: InputModel, parameters: dict, config: ConfigModel, pyomo_mode
     # add a list, for debug purposes, where certain components can be deactivated for the optimization
     # to not use a component set the value in the following dictionary to false
 
-    weather_path = model_path.joinpath(config.data_dependencies.weather)
-    weather_data_solar = get_weather_data_from_file(weather_path, input.location.longitude, input.location.latitude, WeatherDataLib.PVLIB)
-    weather_data_wind = get_weather_data_from_file(weather_path, input.location.longitude, input.location.latitude, WeatherDataLib.WINDPOWERLIB)
-    weather_data_temperature = get_weather_data_from_file(weather_path, input.location.longitude, input.location.latitude, WeatherDataLib.TEMPERATURE)
+
+    args = [config.weather_data.source, config.weather_data.path]
+
+    if config.weather_data.source == enums.WeatherDataSource.ERA5_NETCDF:
+        args.extend([input.location.longitude, input.location.latitude])
+
+    weather_data_solar, weather_data_wind, weather_data_temperature = get_weather_data(*args)
 
     if input.interest_rate is None:
         input.interest_rate = config.default_interest_rate
@@ -112,17 +151,15 @@ def compose(input: InputModel, parameters: dict, config: ConfigModel, pyomo_mode
         resolution = input_demand.resolution
         values = input_demand.demand_values
         energy_type = input_demand.energy_type
+        unit = input_demand.unit
 
         weather_temp_air_data = None
         profile_type = None
         demand_sum = None
         
-        demand_profile = _generate_time_series(values, resolution)
-
-        if resolution in [enums.Resolution.R15T, enums.Resolution.R1T]:
-            demand_profile = demand_profile.resample(enums.Resolution.R1H.value).sum()
+        demand_profile = _generate_time_series(values, resolution, unit)
         
-        elif resolution in [enums.Resolution.R1Y, enums.Resolution.R1M, enums.Resolution.R1W, enums.Resolution.R1D]:
+        if resolution in [enums.Resolution.R1Y, enums.Resolution.R1M, enums.Resolution.R1W, enums.Resolution.R1D]:
             demand_sum = demand_profile.sum()
             demand_profile = None
             
@@ -164,10 +201,13 @@ def compose(input: InputModel, parameters: dict, config: ConfigModel, pyomo_mode
             component_parameters = parameters[external_component_type.value]
 
             if external_component_type in [enums.PowerUnitComponent.PHOTOVOLTAIK_ROOF, enums.PowerUnitComponent.PHOTOVOLTAIK_FREE_FIELD]:
-                component_instance = component_class(name, input.interest_rate, component_parameters, input.location.latitude, input.location.longitude, weather_data_solar, input_component.installed_power, input_component.potential_power, input_component.capex, input_component.opex, input_component.lifespan)
+
+                normed_production = _get_normed_production_series(input_component.normed_production)
+                component_instance = component_class(name, input.interest_rate, component_parameters, input.location.latitude, input.location.longitude, weather_data_solar, input_component.installed_power, input_component.potential_power, input_component.capex, input_component.opex, input_component.lifespan, normed_production=normed_production)
 
             elif external_component_type == enums.PowerUnitComponent.WIND_POWER:
-                component_instance = component_class(name, input.interest_rate, component_parameters, input.location.latitude, input.location.longitude, weather_data_wind, input_component.installed_power, input_component.potential_power, input_component.capex, input_component.opex, input_component.lifespan)
+                normed_production = _get_normed_production_series(input_component.normed_production)
+                component_instance = component_class(name, input.interest_rate, component_parameters, input.location.latitude, input.location.longitude, weather_data_wind, input_component.installed_power, input_component.potential_power, input_component.capex, input_component.opex, input_component.lifespan, normed_production=normed_production)
 
             elif external_component_type == enums.PowerUnitComponent.HEAT_PUMP_AIR:
                 component_instance = component_class(name, input.interest_rate, component_parameters, weather_data_temperature.t2m, input_component.installed_power, input_component.potential_power, input_component.capex, input_component.opex, input_component.lifespan)
@@ -179,7 +219,8 @@ def compose(input: InputModel, parameters: dict, config: ConfigModel, pyomo_mode
                 component_instance = component_class(name, input.interest_rate, component_parameters, input_component.installed_capacity, input_component.installed_power, input_component.potential_capacity, input_component.potential_power, input_component.capex_power, input_component.capex_capacity, input_component.opex, input_component.lifespan)
 
             elif external_component_type in enums.AreaUnitComponent:
-                component_instance = component_class(name, input.interest_rate, component_parameters, weather_data_solar, input_component.installed_area, input_component.potential_area, input_component.capex, input_component.opex, input_component.lifespan)            
+                normed_production = _get_normed_production_series(input_component.normed_production)
+                component_instance = component_class(name, input.interest_rate, component_parameters, weather_data_solar, input_component.installed_area, input_component.potential_area, input_component.capex, input_component.opex, input_component.lifespan, normed_production=normed_production)            
 
             else:
                 component_instance = component_class(name, input.interest_rate, component_parameters, input_component.installed_power, input_component.potential_power, input_component.capex, input_component.opex, input_component.lifespan)
