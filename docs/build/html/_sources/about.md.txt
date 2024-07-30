@@ -2,7 +2,7 @@
 
 Eclipse WattAdvisor provides a Python library that consists of several functions and classes to build and solve a linear optimization model based on certain input data and parameters. The optimization model represents a local energy system composed of different energy components to produce, store, or transform energy.
 
-## 1 Input data
+## Input data
 
 Input data can contain information about the following aspects of the local energy system:
 
@@ -13,7 +13,7 @@ Input data can contain information about the following aspects of the local ener
 - Custom cost parameters per energy component
 - Prices of tariffs to purchase energy from external sources for the energy system
 
-## 2 Methodological approach
+## Methodological approach
 
 With this input data, a predefined function to start the automatic processing of the model can be called. At first, it builds a generic optimization model formulated with the Python library Pyomo and parameterizes it according to the input data to create a specific optimization problem. Here, the target function to minimize equals the sum of the total cost of all components to be used for the component composition. The total cost per component consists of at most:
 
@@ -27,7 +27,7 @@ The optimization problem is then passed to an open-source solver to create a sol
 
 After a valid solution is found, the relevant result data is exported either in machine-readable (JSON) or human-readable (Excel) format.
 
-## 3 Energy system coverage
+## Energy system coverage
 
 Energy balances are formulated in the model for these energy carriers:
 

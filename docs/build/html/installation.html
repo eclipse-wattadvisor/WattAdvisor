@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; WattAdvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="autoapi/index.html" />
+    <link rel="prev" title="About Eclipse WattAdvisor" href="about.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            WattAdvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About WattAdvisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Eclipse WattAdvisor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-the-repository-files">Get the repository files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-the-python-package">Installation of the Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-or-add-a-solver-to-the-project">Install or add a solver to the project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-of-cbc-solver-under-linux-or-mac-os">Installation of CBC solver under Linux or Mac OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-of-cbc-solver-under-windows">Installation of CBC solver under Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#add-weather-data">Add weather data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-weather-data-from-copernicus-climate-change-service">Download weather data from Copernicus Climate Change Service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-a-config-file">Setting up a config file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-location-of-weather-data">Set location of weather data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-cbc-solver-and-its-location">Set CBC solver and its location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-location-of-parameters-file">Set location of parameters file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WattAdvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<section id="get-the-repository-files">
+<h2>Get the repository files<a class="headerlink" href="#get-the-repository-files" title="Link to this heading"></a></h2>
+<p>Make sure that you have <a class="reference external" href="https://git-scm.com/">git</a> installed and configured to clone remote repositories.
+Clone the Eclipse WattAdvisor repository:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/eclipse-wattadvisor/WattAdvisor.git
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Alternatively, you can also directly download the repository as a ZIP file from the GitHub page and extract its contents.</p>
+</div>
+<p>The created directory, whether you used git clone or downloaded and extracted the archived package, should at least contain these sub-directories and files:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>├── WattAdvisor/
+│   ├── wattadvisor/...
+│   ├── environment.yaml
+│   ├── README.md
+│   ├── LICENSE.md
+│   ├── requirements.txt
+│   ├── pyproject.toml
+</pre></div>
+</div>
+</section>
+<section id="installation-of-the-python-package">
+<h2>Installation of the Python package<a class="headerlink" href="#installation-of-the-python-package" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is highly recommended to install WattAdvisor into a new, clean and empty Python environment.
+You can use <em>venv</em> or <em>conda</em> to create such an environment.</p>
+</div>
+<p>Change into the WattAdvisor directory (where <em>pyproject.toml</em> is located) and use <em>pip</em> to install the package into your Python environment:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>-e<span class="w"> </span>-U
+</pre></div>
+</div>
+</section>
+<section id="install-or-add-a-solver-to-the-project">
+<h2>Install or add a solver to the project<a class="headerlink" href="#install-or-add-a-solver-to-the-project" title="Link to this heading"></a></h2>
+<p>An optimization problem solver is required to use WattAdvisor. The package installed via pip already contains the solver <em>HiGHS</em>.
+Furthermore, <em>CBC</em> and <em>gurobi</em> solvers are currently supported directly, but need to be installed separately.</p>
+<section id="installation-of-cbc-solver-under-linux-or-mac-os">
+<h3>Installation of CBC solver under Linux or Mac OS<a class="headerlink" href="#installation-of-cbc-solver-under-linux-or-mac-os" title="Link to this heading"></a></h3>
+<p>If you are using Linux or Mac OS, you can use conda to install <em>CBC</em> solver to the WattAdvisor environment
+(replace <code class="docutils literal notranslate"><span class="pre">&lt;name</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">environment&gt;</span></code> by the actual name of the environment you want to install <em>CBC</em> to):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>&lt;name<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>environment&gt;
+conda<span class="w"> </span>install<span class="w"> </span>conda-forge::coincbc
+</pre></div>
+</div>
+</section>
+<section id="installation-of-cbc-solver-under-windows">
+<h3>Installation of CBC solver under Windows<a class="headerlink" href="#installation-of-cbc-solver-under-windows" title="Link to this heading"></a></h3>
+<p>Under Windows, you have to download a pre-compiled executable of <em>CBC</em> solver
+and place it into the WattAdvisor project directory.</p>
+<p>Download the latest Windows release as a ZIP archive (choose the file ending with <em>“-w64-msvc17-md.zip”</em>)
+from the <a class="reference external" href="https://github.com/coin-or/Cbc/releases/latest">CBC Github Repository</a>.</p>
+<p>Extract the <em>“cbc.exe”</em> file and place it into your working directory.</p>
+</section>
+</section>
+<section id="add-weather-data">
+<h2>Add weather data<a class="headerlink" href="#add-weather-data" title="Link to this heading"></a></h2>
+<p>WattAdvisor depends on weather data to estimate the power generation profile from renewable energy plants or
+to generate synthetical heat demand profiles from annual sums of heat demands.
+Currently, it is possible to either</p>
+<ul class="simple">
+<li><p>use data from Copernicus Climate Change Service that you have to manually download</p></li>
+<li><p>or use custom weather data from other sources provided as CSV file(s)</p></li>
+</ul>
+<p>At the beginning, the easier way is to acquire weather data from Copernicus Climate Change Service.</p>
+<section id="download-weather-data-from-copernicus-climate-change-service">
+<h3>Download weather data from Copernicus Climate Change Service<a class="headerlink" href="#download-weather-data-from-copernicus-climate-change-service" title="Link to this heading"></a></h3>
+<p>To download weather data from Copernicus Climate Change Service, you have to <a class="reference external" href="https://cds.climate.copernicus.eu/user/register">create an account</a>.
+After creation, visit your <a class="reference external" href="https://cds.climate.copernicus.eu/user">account page</a> to collect your API key and UID which is needed to download weather data.
+You find the key and UID at the bottom of the page:</p>
+<img alt="_images/CDS_API_key.png" src="_images/CDS_API_key.png" />
+<p>After that, copy the following code snippet to a new Python script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cdsapi</span>
+
+<span class="c1"># paste your uid here:</span>
+<span class="n">uid</span> <span class="o">=</span> 
+<span class="c1"># paste your API key here:</span>
+<span class="n">key</span> <span class="o">=</span> 
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://cds.climate.copernicus.eu/api/v2&quot;</span><span class="p">)</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+    <span class="s1">&#39;reanalysis-era5-single-levels&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;reanalysis&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;100m_u_component_of_wind&#39;</span><span class="p">,</span> <span class="s1">&#39;100m_v_component_of_wind&#39;</span><span class="p">,</span> <span class="s1">&#39;10m_u_component_of_wind&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;10m_v_component_of_wind&#39;</span><span class="p">,</span> <span class="s1">&#39;2m_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;forecast_surface_roughness&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;soil_temperature_level_4&#39;</span><span class="p">,</span> <span class="s1">&#39;surface_pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;surface_solar_radiation_downwards&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;total_sky_direct_solar_radiation_at_surface&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="s1">&#39;2022&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;day&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;13&#39;</span><span class="p">,</span> <span class="s1">&#39;14&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;16&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;19&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;24&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;25&#39;</span><span class="p">,</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span> <span class="s1">&#39;27&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;29&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;31&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;00:00&#39;</span><span class="p">,</span> <span class="s1">&#39;01:00&#39;</span><span class="p">,</span> <span class="s1">&#39;02:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;03:00&#39;</span><span class="p">,</span> <span class="s1">&#39;04:00&#39;</span><span class="p">,</span> <span class="s1">&#39;05:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;06:00&#39;</span><span class="p">,</span> <span class="s1">&#39;07:00&#39;</span><span class="p">,</span> <span class="s1">&#39;08:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;09:00&#39;</span><span class="p">,</span> <span class="s1">&#39;10:00&#39;</span><span class="p">,</span> <span class="s1">&#39;11:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;12:00&#39;</span><span class="p">,</span> <span class="s1">&#39;13:00&#39;</span><span class="p">,</span> <span class="s1">&#39;14:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;15:00&#39;</span><span class="p">,</span> <span class="s1">&#39;16:00&#39;</span><span class="p">,</span> <span class="s1">&#39;17:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;18:00&#39;</span><span class="p">,</span> <span class="s1">&#39;19:00&#39;</span><span class="p">,</span> <span class="s1">&#39;20:00&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;21:00&#39;</span><span class="p">,</span> <span class="s1">&#39;22:00&#39;</span><span class="p">,</span> <span class="s1">&#39;23:00&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;weather.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Paste your Climate Data Store UID and API key at the corresponding position and run the script from the WattAdvisor Python environment.
+If everything is configured correctly, you will get a similar output like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2024-06-07 13:44:26,667 INFO Welcome to the CDS
+2024-06-07 13:44:26,667 INFO Sending request to https://cds.climate.copernicus.eu/api/v2/resources/reanalysis-era5-single-levels
+2024-06-07 13:44:26,776 INFO Request is queued
+2024-06-07 13:44:27,865 INFO Request is running
+2024-06-07 13:46:20,994 INFO Request is completed
+2024-06-07 13:46:20,994 INFO Downloading https://download-0015-clone.copernicus-climate.eu/cache-compute-0015/cache/data5/adaptor.mars.internal-1717760725.....nc to weather.nc (1.4G)
+</pre></div>
+</div>
+<p>After the download has completed, move the downloaded <em>weather.nc</em>-file to the your working directory.</p>
+</section>
+</section>
+<section id="setting-up-a-config-file">
+<h2>Setting up a config file<a class="headerlink" href="#setting-up-a-config-file" title="Link to this heading"></a></h2>
+<p>WattAdvisor needs a config file that states which solver should be used, where the solver can be found or how logging should be performed.
+You can find an example config file in the example directory under WattAdvisor/examples/config.yaml</p>
+<section id="set-location-of-weather-data">
+<h3>Set location of weather data<a class="headerlink" href="#set-location-of-weather-data" title="Link to this heading"></a></h3>
+<p>Edit the config file at the following position and replace
+<em>&lt;path to weather.nc file&gt;</em> by the actual path where you placed the <em>weather.nc</em>
+at the end of the previous step:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">weather_data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">era5_netcdf</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">netcdf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;path to weather.nc file&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="set-cbc-solver-and-its-location">
+<h3>Set CBC solver and its location<a class="headerlink" href="#set-cbc-solver-and-its-location" title="Link to this heading"></a></h3>
+<p>Under <em>“use_solver”</em>, write <em>“cbc”</em> to set CBC as the solver to use:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">solver</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">use_solver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cbc</span>
+</pre></div>
+</div>
+<p>If you are using Windows, make sure to also set the location of the previously
+downloaded <em>cbc.exe</em>.
+Edit the config file at the following position and replace
+<em>&lt;path to cbc.exe&gt;</em> by the actual path where you placed the <em>cbc.exe</em> file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">solver</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">use_solver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cbc</span>
+<span class="w">    </span><span class="nt">executable_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;path to cbc.exe&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="set-location-of-parameters-file">
+<h3>Set location of parameters file<a class="headerlink" href="#set-location-of-parameters-file" title="Link to this heading"></a></h3>
+<p>There is a file <em>parameters.yaml</em> in the examples directory, which contains
+common techno-economical parameters of all energy components currently modeled in the
+WattAdvisor optimization model. Make sure to either copy this file to your working
+directory and replace <em>&lt;path to parameters.yaml&gt;</em> by its actual path.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">parameters_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;path to parameters.yaml&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="About Eclipse WattAdvisor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -5,16 +5,16 @@ WattAdvisor is a tool to calculate the cost minimum energy component set
 to fulfill a given energy demand. It uses pyomo to build an optimization model.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: About WattAdvisor
 
    about.md
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Getting Started
+   :maxdepth: 2
+   :caption: Installation
 
-   getting_started.md
+   installation.rst
 
 .. toctree::
     :maxdepth: 1
