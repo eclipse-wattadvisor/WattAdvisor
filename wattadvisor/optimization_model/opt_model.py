@@ -42,8 +42,6 @@ class OptModel:
         self.t = None
         self.components_list = None
 
-        self.model_path = Path(__file__).parent.absolute()
-
         self.config = config
         
         logging.config.dictConfig(self.config.logging.dict(exclude_none=True))
@@ -55,14 +53,6 @@ class OptModel:
             error_msg = "Parameter file not found."
             self.logger.critical(error_msg)
             raise FileNotFoundError(error_msg)
-        
-        sys.path.append(self.model_path)
-
-        # new_temp_path = self.model_path.joinpath(".temp")
-        # if not new_temp_path.is_dir():
-        #     new_temp_path.mkdir()
-
-        # TempfileManager.tempdir = new_temp_path
     
     def run_calculation(self, export_detailed_results: bool = False, export_detailed_results_path: None | Path = None) -> OptimizationResultsModel:
         """Starts the calculation of an optimization model including 
@@ -133,7 +123,7 @@ class OptModel:
             # sys.stderr = logger_writer.LoggerWriter(self.logger.error)
 
             # try to call CBC solver by specifying the path to the executable (useful under Windows)
-            slv = SolverFactory(solver.value, executable=self.model_path.joinpath("cbc.exe"))
+            slv = SolverFactory(solver.value, executable="cbc.exe")
             
             if isinstance(slv, pyoe.UnknownSolver):
                 # try to call CBC solver by its path saved in an environment variable (useful under Linux or Mac OS)

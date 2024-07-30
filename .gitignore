@@ -10,3 +10,4 @@ __pycache__
 /venv
 /WattAdvisor.egg-info
 /results.json
+/examples/cbc.exe

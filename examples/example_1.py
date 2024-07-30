@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
 
     # use 'export=True' to create an Excel file of detailed results and time series to inspect
-    results = run_optimization.run_direct(new_input, export=True)
+    results = run_optimization.run(new_input, export=True)
 
     pprint(results.dict())
 

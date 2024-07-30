@@ -20,7 +20,7 @@ def _get_config(path: Path | None = None) -> ConfigModel:
     Parameters
     ----------
     path : None or Path, optional
-        path where the config file is located, by default "./wattadvisor/optimization_model/model_config.yaml"
+        path where the config file is located, by default "config.yaml"
 
     Returns
     -------
@@ -42,7 +42,7 @@ def run(input_model: InputModel,
     input_model : InputModel
     input data to build the optimization model
     config_path : None or Path
-        path where the optimization model config file is located, by default "./wattadvisor/optimization_model/model_config.yaml"
+        path where the optimization model config file is located, by default "config.yaml"
     export_detailed_results : bool, optional
         whether to export detailed result time series to separate excel file, by default False
     export_detailed_results_path: None or Path, default None
