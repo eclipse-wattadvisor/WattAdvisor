@@ -18,6 +18,10 @@ To reach a high reproducibility and to solve the model fast and repeatedly under
 
 Find more information about *Eclipse WattAdvisor* at the [Eclipse project page.](https://projects.eclipse.org/projects/technology.wattadvisor) 
 
+## Documentation
+
+Find the documentation here: [ReadTheDocs](https://eclipse.dev/wattadvisor/)
+
 ## License
 
 Eclipse Distribution License - v 1.0
