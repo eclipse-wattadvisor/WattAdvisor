@@ -40,7 +40,7 @@ Change into the WattAdvisor directory (where *pyproject.toml* is located) and us
 
 .. code-block:: shell
     
-    pip install . -e -U
+    pip install -e . -U
 
 
 Install or add a solver to the project
