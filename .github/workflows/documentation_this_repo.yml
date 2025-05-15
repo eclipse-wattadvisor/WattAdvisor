@@ -39,7 +39,7 @@ jobs:
           clean: false
 
       - name: Copy Documentation to Repository B
-        run: cp -r docs/build/html/* website
+        run: cp -r code/docs/build/html/* website
 
       - name: Commit and Push Changes
         run: |
