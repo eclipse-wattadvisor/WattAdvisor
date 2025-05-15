@@ -1,0 +1,71 @@
+wattadvisor.components.combined_heat_power
+==========================================
+
+.. py:module:: wattadvisor.components.combined_heat_power
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.combined_heat_power.CombinedHeatPower
+
+
+Module Contents
+---------------
+
+.. py:class:: CombinedHeatPower(**data)
+
+   Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
+
+
+   Component to turn an energy carrying medium like gas into electric and thermal power.
+   2 different kinds of capacities have to be implemented for this, but since the
+   production of electric power takes precedent the cost in the target function depends
+   only on that
+
+   :param capex: Capital expenditure cost of the component per electrical power [€/kW], by default 0
+   :type capex: float, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default 0
+   :type opex: float, optional
+   :param eff_elt: electrical efficiency of the plant [kW electricity per kW gas]
+   :type eff_elt: float
+   :param eff_heat: thermal efficiency of the plant [kW heat per kW gas]
+   :type eff_heat: float
+   :param installed_power: Already installed electrical power of the component [kW] which acts as a lower bound, by default 0
+   :type installed_power: float, optional
+   :param potential_power: Maximum installable electrical power of the component [kW], by default None
+   :type potential_power: float | None, optional
+
+
+   .. py:attribute:: capex
+      :type:  float
+
+
+   .. py:attribute:: opex
+      :type:  float
+
+
+   .. py:attribute:: eff_elt
+      :type:  float
+
+
+   .. py:attribute:: eff_heat
+      :type:  float
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: potential_power
+      :type:  float | None
+
+

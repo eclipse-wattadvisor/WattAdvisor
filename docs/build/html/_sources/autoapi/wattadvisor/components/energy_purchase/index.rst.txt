@@ -1,0 +1,65 @@
+wattadvisor.components.energy_purchase
+======================================
+
+.. py:module:: wattadvisor.components.energy_purchase
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.energy_purchase.EnergyPurchase
+
+
+Module Contents
+---------------
+
+.. py:class:: EnergyPurchase(**data)
+
+   Bases: :py:obj:`wattadvisor.components.non_investment_component.NonInvestmentComponent`
+
+
+   Component that simulates the import and obtaining of energy from external sources
+   in different forms like gas, oil, electricity or heat.
+   This component imports energy and applies a cost for the amount imported.
+
+   :param energy_price_scalar: Scalar price for purchasement per energy unit [€/kWh], by default None
+   :type energy_price_scalar: float | None, optional
+   :param energy_price_profile: Time series containing hourly variant energy prices for one year, by default None
+   :type energy_price_profile: pd.Series | None, optional
+   :param power_price: Price to pay for maximum grid load per year [€/(kW * a)], by default 0
+   :type power_price: float, optional
+   :param co2_intensity: CO2 emission intensity of the energy purchase [g/kWh], by default 0
+   :type co2_intensity: float, optional
+
+
+   .. py:attribute:: energy_price_scalar
+      :type:  float | None
+      :value: None
+
+
+
+   .. py:attribute:: energy_price_profile
+      :type:  pandas.Series | None
+
+
+   .. py:attribute:: power_price
+      :type:  float
+
+
+   .. py:attribute:: co2_intensity
+      :type:  float
+
+
+   .. py:method:: check_time_series_length(value: pandas.Series | None) -> pandas.Series | None
+      :classmethod:
+
+
+

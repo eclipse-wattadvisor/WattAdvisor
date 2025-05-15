@@ -1,0 +1,74 @@
+wattadvisor.utils.weather_data
+==============================
+
+.. py:module:: wattadvisor.utils.weather_data
+
+.. autoapi-nested-parse::
+
+   Contains functions to load weather data from files into the internal format
+   of WattAdvisor.
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.utils.weather_data.get_weather_data_from_era5_netcdf
+   wattadvisor.utils.weather_data.get_weather_data_from_csv
+
+
+Module Contents
+---------------
+
+.. py:function:: get_weather_data_from_era5_netcdf(path_netcdf: str | pathlib.Path, longitude: float, latitude: float) -> wattadvisor.data_models.weather_data.WeatherDataCollection
+
+   Loads a NETCDF file aquired from ECMWF Climate Data Store
+   into the WattAdvisor internal weather data format.
+
+   :param path_netcdf: Path of the NETCDF file containing weather data from ECMWF Climate Data Store
+   :type path_netcdf: str | Path
+   :param longitude: Longitude of the location for which weather data from the file should be extracted
+   :type longitude: float
+   :param latitude: Latitude of the location for which weather data from the file should be extracted
+   :type latitude: float
+
+   :returns: Object containing a collection of different weather data variables such as wind speed, air temperature, etc.
+   :rtype: WeatherDataCollection
+
+
+.. py:function:: get_weather_data_from_csv(path_wind_speed: str | None = None, path_roughness_length: str | None = None, path_pressure: str | None = None, path_density: str | None = None, path_ghi: str | None = None, path_dhi: str | None = None, path_dni: str | None = None, path_air_temperature: str | None = None, path_soil_temperature: str | None = None, path_water_temperature: str | None = None) -> wattadvisor.data_models.weather_data.WeatherDataCollection
+
+   Loads weather data from CSV files into into the WattAdvisor internal weather data format.
+
+   :param path_wind_speed: path of a CSV file that contains wind speed measurements, by default None
+   :type path_wind_speed: str | None, optional
+   :param path_roughness_length: path of a CSV file that contains surface roughness length measurements, by default None
+   :type path_roughness_length: str | None, optional
+   :param path_pressure: path of a CSV file that contains air pressure measurements, by default None
+   :type path_pressure: str | None, optional
+   :param path_density: path of a CSV file that contains air density measurements, by default None
+   :type path_density: str | None, optional
+   :param path_ghi: path of a CSV file that contains global horizontal irradiance measurements, by default None
+   :type path_ghi: str | None, optional
+   :param path_dhi: path of a CSV file that contains diffuse horizontal irradiance measurements, by default None
+   :type path_dhi: str | None, optional
+   :param path_dni: path of a CSV file that contains direct normal irradiance measurements, by default None
+   :type path_dni: str | None, optional
+   :param path_air_temperature: path of a CSV file that contains air temperature measurements, by default None
+   :type path_air_temperature: str | None, optional
+   :param path_soil_temperature: path of a CSV file that contains soil temperature measurements, by default None
+   :type path_soil_temperature: str | None, optional
+   :param path_water_temperature: path of a CSV file that contains water temperature measurements, by default None
+   :type path_water_temperature: str | None, optional
+
+   :returns: Object containing a collection of different weather data variables such as wind speed, air temperature, etc.
+   :rtype: WeatherDataCollection
+
+   :raises ValueError: Is raised if every parameter is None
+
+

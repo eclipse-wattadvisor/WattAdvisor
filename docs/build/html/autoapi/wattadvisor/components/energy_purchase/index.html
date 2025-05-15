@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wattadvisor.components.energy_purchase &mdash; WattAdvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=29a6c3e3"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="wattadvisor.components.gas_boiler" href="../gas_boiler/index.html" />
+    <link rel="prev" title="wattadvisor.components.energy_feedin" href="../energy_feedin/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WattAdvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About WattAdvisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About Eclipse WattAdvisor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage of custom weather data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../custom_weather_files.html">Usage of custom weather data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">wattadvisor</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">wattadvisor.components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data_models/index.html">wattadvisor.data_models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../model_composition/index.html">wattadvisor.model_composition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../opt_model/index.html">wattadvisor.opt_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">wattadvisor.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WattAdvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">wattadvisor</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">wattadvisor.components</a></li>
+      <li class="breadcrumb-item active">wattadvisor.components.energy_purchase</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/wattadvisor/components/energy_purchase/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-wattadvisor.components.energy_purchase">
+<span id="wattadvisor-components-energy-purchase"></span><h1>wattadvisor.components.energy_purchase<a class="headerlink" href="#module-wattadvisor.components.energy_purchase" title="Link to this heading"></a></h1>
+<p>Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.components.energy_purchase.EnergyPurchase" title="wattadvisor.components.energy_purchase.EnergyPurchase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnergyPurchase</span></code></a></p></td>
+<td><p>Component that simulates the import and obtaining of energy from external sources</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.components.energy_purchase.</span></span><span class="sig-name descname"><span class="pre">EnergyPurchase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../non_investment_component/index.html#wattadvisor.components.non_investment_component.NonInvestmentComponent" title="wattadvisor.components.non_investment_component.NonInvestmentComponent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wattadvisor.components.non_investment_component.NonInvestmentComponent</span></code></a></p>
+<p>Component that simulates the import and obtaining of energy from external sources
+in different forms like gas, oil, electricity or heat.
+This component imports energy and applies a cost for the amount imported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>energy_price_scalar</strong> (<em>float</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Scalar price for purchasement per energy unit [€/kWh], by default None</p></li>
+<li><p><strong>energy_price_profile</strong> (<em>pd.Series</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Time series containing hourly variant energy prices for one year, by default None</p></li>
+<li><p><strong>power_price</strong> (<em>float</em><em>, </em><em>optional</em>) – Price to pay for maximum grid load per year [€/(kW * a)], by default 0</p></li>
+<li><p><strong>co2_intensity</strong> (<em>float</em><em>, </em><em>optional</em>) – CO2 emission intensity of the energy purchase [g/kWh], by default 0</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase.energy_price_scalar">
+<span class="sig-name descname"><span class="pre">energy_price_scalar</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.energy_price_scalar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase.energy_price_profile">
+<span class="sig-name descname"><span class="pre">energy_price_profile</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pandas.Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.energy_price_profile" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase.power_price">
+<span class="sig-name descname"><span class="pre">power_price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.power_price" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase.co2_intensity">
+<span class="sig-name descname"><span class="pre">co2_intensity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.co2_intensity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase.check_time_series_length">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_time_series_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.check_time_series_length" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../energy_feedin/index.html" class="btn btn-neutral float-left" title="wattadvisor.components.energy_feedin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../gas_boiler/index.html" class="btn btn-neutral float-right" title="wattadvisor.components.gas_boiler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

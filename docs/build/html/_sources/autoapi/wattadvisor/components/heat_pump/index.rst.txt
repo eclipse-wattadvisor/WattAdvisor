@@ -1,0 +1,117 @@
+wattadvisor.components.heat_pump
+================================
+
+.. py:module:: wattadvisor.components.heat_pump
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.heat_pump.HeatPump
+   wattadvisor.components.heat_pump.HeatPumpAir
+   wattadvisor.components.heat_pump.HeatPumpGround
+
+
+Module Contents
+---------------
+
+.. py:class:: HeatPump(**data)
+
+   Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
+
+
+   Component that uses electrical energy and a low temperature heat source to generate higher temperature heat.
+
+   :param capex: Capital expenditure cost of the component per thermal power [€/kW], by default 0
+   :type capex: float, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default 0
+   :type opex: float, optional
+   :param installed_power: Already installed thermal power of the component [kW] which acts as a lower bound, by default 0
+   :type installed_power: float, optional
+   :param potential_power: Maximum installable thermal power of the component [kW], by default None
+   :type potential_power: float | None, optional
+   :param supply_temperature_heat: Supply temperature of heating [°C] used for calculation of the heating cop in combination with temperature of heating source, by default 50°C
+   :type supply_temperature_heat: float, optional
+   :param quality_grade: Scale-down factor [-] to be applied on the Carnot efficiency to calculate realistic COP for the heat pump
+                         Further information can be found [here](https://oemof-thermal.readthedocs.io/en/latest/compression_heat_pumps_and_chillers.html)
+   :type quality_grade: float
+   :param cop_series: List of COP values [-] for each hour in one year (8760 values necessary) for the heating process, by default None.
+                      If given, the COP will not be calculated using weather data. Instead the given COP values are used directly
+   :type cop_series: list | None, optional
+   :param source_temperature_series: Object containing weather data with a temperature series [°C] of the usable cooling and heating source to calculate COP values, by default None.
+                                     If not given, `cop_series` must be given.
+   :type source_temperature_series: WeatherDataHeightUnspecific | WeatherDataHeightSpecific | None, optional
+
+
+   .. py:attribute:: capex
+      :type:  float
+
+
+   .. py:attribute:: opex
+      :type:  float
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: potential_power
+      :type:  float | None
+
+
+   .. py:attribute:: supply_temperature_heat
+      :type:  float
+
+
+   .. py:attribute:: quality_grade
+      :type:  float
+
+
+   .. py:attribute:: cop_series
+      :type:  list | None
+
+
+   .. py:attribute:: source_temperature_series
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
+
+
+.. py:class:: HeatPumpAir(**data)
+
+   Bases: :py:obj:`HeatPump`
+
+
+   Air source heat pump
+
+   :param quality_grade: Scale-down factor [-] to be applied on the Carnot efficiency to calculate realistic COP for the primary heat pump, by default 0.4
+                         Further information can be found [here](https://oemof-thermal.readthedocs.io/en/latest/compression_heat_pumps_and_chillers.html)
+   :type quality_grade: float, optional
+
+
+   .. py:attribute:: quality_grade
+      :type:  float
+
+
+.. py:class:: HeatPumpGround(**data)
+
+   Bases: :py:obj:`HeatPump`
+
+
+   Ground source heat pump
+
+   :param quality_grade: Scale-down factor [-] to be applied on the Carnot efficiency to calculate realistic COP for the primary heat pump, by default 0.55
+                         Further information can be found [here](https://oemof-thermal.readthedocs.io/en/latest/compression_heat_pumps_and_chillers.html)
+   :type quality_grade: float, optional
+
+
+   .. py:attribute:: quality_grade
+      :type:  float
+
+

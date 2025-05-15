@@ -1,0 +1,89 @@
+wattadvisor.components.energy_demand
+====================================
+
+.. py:module:: wattadvisor.components.energy_demand
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.energy_demand.EnergyDemand
+
+
+Module Contents
+---------------
+
+.. py:class:: EnergyDemand(**data)
+
+   Bases: :py:obj:`wattadvisor.components.non_investment_component.NonInvestmentComponent`
+
+
+   Component which consumes energy of a certain ``EnergyType`` to fulfill an energy demand.
+
+   :param demand_profile: Time series representing an hourly demand profile for one year, by default None
+   :type demand_profile: pd.Series | None, optional
+   :param demand_sum: Sum of energy demanded per year, by default None
+   :type demand_sum: float | None, optional
+   :param demand_unit: unit of the amount of energy given by `demand_sum`, by default None
+   :type demand_unit: EnergyUnit | None, optional
+   :param profile_type: Type of energy demand profile to generate a profile for if ``demand_profile`` not provided, by default None.
+                        See parameter ``demand_group`` of functions ``..utils.demand_tools.generate_electrical_demand_profile()``
+                        and ``..utils.demand_tools.generate_heat_demand_profile()`` for more information.
+   :type profile_type: str | None, optional
+   :param temperature_air: Object containing weather data with an air temperature series [°C], by default None.
+                           Only required if ``energy_type`` is ``THERMAL`` or ``NATURAL_GAS`` and ``demand_profile`` is ``None``
+   :type temperature_air: WeatherDataHeightSpecific | None, optional
+
+
+   .. py:attribute:: demand_profile
+      :type:  pandas.Series | None
+
+
+   .. py:attribute:: demand_sum
+      :type:  float | None
+
+
+   .. py:attribute:: demand_unit
+      :type:  wattadvisor.data_models.enums.EnergyUnit | None
+      :value: None
+
+
+
+   .. py:attribute:: profile_type
+      :type:  str | None
+      :value: None
+
+
+
+   .. py:attribute:: profile_year
+      :type:  int | None
+
+
+   .. py:attribute:: temperature_air
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
+
+
+   .. py:method:: check_time_series_length(series: pandas.Series | None) -> pandas.Series | None
+      :classmethod:
+
+
+      Checks whether the series given by `series` contains exactly 8760 values.
+
+      :param series: The series which should be checked for correct length
+      :type series: pd.Series | None
+
+      :returns: The checked series
+      :rtype: pd.Series | None
+
+      :raises ValueError: If given ``series`` does not exactly contain 8760 values.
+
+
+

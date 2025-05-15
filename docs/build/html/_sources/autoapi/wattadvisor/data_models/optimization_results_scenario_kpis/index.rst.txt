@@ -5,6 +5,9 @@ wattadvisor.data_models.optimization_results_scenario_kpis
 
 .. autoapi-nested-parse::
 
+   Contains the definition of a pydantic model
+   representing the total KPIs of a single optimization scenario.
+
    Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
    Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
@@ -23,23 +26,27 @@ Module Contents
 
 .. py:class:: OptimizationResultsScenarioKpis
 
-   Bases: :py:obj:`pydantic.BaseModel`
+   Bases: :py:obj:`wattadvisor.data_models.base_model.BaseModelCustom`
+
+
+   .. py:attribute:: total_co2_emissions
+      :type:  None | float
 
 
    .. py:attribute:: total_investment_cost
-      :type:  Optional[float]
+      :type:  None | float
 
 
    .. py:attribute:: total_operational_cost
-      :type:  Optional[float]
+      :type:  None | float
 
 
    .. py:attribute:: total_purchase_cost
-      :type:  Optional[float]
+      :type:  None | float
 
 
    .. py:attribute:: total_income
-      :type:  Optional[float]
+      :type:  None | float
 
 
    .. py:attribute:: total_annuities

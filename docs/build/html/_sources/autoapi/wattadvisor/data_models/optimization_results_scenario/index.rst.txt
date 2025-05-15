@@ -1,0 +1,39 @@
+wattadvisor.data_models.optimization_results_scenario
+=====================================================
+
+.. py:module:: wattadvisor.data_models.optimization_results_scenario
+
+.. autoapi-nested-parse::
+
+   Contains the definition of a pydantic model
+   representing the results of a single optimization scenario.
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario
+
+
+Module Contents
+---------------
+
+.. py:class:: OptimizationResultsScenario
+
+   Bases: :py:obj:`wattadvisor.data_models.base_model.BaseModelCustom`
+
+
+   .. py:attribute:: components
+      :type:  list[dict]
+
+
+   .. py:attribute:: kpis
+      :type:  wattadvisor.data_models.optimization_results_scenario_kpis.OptimizationResultsScenarioKpis
+
+

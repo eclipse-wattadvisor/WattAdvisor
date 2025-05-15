@@ -1,0 +1,70 @@
+wattadvisor.utils.results_composition
+=====================================
+
+.. py:module:: wattadvisor.utils.results_composition
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   wattadvisor.utils.results_composition.logger
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.utils.results_composition.write_detailed_results
+   wattadvisor.utils.results_composition.generate_results_object
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:function:: write_detailed_results(pyomo_model: pyomo.core.base.PyomoModel.Model, components_list: List[wattadvisor.components.component.Component], calculation_time: float, filename: pathlib.Path | None = None)
+
+   Creates a DataFrame with all optimization time series data and writes it to a excel file.
+
+   :param pyomo_model: Pyomo optimization model containing all parameters, variables and constraints aswell as the objective function.
+   :type pyomo_model: Model
+   :param components_list: List of all optimization components added to the optimiziation model
+   :type components_list: List[Component]
+   :param calculation_time: Time in seconds it took for the solver to solve the optimization model
+   :type calculation_time: float
+   :param filename: name of the Excel file to export, by default None
+   :type filename: Path or None
+
+
+.. py:function:: generate_results_object(opt_model_object: wattadvisor.opt_model.OptModel, components_list: List[wattadvisor.components.component.Component], status: wattadvisor.data_models.enums.OptimizationStatus, use_solver: wattadvisor.data_models.enums.SupportedSolver, solver_executable: str | None = None) -> wattadvisor.data_models.optimization_results_model.OptimizationResults
+
+   Creates the complete `OptimizationResultsModel` which is returned as the response of the WattAdvisor.
+
+   :returns: Object which contains all optimization results (cost, produced energy, power) for the WattAdvisor response
+   :rtype: OptimizationResultsModel
+
+   :param opt_model_object: Object of the optimization model
+   :type opt_model_object: OptModel
+   :param components_list: List of all optimization components added to the optimiziation model
+   :type components_list: List[Component]
+   :param status: Status of the completed optimization
+   :type status: OptimizationStatus
+   :param use_solver: Solver to be used for the optimization for the current scenario
+   :type use_solver: SupportedSolver
+   :param solver_executable: Path of the solver's executable, by default None
+   :type solver_executable: str | None, optional
+
+   :returns: Object that contains all relevant results of current and target scenario optimization
+   :rtype: OptimizationResults
+
+

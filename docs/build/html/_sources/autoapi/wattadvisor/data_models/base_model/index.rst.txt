@@ -1,0 +1,33 @@
+wattadvisor.data_models.base_model
+==================================
+
+.. py:module:: wattadvisor.data_models.base_model
+
+.. autoapi-nested-parse::
+
+   Contains the base pydantic model all self-defined pydantic models are inherited from.
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.base_model.BaseModelCustom
+
+
+Module Contents
+---------------
+
+.. py:class:: BaseModelCustom
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+
+   .. py:attribute:: model_config
+
+

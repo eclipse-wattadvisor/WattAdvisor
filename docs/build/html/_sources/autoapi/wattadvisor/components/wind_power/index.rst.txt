@@ -1,0 +1,122 @@
+wattadvisor.components.wind_power
+=================================
+
+.. py:module:: wattadvisor.components.wind_power
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.wind_power.WindPower
+
+
+Module Contents
+---------------
+
+.. py:class:: WindPower(**data)
+
+   Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
+
+
+   Component to generate electrical energy from wind energy.
+
+   :param installed_power: Already installed electrical power of the component [kW] which acts as a lower bound, by default 0
+   :type installed_power: float, optional
+   :param potential_power: Maximum installable electrical power of the component [kW], by default None
+   :type potential_power: float | None, optional
+   :param latitude: Latitude of the location of the component, by default None
+   :type latitude: float | None, optional
+   :param longitude: Longitude of the location of the component, by default None
+   :type longitude: float | None, optional
+   :param hub_height: height of the wind power plant hub above ground of the plant [m], by default 100
+   :type hub_height: float
+   :param normed_production: Determinated normed energy production series which can be given as an input. If given,
+                             calculation of normed production by the usage of weather data is skipped.
+   :type normed_production: pd.Series | None, optional
+   :param capex: Capital expenditure cost of the component per electrical power [€/kW], by default 0
+   :type capex: float | None, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default 0
+   :type opex: float | None, optional
+   :param wind_speed: Object containing weather data describing the wind speed at a location, by default None
+   :type wind_speed: WeatherDataHeightSpecific | None
+   :param roughness_length: Object containing weather data describing the rougness length of the surrounding surface of a location, by default None
+   :type roughness_length: WeatherDataHeightSpecific | None
+   :param air_temperature: Object containing weather data describing the air temperature at a location, by default None
+   :type air_temperature: WeatherDataHeightSpecific | None, optional
+   :param pressure: Object containing weather data describing the air pressure at a location, by default None
+   :type pressure: WeatherDataHeightSpecific | None, optional
+   :param density: Object containing weather data describing the air density at a location, by default None
+   :type density: WeatherDataHeightSpecific | None, optional
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: potential_power
+      :type:  float | None
+
+
+   .. py:attribute:: latitude
+      :type:  float | None
+      :value: None
+
+
+
+   .. py:attribute:: longitude
+      :type:  float | None
+      :value: None
+
+
+
+   .. py:attribute:: hub_height
+      :type:  float
+      :value: 100
+
+
+
+   .. py:attribute:: normed_production
+      :type:  pandas.Series | None
+
+
+   .. py:attribute:: capex
+      :type:  float
+
+
+   .. py:attribute:: opex
+      :type:  float
+
+
+   .. py:attribute:: wind_speed
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
+
+
+   .. py:attribute:: roughness_length
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
+
+
+   .. py:attribute:: air_temperature
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
+
+
+   .. py:attribute:: pressure
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
+
+
+   .. py:attribute:: density
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
+
+
+   .. py:method:: check_time_series_length(value: pandas.Series | None) -> pandas.Series | None
+      :classmethod:
+
+
+

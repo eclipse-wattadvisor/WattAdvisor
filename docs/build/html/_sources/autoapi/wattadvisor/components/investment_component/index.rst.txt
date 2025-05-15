@@ -1,0 +1,66 @@
+wattadvisor.components.investment_component
+===========================================
+
+.. py:module:: wattadvisor.components.investment_component
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   wattadvisor.components.investment_component.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.investment_component.InvestmentComponent
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:class:: InvestmentComponent(**data)
+
+   Bases: :py:obj:`wattadvisor.components.component.Component`
+
+
+   Base component from which all components that require an investment
+   are inherited from.
+
+   :param lifespan: Expected lifespan of the component [a]
+   :type lifespan: float
+   :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component
+   :type interest_rate: float
+
+
+   .. py:attribute:: lifespan
+      :type:  float
+
+
+   .. py:attribute:: interest_rate
+      :type:  float
+
+
+   .. py:property:: annuity_factor
+      :type: float
+
+
+      Calculates the annuity factor for investment calculation of the component.
+      Uses class attributes interest rate and expected life span.
+
+      :returns: calculated annuity factor for the component
+      :rtype: float
+
+

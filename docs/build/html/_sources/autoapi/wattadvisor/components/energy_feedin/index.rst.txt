@@ -1,0 +1,62 @@
+wattadvisor.components.energy_feedin
+====================================
+
+.. py:module:: wattadvisor.components.energy_feedin
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.energy_feedin.EnergyFeedin
+
+
+Module Contents
+---------------
+
+.. py:class:: EnergyFeedin(**data)
+
+   Bases: :py:obj:`wattadvisor.components.non_investment_component.NonInvestmentComponent`
+
+
+   Component that feeds surplus energy into grid .
+
+   :param energy_price_scalar: Scalar price for feeding in per energy unit [€/kWh], by default None
+   :type energy_price_scalar: float | None, optional
+   :param energy_price_profile: Time series containing hourly variant energy prices for one year, by default None
+   :type energy_price_profile: pd.Series | None, optional
+
+
+   .. py:attribute:: energy_price_scalar
+      :type:  float | None
+      :value: None
+
+
+
+   .. py:attribute:: energy_price_profile
+      :type:  pandas.Series | None
+
+
+   .. py:method:: check_time_series_length(series: pandas.Series | None) -> pandas.Series | None
+      :classmethod:
+
+
+      Checks whether the series given by `series` contains exactly 8760 values.
+
+      :param series: The series which should be checked for correct length
+      :type series: pd.Series | None
+
+      :returns: The checked series
+      :rtype: pd.Series | None
+
+      :raises ValueError: If given ``series`` does not exactly contain 8760 values.
+
+
+

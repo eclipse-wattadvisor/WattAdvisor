@@ -1,0 +1,272 @@
+wattadvisor.components.photovoltaic
+===================================
+
+.. py:module:: wattadvisor.components.photovoltaic
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.photovoltaic.Photovoltaik
+   wattadvisor.components.photovoltaic.PhotovoltaikRoof
+   wattadvisor.components.photovoltaic.PhotovoltaikFreeField
+
+
+Module Contents
+---------------
+
+.. py:class:: Photovoltaik(**data)
+
+   Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
+
+
+   Component to purchase electrical energy via a PPA from a
+   Photovoltaic plant that produces electricity from solar radiation.
+
+
+   :param capex: Capital expenditure cost of the component per electrical power [€/kWp], by default 0
+   :type capex: float | None, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default 0
+   :type opex: float | None, optional
+   :param installed_power: Already installed electrical power of the component [kW] which acts as a lower bound, by default 0
+   :type installed_power: float, optional
+   :param potential_power: Maximum installable electrical power of the component [kW], by default None
+   :type potential_power: float | None, optional
+   :param latitude: Latitude of the location of the plant
+   :type latitude: float
+   :param longitude: Longitude of the location of the plant
+   :type longitude: float
+   :param azimuth: Azimuth orientation [°] of the photovoltaic plant where the power will be generated, by default 180
+
+                   - North=0
+                   - East=90
+                   - South=180
+                   - West=270
+   :type azimuth: float, optional
+   :param tilt: Tilt orientation [°] of the photovoltaic plant where the power will be generated, by default 40
+
+                - Up=0
+                - horizon=90
+   :type tilt: float, optional
+   :param elevation: elevation of the location of the photovoltaic plant above sea level [m], by default 0
+   :type elevation: float, optional
+   :param normed_production: Determinated normed energy production series which can be given as an input. If given,
+                             calculation of normed production by the usage of 'weather_data' is skipped.
+   :type normed_production: pd.Series | None, optional
+   :param ghi: Object containing weather data describing the global horizontal irradiance at a location, by default None
+   :type ghi: WeatherDataHeightUnspecific | None, optional
+   :param dhi: Object containing weather data describing the diffuse horizontal irradiance at a location, by default None
+   :type dhi: WeatherDataHeightUnspecific | None, optional
+   :param surface_type: surface type of the surroundings of the photovoltaic plant where the power will be generated,  by default "urban"
+   :type surface_type: Literal["urban", "grass", "fresh grass", "soil", "sand", "snow", "fresh snow", "asphalt", "concrete", "aluminum", "copper", "fresh steel", "dirty steel", "sea"], optional
+   :param module_type: Describes the module’s construction. Used for cell and module temperature calculations, by default "glass_glass"
+   :type module_type: Literal["glass_glass", "glass_polymer"], optional
+   :param racking_model: Used to identify a parameter set for the SAPM cell temperature model, by default "insulated_back"
+   :type racking_model: Literal["open_rack", "close_mount", "insulated_back"], optional
+   :param air_temperature: Object containing weather data describing the air temperature at a location, by default None
+   :type air_temperature: WeatherDataHeightSpecific | None, optional
+   :param dni: Object containing weather data describing the direct normal irradiance at a location, by default None
+   :type dni: WeatherDataHeightUnspecific | None, optional
+
+
+   .. py:attribute:: capex
+      :type:  float
+
+
+   .. py:attribute:: opex
+      :type:  float
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: potential_power
+      :type:  float | None
+
+
+   .. py:attribute:: latitude
+      :type:  float | None
+      :value: None
+
+
+
+   .. py:attribute:: longitude
+      :type:  float | None
+      :value: None
+
+
+
+   .. py:attribute:: azimuth
+      :type:  float
+
+
+   .. py:attribute:: tilt
+      :type:  float
+
+
+   .. py:attribute:: elevation
+      :type:  float
+      :value: 0
+
+
+
+   .. py:attribute:: normed_production
+      :type:  pandas.Series | None
+
+
+   .. py:attribute:: ghi
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None
+
+
+   .. py:attribute:: dhi
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None
+
+
+   .. py:attribute:: surface_type
+      :type:  Literal['urban', 'grass', 'fresh grass', 'soil', 'sand', 'snow', 'fresh snow', 'asphalt', 'concrete', 'aluminum', 'copper', 'fresh steel', 'dirty steel', 'sea']
+      :value: 'urban'
+
+
+
+   .. py:attribute:: module_type
+      :type:  Literal['glass_glass', 'glass_polymer']
+      :value: 'glass_glass'
+
+
+
+   .. py:attribute:: racking_model
+      :type:  Literal['open_rack', 'close_mount', 'insulated_back']
+      :value: 'insulated_back'
+
+
+
+   .. py:attribute:: air_temperature
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
+
+
+   .. py:attribute:: dni
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None
+
+
+   .. py:method:: check_time_series_length(value: pandas.Series | None) -> pandas.Series | None
+      :classmethod:
+
+
+
+.. py:class:: PhotovoltaikRoof(**data)
+
+   Bases: :py:obj:`Photovoltaik`
+
+
+   Component to purchase electrical energy via a PPA from a
+   Photovoltaic plant that produces electricity from solar radiation.
+
+
+   :param capex: Capital expenditure cost of the component per electrical power [€/kWp], by default 0
+   :type capex: float | None, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default 0
+   :type opex: float | None, optional
+   :param installed_power: Already installed electrical power of the component [kW] which acts as a lower bound, by default 0
+   :type installed_power: float, optional
+   :param potential_power: Maximum installable electrical power of the component [kW], by default None
+   :type potential_power: float | None, optional
+   :param latitude: Latitude of the location of the plant
+   :type latitude: float
+   :param longitude: Longitude of the location of the plant
+   :type longitude: float
+   :param azimuth: Azimuth orientation [°] of the photovoltaic plant where the power will be generated, by default 180
+
+                   - North=0
+                   - East=90
+                   - South=180
+                   - West=270
+   :type azimuth: float, optional
+   :param tilt: Tilt orientation [°] of the photovoltaic plant where the power will be generated, by default 40
+
+                - Up=0
+                - horizon=90
+   :type tilt: float, optional
+   :param elevation: elevation of the location of the photovoltaic plant above sea level [m], by default 0
+   :type elevation: float, optional
+   :param normed_production: Determinated normed energy production series which can be given as an input. If given,
+                             calculation of normed production by the usage of 'weather_data' is skipped.
+   :type normed_production: pd.Series | None, optional
+   :param ghi: Object containing weather data describing the global horizontal irradiance at a location, by default None
+   :type ghi: WeatherDataHeightUnspecific | None, optional
+   :param dhi: Object containing weather data describing the diffuse horizontal irradiance at a location, by default None
+   :type dhi: WeatherDataHeightUnspecific | None, optional
+   :param surface_type: surface type of the surroundings of the photovoltaic plant where the power will be generated,  by default "urban"
+   :type surface_type: Literal["urban", "grass", "fresh grass", "soil", "sand", "snow", "fresh snow", "asphalt", "concrete", "aluminum", "copper", "fresh steel", "dirty steel", "sea"], optional
+   :param module_type: Describes the module’s construction. Used for cell and module temperature calculations, by default "glass_glass"
+   :type module_type: Literal["glass_glass", "glass_polymer"], optional
+   :param racking_model: Used to identify a parameter set for the SAPM cell temperature model, by default "insulated_back"
+   :type racking_model: Literal["open_rack", "close_mount", "insulated_back"], optional
+   :param air_temperature: Object containing weather data describing the air temperature at a location, by default None
+   :type air_temperature: WeatherDataHeightSpecific | None, optional
+   :param dni: Object containing weather data describing the direct normal irradiance at a location, by default None
+   :type dni: WeatherDataHeightUnspecific | None, optional
+
+
+.. py:class:: PhotovoltaikFreeField(**data)
+
+   Bases: :py:obj:`Photovoltaik`
+
+
+   Component to purchase electrical energy via a PPA from a
+   Photovoltaic plant that produces electricity from solar radiation.
+
+
+   :param capex: Capital expenditure cost of the component per electrical power [€/kWp], by default 0
+   :type capex: float | None, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default 0
+   :type opex: float | None, optional
+   :param installed_power: Already installed electrical power of the component [kW] which acts as a lower bound, by default 0
+   :type installed_power: float, optional
+   :param potential_power: Maximum installable electrical power of the component [kW], by default None
+   :type potential_power: float | None, optional
+   :param latitude: Latitude of the location of the plant
+   :type latitude: float
+   :param longitude: Longitude of the location of the plant
+   :type longitude: float
+   :param azimuth: Azimuth orientation [°] of the photovoltaic plant where the power will be generated, by default 180
+
+                   - North=0
+                   - East=90
+                   - South=180
+                   - West=270
+   :type azimuth: float, optional
+   :param tilt: Tilt orientation [°] of the photovoltaic plant where the power will be generated, by default 40
+
+                - Up=0
+                - horizon=90
+   :type tilt: float, optional
+   :param elevation: elevation of the location of the photovoltaic plant above sea level [m], by default 0
+   :type elevation: float, optional
+   :param normed_production: Determinated normed energy production series which can be given as an input. If given,
+                             calculation of normed production by the usage of 'weather_data' is skipped.
+   :type normed_production: pd.Series | None, optional
+   :param ghi: Object containing weather data describing the global horizontal irradiance at a location, by default None
+   :type ghi: WeatherDataHeightUnspecific | None, optional
+   :param dhi: Object containing weather data describing the diffuse horizontal irradiance at a location, by default None
+   :type dhi: WeatherDataHeightUnspecific | None, optional
+   :param surface_type: surface type of the surroundings of the photovoltaic plant where the power will be generated,  by default "urban"
+   :type surface_type: Literal["urban", "grass", "fresh grass", "soil", "sand", "snow", "fresh snow", "asphalt", "concrete", "aluminum", "copper", "fresh steel", "dirty steel", "sea"], optional
+   :param module_type: Describes the module’s construction. Used for cell and module temperature calculations, by default "glass_glass"
+   :type module_type: Literal["glass_glass", "glass_polymer"], optional
+   :param racking_model: Used to identify a parameter set for the SAPM cell temperature model, by default "insulated_back"
+   :type racking_model: Literal["open_rack", "close_mount", "insulated_back"], optional
+   :param air_temperature: Object containing weather data describing the air temperature at a location, by default None
+   :type air_temperature: WeatherDataHeightSpecific | None, optional
+   :param dni: Object containing weather data describing the direct normal irradiance at a location, by default None
+   :type dni: WeatherDataHeightUnspecific | None, optional
+
+

@@ -10,23 +10,14 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
+   /autoapi/wattadvisor/data_models/base_model/index
    /autoapi/wattadvisor/data_models/bilance_variables/index
    /autoapi/wattadvisor/data_models/config_model/index
    /autoapi/wattadvisor/data_models/enums/index
-   /autoapi/wattadvisor/data_models/input_model/index
-   /autoapi/wattadvisor/data_models/input_model_component_normed_production_object/index
-   /autoapi/wattadvisor/data_models/input_model_component_object/index
-   /autoapi/wattadvisor/data_models/input_model_demand_object/index
-   /autoapi/wattadvisor/data_models/input_model_energy_tariffs/index
-   /autoapi/wattadvisor/data_models/input_model_location/index
-   /autoapi/wattadvisor/data_models/input_model_single_tariff_energy_object/index
-   /autoapi/wattadvisor/data_models/input_model_single_tariff_object/index
-   /autoapi/wattadvisor/data_models/optimization_results_component_energy_production_object/index
-   /autoapi/wattadvisor/data_models/optimization_results_component_object/index
    /autoapi/wattadvisor/data_models/optimization_results_model/index
+   /autoapi/wattadvisor/data_models/optimization_results_scenario/index
    /autoapi/wattadvisor/data_models/optimization_results_scenario_kpis/index
-   /autoapi/wattadvisor/data_models/optimization_results_scenario_object/index
-   /autoapi/wattadvisor/data_models/optimization_results_scenarios/index
    /autoapi/wattadvisor/data_models/optimization_results_status/index
+   /autoapi/wattadvisor/data_models/weather_data/index
 
 

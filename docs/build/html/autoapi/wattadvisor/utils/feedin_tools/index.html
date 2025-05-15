@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wattadvisor.utils.feedin_tools &mdash; WattAdvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=29a6c3e3"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="wattadvisor.utils.load_YAML" href="../load_YAML/index.html" />
+    <link rel="prev" title="wattadvisor.utils.demand_tools" href="../demand_tools/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WattAdvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About WattAdvisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About Eclipse WattAdvisor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage of custom weather data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../custom_weather_files.html">Usage of custom weather data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">wattadvisor</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../components/index.html">wattadvisor.components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data_models/index.html">wattadvisor.data_models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../model_composition/index.html">wattadvisor.model_composition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../opt_model/index.html">wattadvisor.opt_model</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">wattadvisor.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WattAdvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">wattadvisor</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">wattadvisor.utils</a></li>
+      <li class="breadcrumb-item active">wattadvisor.utils.feedin_tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/wattadvisor/utils/feedin_tools/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-wattadvisor.utils.feedin_tools">
+<span id="wattadvisor-utils-feedin-tools"></span><h1>wattadvisor.utils.feedin_tools<a class="headerlink" href="#module-wattadvisor.utils.feedin_tools" title="Link to this heading"></a></h1>
+<p>Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.utils.feedin_tools.calculate_pv_feedin" title="wattadvisor.utils.feedin_tools.calculate_pv_feedin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_pv_feedin</span></code></a>(→ pandas.Series)</p></td>
+<td><p>Calculates the power generation profile of a photovoltaic plant at the given location using the given weather data DataFrame acquired before.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.utils.feedin_tools.use_input_weather_data_wind" title="wattadvisor.utils.feedin_tools.use_input_weather_data_wind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_input_weather_data_wind</span></code></a>(→ tuple[list[tuple], ...)</p></td>
+<td><p>Transforms and adds a weather data object containing measurements at specific height into</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.utils.feedin_tools.calculate_windpower_feedin" title="wattadvisor.utils.feedin_tools.calculate_windpower_feedin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_windpower_feedin</span></code></a>(→ pandas.Series)</p></td>
+<td><p>Calculates the power generation profile of a wind power plant at the given location using the given weather data DataFrame acquired before.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="wattadvisor.utils.feedin_tools.calculate_pv_feedin">
+<span class="sig-prename descclassname"><span class="pre">wattadvisor.utils.feedin_tools.</span></span><span class="sig-name descname"><span class="pre">calculate_pv_feedin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ghi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dhi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tilt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surface_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'urban'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'grass'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fresh</span> <span class="pre">grass'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'soil'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sand'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'snow'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fresh</span> <span class="pre">snow'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'asphalt'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'concrete'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'aluminum'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'copper'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'fresh</span> <span class="pre">steel'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'dirty</span> <span class="pre">steel'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sea'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'glass_glass'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'glass_polymer'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'glass_glass'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">racking_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'open_rack'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'close_mount'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'insulated_back'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'insulated_back'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">air_temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dni</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.Series</span></span></span><a class="headerlink" href="#wattadvisor.utils.feedin_tools.calculate_pv_feedin" title="Link to this definition"></a></dt>
+<dd><p>Calculates the power generation profile of a photovoltaic plant at the given location using the given weather data DataFrame acquired before.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ghi</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><em>WeatherDataHeightUnspecific</em></a>) – Object containing weather data describing the global horizontal irradiance at a location</p></li>
+<li><p><strong>dhi</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><em>WeatherDataHeightUnspecific</em></a>) – Object containing weather data describing the diffuse horizontal irradiance at a location</p></li>
+<li><p><strong>latitude</strong> (<em>float</em>) – latitude of the location point for which the wind power generation should be calculated</p></li>
+<li><p><strong>longitude</strong> (<em>float</em>) – longitude of the location point for which the wind power generation should be calculated</p></li>
+<li><p><strong>azimuth</strong> (<em>float</em>) – azimuth orientation [°] of the photovoltaic plant where the power will be generated
+- North=0
+- East=90
+- South=180
+- West=270</p></li>
+<li><p><strong>tilt</strong> (<em>float</em>) – tilt orientation [°] of the photovoltaic plant where the power will be generated
+- Up=0
+- horizon=90</p></li>
+<li><p><strong>elevation</strong> (<em>float</em>) – elevation of the location of the photovoltaic plant above sea level [m]</p></li>
+<li><p><strong>surface_type</strong> (<em>Literal</em><em>[</em><em>&quot;urban&quot;</em><em>, </em><em>&quot;grass&quot;</em><em>, </em><em>&quot;fresh grass&quot;</em><em>, </em><em>&quot;soil&quot;</em><em>, </em><em>&quot;sand&quot;</em><em>, </em><em>&quot;snow&quot;</em><em>, </em><em>&quot;fresh snow&quot;</em><em>, </em><em>&quot;asphalt&quot;</em><em>, </em><em>&quot;concrete&quot;</em><em>, </em><em>&quot;aluminum&quot;</em><em>, </em><em>&quot;copper&quot;</em><em>, </em><em>&quot;fresh steel&quot;</em><em>, </em><em>&quot;dirty steel&quot;</em><em>, </em><em>&quot;sea&quot;</em><em>]</em>) – surface type of the surroundings of the photovoltaic plant where the power will be generated</p></li>
+<li><p><strong>module_type</strong> (<em>Literal</em><em>[</em><em>&quot;glass_glass&quot;</em><em>, </em><em>&quot;glass_polymer&quot;</em><em>]</em><em>, </em><em>optional</em>) – Describes the module’s construction. Used for cell and module temperature calculations, by default “glass_glass”</p></li>
+<li><p><strong>racking_model</strong> (<em>Literal</em><em>[</em><em>&quot;open_rack&quot;</em><em>, </em><em>&quot;close_mount&quot;</em><em>, </em><em>&quot;insulated_back&quot;</em><em>]</em><em>, </em><em>optional</em>) – Used to identify a parameter set for the SAPM cell temperature model, by default “insulated_back”</p></li>
+<li><p><strong>air_temperature</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><em>WeatherDataHeightSpecific</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – Object containing weather data describing the air temperature at a location, by default None</p></li>
+<li><p><strong>dni</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><em>WeatherDataHeightUnspecific</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – Object containing weather data describing the direct normal irradiance at a location, by default None</p></li>
+<li><p><strong>normalized</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether resulting power values should be normalized to installed power, by default True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>time series of power generation values for given weather data time series in <cite>weather_data_df</cite></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wattadvisor.utils.feedin_tools.use_input_weather_data_wind">
+<span class="sig-prename descclassname"><span class="pre">wattadvisor.utils.feedin_tools.</span></span><span class="sig-name descname"><span class="pre">use_input_weather_data_wind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_tuples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_collected</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.Series</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#wattadvisor.utils.feedin_tools.use_input_weather_data_wind" title="Link to this definition"></a></dt>
+<dd><p>Transforms and adds a weather data object containing measurements at specific height into
+a tuple structure needed to use for energy generation determination with feedinlib.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_input</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><em>WeatherDataHeightSpecific</em></a><em> | </em><em>None</em>) – object containing weather data which is measured at specific, defined heights above the ground</p></li>
+<li><p><strong>data_name</strong> (<em>str</em>) – identifier of the type of weather data (e.g., “air_temperature” or “pressure”)</p></li>
+<li><p><strong>index_tuples</strong> (<em>list</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – list of other weather data to add the generated tuple structure of index values containing the data name and the height the data is measured at into, by default None</p></li>
+<li><p><strong>data_collected</strong> (<em>list</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – list of other weather data to add the generated tuple structure of measurement values into, by default None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of weather data tuples extended by the given weather data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[list[tuple], list[pd.Series]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wattadvisor.utils.feedin_tools.calculate_windpower_feedin">
+<span class="sig-prename descclassname"><span class="pre">wattadvisor.utils.feedin_tools.</span></span><span class="sig-name descname"><span class="pre">calculate_windpower_feedin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wind_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">roughness_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hub_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">air_temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.Series</span></span></span><a class="headerlink" href="#wattadvisor.utils.feedin_tools.calculate_windpower_feedin" title="Link to this definition"></a></dt>
+<dd><p>Calculates the power generation profile of a wind power plant at the given location using the given weather data DataFrame acquired before.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wind_speed</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><em>WeatherDataHeightSpecific</em></a>) – Object containing weather data describing the wind speed at a location</p></li>
+<li><p><strong>roughness_length</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><em>WeatherDataHeightSpecific</em></a>) – Object containing weather data describing the rougness length of the surrounding surface of a location</p></li>
+<li><p><strong>latitude</strong> (<em>float</em>) – latitude of the location point for which the wind power generation should be calculated</p></li>
+<li><p><strong>longitude</strong> (<em>float</em>) – longitude of the location point for which the wind power generation should be calculated</p></li>
+<li><p><strong>hub_height</strong> (<em>float</em>) – height of the wind power plant hub where the power will be generated [m]</p></li>
+<li><p><strong>air_temperature</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><em>WeatherDataHeightSpecific</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – Object containing weather data describing the air temperature at a location, by default None</p></li>
+<li><p><strong>pressure</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><em>WeatherDataHeightSpecific</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – Object containing weather data describing the air pressure at a location, by default None</p></li>
+<li><p><strong>density</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><em>WeatherDataHeightSpecific</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – Object containing weather data describing the air density at a location, by default None</p></li>
+<li><p><strong>normalized</strong> (<em>bool</em><em>, </em><em>optional</em>) – whether resulting power values should be normalized to installed power, by default True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>time series of power generation values for given weather data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../demand_tools/index.html" class="btn btn-neutral float-left" title="wattadvisor.utils.demand_tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../load_YAML/index.html" class="btn btn-neutral float-right" title="wattadvisor.utils.load_YAML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

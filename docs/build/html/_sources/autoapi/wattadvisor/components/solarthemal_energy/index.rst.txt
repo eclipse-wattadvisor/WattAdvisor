@@ -1,0 +1,83 @@
+wattadvisor.components.solarthemal_energy
+=========================================
+
+.. py:module:: wattadvisor.components.solarthemal_energy
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.solarthemal_energy.SolarthermalEnergy
+
+
+Module Contents
+---------------
+
+.. py:class:: SolarthermalEnergy(**data)
+
+   Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
+
+
+   Component to generate thermal energy from solar energy.
+
+   :param capex: Capital expenditure cost of the component per area [€/qm], by default 0
+   :type capex: float, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default 0
+   :type opex: float, optional
+   :param ghi: Object containing weather data describing the global horizontal irradiance at a location, by default None
+               Must be given if `normed_production` is None.
+   :type ghi: WeatherDataHeightUnspecific | None, optional
+   :param installed_area: Already installed area of the component [qm] which acts as a lower bound, by default 0
+   :type installed_area: float, optional
+   :param potential_power: Maximum installable area of the component [qm], by default None
+   :type potential_power: float | None, optional
+   :param normed_production: Determinated normed energy production series which can be given as an input. If given,
+                             calculation of normed production by the usage of `ghi` is skipped.
+                             By default None
+   :type normed_production: pd.Series | None, optional
+   :param eff: Efficiency grade of the solar thermal plant [-], by default None.
+               Must be given if `normed_production` is None.
+   :type eff: float | None, optional
+
+
+   .. py:attribute:: capex
+      :type:  float
+
+
+   .. py:attribute:: opex
+      :type:  float
+
+
+   .. py:attribute:: ghi
+      :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None
+
+
+   .. py:attribute:: installed_area
+      :type:  float
+
+
+   .. py:attribute:: potential_area
+      :type:  float | None
+
+
+   .. py:attribute:: normed_production
+      :type:  pandas.Series | None
+
+
+   .. py:attribute:: eff
+      :type:  float | None
+
+
+   .. py:method:: check_time_series_length(value: pandas.Series | None) -> pandas.Series | None
+      :classmethod:
+
+
+

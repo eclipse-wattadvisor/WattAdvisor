@@ -1,0 +1,111 @@
+wattadvisor.utils.feedin_tools
+==============================
+
+.. py:module:: wattadvisor.utils.feedin_tools
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.utils.feedin_tools.calculate_pv_feedin
+   wattadvisor.utils.feedin_tools.use_input_weather_data_wind
+   wattadvisor.utils.feedin_tools.calculate_windpower_feedin
+
+
+Module Contents
+---------------
+
+.. py:function:: calculate_pv_feedin(ghi: wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific, dhi: wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific, latitude: float, longitude: float, azimuth: float, tilt: float, elevation: float, surface_type: Literal['urban', 'grass', 'fresh grass', 'soil', 'sand', 'snow', 'fresh snow', 'asphalt', 'concrete', 'aluminum', 'copper', 'fresh steel', 'dirty steel', 'sea'], module_type: Literal['glass_glass', 'glass_polymer'] = 'glass_glass', racking_model: Literal['open_rack', 'close_mount', 'insulated_back'] = 'insulated_back', air_temperature: wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None = None, dni: wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None = None, normalized: bool = True) -> pandas.Series
+
+   Calculates the power generation profile of a photovoltaic plant at the given location using the given weather data DataFrame acquired before.
+
+   :param ghi: Object containing weather data describing the global horizontal irradiance at a location
+   :type ghi: WeatherDataHeightUnspecific
+   :param dhi: Object containing weather data describing the diffuse horizontal irradiance at a location
+   :type dhi: WeatherDataHeightUnspecific
+   :param latitude: latitude of the location point for which the wind power generation should be calculated
+   :type latitude: float
+   :param longitude: longitude of the location point for which the wind power generation should be calculated
+   :type longitude: float
+   :param azimuth: azimuth orientation [°] of the photovoltaic plant where the power will be generated
+                   - North=0
+                   - East=90
+                   - South=180
+                   - West=270
+   :type azimuth: float
+   :param tilt: tilt orientation [°] of the photovoltaic plant where the power will be generated
+                - Up=0
+                - horizon=90
+   :type tilt: float
+   :param elevation: elevation of the location of the photovoltaic plant above sea level [m]
+   :type elevation: float
+   :param surface_type: surface type of the surroundings of the photovoltaic plant where the power will be generated
+   :type surface_type: Literal["urban", "grass", "fresh grass", "soil", "sand", "snow", "fresh snow", "asphalt", "concrete", "aluminum", "copper", "fresh steel", "dirty steel", "sea"]
+   :param module_type: Describes the module’s construction. Used for cell and module temperature calculations, by default "glass_glass"
+   :type module_type: Literal["glass_glass", "glass_polymer"], optional
+   :param racking_model: Used to identify a parameter set for the SAPM cell temperature model, by default "insulated_back"
+   :type racking_model: Literal["open_rack", "close_mount", "insulated_back"], optional
+   :param air_temperature: Object containing weather data describing the air temperature at a location, by default None
+   :type air_temperature: WeatherDataHeightSpecific | None, optional
+   :param dni: Object containing weather data describing the direct normal irradiance at a location, by default None
+   :type dni: WeatherDataHeightUnspecific | None, optional
+   :param normalized: whether resulting power values should be normalized to installed power, by default True
+   :type normalized: bool, optional
+
+   :returns: time series of power generation values for given weather data time series in `weather_data_df`
+   :rtype: pd.Series
+
+
+.. py:function:: use_input_weather_data_wind(data_input: wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None, data_name: str, index_tuples: list | None = None, data_collected: list | None = None) -> tuple[list[tuple], list[pandas.Series]]
+
+   Transforms and adds a weather data object containing measurements at specific height into
+   a tuple structure needed to use for energy generation determination with feedinlib.
+
+   :param data_input: object containing weather data which is measured at specific, defined heights above the ground
+   :type data_input: WeatherDataHeightSpecific | None
+   :param data_name: identifier of the type of weather data (e.g., "air_temperature" or "pressure")
+   :type data_name: str
+   :param index_tuples: list of other weather data to add the generated tuple structure of index values containing the data name and the height the data is measured at into, by default None
+   :type index_tuples: list | None, optional
+   :param data_collected: list of other weather data to add the generated tuple structure of measurement values into, by default None
+   :type data_collected: list | None, optional
+
+   :returns: List of weather data tuples extended by the given weather data
+   :rtype: tuple[list[tuple], list[pd.Series]]
+
+
+.. py:function:: calculate_windpower_feedin(wind_speed: wattadvisor.data_models.weather_data.WeatherDataHeightSpecific, roughness_length: wattadvisor.data_models.weather_data.WeatherDataHeightSpecific, latitude: float, longitude: float, hub_height: float, air_temperature: wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None = None, pressure: wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None = None, density: wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None = None, normalized: bool = True) -> pandas.Series
+
+   Calculates the power generation profile of a wind power plant at the given location using the given weather data DataFrame acquired before.
+
+   :param wind_speed: Object containing weather data describing the wind speed at a location
+   :type wind_speed: WeatherDataHeightSpecific
+   :param roughness_length: Object containing weather data describing the rougness length of the surrounding surface of a location
+   :type roughness_length: WeatherDataHeightSpecific
+   :param latitude: latitude of the location point for which the wind power generation should be calculated
+   :type latitude: float
+   :param longitude: longitude of the location point for which the wind power generation should be calculated
+   :type longitude: float
+   :param hub_height: height of the wind power plant hub where the power will be generated [m]
+   :type hub_height: float
+   :param air_temperature: Object containing weather data describing the air temperature at a location, by default None
+   :type air_temperature: WeatherDataHeightSpecific | None, optional
+   :param pressure: Object containing weather data describing the air pressure at a location, by default None
+   :type pressure: WeatherDataHeightSpecific | None, optional
+   :param density: Object containing weather data describing the air density at a location, by default None
+   :type density: WeatherDataHeightSpecific | None, optional
+   :param normalized: whether resulting power values should be normalized to installed power, by default True
+   :type normalized: bool, optional
+
+   :returns: time series of power generation values for given weather data
+   :rtype: pd.Series
+
+

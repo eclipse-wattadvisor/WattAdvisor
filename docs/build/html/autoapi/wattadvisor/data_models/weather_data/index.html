@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wattadvisor.data_models.weather_data &mdash; WattAdvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=29a6c3e3"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="wattadvisor.model_composition" href="../../model_composition/index.html" />
+    <link rel="prev" title="wattadvisor.data_models.optimization_results_status" href="../optimization_results_status/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WattAdvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About WattAdvisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About Eclipse WattAdvisor</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage of custom weather data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../custom_weather_files.html">Usage of custom weather data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">wattadvisor</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../components/index.html">wattadvisor.components</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">wattadvisor.data_models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../model_composition/index.html">wattadvisor.model_composition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../opt_model/index.html">wattadvisor.opt_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">wattadvisor.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WattAdvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">wattadvisor</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">wattadvisor.data_models</a></li>
+      <li class="breadcrumb-item active">wattadvisor.data_models.weather_data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/wattadvisor/data_models/weather_data/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-wattadvisor.data_models.weather_data">
+<span id="wattadvisor-data-models-weather-data"></span><h1>wattadvisor.data_models.weather_data<a class="headerlink" href="#module-wattadvisor.data_models.weather_data" title="Link to this heading"></a></h1>
+<p>Contains the definition of pydantic models
+representing weather data.</p>
+<p>Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataType" title="wattadvisor.data_models.weather_data.WeatherDataType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeatherDataType</span></code></a></p></td>
+<td><p>Create a collection of name/value pairs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeatherDataHeightUnspecific</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeatherDataHeightSpecific</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataCollection" title="wattadvisor.data_models.weather_data.WeatherDataCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WeatherDataCollection</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.weather_data.</span></span><span class="sig-name descname"><span class="pre">WeatherDataType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Create a collection of name/value pairs.</p>
+<p>Example enumeration:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="n">BLUE</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">... </span>    <span class="n">GREEN</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Access them by:</p>
+<ul class="simple">
+<li><p>attribute access:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span>
+<span class="go">&lt;Color.RED: 1&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>value lookup:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Color</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">&lt;Color.RED: 1&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>name lookup:</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Color</span><span class="p">[</span><span class="s1">&#39;RED&#39;</span><span class="p">]</span>
+<span class="go">&lt;Color.RED: 1&gt;</span>
+</pre></div>
+</div>
+<p>Enumerations can be iterated over, and know how many members they have:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">Color</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">Color</span><span class="p">)</span>
+<span class="go">[&lt;Color.RED: 1&gt;, &lt;Color.BLUE: 2&gt;, &lt;Color.GREEN: 3&gt;]</span>
+</pre></div>
+</div>
+<p>Methods can be added to enumerations, and members can have their own
+attributes – see the documentation for details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.WIND_SPEED">
+<span class="sig-name descname"><span class="pre">WIND_SPEED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'wind_speed'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.WIND_SPEED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.ROUGHNESS_LENGTH">
+<span class="sig-name descname"><span class="pre">ROUGHNESS_LENGTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'roughness_length'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.ROUGHNESS_LENGTH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.PRESSURE">
+<span class="sig-name descname"><span class="pre">PRESSURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pressure'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.PRESSURE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.DENSITY">
+<span class="sig-name descname"><span class="pre">DENSITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'density'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.DENSITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.GHI">
+<span class="sig-name descname"><span class="pre">GHI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ghi'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.GHI" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.DHI">
+<span class="sig-name descname"><span class="pre">DHI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dhi'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.DHI" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.DNI">
+<span class="sig-name descname"><span class="pre">DNI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dni'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.DNI" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.AIR_TEMPERATURE">
+<span class="sig-name descname"><span class="pre">AIR_TEMPERATURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'air_temperature'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.AIR_TEMPERATURE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.SOIL_TEMPERATURE">
+<span class="sig-name descname"><span class="pre">SOIL_TEMPERATURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'soil_temperature'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.SOIL_TEMPERATURE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataType.WATER_TEMPERATURE">
+<span class="sig-name descname"><span class="pre">WATER_TEMPERATURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'water_temperature'</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataType.WATER_TEMPERATURE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.weather_data.</span></span><span class="sig-name descname"><span class="pre">WeatherDataHeightUnspecific</span></span><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base_model/index.html#wattadvisor.data_models.base_model.BaseModelCustom" title="wattadvisor.data_models.base_model.BaseModelCustom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wattadvisor.data_models.base_model.BaseModelCustom</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific.series">
+<span class="sig-name descname"><span class="pre">series</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pandas.Series</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific.series" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific.source">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../enums/index.html#wattadvisor.data_models.enums.WeatherDataSource" title="wattadvisor.data_models.enums.WeatherDataSource"><span class="pre">wattadvisor.data_models.enums.WeatherDataSource</span></a></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific.source" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataType" title="wattadvisor.data_models.weather_data.WeatherDataType"><span class="pre">WeatherDataType</span></a></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific.type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific.check_time_series_length">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_time_series_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.Series</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.Series</span></span></span><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific.check_time_series_length" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.weather_data.</span></span><span class="sig-name descname"><span class="pre">WeatherDataHeightSpecific</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base_model/index.html#wattadvisor.data_models.base_model.BaseModelCustom" title="wattadvisor.data_models.base_model.BaseModelCustom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wattadvisor.data_models.base_model.BaseModelCustom</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.series">
+<span class="sig-name descname"><span class="pre">series</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.Series</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.series" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.source">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../enums/index.html#wattadvisor.data_models.enums.WeatherDataSource" title="wattadvisor.data_models.enums.WeatherDataSource"><span class="pre">wattadvisor.data_models.enums.WeatherDataSource</span></a></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.source" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.height_measured_at">
+<span class="sig-name descname"><span class="pre">height_measured_at</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.height_measured_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataType" title="wattadvisor.data_models.weather_data.WeatherDataType"><span class="pre">WeatherDataType</span></a></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.check_time_series_length">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_time_series_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.Series</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.Series</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific.check_time_series_length" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.weather_data.</span></span><span class="sig-name descname"><span class="pre">WeatherDataCollection</span></span><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base_model/index.html#wattadvisor.data_models.base_model.BaseModelCustom" title="wattadvisor.data_models.base_model.BaseModelCustom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wattadvisor.data_models.base_model.BaseModelCustom</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.wind_speed">
+<span class="sig-name descname"><span class="pre">wind_speed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.wind_speed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.roughness_length">
+<span class="sig-name descname"><span class="pre">roughness_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.roughness_length" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.pressure">
+<span class="sig-name descname"><span class="pre">pressure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.pressure" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.density">
+<span class="sig-name descname"><span class="pre">density</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.density" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.ghi">
+<span class="sig-name descname"><span class="pre">ghi</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><span class="pre">WeatherDataHeightUnspecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.ghi" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.dhi">
+<span class="sig-name descname"><span class="pre">dhi</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><span class="pre">WeatherDataHeightUnspecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.dhi" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.dni">
+<span class="sig-name descname"><span class="pre">dni</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><span class="pre">WeatherDataHeightUnspecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.dni" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.air_temperature">
+<span class="sig-name descname"><span class="pre">air_temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.air_temperature" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.soil_temperature">
+<span class="sig-name descname"><span class="pre">soil_temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><span class="pre">WeatherDataHeightUnspecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.soil_temperature" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.weather_data.WeatherDataCollection.water_temperature">
+<span class="sig-name descname"><span class="pre">water_temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific"><span class="pre">WeatherDataHeightUnspecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.weather_data.WeatherDataCollection.water_temperature" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../optimization_results_status/index.html" class="btn btn-neutral float-left" title="wattadvisor.data_models.optimization_results_status" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../model_composition/index.html" class="btn btn-neutral float-right" title="wattadvisor.model_composition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+wattadvisor.model_composition
+=============================
+
+.. py:module:: wattadvisor.model_composition
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   wattadvisor.model_composition.logger
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   wattadvisor.model_composition.compose
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:function:: compose(input_components: list[wattadvisor.components.component.Component], pyomo_model: pyomo.core.base.PyomoModel.Model, t: pyomo.core.base.set.RangeSet) -> pyomo.core.base.PyomoModel.Model
+
+   Adds all relevant components to the pyomo optimization model `pyomo_model` based on the parameterization of the components in `input_components` and creates the objective.
+
+   :param input_components: List of components that should be added to the optimization model including their parameterization
+   :type input_components: list[Component]
+   :param pyomo_model: Pyomo model to add the components and objective to
+   :type pyomo_model: Model
+   :param t: Time set to use for variable, parameter and constraint creation
+   :type t: RangeSet
+
+   :returns: The optimization model with all components added
+   :rtype: Model
+
+   :raises ValueError: If for one energy type a demand but no production component is parameterized, the bilance for this energy type cannot be built
+
+

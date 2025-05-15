@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
@@ -5,27 +7,23 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>wattadvisor.data_models.optimization_results_status &mdash; WattAdvisor 1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../_static/documentation_options.js?v=29a6c3e3"></script>
-        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=29a6c3e3"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="wattadvisor.optimization_model" href="../../optimization_model/index.html" />
-    <link rel="prev" title="wattadvisor.data_models.optimization_results_scenarios" href="../optimization_results_scenarios/index.html" /> 
+    <link rel="next" title="wattadvisor.data_models.weather_data" href="../weather_data/index.html" />
+    <link rel="prev" title="wattadvisor.data_models.optimization_results_scenario_kpis" href="../optimization_results_scenario_kpis/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,13 +53,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Usage of custom weather data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../custom_weather_files.html">Usage of custom weather data</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">wattadvisor</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../components/index.html">wattadvisor.components</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">wattadvisor.data_models</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../optimization_model/index.html">wattadvisor.optimization_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../model_composition/index.html">wattadvisor.model_composition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../opt_model/index.html">wattadvisor.opt_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">wattadvisor.utils</a></li>
 </ul>
 </li>
 </ul>
@@ -99,6 +104,8 @@
              
   <section id="module-wattadvisor.data_models.optimization_results_status">
 <span id="wattadvisor-data-models-optimization-results-status"></span><h1>wattadvisor.data_models.optimization_results_status<a class="headerlink" href="#module-wattadvisor.data_models.optimization_results_status" title="Link to this heading"></a></h1>
+<p>Contains the definition of a pydantic model
+representing the status of an optimization.</p>
 <p>Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
 Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
 <section id="classes">
@@ -115,8 +122,8 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.optimization_results_status.</span></span><span class="sig-name descname"><span class="pre">OptimizationResultsStatus</span></span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.optimization_results_status.</span></span><span class="sig-name descname"><span class="pre">OptimizationResultsStatus</span></span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base_model/index.html#wattadvisor.data_models.base_model.BaseModelCustom" title="wattadvisor.data_models.base_model.BaseModelCustom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wattadvisor.data_models.base_model.BaseModelCustom</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus.status">
 <span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../enums/index.html#wattadvisor.data_models.enums.OptimizationStatus" title="wattadvisor.data_models.enums.OptimizationStatus"><span class="pre">wattadvisor.data_models.enums.OptimizationStatus</span></a></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus.status" title="Link to this definition"></a></dt>
@@ -124,7 +131,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus.error_message">
-<span class="sig-name descname"><span class="pre">error_message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus.error_message" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">error_message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus.error_message" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -136,8 +143,8 @@ Use of this source code is governed by a BSD-style license that can be found in 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../optimization_results_scenarios/index.html" class="btn btn-neutral float-left" title="wattadvisor.data_models.optimization_results_scenarios" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../optimization_model/index.html" class="btn btn-neutral float-right" title="wattadvisor.optimization_model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../optimization_results_scenario_kpis/index.html" class="btn btn-neutral float-left" title="wattadvisor.data_models.optimization_results_scenario_kpis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../weather_data/index.html" class="btn btn-neutral float-right" title="wattadvisor.data_models.weather_data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

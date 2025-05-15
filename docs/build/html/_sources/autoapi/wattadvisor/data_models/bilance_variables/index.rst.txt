@@ -5,7 +5,7 @@ wattadvisor.data_models.bilance_variables
 
 .. autoapi-nested-parse::
 
-   Contains a dataclass which defines a structure of input and output variables/parameters
+   Contains the definition of a pydantic model which defines a structure of input and output variables/parameters
    and their EnergyType of an optimization component of WattAdvisor
 
    Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
@@ -25,6 +25,9 @@ Module Contents
 ---------------
 
 .. py:class:: BilanceVariables
+
+   Bases: :py:obj:`wattadvisor.data_models.base_model.BaseModelCustom`
+
 
    .. py:attribute:: input
       :type:  dict[wattadvisor.data_models.enums.EnergyType, pyomo.core.base.indexed_component.IndexedComponent]

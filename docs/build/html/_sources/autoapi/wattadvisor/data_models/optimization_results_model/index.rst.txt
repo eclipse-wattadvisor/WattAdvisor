@@ -17,26 +17,26 @@ Classes
 
 .. autoapisummary::
 
-   wattadvisor.data_models.optimization_results_model.OptimizationResultsModel
+   wattadvisor.data_models.optimization_results_model.OptimizationResults
 
 
 Module Contents
 ---------------
 
-.. py:class:: OptimizationResultsModel
+.. py:class:: OptimizationResults
 
-   Bases: :py:obj:`pydantic.BaseModel`
+   Bases: :py:obj:`wattadvisor.data_models.base_model.BaseModelCustom`
 
 
    .. py:attribute:: status
       :type:  wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus
 
 
-   .. py:attribute:: requested_input
-      :type:  wattadvisor.data_models.input_model.InputModel
+   .. py:attribute:: current_scenario
+      :type:  None | wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario
 
 
-   .. py:attribute:: results
-      :type:  Optional[wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios]
+   .. py:attribute:: target_scenario
+      :type:  None | wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario
 
 

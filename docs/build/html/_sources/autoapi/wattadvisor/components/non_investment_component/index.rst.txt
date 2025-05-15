@@ -1,0 +1,49 @@
+wattadvisor.components.non_investment_component
+===============================================
+
+.. py:module:: wattadvisor.components.non_investment_component
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   wattadvisor.components.non_investment_component.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.non_investment_component.NonInvestmentComponent
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:class:: NonInvestmentComponent
+
+   Bases: :py:obj:`wattadvisor.components.component.Component`
+
+
+   Base component from which all components that do not require
+   an investment are inherited from.
+
+   :param energy_type: Energy type the component produces or consumes
+   :type energy_type: EnergyType
+
+
+   .. py:attribute:: energy_type
+      :type:  wattadvisor.data_models.enums.EnergyType
+
+

@@ -1,0 +1,235 @@
+wattadvisor.data_models.weather_data
+====================================
+
+.. py:module:: wattadvisor.data_models.weather_data
+
+.. autoapi-nested-parse::
+
+   Contains the definition of pydantic models
+   representing weather data.
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.data_models.weather_data.WeatherDataType
+   wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific
+   wattadvisor.data_models.weather_data.WeatherDataHeightSpecific
+   wattadvisor.data_models.weather_data.WeatherDataCollection
+
+
+Module Contents
+---------------
+
+.. py:class:: WeatherDataType(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Create a collection of name/value pairs.
+
+   Example enumeration:
+
+   >>> class Color(Enum):
+   ...     RED = 1
+   ...     BLUE = 2
+   ...     GREEN = 3
+
+   Access them by:
+
+   - attribute access::
+
+   >>> Color.RED
+   <Color.RED: 1>
+
+   - value lookup:
+
+   >>> Color(1)
+   <Color.RED: 1>
+
+   - name lookup:
+
+   >>> Color['RED']
+   <Color.RED: 1>
+
+   Enumerations can be iterated over, and know how many members they have:
+
+   >>> len(Color)
+   3
+
+   >>> list(Color)
+   [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
+
+   Methods can be added to enumerations, and members can have their own
+   attributes -- see the documentation for details.
+
+
+   .. py:attribute:: WIND_SPEED
+      :value: 'wind_speed'
+
+
+
+   .. py:attribute:: ROUGHNESS_LENGTH
+      :value: 'roughness_length'
+
+
+
+   .. py:attribute:: PRESSURE
+      :value: 'pressure'
+
+
+
+   .. py:attribute:: DENSITY
+      :value: 'density'
+
+
+
+   .. py:attribute:: GHI
+      :value: 'ghi'
+
+
+
+   .. py:attribute:: DHI
+      :value: 'dhi'
+
+
+
+   .. py:attribute:: DNI
+      :value: 'dni'
+
+
+
+   .. py:attribute:: AIR_TEMPERATURE
+      :value: 'air_temperature'
+
+
+
+   .. py:attribute:: SOIL_TEMPERATURE
+      :value: 'soil_temperature'
+
+
+
+   .. py:attribute:: WATER_TEMPERATURE
+      :value: 'water_temperature'
+
+
+
+.. py:class:: WeatherDataHeightUnspecific
+
+   Bases: :py:obj:`wattadvisor.data_models.base_model.BaseModelCustom`
+
+
+   .. py:attribute:: series
+      :type:  pandas.Series
+
+
+   .. py:attribute:: source
+      :type:  wattadvisor.data_models.enums.WeatherDataSource
+
+
+   .. py:attribute:: type
+      :type:  WeatherDataType
+
+
+   .. py:method:: check_time_series_length(value: pandas.Series) -> pandas.Series
+      :classmethod:
+
+
+
+.. py:class:: WeatherDataHeightSpecific(**data)
+
+   Bases: :py:obj:`wattadvisor.data_models.base_model.BaseModelCustom`
+
+
+   .. py:attribute:: series
+      :type:  list[pandas.Series]
+
+
+   .. py:attribute:: source
+      :type:  wattadvisor.data_models.enums.WeatherDataSource
+
+
+   .. py:attribute:: height_measured_at
+      :type:  list[float]
+
+
+   .. py:attribute:: type
+      :type:  WeatherDataType
+
+
+   .. py:method:: check_time_series_length(value: list[pandas.Series]) -> list[pandas.Series]
+      :classmethod:
+
+
+
+.. py:class:: WeatherDataCollection
+
+   Bases: :py:obj:`wattadvisor.data_models.base_model.BaseModelCustom`
+
+
+   .. py:attribute:: wind_speed
+      :type:  WeatherDataHeightSpecific | None
+      :value: None
+
+
+
+   .. py:attribute:: roughness_length
+      :type:  WeatherDataHeightSpecific | None
+      :value: None
+
+
+
+   .. py:attribute:: pressure
+      :type:  WeatherDataHeightSpecific | None
+      :value: None
+
+
+
+   .. py:attribute:: density
+      :type:  WeatherDataHeightSpecific | None
+      :value: None
+
+
+
+   .. py:attribute:: ghi
+      :type:  WeatherDataHeightUnspecific | None
+      :value: None
+
+
+
+   .. py:attribute:: dhi
+      :type:  WeatherDataHeightUnspecific | None
+      :value: None
+
+
+
+   .. py:attribute:: dni
+      :type:  WeatherDataHeightUnspecific | None
+      :value: None
+
+
+
+   .. py:attribute:: air_temperature
+      :type:  WeatherDataHeightSpecific | None
+      :value: None
+
+
+
+   .. py:attribute:: soil_temperature
+      :type:  WeatherDataHeightUnspecific | None
+      :value: None
+
+
+
+   .. py:attribute:: water_temperature
+      :type:  WeatherDataHeightUnspecific | None
+      :value: None
+
+
+

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
@@ -5,27 +7,23 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>wattadvisor.data_models.optimization_results_model &mdash; WattAdvisor 1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../_static/documentation_options.js?v=29a6c3e3"></script>
-        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=29a6c3e3"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="wattadvisor.data_models.optimization_results_scenario_kpis" href="../optimization_results_scenario_kpis/index.html" />
-    <link rel="prev" title="wattadvisor.data_models.optimization_results_component_object" href="../optimization_results_component_object/index.html" /> 
+    <link rel="next" title="wattadvisor.data_models.optimization_results_scenario" href="../optimization_results_scenario/index.html" />
+    <link rel="prev" title="wattadvisor.data_models.enums" href="../enums/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,13 +53,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Usage of custom weather data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../custom_weather_files.html">Usage of custom weather data</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">wattadvisor</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../components/index.html">wattadvisor.components</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">wattadvisor.data_models</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../optimization_model/index.html">wattadvisor.optimization_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../model_composition/index.html">wattadvisor.model_composition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../opt_model/index.html">wattadvisor.opt_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">wattadvisor.utils</a></li>
 </ul>
 </li>
 </ul>
@@ -106,7 +111,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.optimization_results_model.OptimizationResultsModel" title="wattadvisor.data_models.optimization_results_model.OptimizationResultsModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OptimizationResultsModel</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.optimization_results_model.OptimizationResults" title="wattadvisor.data_models.optimization_results_model.OptimizationResults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OptimizationResults</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -115,22 +120,22 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_model.OptimizationResultsModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.optimization_results_model.</span></span><span class="sig-name descname"><span class="pre">OptimizationResultsModel</span></span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_model.OptimizationResultsModel" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_model.OptimizationResults">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.optimization_results_model.</span></span><span class="sig-name descname"><span class="pre">OptimizationResults</span></span><a class="headerlink" href="#wattadvisor.data_models.optimization_results_model.OptimizationResults" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base_model/index.html#wattadvisor.data_models.base_model.BaseModelCustom" title="wattadvisor.data_models.base_model.BaseModelCustom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wattadvisor.data_models.base_model.BaseModelCustom</span></code></a></p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_model.OptimizationResultsModel.status">
-<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../optimization_results_status/index.html#wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus" title="wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus"><span class="pre">wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus</span></a></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_model.OptimizationResultsModel.status" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_model.OptimizationResults.status">
+<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../optimization_results_status/index.html#wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus" title="wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus"><span class="pre">wattadvisor.data_models.optimization_results_status.OptimizationResultsStatus</span></a></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_model.OptimizationResults.status" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_model.OptimizationResultsModel.requested_input">
-<span class="sig-name descname"><span class="pre">requested_input</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../input_model/index.html#wattadvisor.data_models.input_model.InputModel" title="wattadvisor.data_models.input_model.InputModel"><span class="pre">wattadvisor.data_models.input_model.InputModel</span></a></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_model.OptimizationResultsModel.requested_input" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_model.OptimizationResults.current_scenario">
+<span class="sig-name descname"><span class="pre">current_scenario</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../optimization_results_scenario/index.html#wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario" title="wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario"><span class="pre">wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario</span></a></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_model.OptimizationResults.current_scenario" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_model.OptimizationResultsModel.results">
-<span class="sig-name descname"><span class="pre">results</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../optimization_results_scenarios/index.html#wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios" title="wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios"><span class="pre">wattadvisor.data_models.optimization_results_scenarios.OptimizationResultsScenarios</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_model.OptimizationResultsModel.results" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="wattadvisor.data_models.optimization_results_model.OptimizationResults.target_scenario">
+<span class="sig-name descname"><span class="pre">target_scenario</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../optimization_results_scenario/index.html#wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario" title="wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario"><span class="pre">wattadvisor.data_models.optimization_results_scenario.OptimizationResultsScenario</span></a></em><a class="headerlink" href="#wattadvisor.data_models.optimization_results_model.OptimizationResults.target_scenario" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -142,8 +147,8 @@ Use of this source code is governed by a BSD-style license that can be found in 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../optimization_results_component_object/index.html" class="btn btn-neutral float-left" title="wattadvisor.data_models.optimization_results_component_object" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../optimization_results_scenario_kpis/index.html" class="btn btn-neutral float-right" title="wattadvisor.data_models.optimization_results_scenario_kpis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../enums/index.html" class="btn btn-neutral float-left" title="wattadvisor.data_models.enums" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../optimization_results_scenario/index.html" class="btn btn-neutral float-right" title="wattadvisor.data_models.optimization_results_scenario" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

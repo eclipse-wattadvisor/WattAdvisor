@@ -1,0 +1,62 @@
+wattadvisor.components.solid_fuel_boiler
+========================================
+
+.. py:module:: wattadvisor.components.solid_fuel_boiler
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.solid_fuel_boiler.SolidFuelBoiler
+
+
+Module Contents
+---------------
+
+.. py:class:: SolidFuelBoiler(**data)
+
+   Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
+
+
+   Component to turn an energy carrying medium like gas into thermal power.
+
+   :param capex: Capital expenditure cost of the component per thermal power [€/kW], by default 0
+   :type capex: float, optional
+   :param opex: Operational expenditure cost of the component per CAPEX per year [%/a], by default 0
+   :type opex: float, optional
+   :param installed_power: Already installed thermal power of the component [kW] which acts as a lower bound, by default 0
+   :type installed_power: float, optional
+   :param potential_power: Maximum installable thermal power of the component [kW], by default None
+   :type potential_power: float | None, optional
+   :param eff: Thermal efficiency of the boiler [-]
+   :type eff: float
+
+
+   .. py:attribute:: capex
+      :type:  float
+
+
+   .. py:attribute:: opex
+      :type:  float
+
+
+   .. py:attribute:: installed_power
+      :type:  float
+
+
+   .. py:attribute:: potential_power
+      :type:  float | None
+
+
+   .. py:attribute:: eff
+      :type:  float
+
+

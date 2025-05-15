@@ -1,0 +1,255 @@
+wattadvisor.components.component
+================================
+
+.. py:module:: wattadvisor.components.component
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   wattadvisor.components.component.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.components.component.Component
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:class:: Component(**data)
+
+   Bases: :py:obj:`wattadvisor.data_models.base_model.BaseModelCustom`
+
+
+   Parent base class for all optimization energy components.
+   Contains empty methods which are overidden by child classes.
+
+   :param name: Name of the component. If not given, name is generated automatically based on the
+                class name of the component and an integer counter, default None
+   :type name: str | None, optional
+   :param parameters: Dictionary of techno-economic parameters of the component, by default None.
+                      A dict of the following structure is expected.
+                      At least one key at first level is required:
+
+                      .. code-block:: json
+
+                          {"parameter_title": 0}
+   :type parameters: None | dict, optional
+
+   :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
+
+
+   .. py:attribute:: names_counter
+      :type:  ClassVar[dict]
+
+
+   .. py:attribute:: name
+      :type:  str | None
+      :value: None
+
+
+
+   .. py:attribute:: parameters
+      :type:  dict | None
+
+
+   .. py:attribute:: bilance_variables
+      :type:  wattadvisor.data_models.bilance_variables.BilanceVariables
+
+
+   .. py:property:: annuity
+      :type: float | None
+
+
+      Returns the annuity of the component
+      if the attribute ``_annuity`` exists.
+
+      :returns: Annuity [€/a]
+      :rtype: float | None
+
+
+   .. py:property:: operational_cost
+      :type: float | None
+
+
+      Returns the operational cost of the component
+      if the attribute ``_operational_cost`` exists.
+
+      :returns: Operational cost [€/a]
+      :rtype: float | None
+
+
+   .. py:property:: investment_cost
+      :type: float | None
+
+
+      Returns the investment cost of the component
+      if the attribute ``_investment_cost`` exists.
+
+      :returns: Investment cost [€]
+      :rtype: float | None
+
+
+   .. py:property:: advised_power
+      :type: float | None
+
+
+      Returns the advised power of the component
+      if the attribute ``_advised_power`` exists.
+
+      :returns: Advised power [kW or kWp]
+      :rtype: float | None
+
+
+   .. py:property:: advised_capacity
+      :type: float | None
+
+
+      Returns the advised capacity of the component
+      if the attribute ``_advised_capacity`` exists.
+
+      :returns: Advised capacity [kWh]
+      :rtype: float | None
+
+
+   .. py:property:: advised_area
+      :type: float | None
+
+
+      Returns the advised area of the component
+      if the attribute ``_advised_area`` exists.
+
+      :returns: Advised area [m²]
+      :rtype: float | None
+
+
+   .. py:property:: output_energy_sum
+      :type: dict[wattadvisor.data_models.enums.EnergyType, float] | None
+
+
+      Returns the sum of energy the component
+      puts out per energy type.
+
+      :returns: Sum of output energy [kWh] per energy type
+      :rtype: dict[EnergyType, float] | None
+
+
+   .. py:property:: max_power
+      :type: float | None
+
+
+      Returns the maximum amount of power purchased by
+      the component if the attribute ``_max_power`` exists.
+
+      :returns: Maximum purchase power [kW]
+      :rtype: float | None
+
+
+   .. py:property:: purchase_cost
+      :type: float | None
+
+
+      Returns the purchase cost of the component
+      if the attribute ``_purchase_cost`` exists.
+
+      :returns: Purchase cost [€/a]
+      :rtype: float | None
+
+
+   .. py:property:: feedin_income
+      :type: float | None
+
+
+      Returns the income from energy feedin of the component
+      if the attribute ``_feedin_income`` exists.
+
+      :returns: Feedin income [€/a]
+      :rtype: float | None
+
+
+   .. py:property:: co2_emissions
+      :type: float | None
+
+
+      Returns the CO2 Emissions produced by the component
+      if the attribute ``_co2_intensity`` exists.
+
+      :returns: CO2 emissions [t]
+      :rtype: float | None
+
+
+   .. py:property:: energy_purchased
+      :type: float | None
+
+
+      Returns the sum of energy purchased by the component
+      if the attribute ``_purchase_cost`` exists.
+
+      :returns: Sum of energy purchased [kWh]
+      :rtype: float | None
+
+
+   .. py:method:: get_parameters_from_file(data: dict) -> dict
+      :classmethod:
+
+
+
+   .. py:method:: has_input(energy_type: wattadvisor.data_models.enums.EnergyType) -> bool
+
+      Checks whether the components ``bilance_variables`` attribute
+      contains an input with the given `energy_type`.
+
+      :param energy_type: Energy type for which the bilance variables
+                          should be checked for an input
+      :type energy_type: EnergyType
+
+      :returns: Returns true if given energy type is in bilance_variables input side,
+                else false
+      :rtype: bool
+
+
+
+   .. py:method:: has_output(energy_type: wattadvisor.data_models.enums.EnergyType) -> bool
+
+      Checks whether the components ``bilance_variables`` attribute
+      contains an output with the given `energy_type`.
+
+      :param energy_type: Energy type for which the bilance variables
+                          should be checked for an output
+      :type energy_type: EnergyType
+
+      :returns: Returns true if given energy type is in bilance_variables output side,
+                else false
+      :rtype: bool
+
+
+
+   .. py:method:: add_to_model(model: pyomo.core.Model, t: pyomo.core.RangeSet) -> pyomo.core.Model
+
+      Calls the appropriate functions to add parameters, variables and constraints to the pyomo model given by `model`.
+
+      :param model: Pyomo model to which the parameters, variables and constraints will be added.
+      :type model: Model
+      :param t: Time set over which time-variant parameters, variables and constraints will be added.
+      :type t: RangeSet
+
+      :returns: Pyomo model with the added parameters, variables and constraints
+      :rtype: Model
+
+
+
