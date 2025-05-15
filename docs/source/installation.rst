@@ -13,7 +13,7 @@ Clone the Eclipse WattAdvisor repository:
 
 .. note::
 
-    Alternatively, you can also directly download the repository as a ZIP file from the GitHub page and extract its contents.
+    Alternatively, you can also directly download the repository as a ZIP file from the `GitHub page <https://github.com/eclipse-wattadvisor/WattAdvisor>`_ and extract its contents.
 
     
 The created directory, whether you used git clone or downloaded and extracted the archived package, should at least contain these sub-directories and files:

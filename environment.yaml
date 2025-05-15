@@ -1,6 +1,6 @@
 name: wattadvisor
 dependencies:
-  - python=3.11.0
+  - python=3.11
   - pip
   - pip:
     - -r requirements.txt

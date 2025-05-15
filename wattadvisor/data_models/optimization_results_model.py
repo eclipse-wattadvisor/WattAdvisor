@@ -4,16 +4,14 @@ Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reser
 Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 """
 
-from typing import Optional
+from pydantic import Field
 
-from pydantic import BaseModel, Field
-
+from ..data_models.base_model import BaseModelCustom
 from .optimization_results_status import OptimizationResultsStatus
-from .optimization_results_scenarios import OptimizationResultsScenarios
-from .input_model import InputModel
+from .optimization_results_scenario import OptimizationResultsScenario
 
 
-class OptimizationResultsModel(BaseModel):
+class OptimizationResults(BaseModelCustom):
     status: OptimizationResultsStatus
-    requested_input: InputModel
-    results: Optional[OptimizationResultsScenarios] = Field(default=None)
+    current_scenario: None | OptimizationResultsScenario = Field(default=None)
+    target_scenario: None | OptimizationResultsScenario = Field(default=None)
