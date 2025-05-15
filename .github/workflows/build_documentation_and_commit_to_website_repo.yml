@@ -1,6 +1,7 @@
 name: Build and Commit Documentation to Website Repo
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
