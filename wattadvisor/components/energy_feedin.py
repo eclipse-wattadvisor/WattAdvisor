@@ -14,15 +14,15 @@ from .non_investment_component import NonInvestmentComponent
 class EnergyFeedin(NonInvestmentComponent):
     """Component that feeds surplus energy into grid .
 
-        Parameters
-        ----------
-        
-        energy_price_scalar : float | None, optional
-            Scalar price for feeding in per energy unit [€/kWh], by default None
-        energy_price_profile : pd.Series | None, optional
-            Time series containing hourly variant energy prices for one year, by default None
+    Parameters
+    ----------
+
+    energy_price_scalar : float | None, optional
+        Scalar price for feeding in per energy unit [€/kWh], by default None
+    energy_price_profile : pd.Series | None, optional
+        Time series containing hourly variant energy prices for one year, by default None
     """
-    
+
     energy_price_scalar: float | None = None
     energy_price_profile: pd.Series | None = Field(default=None, exclude=True)
 
@@ -33,7 +33,7 @@ class EnergyFeedin(NonInvestmentComponent):
             if self.energy_price_scalar is None:
                 self.energy_price_scalar = 0
 
-    @field_validator('energy_price_profile')
+    @field_validator("energy_price_profile")
     @classmethod
     def check_time_series_length(cls, series: pd.Series | None) -> pd.Series | None:
         """Checks whether the series given by `series` contains exactly 8760 values.
@@ -75,24 +75,25 @@ class EnergyFeedin(NonInvestmentComponent):
             self._energy_price_dict = self.energy_price_profile.set_axis(t).to_dict()
 
         self._energy_price_profile = pyoe.Param(t, initialize=self._energy_price_dict)
-        model.add_component(f'{self.name}_energy_price_profile', self._energy_price_profile)
+        model.add_component(
+            f"{self.name}_energy_price_profile", self._energy_price_profile
+        )
 
         return model
 
-
     def _add_variables(self, model: pyoe.Model, t: pyoe.RangeSet) -> pyoe.Model:
 
-        #(Input) electricity to grid [kWh]
-        self._input=pyoe.Var(t, bounds=(0.0, None))
-        model.add_component('{}_input'.format(self.name), self._input)
-        
+        # (Input) electricity to grid [kWh]
+        self._input = pyoe.Var(t, bounds=(0.0, None))
+        model.add_component("{}_input".format(self.name), self._input)
+
         # calculated cost [€], without regard to the optimization criteria, cost<0 --> profit
-        self._feedin_income=pyoe.Var()
-        model.add_component('{}_feedin_income'.format(self.name), self._feedin_income)
-        
+        self._feedin_income = pyoe.Var()
+        model.add_component("{}_feedin_income".format(self.name), self._feedin_income)
+
         # total cost, which is evaluated in the target function
-        self._annuity=pyoe.Var()
-        model.add_component('{}_annuity'.format(self.name), self._annuity)
+        self._annuity = pyoe.Var()
+        model.add_component("{}_annuity".format(self.name), self._annuity)
 
         self.bilance_variables.input[self.energy_type] = self._input
 
@@ -101,10 +102,13 @@ class EnergyFeedin(NonInvestmentComponent):
     def _add_constraints(self, model: pyoe.Model, t: pyoe.RangeSet) -> pyoe.Model:
 
         # calculating the total cost by applying the price to the imported electricity
-        self._eq01=pyoe.Constraint(expr=self._annuity == self._feedin_income)
-        model.add_component('{}_eq01'.format(self.name),self._eq01)
+        self._eq01 = pyoe.Constraint(expr=self._annuity == self._feedin_income)
+        model.add_component("{}_eq01".format(self.name), self._eq01)
 
-        self._eq02=pyoe.Constraint(expr=self._feedin_income == sum_product(self._input, self._energy_price_profile, index=t))
-        model.add_component('{}_eq02'.format(self.name), self._eq02)
+        self._eq02 = pyoe.Constraint(
+            expr=self._feedin_income
+            == -1 * sum_product(self._input, self._energy_price_profile, index=t)
+        )
+        model.add_component("{}_eq02".format(self.name), self._eq02)
 
         return model
