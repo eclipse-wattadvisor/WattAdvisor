@@ -1,6 +1,7 @@
 name: Build and Commit Documentation
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -30,15 +31,15 @@ jobs:
           cd code/docs
           make html
       
-      # - name: Checkout website repository
-      #   uses: actions/checkout@v2
-      #   with:
-      #     repository: eclipse-wattadvisor/website
-      #     path: website
-      #     clean: false
+      - name: Checkout website repository
+        uses: actions/checkout@v2
+        with:
+          repository: eclipse-wattadvisor/website
+          path: website
+          clean: false
 
-      # - name: Copy Documentation to Repository B
-      #   run: cp -r docs/build/html/* website
+      - name: Copy Documentation to Repository B
+        run: cp -r code/docs/build/html/* website
 
       - name: Commit and Push Changes
         run: |
