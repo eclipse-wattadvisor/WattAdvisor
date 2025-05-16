@@ -165,6 +165,12 @@ def write_detailed_results(pyomo_model: Model, components_list: List[Component],
     with pd.ExcelWriter(filename, engine='xlsxwriter') as writer:
         scalar_results.to_excel(writer, sheet_name="Scalars")
         indexed_results.to_excel(writer, sheet_name="Indexed")
+        
+        for sheet in ["Scalars", "Indexed"]:
+            worksheet = writer.sheets[sheet]
+            worksheet.autofit()
+
+        
 
 def generate_results_object(opt_model_object: OptModel, components_list: List[Component], status: OptimizationStatus, use_solver: SupportedSolver, solver_executable: str | None = None) -> OptimizationResults:
     """Creates the complete `OptimizationResultsModel` which is returned as the response of the WattAdvisor.
