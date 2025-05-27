@@ -17,13 +17,13 @@ to fulfill a given energy demand. It uses pyomo to build an optimization model.
    installation.rst
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Usage of custom weather data
+   :maxdepth: 1
+   :caption: Example
 
-   custom_weather_files.rst
+   _collections/my_files/example_base
 
 .. toctree::
-    :maxdepth: 1
-    :caption: API Reference
+   :maxdepth: 1
+   :caption: API Reference
 
-    autoapi/index
+   autoapi/index
