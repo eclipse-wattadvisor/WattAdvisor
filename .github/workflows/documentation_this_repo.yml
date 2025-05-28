@@ -24,7 +24,7 @@ jobs:
           python-version: 3.11
           
       - name: Install Sphinx packages
-        run: pip install https://github.com/eclipse-wattadvisor/WattAdvisor/archive/main.zip[dev]
+        run: pip install "wattadvisor[dev] @ https://github.com/eclipse-wattadvisor/WattAdvisor/archive/main.zip"
 
       - name: Build Documentation
         run: |
