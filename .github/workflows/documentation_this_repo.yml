@@ -24,7 +24,7 @@ jobs:
           python-version: 3.11
           
       - name: Install Sphinx packages
-        run: pip install sphinx sphinx-autoapi sphinx-math-dollar myst-nb sphinx-rtd-theme
+        run: pip install https://github.com/eclipse-wattadvisor/WattAdvisor/archive/main.zip[dev]
 
       - name: Build Documentation
         run: |
