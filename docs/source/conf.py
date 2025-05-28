@@ -44,7 +44,7 @@ autoapi_options = [
     "imported-members",
 ]
 autoapi_python_class_content = "both"
-nb_execution_mode = "auto"
+nb_execution_mode = "off"
 # nbsphinx_execute = 'never'
 nb_execution_excludepatterns = []
 # execution_excludepatterns = []
