@@ -46,7 +46,7 @@ autoapi_options = [
 autoapi_python_class_content = "both"
 nb_execution_mode = "off"
 # nbsphinx_execute = 'never'
-nb_execution_excludepatterns = []
+# nb_execution_excludepatterns = []
 # execution_excludepatterns = []
 
 
@@ -77,6 +77,7 @@ collections = {
     "my_files": {
         "driver": "copy_folder",
         "source": "../examples/",
-        "target": "my_files/"
+        "target": "my_files/",
+        "ignore": ["!(*.ipynb)"],
     }
 }
