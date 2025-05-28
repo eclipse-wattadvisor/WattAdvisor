@@ -1,0 +1,79 @@
+wattadvisor.opt_model
+=====================
+
+.. py:module:: wattadvisor.opt_model
+
+.. autoapi-nested-parse::
+
+   Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+   Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   wattadvisor.opt_model.logger
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   wattadvisor.opt_model.OptModel
+
+
+Module Contents
+---------------
+
+.. py:data:: logger
+
+.. py:class:: OptModel(input_components: list[wattadvisor.components.component.Component])
+
+   
+   Creates the basic template to calculate an optimization model.
+
+   :param input_components: Input data request containing parametarization values of the optimization model
+   :type input_components: list[Component]
+
+
+   .. py:attribute:: input_components
+
+
+   .. py:attribute:: pyomo_model
+      :value: None
+
+
+
+   .. py:attribute:: t
+      :value: None
+
+
+
+   .. py:attribute:: components_list
+      :value: None
+
+
+
+   .. py:method:: run_calculation(export_detailed_results: bool = False, export_detailed_results_path: None | pathlib.Path = None, use_solver: wattadvisor.data_models.enums.SupportedSolver = SupportedSolver.HIGHS, solver_executable: str | None = None) -> wattadvisor.data_models.optimization_results_model.OptimizationResults
+
+      Starts the calculation of an optimization model including
+      building of the pyomo model, solution by calling solver and building result output.
+
+      :param export_detailed_results: Whether detailed result time series should be exported to an Excel file, by default False
+      :type export_detailed_results: bool, optional
+      :param export_detailed_results_path: Path of the Excel file to write detailed results with time series to, by default None
+      :type export_detailed_results_path: None | Path, optional
+      :param use_solver: Solver to be used for the optimization, by default SupportedSolver.HIGHS
+      :type use_solver: SupportedSolver, optional
+      :param solver_executable: Path of the solver's executable, by default None
+      :type solver_executable: str | None, optional
+
+      :returns: Results object which is returned by the service as response
+      :rtype: OptimizationResults
+
+
+

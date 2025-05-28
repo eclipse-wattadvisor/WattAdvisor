@@ -1,0 +1,605 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Example &mdash; WattAdvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API Reference" href="../../autoapi/index.html" />
+    <link rel="prev" title="Installation" href="../../installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            WattAdvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About WattAdvisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About Eclipse WattAdvisor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#methodological-approach">Methodological approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#energy-system-coverage">Energy system coverage</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#installation-of-the-python-package">Installation of the Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#install-or-add-a-solver-to-the-project">Install or add a solver to the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#add-weather-data">Add weather data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../installation.html#download-weather-data-from-copernicus-climate-change-service">Download weather data from Copernicus Climate Change Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-of-necessary-packages">Import of necessary packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specification-of-the-considered-location">Specification of the considered location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-weather-data-file">Load weather data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-energy-demands">Add energy demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-energy-production-transformation-and-storage-component-options">Add energy production, transformation and storage component options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-energy-purchases">Add energy purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-optimization">Start optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inspect-results">Inspect results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export-results">Export results</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../autoapi/wattadvisor/index.html">wattadvisor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../autoapi/wattadvisor/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/wattadvisor/components/index.html">wattadvisor.components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/wattadvisor/data_models/index.html">wattadvisor.data_models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/wattadvisor/model_composition/index.html">wattadvisor.model_composition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/wattadvisor/opt_model/index.html">wattadvisor.opt_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../autoapi/wattadvisor/utils/index.html">wattadvisor.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">WattAdvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Basic Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/_collections/my_files/example_base.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-example">
+<h1>Basic Example<a class="headerlink" href="#basic-example" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>This notebook runs a single WattAdvisor optimization.</p>
+<p>The target is to find a cost minimal technology set for the supply of the given energy demands.</p>
+<p>Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
+</section>
+<section id="import-of-necessary-packages">
+<h2>Import of necessary packages<a class="headerlink" href="#import-of-necessary-packages" title="Link to this heading"></a></h2>
+<p>All necessary modules from WattAdvisor and additional packages are imported.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">wattadvisor.data_models.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">SupportedSolver</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wattadvisor.utils.weather_data</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_weather_data_from_era5_netcdf</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wattadvisor.opt_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wattadvisor.data_models.enums</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnergyType</span><span class="p">,</span> <span class="n">EnergyUnit</span><span class="p">,</span> <span class="n">EnergyPriceUnit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wattadvisor.components</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">energy_demand</span><span class="p">,</span>
+    <span class="n">heat_pump</span><span class="p">,</span>
+    <span class="n">photovoltaic</span><span class="p">,</span>
+    <span class="n">energy_purchase</span><span class="p">,</span>
+    <span class="n">gas_boiler</span><span class="p">,</span>
+    <span class="n">electrical_energy_storage</span><span class="p">,</span>
+    <span class="n">thermal_energy_storage</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="specification-of-the-considered-location">
+<h2>Specification of the considered location<a class="headerlink" href="#specification-of-the-considered-location" title="Link to this heading"></a></h2>
+<p>At first, it should be specified at which location the plants should be dimensioned for. Therefore, the location is specified using decimal longitude and latitude geocoordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">latitude</span> <span class="o">=</span> <span class="mf">50.693</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="mf">10.937</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-weather-data-file">
+<h2>Load weather data file<a class="headerlink" href="#load-weather-data-file" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_netcdf</span> <span class="o">=</span> <span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;weather.nc&quot;</span><span class="p">)</span>
+<span class="n">weather_data</span> <span class="o">=</span> <span class="n">get_weather_data_from_era5_netcdf</span><span class="p">(</span>
+    <span class="n">path_netcdf</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="n">longitude</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="n">latitude</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/WattAdvisor/WattAdvisor/code/docs/source/_collections/my_files/weather.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;1ff00858-664a-4c9e-80e4-52abce384ff6&#39;]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">path_netcdf</span> <span class="o">=</span> <span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;weather.nc&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">weather_data</span> <span class="o">=</span> <span class="n">get_weather_data_from_era5_netcdf</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">path_netcdf</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="n">longitude</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="n">latitude</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/wattadvisor/utils/weather_data.py:47,</span> in <span class="ni">get_weather_data_from_era5_netcdf</span><span class="nt">(path_netcdf, longitude, latitude)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Loads a NETCDF file aquired from ECMWF Climate Data Store</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span><span class="sd"> into the WattAdvisor internal weather data format.</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span><span class="sd"> </span>
+<span class="sd">   (...)     42 </span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="n">longitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">47</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_netcdf</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">era5</span><span class="o">.</span><span class="n">select_area</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="o">*</span><span class="n">location</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="n">weather_data_wind</span> <span class="o">=</span> <span class="n">era5</span><span class="o">.</span><span class="n">format_windpowerlib</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/api.py:687,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">decode_cf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">683</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">686</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">687</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">689</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">690</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">691</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">692</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">694</span>     <span class="n">backend_ds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">695</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">705</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span> <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:666,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, auto_complex, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="k">def</span><span class="w"> </span><span class="nf">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">ReadBuffer</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">663</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">666</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>         <span class="n">auto_complex</span><span class="o">=</span><span class="n">auto_complex</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:452,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, auto_complex, lock, lock_maker, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;auto_complex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">auto_complex</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">452</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:393,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+<span class="ne">--&gt; </span><span class="mi">393</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">395</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:461,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span> <span class="k">def</span><span class="w"> </span><span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">461</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/netCDF4_.py:455,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span> <span class="k">def</span><span class="w"> </span><span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">455</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">456</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span>     <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/contextlib.py:137,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.11.12/x64/lib/python3.11/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2521,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2158,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/home/runner/work/WattAdvisor/WattAdvisor/code/docs/source/_collections/my_files/weather.nc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-energy-demands">
+<h2>Add energy demands<a class="headerlink" href="#add-energy-demands" title="Link to this heading"></a></h2>
+<p>The following energy demands that should be supplied are added to the model:</p>
+<ul class="simple">
+<li><p>electrical energy demand with an annual demand of 3.500 kWh of electrical energy</p></li>
+<li><p>thermal energy demand with an annual demand of 10.000 kWh of thermal energy</p></li>
+</ul>
+<p>The annual demand values given are used in combination with standard load profiles to create synthetic, hourly load profiles of the demands.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demands</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">energy_demand</span><span class="o">.</span><span class="n">EnergyDemand</span><span class="p">(</span>
+        <span class="n">demand_sum</span><span class="o">=</span><span class="mi">3500</span><span class="p">,</span>
+        <span class="n">demand_unit</span><span class="o">=</span><span class="n">EnergyUnit</span><span class="o">.</span><span class="n">KWH</span><span class="p">,</span>
+        <span class="n">energy_type</span><span class="o">=</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">,</span>
+        <span class="n">profile_type</span><span class="o">=</span><span class="s2">&quot;h0&quot;</span><span class="p">,</span>
+        <span class="n">profile_year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">energy_demand</span><span class="o">.</span><span class="n">EnergyDemand</span><span class="p">(</span>
+        <span class="n">demand_sum</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+        <span class="n">demand_unit</span><span class="o">=</span><span class="n">EnergyUnit</span><span class="o">.</span><span class="n">KWH</span><span class="p">,</span>
+        <span class="n">energy_type</span><span class="o">=</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">THERMAL</span><span class="p">,</span>
+        <span class="n">profile_type</span><span class="o">=</span><span class="s2">&quot;EFH&quot;</span><span class="p">,</span>
+        <span class="n">profile_year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span>
+        <span class="n">temperature_air</span><span class="o">=</span><span class="n">weather_data</span><span class="o">.</span><span class="n">air_temperature</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-energy-production-transformation-and-storage-component-options">
+<h2>Add energy production, transformation and storage component options<a class="headerlink" href="#add-energy-production-transformation-and-storage-component-options" title="Link to this heading"></a></h2>
+<p>To supply the energy demands, several component options are added to the model, from which the solver choses the optimal dimensioning:</p>
+<ul class="simple">
+<li><p>gas boiler</p></li>
+<li><p>air source heat pump</p></li>
+<li><p>ground source heat pump</p></li>
+<li><p>roof integrated photovoltaic plant</p></li>
+<li><p>wind power plant</p></li>
+<li><p>electrical energy storage</p></li>
+<li><p>thermal energy storage</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">components</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">gas_boiler</span><span class="o">.</span><span class="n">GasBoiler</span><span class="p">(</span>
+        <span class="n">lifespan</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">eff</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">capex</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">opex</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">installed_power</span><span class="o">=</span><span class="mi">10</span>
+    <span class="p">),</span>
+    <span class="n">heat_pump</span><span class="o">.</span><span class="n">HeatPumpAir</span><span class="p">(</span>
+        <span class="n">lifespan</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">capex</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">opex</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">source_temperature_series</span><span class="o">=</span><span class="n">weather_data</span><span class="o">.</span><span class="n">air_temperature</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">heat_pump</span><span class="o">.</span><span class="n">HeatPumpGround</span><span class="p">(</span>
+        <span class="n">lifespan</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">capex</span><span class="o">=</span><span class="mi">1300</span><span class="p">,</span>
+        <span class="n">opex</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">source_temperature_series</span><span class="o">=</span><span class="n">weather_data</span><span class="o">.</span><span class="n">soil_temperature</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">photovoltaic</span><span class="o">.</span><span class="n">PhotovoltaikRoof</span><span class="p">(</span>
+        <span class="n">lifespan</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">capex</span><span class="o">=</span><span class="mi">750</span><span class="p">,</span>
+        <span class="n">opex</span><span class="o">=</span><span class="mf">2.87</span><span class="p">,</span>
+        <span class="n">potential_power</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">latitude</span><span class="o">=</span><span class="n">latitude</span><span class="p">,</span>
+        <span class="n">longitude</span><span class="o">=</span><span class="n">longitude</span><span class="p">,</span>
+        <span class="n">ghi</span><span class="o">=</span><span class="n">weather_data</span><span class="o">.</span><span class="n">ghi</span><span class="p">,</span>
+        <span class="n">dhi</span><span class="o">=</span><span class="n">weather_data</span><span class="o">.</span><span class="n">dhi</span><span class="p">,</span>
+        <span class="n">air_temperature</span><span class="o">=</span><span class="n">weather_data</span><span class="o">.</span><span class="n">air_temperature</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">electrical_energy_storage</span><span class="o">.</span><span class="n">ElectricalEnergyStorage</span><span class="p">(</span>
+        <span class="n">lifespan</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+        <span class="n">capex_capacity</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">capex_power</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">opex</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">eff</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+        <span class="n">relative_losses</span><span class="o">=</span><span class="mf">0.00007</span>
+    <span class="p">),</span>
+    <span class="n">thermal_energy_storage</span><span class="o">.</span><span class="n">ThermalEnergyStorage</span><span class="p">(</span>
+        <span class="n">lifespan</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">capex_capacity</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">capex_power</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">opex</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">eff</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+        <span class="n">relative_losses</span><span class="o">=</span><span class="mf">0.00138</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-energy-purchases">
+<h2>Add energy purchases<a class="headerlink" href="#add-energy-purchases" title="Link to this heading"></a></h2>
+<p>Furthermore, options to purchase electrical energy and natural gas from external sources or public grid are added.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">purchases</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">energy_purchase</span><span class="o">.</span><span class="n">EnergyPurchase</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Electrical energy purchase&quot;</span><span class="p">,</span>
+        <span class="n">energy_type</span><span class="o">=</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">ELECTRICAL</span><span class="p">,</span>
+        <span class="n">energy_price_scalar</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span>
+        <span class="n">energy_price_unit</span><span class="o">=</span><span class="n">EnergyPriceUnit</span><span class="o">.</span><span class="n">EUR_PER_KWH</span><span class="p">,</span>
+        <span class="n">co2_intensity</span><span class="o">=</span><span class="mi">445</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">energy_purchase</span><span class="o">.</span><span class="n">EnergyPurchase</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Natural gas purchase&quot;</span><span class="p">,</span>
+        <span class="n">energy_type</span><span class="o">=</span><span class="n">EnergyType</span><span class="o">.</span><span class="n">NATURAL_GAS</span><span class="p">,</span>
+        <span class="n">energy_price_scalar</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>
+        <span class="n">energy_price_unit</span><span class="o">=</span><span class="n">EnergyPriceUnit</span><span class="o">.</span><span class="n">EUR_PER_KWH</span><span class="p">,</span>
+        <span class="n">co2_intensity</span><span class="o">=</span><span class="mi">202</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="start-optimization">
+<h2>Start optimization<a class="headerlink" href="#start-optimization" title="Link to this heading"></a></h2>
+<p>The solver is to find the best solution for the model. This can take up to several minutes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="n">demands</span> <span class="o">+</span> <span class="n">components</span> <span class="o">+</span> <span class="n">purchases</span>
+
+<span class="n">optimization</span> <span class="o">=</span> <span class="n">OptModel</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+
+<span class="c1"># Start the optimization</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">optimization</span><span class="o">.</span><span class="n">run_calculation</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-05-27 19:17:47,797 - INFO - Create model instance
+2025-05-27 19:17:50,127 - INFO - Built bilance constraint for energy type EnergyType.ELECTRICAL.
+2025-05-27 19:17:50,227 - INFO - Built bilance constraint for energy type EnergyType.THERMAL.
+2025-05-27 19:17:50,305 - INFO - Built bilance constraint for energy type EnergyType.NATURAL_GAS.
+2025-05-27 19:17:50,305 - INFO - Optimizing model
+2025-05-27 19:17:50,403 - INFO - Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
+2025-05-27 19:18:00,974 - INFO - RUN!
+2025-05-27 19:18:00,976 - INFO - LP   has 227782 rows; 183992 cols; 582161 nonzeros
+2025-05-27 19:18:00,980 - INFO - Coefficient ranges:
+2025-05-27 19:18:00,980 - INFO -   Matrix [7e-05, 1e+03]
+2025-05-27 19:18:00,980 - INFO -   Cost   [1e+00, 1e+00]
+2025-05-27 19:18:00,980 - INFO -   Bound  [1e+01, 2e+01]
+2025-05-27 19:18:00,982 - INFO -   RHS    [1e-02, 4e+00]
+2025-05-27 19:18:01,076 - INFO - Presolving model
+2025-05-27 19:18:01,208 - INFO - 140160 rows, 113888 cols, 371873 nonzeros  0s
+2025-05-27 19:18:01,208 - INFO - 113878 rows, 87606 cols, 319309 nonzeros  0s
+2025-05-27 19:18:01,411 - INFO - Dependent equations search running on 26277 equations with time limit of 1000.00s
+2025-05-27 19:18:01,412 - INFO - Dependent equations search removed 0 rows and 0 nonzeros in 0.00s (limit = 1000.00s)
+2025-05-27 19:18:01,412 - INFO - 113875 rows, 87603 cols, 319297 nonzeros  0s
+2025-05-27 19:18:01,412 - INFO - Presolve : Reductions: rows 113875(-113907); columns 87603(-96389); elements 319297(-262864)
+2025-05-27 19:18:01,413 - INFO - Solving the presolved LP
+2025-05-27 19:18:01,514 - INFO - Using EKK dual simplex solver - serial
+2025-05-27 19:18:01,514 - INFO -   Iteration        Objective     Infeasibilities num(sum)
+2025-05-27 19:18:01,516 - INFO -           0     2.6175098323e+02 Pr: 17519(25480.2) 0s
+2025-05-27 19:18:07,553 - INFO -       12479     7.2466185332e+02 Pr: 19376(888195); Du: 0(9.41963e-08) 6s
+2025-05-27 19:18:12,902 - INFO -       16496     1.0949154200e+03 Pr: 43645(672270); Du: 0(1.34566e-08) 12s
+2025-05-27 19:18:18,092 - INFO -       22213     1.2408813769e+03 Pr: 18697(2.20838e+06); Du: 0(1.34566e-08) 17s
+2025-05-27 19:18:23,368 - INFO -       39122     1.5053121566e+03 Pr: 33696(2.53353e+08); Du: 0(6.56502e-07) 22s
+2025-05-27 19:18:28,422 - INFO -       53835     1.6996755844e+03 Pr: 16212(182403); Du: 0(3.88542e-07) 27s
+2025-05-27 19:18:33,824 - INFO -       69128     1.8284909383e+03 Pr: 23005(533278); Du: 0(4.9752e-07) 33s
+2025-05-27 19:18:39,215 - INFO -       77271     1.9094620839e+03 Pr: 28712(407701); Du: 0(8.66145e-07) 38s
+2025-05-27 19:18:44,268 - INFO -       84882     1.9522352752e+03 Pr: 38926(3.76543e+06); Du: 0(8.08226e-07) 43s
+2025-05-27 19:18:49,665 - INFO -       94647     1.9992073775e+03 Pr: 6475(1.08005e+06); Du: 0(3.76068e-07) 49s
+2025-05-27 19:18:55,338 - INFO -      103282     2.0283788940e+03 Pr: 4508(4413.51); Du: 0(4.1413e-07) 54s
+2025-05-27 19:19:00,523 - INFO -      111583     2.0386786462e+03 Pr: 30410(64584.9); Du: 0(2.61518e-07) 59s
+2025-05-27 19:19:03,472 - INFO -      115460     2.0382437722e+03 Pr: 0(0); Du: 0(5.63453e-11) 62s
+2025-05-27 19:19:03,472 - INFO -      115460     2.0382437722e+03 Pr: 0(0); Du: 0(5.63453e-11) 62s
+2025-05-27 19:19:03,472 - INFO - Solving the original LP from the solution after postsolve
+2025-05-27 19:19:03,674 - INFO - Model status        : Optimal
+2025-05-27 19:19:03,674 - INFO - Simplex   iterations: 115460
+2025-05-27 19:19:03,674 - INFO - Objective value     :  2.0382437722e+03
+2025-05-27 19:19:03,674 - INFO - Relative P-D gap    :  7.2509918125e-15
+2025-05-27 19:19:03,674 - INFO - HiGHS run time      :         62.61
+2025-05-27 19:19:04,271 - INFO - Optimization successfully completed
+2025-05-27 19:19:04,276 - INFO - Write optimization results
+2025-05-27 19:19:04,288 - INFO - Optimizing model
+2025-05-27 19:19:04,371 - INFO - Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms
+2025-05-27 19:19:15,894 - INFO - RUN!
+2025-05-27 19:19:15,895 - INFO - LP   has 227782 rows; 183992 cols; 499358 nonzeros
+2025-05-27 19:19:15,902 - INFO - Coefficient ranges:
+2025-05-27 19:19:15,902 - INFO -   Matrix [7e-05, 4e+02]
+2025-05-27 19:19:15,902 - INFO -   Cost   [1e+00, 1e+00]
+2025-05-27 19:19:15,902 - INFO -   Bound  [1e+01, 1e+01]
+2025-05-27 19:19:15,902 - INFO -   RHS    [1e-02, 3e+03]
+2025-05-27 19:19:15,987 - INFO - Presolving model
+2025-05-27 19:19:16,140 - INFO - 8760 rows, 8760 cols, 8760 nonzeros  0s
+2025-05-27 19:19:16,140 - INFO - 0 rows, 0 cols, 0 nonzeros  0s
+2025-05-27 19:19:16,140 - INFO - Presolve : Reductions: rows 0(-227782); columns 0(-183992); elements 0(-499358) - Reduced to empty
+2025-05-27 19:19:16,140 - INFO - Solving the original LP from the solution after postsolve
+2025-05-27 19:19:16,350 - INFO - Model status        : Optimal
+2025-05-27 19:19:16,350 - INFO - Objective value     :  2.8200690351e+03
+2025-05-27 19:19:16,350 - INFO - Relative P-D gap    :  3.8700954783e-15
+2025-05-27 19:19:16,350 - INFO - HiGHS run time      :          0.38
+2025-05-27 19:19:16,599 - INFO - Optimization successfully completed
+2025-05-27 19:19:16,616 - INFO - Optimization results written
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inspect-results">
+<h2>Inspect results<a class="headerlink" href="#inspect-results" title="Link to this heading"></a></h2>
+<p>After optimization has finished, an object containing the relevant results is returned.
+For example, the advised power of each component, the total investment cost and the cost from energy purchase from external sources can be obtained from the object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">target_scenario</span><span class="o">.</span><span class="n">components</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;advised_power&quot;</span> <span class="ow">in</span> <span class="n">component</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">component</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">component</span><span class="p">[</span><span class="s1">&#39;advised_power&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kW&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;purchase_cost&quot;</span> <span class="ow">in</span> <span class="n">component</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">component</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">component</span><span class="p">[</span><span class="s1">&#39;purchase_cost&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> €/a&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total investment cost: </span><span class="si">{</span><span class="n">results</span><span class="o">.</span><span class="n">target_scenario</span><span class="o">.</span><span class="n">kpis</span><span class="o">.</span><span class="n">total_investment_cost</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> €&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GasBoiler_1: 10.00 kW
+HeatPumpAir_1: 0.42 kW
+HeatPumpGround_1: 2.34 kW
+PhotovoltaikRoof_1: 2.84 kW
+ElectricalEnergyStorage_1: 1.03 kW
+ThermalEnergyStorage_1: 0.89 kW
+Electrical energy purchase: 969.70 €/a
+Natural gas purchase: 18.09 €/a
+Total investment cost: 11921.48 €
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="export-results">
+<h2>Export results<a class="headerlink" href="#export-results" title="Link to this heading"></a></h2>
+<p>Results are exported as a JSON file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;results.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">model_dump_json</span><span class="p">(</span><span class="n">exclude_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "6aa0688e",
+   "metadata": {},
+   "source": [
+    "# Basic Example\n",
+    "## Introduction\n",
+    "\n",
+    "This notebook runs a single WattAdvisor optimization. \n",
+    "\n",
+    "The target is to find a cost minimal technology set for the supply of the given energy demands.\n",
+    "\n",
+    "Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.\n",
+    "Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.\n",
+    "\n",
+    "## Import of necessary packages\n",
+    "All necessary modules from WattAdvisor and additional packages are imported."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "8b97fa74",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from pathlib import Path\n",
+    "\n",
+    "from wattadvisor.data_models.enums import SupportedSolver\n",
+    "from wattadvisor.utils.weather_data import (\n",
+    "    get_weather_data_from_era5_netcdf,\n",
+    ")\n",
+    "from wattadvisor.opt_model import OptModel\n",
+    "from wattadvisor.data_models.enums import EnergyType, EnergyUnit, EnergyPriceUnit\n",
+    "from wattadvisor.components import (\n",
+    "    energy_demand,\n",
+    "    heat_pump,\n",
+    "    photovoltaic,\n",
+    "    energy_purchase,\n",
+    "    gas_boiler,\n",
+    "    electrical_energy_storage,\n",
+    "    thermal_energy_storage,\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b8aa59aa",
+   "metadata": {},
+   "source": [
+    "## Specification of the considered location\n",
+    "At first, it should be specified at which location the plants should be dimensioned for. Therefore, the location is specified using decimal longitude and latitude geocoordinates."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "06044cf6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "latitude = 50.693\n",
+    "longitude = 10.937"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "028474ad",
+   "metadata": {},
+   "source": [
+    "## Load weather data file"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "c3b12b61",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "path_netcdf = Path().joinpath(\"weather.nc\")\n",
+    "weather_data = get_weather_data_from_era5_netcdf(\n",
+    "    path_netcdf, longitude=longitude, latitude=latitude\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a19ee448",
+   "metadata": {},
+   "source": [
+    "## Add energy demands\n",
+    "\n",
+    "The following energy demands that should be supplied are added to the model:\n",
+    "- electrical energy demand with an annual demand of 3.500 kWh of electrical energy \n",
+    "- thermal energy demand with an annual demand of 10.000 kWh of thermal energy \n",
+    "\n",
+    "The annual demand values given are used in combination with standard load profiles to create synthetic, hourly load profiles of the demands."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "57004ce2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "demands = [\n",
+    "    energy_demand.EnergyDemand(\n",
+    "        demand_sum=3500,\n",
+    "        demand_unit=EnergyUnit.KWH,\n",
+    "        energy_type=EnergyType.ELECTRICAL,\n",
+    "        profile_type=\"h0\",\n",
+    "        profile_year=2022,\n",
+    "    ),\n",
+    "    energy_demand.EnergyDemand(\n",
+    "        demand_sum=10000,\n",
+    "        demand_unit=EnergyUnit.KWH,\n",
+    "        energy_type=EnergyType.THERMAL,\n",
+    "        profile_type=\"EFH\",\n",
+    "        profile_year=2022,\n",
+    "        temperature_air=weather_data.air_temperature,\n",
+    "    )\n",
+    "]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "653050a1",
+   "metadata": {},
+   "source": [
+    "## Add energy production, transformation and storage component options\n",
+    "To supply the energy demands, several component options are added to the model, from which the solver choses the optimal dimensioning:\n",
+    "- gas boiler\n",
+    "- air source heat pump\n",
+    "- ground source heat pump\n",
+    "- roof integrated photovoltaic plant\n",
+    "- wind power plant\n",
+    "- electrical energy storage\n",
+    "- thermal energy storage"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "470dd54a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "components = [\n",
+    "    gas_boiler.GasBoiler(\n",
+    "        lifespan=20, eff=0.75, capex=300, opex=2, installed_power=10\n",
+    "    ),\n",
+    "    heat_pump.HeatPumpAir(\n",
+    "        lifespan=20,\n",
+    "        capex=1000,\n",
+    "        opex=2,\n",
+    "        source_temperature_series=weather_data.air_temperature,\n",
+    "    ),\n",
+    "    heat_pump.HeatPumpGround(\n",
+    "        lifespan=20,\n",
+    "        capex=1300,\n",
+    "        opex=2,\n",
+    "        source_temperature_series=weather_data.soil_temperature,\n",
+    "    ),\n",
+    "    photovoltaic.PhotovoltaikRoof(\n",
+    "        lifespan=20,\n",
+    "        capex=750,\n",
+    "        opex=2.87,\n",
+    "        potential_power=20,\n",
+    "        latitude=latitude,\n",
+    "        longitude=longitude,\n",
+    "        ghi=weather_data.ghi,\n",
+    "        dhi=weather_data.dhi,\n",
+    "        air_temperature=weather_data.air_temperature,\n",
+    "    ),\n",
+    "    electrical_energy_storage.ElectricalEnergyStorage(\n",
+    "        lifespan=15,\n",
+    "        capex_capacity=500,\n",
+    "        capex_power=500,\n",
+    "        opex=0.1,\n",
+    "        eff=0.9,\n",
+    "        relative_losses=0.00007\n",
+    "    ),\n",
+    "    thermal_energy_storage.ThermalEnergyStorage(\n",
+    "        lifespan=20,\n",
+    "        capex_capacity=5,\n",
+    "        capex_power=100,\n",
+    "        opex=2,\n",
+    "        eff=0.75,\n",
+    "        relative_losses=0.00138\n",
+    "    )\n",
+    "]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2e6b049c",
+   "metadata": {},
+   "source": [
+    "## Add energy purchases\n",
+    "\n",
+    "Furthermore, options to purchase electrical energy and natural gas from external sources or public grid are added."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "22bde341",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "purchases = [\n",
+    "    energy_purchase.EnergyPurchase(\n",
+    "        name=\"Electrical energy purchase\",\n",
+    "        energy_type=EnergyType.ELECTRICAL,\n",
+    "        energy_price_scalar=0.35,\n",
+    "        energy_price_unit=EnergyPriceUnit.EUR_PER_KWH,\n",
+    "        co2_intensity=445,\n",
+    "    ),\n",
+    "    energy_purchase.EnergyPurchase(\n",
+    "        name=\"Natural gas purchase\",\n",
+    "        energy_type=EnergyType.NATURAL_GAS,\n",
+    "        energy_price_scalar=0.10,\n",
+    "        energy_price_unit=EnergyPriceUnit.EUR_PER_KWH,\n",
+    "        co2_intensity=202,\n",
+    "    ),\n",
+    "]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9e98d512",
+   "metadata": {},
+   "source": [
+    "## Start optimization\n",
+    "\n",
+    "The solver is to find the best solution for the model. This can take up to several minutes. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "c1fad73b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "2025-05-27 19:17:47,797 - INFO - Create model instance\n",
+      "2025-05-27 19:17:50,127 - INFO - Built bilance constraint for energy type EnergyType.ELECTRICAL.\n",
+      "2025-05-27 19:17:50,227 - INFO - Built bilance constraint for energy type EnergyType.THERMAL.\n",
+      "2025-05-27 19:17:50,305 - INFO - Built bilance constraint for energy type EnergyType.NATURAL_GAS.\n",
+      "2025-05-27 19:17:50,305 - INFO - Optimizing model\n",
+      "2025-05-27 19:17:50,403 - INFO - Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms\n",
+      "2025-05-27 19:18:00,974 - INFO - RUN!\n",
+      "2025-05-27 19:18:00,976 - INFO - LP   has 227782 rows; 183992 cols; 582161 nonzeros\n",
+      "2025-05-27 19:18:00,980 - INFO - Coefficient ranges:\n",
+      "2025-05-27 19:18:00,980 - INFO -   Matrix [7e-05, 1e+03]\n",
+      "2025-05-27 19:18:00,980 - INFO -   Cost   [1e+00, 1e+00]\n",
+      "2025-05-27 19:18:00,980 - INFO -   Bound  [1e+01, 2e+01]\n",
+      "2025-05-27 19:18:00,982 - INFO -   RHS    [1e-02, 4e+00]\n",
+      "2025-05-27 19:18:01,076 - INFO - Presolving model\n",
+      "2025-05-27 19:18:01,208 - INFO - 140160 rows, 113888 cols, 371873 nonzeros  0s\n",
+      "2025-05-27 19:18:01,208 - INFO - 113878 rows, 87606 cols, 319309 nonzeros  0s\n",
+      "2025-05-27 19:18:01,411 - INFO - Dependent equations search running on 26277 equations with time limit of 1000.00s\n",
+      "2025-05-27 19:18:01,412 - INFO - Dependent equations search removed 0 rows and 0 nonzeros in 0.00s (limit = 1000.00s)\n",
+      "2025-05-27 19:18:01,412 - INFO - 113875 rows, 87603 cols, 319297 nonzeros  0s\n",
+      "2025-05-27 19:18:01,412 - INFO - Presolve : Reductions: rows 113875(-113907); columns 87603(-96389); elements 319297(-262864)\n",
+      "2025-05-27 19:18:01,413 - INFO - Solving the presolved LP\n",
+      "2025-05-27 19:18:01,514 - INFO - Using EKK dual simplex solver - serial\n",
+      "2025-05-27 19:18:01,514 - INFO -   Iteration        Objective     Infeasibilities num(sum)\n",
+      "2025-05-27 19:18:01,516 - INFO -           0     2.6175098323e+02 Pr: 17519(25480.2) 0s\n",
+      "2025-05-27 19:18:07,553 - INFO -       12479     7.2466185332e+02 Pr: 19376(888195); Du: 0(9.41963e-08) 6s\n",
+      "2025-05-27 19:18:12,902 - INFO -       16496     1.0949154200e+03 Pr: 43645(672270); Du: 0(1.34566e-08) 12s\n",
+      "2025-05-27 19:18:18,092 - INFO -       22213     1.2408813769e+03 Pr: 18697(2.20838e+06); Du: 0(1.34566e-08) 17s\n",
+      "2025-05-27 19:18:23,368 - INFO -       39122     1.5053121566e+03 Pr: 33696(2.53353e+08); Du: 0(6.56502e-07) 22s\n",
+      "2025-05-27 19:18:28,422 - INFO -       53835     1.6996755844e+03 Pr: 16212(182403); Du: 0(3.88542e-07) 27s\n",
+      "2025-05-27 19:18:33,824 - INFO -       69128     1.8284909383e+03 Pr: 23005(533278); Du: 0(4.9752e-07) 33s\n",
+      "2025-05-27 19:18:39,215 - INFO -       77271     1.9094620839e+03 Pr: 28712(407701); Du: 0(8.66145e-07) 38s\n",
+      "2025-05-27 19:18:44,268 - INFO -       84882     1.9522352752e+03 Pr: 38926(3.76543e+06); Du: 0(8.08226e-07) 43s\n",
+      "2025-05-27 19:18:49,665 - INFO -       94647     1.9992073775e+03 Pr: 6475(1.08005e+06); Du: 0(3.76068e-07) 49s\n",
+      "2025-05-27 19:18:55,338 - INFO -      103282     2.0283788940e+03 Pr: 4508(4413.51); Du: 0(4.1413e-07) 54s\n",
+      "2025-05-27 19:19:00,523 - INFO -      111583     2.0386786462e+03 Pr: 30410(64584.9); Du: 0(2.61518e-07) 59s\n",
+      "2025-05-27 19:19:03,472 - INFO -      115460     2.0382437722e+03 Pr: 0(0); Du: 0(5.63453e-11) 62s\n",
+      "2025-05-27 19:19:03,472 - INFO -      115460     2.0382437722e+03 Pr: 0(0); Du: 0(5.63453e-11) 62s\n",
+      "2025-05-27 19:19:03,472 - INFO - Solving the original LP from the solution after postsolve\n",
+      "2025-05-27 19:19:03,674 - INFO - Model status        : Optimal\n",
+      "2025-05-27 19:19:03,674 - INFO - Simplex   iterations: 115460\n",
+      "2025-05-27 19:19:03,674 - INFO - Objective value     :  2.0382437722e+03\n",
+      "2025-05-27 19:19:03,674 - INFO - Relative P-D gap    :  7.2509918125e-15\n",
+      "2025-05-27 19:19:03,674 - INFO - HiGHS run time      :         62.61\n",
+      "2025-05-27 19:19:04,271 - INFO - Optimization successfully completed\n",
+      "2025-05-27 19:19:04,276 - INFO - Write optimization results\n",
+      "2025-05-27 19:19:04,288 - INFO - Optimizing model\n",
+      "2025-05-27 19:19:04,371 - INFO - Running HiGHS 1.10.0 (git hash: fd86653): Copyright (c) 2025 HiGHS under MIT licence terms\n",
+      "2025-05-27 19:19:15,894 - INFO - RUN!\n",
+      "2025-05-27 19:19:15,895 - INFO - LP   has 227782 rows; 183992 cols; 499358 nonzeros\n",
+      "2025-05-27 19:19:15,902 - INFO - Coefficient ranges:\n",
+      "2025-05-27 19:19:15,902 - INFO -   Matrix [7e-05, 4e+02]\n",
+      "2025-05-27 19:19:15,902 - INFO -   Cost   [1e+00, 1e+00]\n",
+      "2025-05-27 19:19:15,902 - INFO -   Bound  [1e+01, 1e+01]\n",
+      "2025-05-27 19:19:15,902 - INFO -   RHS    [1e-02, 3e+03]\n",
+      "2025-05-27 19:19:15,987 - INFO - Presolving model\n",
+      "2025-05-27 19:19:16,140 - INFO - 8760 rows, 8760 cols, 8760 nonzeros  0s\n",
+      "2025-05-27 19:19:16,140 - INFO - 0 rows, 0 cols, 0 nonzeros  0s\n",
+      "2025-05-27 19:19:16,140 - INFO - Presolve : Reductions: rows 0(-227782); columns 0(-183992); elements 0(-499358) - Reduced to empty\n",
+      "2025-05-27 19:19:16,140 - INFO - Solving the original LP from the solution after postsolve\n",
+      "2025-05-27 19:19:16,350 - INFO - Model status        : Optimal\n",
+      "2025-05-27 19:19:16,350 - INFO - Objective value     :  2.8200690351e+03\n",
+      "2025-05-27 19:19:16,350 - INFO - Relative P-D gap    :  3.8700954783e-15\n",
+      "2025-05-27 19:19:16,350 - INFO - HiGHS run time      :          0.38\n",
+      "2025-05-27 19:19:16,599 - INFO - Optimization successfully completed\n",
+      "2025-05-27 19:19:16,616 - INFO - Optimization results written\n"
+     ]
+    }
+   ],
+   "source": [
+    "options = demands + components + purchases\n",
+    "\n",
+    "optimization = OptModel(options)\n",
+    "\n",
+    "# Start the optimization\n",
+    "results = optimization.run_calculation()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "32205d83",
+   "metadata": {},
+   "source": [
+    "## Inspect results\n",
+    "\n",
+    "After optimization has finished, an object containing the relevant results is returned. \n",
+    "For example, the advised power of each component, the total investment cost and the cost from energy purchase from external sources can be obtained from the object."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "a9422810",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "GasBoiler_1: 10.00 kW\n",
+      "HeatPumpAir_1: 0.42 kW\n",
+      "HeatPumpGround_1: 2.34 kW\n",
+      "PhotovoltaikRoof_1: 2.84 kW\n",
+      "ElectricalEnergyStorage_1: 1.03 kW\n",
+      "ThermalEnergyStorage_1: 0.89 kW\n",
+      "Electrical energy purchase: 969.70 €/a\n",
+      "Natural gas purchase: 18.09 €/a\n",
+      "Total investment cost: 11921.48 €\n"
+     ]
+    }
+   ],
+   "source": [
+    "for component in results.target_scenario.components:\n",
+    "    if \"advised_power\" in component:\n",
+    "        print(f\"{component['name']}: {component['advised_power']:.2f} kW\")\n",
+    "\n",
+    "    if \"purchase_cost\" in component:\n",
+    "        print(f\"{component['name']}: {component['purchase_cost']:.2f} €/a\")\n",
+    "\n",
+    "print(f\"Total investment cost: {results.target_scenario.kpis.total_investment_cost:.2f} €\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2bb2a337",
+   "metadata": {},
+   "source": [
+    "## Export results\n",
+    "\n",
+    "Results are exported as a JSON file."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "0cbd24fe",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "with open(\"results.json\", \"w\") as file:\n",
+    "    file.write(results.model_dump_json(exclude_none=True, indent=4))"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "test_env",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.11"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,1059 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wattadvisor.data_models.config_model &mdash; WattAdvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=29a6c3e3"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="wattadvisor.data_models.enums" href="../enums/index.html" />
+    <link rel="prev" title="wattadvisor.data_models.bilance_variables" href="../bilance_variables/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WattAdvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About WattAdvisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About Eclipse WattAdvisor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about.html#input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about.html#methodological-approach">Methodological approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../about.html#energy-system-coverage">Energy system coverage</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#installation-of-the-python-package">Installation of the Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#install-or-add-a-solver-to-the-project">Install or add a solver to the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#add-weather-data">Add weather data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../installation.html#download-weather-data-from-copernicus-climate-change-service">Download weather data from Copernicus Climate Change Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_collections/my_files/example_base.html">Basic Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#import-of-necessary-packages">Import of necessary packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#specification-of-the-considered-location">Specification of the considered location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#load-weather-data-file">Load weather data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#add-energy-demands">Add energy demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#add-energy-production-transformation-and-storage-component-options">Add energy production, transformation and storage component options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#add-energy-purchases">Add energy purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#start-optimization">Start optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#inspect-results">Inspect results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_collections/my_files/example_base.html#export-results">Export results</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">wattadvisor</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../components/index.html">wattadvisor.components</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">wattadvisor.data_models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../model_composition/index.html">wattadvisor.model_composition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../opt_model/index.html">wattadvisor.opt_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html">wattadvisor.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WattAdvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">wattadvisor</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">wattadvisor.data_models</a></li>
+      <li class="breadcrumb-item active">wattadvisor.data_models.config_model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/wattadvisor/data_models/config_model/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-wattadvisor.data_models.config_model">
+<span id="wattadvisor-data-models-config-model"></span><h1>wattadvisor.data_models.config_model<a class="headerlink" href="#module-wattadvisor.data_models.config_model" title="Link to this heading"></a></h1>
+<p>Contains the definition of pydantic models
+representing the WattAdvisor optimization model config.</p>
+<p>Copyright (c) 2007, Eclipse Foundation, Inc. and its licensors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv" title="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelWeatherDataPathCsv</span></code></a></p></td>
+<td><p>!!! abstract &quot;Usage Documentation&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf" title="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelWeatherDataPathNetcdf</span></code></a></p></td>
+<td><p>!!! abstract &quot;Usage Documentation&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData" title="wattadvisor.data_models.config_model.ConfigModelWeatherData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelWeatherData</span></code></a></p></td>
+<td><p>!!! abstract &quot;Usage Documentation&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelLogging" title="wattadvisor.data_models.config_model.ConfigModelLogging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelLogging</span></code></a></p></td>
+<td><p>!!! abstract &quot;Usage Documentation&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelSolver" title="wattadvisor.data_models.config_model.ConfigModelSolver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModelSolver</span></code></a></p></td>
+<td><p>!!! abstract &quot;Usage Documentation&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModel" title="wattadvisor.data_models.config_model.ConfigModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigModel</span></code></a></p></td>
+<td><p>!!! abstract &quot;Usage Documentation&quot;</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelWeatherDataPathCsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="simple">
+<dt>!!! abstract “Usage Documentation”</dt><dd><p>[Models](../concepts/models.md)</p>
+</dd>
+</dl>
+<p>A base class for creating Pydantic models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__class_vars__">
+<span class="sig-name descname"><span class="pre">__class_vars__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__class_vars__" title="Link to this definition"></a></dt>
+<dd><p>The names of the class variables defined on the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__private_attributes__">
+<span class="sig-name descname"><span class="pre">__private_attributes__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__private_attributes__" title="Link to this definition"></a></dt>
+<dd><p>Metadata about the private attributes of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__signature__">
+<span class="sig-name descname"><span class="pre">__signature__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__signature__" title="Link to this definition"></a></dt>
+<dd><p>The synthesized <cite>__init__</cite> [<cite>Signature</cite>][inspect.Signature] of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_complete__">
+<span class="sig-name descname"><span class="pre">__pydantic_complete__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_complete__" title="Link to this definition"></a></dt>
+<dd><p>Whether model building is completed, or if there are still undefined fields.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_core_schema__">
+<span class="sig-name descname"><span class="pre">__pydantic_core_schema__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_core_schema__" title="Link to this definition"></a></dt>
+<dd><p>The core schema of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_custom_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_custom_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_custom_init__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model has a custom <cite>__init__</cite> function.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_decorators__">
+<span class="sig-name descname"><span class="pre">__pydantic_decorators__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_decorators__" title="Link to this definition"></a></dt>
+<dd><p>Metadata containing the decorators defined on the model.
+This replaces <cite>Model.__validators__</cite> and <cite>Model.__root_validators__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_generic_metadata__">
+<span class="sig-name descname"><span class="pre">__pydantic_generic_metadata__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_generic_metadata__" title="Link to this definition"></a></dt>
+<dd><p>Metadata for generic models; contains data used for a similar purpose to
+__args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_parent_namespace__">
+<span class="sig-name descname"><span class="pre">__pydantic_parent_namespace__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_parent_namespace__" title="Link to this definition"></a></dt>
+<dd><p>Parent namespace of the model, used for automatic rebuilding of models.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_post_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_post_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_post_init__" title="Link to this definition"></a></dt>
+<dd><p>The name of the post-init method for the model, if defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_root_model__">
+<span class="sig-name descname"><span class="pre">__pydantic_root_model__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_root_model__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model is a [<cite>RootModel</cite>][pydantic.root_model.RootModel].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_serializer__">
+<span class="sig-name descname"><span class="pre">__pydantic_serializer__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_serializer__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaSerializer</cite> used to dump instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_validator__">
+<span class="sig-name descname"><span class="pre">__pydantic_validator__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_validator__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaValidator</cite> used to validate instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of field names and their corresponding [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_computed_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_computed_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_computed_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of computed field names and their corresponding [<cite>ComputedFieldInfo</cite>][pydantic.fields.ComputedFieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_extra__">
+<span class="sig-name descname"><span class="pre">__pydantic_extra__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_extra__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary containing extra values, if [<cite>extra</cite>][pydantic.config.ConfigDict.extra]
+is set to <cite>‘allow’</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_fields_set__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields_set__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_fields_set__" title="Link to this definition"></a></dt>
+<dd><p>The names of fields explicitly set during instantiation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_private__">
+<span class="sig-name descname"><span class="pre">__pydantic_private__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.__pydantic_private__" title="Link to this definition"></a></dt>
+<dd><p>Values of private attributes set on the model instance.</p>
+</dd></dl>
+
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>self</cite> is explicitly positional-only to allow <cite>self</cite> as a field name.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_solar">
+<span class="sig-name descname"><span class="pre">csv_solar</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_solar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_temperature">
+<span class="sig-name descname"><span class="pre">csv_temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_temperature" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_wind">
+<span class="sig-name descname"><span class="pre">csv_wind</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.csv_wind" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.is_file">
+<span class="sig-name descname"><span class="pre">is_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv.is_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelWeatherDataPathNetcdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="simple">
+<dt>!!! abstract “Usage Documentation”</dt><dd><p>[Models](../concepts/models.md)</p>
+</dd>
+</dl>
+<p>A base class for creating Pydantic models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__class_vars__">
+<span class="sig-name descname"><span class="pre">__class_vars__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__class_vars__" title="Link to this definition"></a></dt>
+<dd><p>The names of the class variables defined on the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__private_attributes__">
+<span class="sig-name descname"><span class="pre">__private_attributes__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__private_attributes__" title="Link to this definition"></a></dt>
+<dd><p>Metadata about the private attributes of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__signature__">
+<span class="sig-name descname"><span class="pre">__signature__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__signature__" title="Link to this definition"></a></dt>
+<dd><p>The synthesized <cite>__init__</cite> [<cite>Signature</cite>][inspect.Signature] of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_complete__">
+<span class="sig-name descname"><span class="pre">__pydantic_complete__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_complete__" title="Link to this definition"></a></dt>
+<dd><p>Whether model building is completed, or if there are still undefined fields.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_core_schema__">
+<span class="sig-name descname"><span class="pre">__pydantic_core_schema__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_core_schema__" title="Link to this definition"></a></dt>
+<dd><p>The core schema of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_custom_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_custom_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_custom_init__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model has a custom <cite>__init__</cite> function.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_decorators__">
+<span class="sig-name descname"><span class="pre">__pydantic_decorators__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_decorators__" title="Link to this definition"></a></dt>
+<dd><p>Metadata containing the decorators defined on the model.
+This replaces <cite>Model.__validators__</cite> and <cite>Model.__root_validators__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_generic_metadata__">
+<span class="sig-name descname"><span class="pre">__pydantic_generic_metadata__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_generic_metadata__" title="Link to this definition"></a></dt>
+<dd><p>Metadata for generic models; contains data used for a similar purpose to
+__args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_parent_namespace__">
+<span class="sig-name descname"><span class="pre">__pydantic_parent_namespace__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_parent_namespace__" title="Link to this definition"></a></dt>
+<dd><p>Parent namespace of the model, used for automatic rebuilding of models.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_post_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_post_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_post_init__" title="Link to this definition"></a></dt>
+<dd><p>The name of the post-init method for the model, if defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_root_model__">
+<span class="sig-name descname"><span class="pre">__pydantic_root_model__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_root_model__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model is a [<cite>RootModel</cite>][pydantic.root_model.RootModel].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_serializer__">
+<span class="sig-name descname"><span class="pre">__pydantic_serializer__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_serializer__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaSerializer</cite> used to dump instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_validator__">
+<span class="sig-name descname"><span class="pre">__pydantic_validator__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_validator__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaValidator</cite> used to validate instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of field names and their corresponding [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_computed_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_computed_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_computed_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of computed field names and their corresponding [<cite>ComputedFieldInfo</cite>][pydantic.fields.ComputedFieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_extra__">
+<span class="sig-name descname"><span class="pre">__pydantic_extra__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_extra__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary containing extra values, if [<cite>extra</cite>][pydantic.config.ConfigDict.extra]
+is set to <cite>‘allow’</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_fields_set__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields_set__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_fields_set__" title="Link to this definition"></a></dt>
+<dd><p>The names of fields explicitly set during instantiation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_private__">
+<span class="sig-name descname"><span class="pre">__pydantic_private__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.__pydantic_private__" title="Link to this definition"></a></dt>
+<dd><p>Values of private attributes set on the model instance.</p>
+</dd></dl>
+
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>self</cite> is explicitly positional-only to allow <cite>self</cite> as a field name.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.netcdf">
+<span class="sig-name descname"><span class="pre">netcdf</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.netcdf" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.is_file">
+<span class="sig-name descname"><span class="pre">is_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf.is_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelWeatherData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="simple">
+<dt>!!! abstract “Usage Documentation”</dt><dd><p>[Models](../concepts/models.md)</p>
+</dd>
+</dl>
+<p>A base class for creating Pydantic models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__class_vars__">
+<span class="sig-name descname"><span class="pre">__class_vars__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__class_vars__" title="Link to this definition"></a></dt>
+<dd><p>The names of the class variables defined on the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__private_attributes__">
+<span class="sig-name descname"><span class="pre">__private_attributes__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__private_attributes__" title="Link to this definition"></a></dt>
+<dd><p>Metadata about the private attributes of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__signature__">
+<span class="sig-name descname"><span class="pre">__signature__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__signature__" title="Link to this definition"></a></dt>
+<dd><p>The synthesized <cite>__init__</cite> [<cite>Signature</cite>][inspect.Signature] of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_complete__">
+<span class="sig-name descname"><span class="pre">__pydantic_complete__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_complete__" title="Link to this definition"></a></dt>
+<dd><p>Whether model building is completed, or if there are still undefined fields.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_core_schema__">
+<span class="sig-name descname"><span class="pre">__pydantic_core_schema__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_core_schema__" title="Link to this definition"></a></dt>
+<dd><p>The core schema of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_custom_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_custom_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_custom_init__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model has a custom <cite>__init__</cite> function.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_decorators__">
+<span class="sig-name descname"><span class="pre">__pydantic_decorators__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_decorators__" title="Link to this definition"></a></dt>
+<dd><p>Metadata containing the decorators defined on the model.
+This replaces <cite>Model.__validators__</cite> and <cite>Model.__root_validators__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_generic_metadata__">
+<span class="sig-name descname"><span class="pre">__pydantic_generic_metadata__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_generic_metadata__" title="Link to this definition"></a></dt>
+<dd><p>Metadata for generic models; contains data used for a similar purpose to
+__args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_parent_namespace__">
+<span class="sig-name descname"><span class="pre">__pydantic_parent_namespace__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_parent_namespace__" title="Link to this definition"></a></dt>
+<dd><p>Parent namespace of the model, used for automatic rebuilding of models.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_post_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_post_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_post_init__" title="Link to this definition"></a></dt>
+<dd><p>The name of the post-init method for the model, if defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_root_model__">
+<span class="sig-name descname"><span class="pre">__pydantic_root_model__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_root_model__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model is a [<cite>RootModel</cite>][pydantic.root_model.RootModel].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_serializer__">
+<span class="sig-name descname"><span class="pre">__pydantic_serializer__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_serializer__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaSerializer</cite> used to dump instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_validator__">
+<span class="sig-name descname"><span class="pre">__pydantic_validator__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_validator__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaValidator</cite> used to validate instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of field names and their corresponding [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_computed_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_computed_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_computed_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of computed field names and their corresponding [<cite>ComputedFieldInfo</cite>][pydantic.fields.ComputedFieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_extra__">
+<span class="sig-name descname"><span class="pre">__pydantic_extra__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_extra__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary containing extra values, if [<cite>extra</cite>][pydantic.config.ConfigDict.extra]
+is set to <cite>‘allow’</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_fields_set__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields_set__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_fields_set__" title="Link to this definition"></a></dt>
+<dd><p>The names of fields explicitly set during instantiation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_private__">
+<span class="sig-name descname"><span class="pre">__pydantic_private__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.__pydantic_private__" title="Link to this definition"></a></dt>
+<dd><p>Values of private attributes set on the model instance.</p>
+</dd></dl>
+
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>self</cite> is explicitly positional-only to allow <cite>self</cite> as a field name.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.source">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../enums/index.html#wattadvisor.data_models.enums.WeatherDataSource" title="wattadvisor.data_models.enums.WeatherDataSource"><span class="pre">wattadvisor.data_models.enums.WeatherDataSource</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.source" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelWeatherData.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf" title="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathNetcdf"><span class="pre">ConfigModelWeatherDataPathNetcdf</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv" title="wattadvisor.data_models.config_model.ConfigModelWeatherDataPathCsv"><span class="pre">ConfigModelWeatherDataPathCsv</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelLogging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="simple">
+<dt>!!! abstract “Usage Documentation”</dt><dd><p>[Models](../concepts/models.md)</p>
+</dd>
+</dl>
+<p>A base class for creating Pydantic models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__class_vars__">
+<span class="sig-name descname"><span class="pre">__class_vars__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__class_vars__" title="Link to this definition"></a></dt>
+<dd><p>The names of the class variables defined on the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__private_attributes__">
+<span class="sig-name descname"><span class="pre">__private_attributes__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__private_attributes__" title="Link to this definition"></a></dt>
+<dd><p>Metadata about the private attributes of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__signature__">
+<span class="sig-name descname"><span class="pre">__signature__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__signature__" title="Link to this definition"></a></dt>
+<dd><p>The synthesized <cite>__init__</cite> [<cite>Signature</cite>][inspect.Signature] of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_complete__">
+<span class="sig-name descname"><span class="pre">__pydantic_complete__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_complete__" title="Link to this definition"></a></dt>
+<dd><p>Whether model building is completed, or if there are still undefined fields.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_core_schema__">
+<span class="sig-name descname"><span class="pre">__pydantic_core_schema__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_core_schema__" title="Link to this definition"></a></dt>
+<dd><p>The core schema of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_custom_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_custom_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_custom_init__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model has a custom <cite>__init__</cite> function.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_decorators__">
+<span class="sig-name descname"><span class="pre">__pydantic_decorators__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_decorators__" title="Link to this definition"></a></dt>
+<dd><p>Metadata containing the decorators defined on the model.
+This replaces <cite>Model.__validators__</cite> and <cite>Model.__root_validators__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_generic_metadata__">
+<span class="sig-name descname"><span class="pre">__pydantic_generic_metadata__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_generic_metadata__" title="Link to this definition"></a></dt>
+<dd><p>Metadata for generic models; contains data used for a similar purpose to
+__args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_parent_namespace__">
+<span class="sig-name descname"><span class="pre">__pydantic_parent_namespace__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_parent_namespace__" title="Link to this definition"></a></dt>
+<dd><p>Parent namespace of the model, used for automatic rebuilding of models.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_post_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_post_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_post_init__" title="Link to this definition"></a></dt>
+<dd><p>The name of the post-init method for the model, if defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_root_model__">
+<span class="sig-name descname"><span class="pre">__pydantic_root_model__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_root_model__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model is a [<cite>RootModel</cite>][pydantic.root_model.RootModel].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_serializer__">
+<span class="sig-name descname"><span class="pre">__pydantic_serializer__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_serializer__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaSerializer</cite> used to dump instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_validator__">
+<span class="sig-name descname"><span class="pre">__pydantic_validator__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_validator__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaValidator</cite> used to validate instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of field names and their corresponding [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_computed_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_computed_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_computed_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of computed field names and their corresponding [<cite>ComputedFieldInfo</cite>][pydantic.fields.ComputedFieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_extra__">
+<span class="sig-name descname"><span class="pre">__pydantic_extra__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_extra__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary containing extra values, if [<cite>extra</cite>][pydantic.config.ConfigDict.extra]
+is set to <cite>‘allow’</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_fields_set__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields_set__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_fields_set__" title="Link to this definition"></a></dt>
+<dd><p>The names of fields explicitly set during instantiation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_private__">
+<span class="sig-name descname"><span class="pre">__pydantic_private__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.__pydantic_private__" title="Link to this definition"></a></dt>
+<dd><p>Values of private attributes set on the model instance.</p>
+</dd></dl>
+
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>self</cite> is explicitly positional-only to allow <cite>self</cite> as a field name.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.version">
+<span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.version" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.formatters">
+<span class="sig-name descname"><span class="pre">formatters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.formatters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.handlers">
+<span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.handlers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.loggers">
+<span class="sig-name descname"><span class="pre">loggers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.loggers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelLogging.root">
+<span class="sig-name descname"><span class="pre">root</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelLogging.root" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModelSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="simple">
+<dt>!!! abstract “Usage Documentation”</dt><dd><p>[Models](../concepts/models.md)</p>
+</dd>
+</dl>
+<p>A base class for creating Pydantic models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__class_vars__">
+<span class="sig-name descname"><span class="pre">__class_vars__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__class_vars__" title="Link to this definition"></a></dt>
+<dd><p>The names of the class variables defined on the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__private_attributes__">
+<span class="sig-name descname"><span class="pre">__private_attributes__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__private_attributes__" title="Link to this definition"></a></dt>
+<dd><p>Metadata about the private attributes of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__signature__">
+<span class="sig-name descname"><span class="pre">__signature__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__signature__" title="Link to this definition"></a></dt>
+<dd><p>The synthesized <cite>__init__</cite> [<cite>Signature</cite>][inspect.Signature] of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_complete__">
+<span class="sig-name descname"><span class="pre">__pydantic_complete__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_complete__" title="Link to this definition"></a></dt>
+<dd><p>Whether model building is completed, or if there are still undefined fields.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_core_schema__">
+<span class="sig-name descname"><span class="pre">__pydantic_core_schema__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_core_schema__" title="Link to this definition"></a></dt>
+<dd><p>The core schema of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_custom_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_custom_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_custom_init__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model has a custom <cite>__init__</cite> function.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_decorators__">
+<span class="sig-name descname"><span class="pre">__pydantic_decorators__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_decorators__" title="Link to this definition"></a></dt>
+<dd><p>Metadata containing the decorators defined on the model.
+This replaces <cite>Model.__validators__</cite> and <cite>Model.__root_validators__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_generic_metadata__">
+<span class="sig-name descname"><span class="pre">__pydantic_generic_metadata__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_generic_metadata__" title="Link to this definition"></a></dt>
+<dd><p>Metadata for generic models; contains data used for a similar purpose to
+__args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_parent_namespace__">
+<span class="sig-name descname"><span class="pre">__pydantic_parent_namespace__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_parent_namespace__" title="Link to this definition"></a></dt>
+<dd><p>Parent namespace of the model, used for automatic rebuilding of models.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_post_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_post_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_post_init__" title="Link to this definition"></a></dt>
+<dd><p>The name of the post-init method for the model, if defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_root_model__">
+<span class="sig-name descname"><span class="pre">__pydantic_root_model__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_root_model__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model is a [<cite>RootModel</cite>][pydantic.root_model.RootModel].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_serializer__">
+<span class="sig-name descname"><span class="pre">__pydantic_serializer__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_serializer__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaSerializer</cite> used to dump instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_validator__">
+<span class="sig-name descname"><span class="pre">__pydantic_validator__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_validator__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaValidator</cite> used to validate instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of field names and their corresponding [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_computed_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_computed_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_computed_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of computed field names and their corresponding [<cite>ComputedFieldInfo</cite>][pydantic.fields.ComputedFieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_extra__">
+<span class="sig-name descname"><span class="pre">__pydantic_extra__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_extra__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary containing extra values, if [<cite>extra</cite>][pydantic.config.ConfigDict.extra]
+is set to <cite>‘allow’</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_fields_set__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields_set__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_fields_set__" title="Link to this definition"></a></dt>
+<dd><p>The names of fields explicitly set during instantiation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_private__">
+<span class="sig-name descname"><span class="pre">__pydantic_private__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.__pydantic_private__" title="Link to this definition"></a></dt>
+<dd><p>Values of private attributes set on the model instance.</p>
+</dd></dl>
+
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>self</cite> is explicitly positional-only to allow <cite>self</cite> as a field name.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.use_solver">
+<span class="sig-name descname"><span class="pre">use_solver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../enums/index.html#wattadvisor.data_models.enums.SupportedSolver" title="wattadvisor.data_models.enums.SupportedSolver"><span class="pre">wattadvisor.data_models.enums.SupportedSolver</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.use_solver" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.timeout" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModelSolver.executable_path">
+<span class="sig-name descname"><span class="pre">executable_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModelSolver.executable_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.data_models.config_model.</span></span><span class="sig-name descname"><span class="pre">ConfigModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**data:</span> <span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+<dl class="simple">
+<dt>!!! abstract “Usage Documentation”</dt><dd><p>[Models](../concepts/models.md)</p>
+</dd>
+</dl>
+<p>A base class for creating Pydantic models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__class_vars__">
+<span class="sig-name descname"><span class="pre">__class_vars__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__class_vars__" title="Link to this definition"></a></dt>
+<dd><p>The names of the class variables defined on the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__private_attributes__">
+<span class="sig-name descname"><span class="pre">__private_attributes__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__private_attributes__" title="Link to this definition"></a></dt>
+<dd><p>Metadata about the private attributes of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__signature__">
+<span class="sig-name descname"><span class="pre">__signature__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__signature__" title="Link to this definition"></a></dt>
+<dd><p>The synthesized <cite>__init__</cite> [<cite>Signature</cite>][inspect.Signature] of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_complete__">
+<span class="sig-name descname"><span class="pre">__pydantic_complete__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_complete__" title="Link to this definition"></a></dt>
+<dd><p>Whether model building is completed, or if there are still undefined fields.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_core_schema__">
+<span class="sig-name descname"><span class="pre">__pydantic_core_schema__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_core_schema__" title="Link to this definition"></a></dt>
+<dd><p>The core schema of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_custom_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_custom_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_custom_init__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model has a custom <cite>__init__</cite> function.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_decorators__">
+<span class="sig-name descname"><span class="pre">__pydantic_decorators__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_decorators__" title="Link to this definition"></a></dt>
+<dd><p>Metadata containing the decorators defined on the model.
+This replaces <cite>Model.__validators__</cite> and <cite>Model.__root_validators__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_generic_metadata__">
+<span class="sig-name descname"><span class="pre">__pydantic_generic_metadata__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_generic_metadata__" title="Link to this definition"></a></dt>
+<dd><p>Metadata for generic models; contains data used for a similar purpose to
+__args__, __origin__, __parameters__ in typing-module generics. May eventually be replaced by these.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_parent_namespace__">
+<span class="sig-name descname"><span class="pre">__pydantic_parent_namespace__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_parent_namespace__" title="Link to this definition"></a></dt>
+<dd><p>Parent namespace of the model, used for automatic rebuilding of models.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_post_init__">
+<span class="sig-name descname"><span class="pre">__pydantic_post_init__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_post_init__" title="Link to this definition"></a></dt>
+<dd><p>The name of the post-init method for the model, if defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_root_model__">
+<span class="sig-name descname"><span class="pre">__pydantic_root_model__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_root_model__" title="Link to this definition"></a></dt>
+<dd><p>Whether the model is a [<cite>RootModel</cite>][pydantic.root_model.RootModel].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_serializer__">
+<span class="sig-name descname"><span class="pre">__pydantic_serializer__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_serializer__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaSerializer</cite> used to dump instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_validator__">
+<span class="sig-name descname"><span class="pre">__pydantic_validator__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_validator__" title="Link to this definition"></a></dt>
+<dd><p>The <cite>pydantic-core</cite> <cite>SchemaValidator</cite> used to validate instances of the model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of field names and their corresponding [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_computed_fields__">
+<span class="sig-name descname"><span class="pre">__pydantic_computed_fields__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_computed_fields__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of computed field names and their corresponding [<cite>ComputedFieldInfo</cite>][pydantic.fields.ComputedFieldInfo] objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_extra__">
+<span class="sig-name descname"><span class="pre">__pydantic_extra__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_extra__" title="Link to this definition"></a></dt>
+<dd><p>A dictionary containing extra values, if [<cite>extra</cite>][pydantic.config.ConfigDict.extra]
+is set to <cite>‘allow’</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_fields_set__">
+<span class="sig-name descname"><span class="pre">__pydantic_fields_set__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_fields_set__" title="Link to this definition"></a></dt>
+<dd><p>The names of fields explicitly set during instantiation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.__pydantic_private__">
+<span class="sig-name descname"><span class="pre">__pydantic_private__</span></span><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.__pydantic_private__" title="Link to this definition"></a></dt>
+<dd><p>Values of private attributes set on the model instance.</p>
+</dd></dl>
+
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>self</cite> is explicitly positional-only to allow <cite>self</cite> as a field name.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.solver">
+<span class="sig-name descname"><span class="pre">solver</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelSolver" title="wattadvisor.data_models.config_model.ConfigModelSolver"><span class="pre">ConfigModelSolver</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.solver" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.default_interest_rate">
+<span class="sig-name descname"><span class="pre">default_interest_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.default_interest_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.weather_data">
+<span class="sig-name descname"><span class="pre">weather_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelWeatherData" title="wattadvisor.data_models.config_model.ConfigModelWeatherData"><span class="pre">ConfigModelWeatherData</span></a></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.weather_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.parameters_path">
+<span class="sig-name descname"><span class="pre">parameters_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.parameters_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wattadvisor.data_models.config_model.ConfigModel.logging">
+<span class="sig-name descname"><span class="pre">logging</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#wattadvisor.data_models.config_model.ConfigModelLogging" title="wattadvisor.data_models.config_model.ConfigModelLogging"><span class="pre">ConfigModelLogging</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.data_models.config_model.ConfigModel.logging" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../bilance_variables/index.html" class="btn btn-neutral float-left" title="wattadvisor.data_models.bilance_variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../enums/index.html" class="btn btn-neutral float-right" title="wattadvisor.data_models.enums" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

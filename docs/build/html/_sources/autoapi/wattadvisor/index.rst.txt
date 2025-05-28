@@ -1,0 +1,19 @@
+wattadvisor
+===========
+
+.. py:module:: wattadvisor
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/wattadvisor/components/index
+   /autoapi/wattadvisor/data_models/index
+   /autoapi/wattadvisor/model_composition/index
+   /autoapi/wattadvisor/opt_model/index
+   /autoapi/wattadvisor/utils/index
+
+

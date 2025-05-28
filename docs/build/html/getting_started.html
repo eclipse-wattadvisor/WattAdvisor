@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>) &mdash; WattAdvisor 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=29a6c3e3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            WattAdvisor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About WattAdvisor</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About Eclipse WattAdvisor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#methodological-approach">Methodological approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#energy-system-coverage">Energy system coverage</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-of-the-python-package">Installation of the Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-or-add-a-solver-to-the-project">Install or add a solver to the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#add-weather-data">Add weather data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#download-weather-data-from-copernicus-climate-change-service">Download weather data from Copernicus Climate Change Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_collections/my_files/example_base.html">Basic Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#import-of-necessary-packages">Import of necessary packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#specification-of-the-considered-location">Specification of the considered location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#load-weather-data-file">Load weather data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#add-energy-demands">Add energy demands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#add-energy-production-transformation-and-storage-component-options">Add energy production, transformation and storage component options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#add-energy-purchases">Add energy purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#start-optimization">Start optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#inspect-results">Inspect results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_collections/my_files/example_base.html#export-results">Export results</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/wattadvisor/index.html">wattadvisor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/wattadvisor/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/wattadvisor/components/index.html">wattadvisor.components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/wattadvisor/data_models/index.html">wattadvisor.data_models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/wattadvisor/model_composition/index.html">wattadvisor.model_composition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/wattadvisor/opt_model/index.html">wattadvisor.opt_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/wattadvisor/utils/index.html">wattadvisor.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WattAdvisor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>## Defining an input request</p>
+<p>To create a new input request, use the prepared data model. Be careful to run these commands inside the newly created conda environment</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+from wattadvisor.data_models.input_model import InputModel
+from wattadvisor.data_models.input_model_location import InputModelLocation
+from wattadvisor.data_models.input_model_demand_object import InputModelDemandObject
+from wattadvisor.data_models.input_model_energy_tariffs import InputModelEnergyTariffs
+from wattadvisor.data_models.input_model_component_object import InputModelComponentPower
+from wattadvisor.data_models.input_model_single_tariff_object import InputModelSingleTariffObject
+from wattadvisor.data_models.input_model_single_tariff_energy_object import InputModelSingleTariffEnergyObject
+from wattadvisor.data_models.enums import EnergyType, Resolution, EnergyUnit, PowerUnitComponent, EnergyPriceUnit</p>
+<dl class="simple">
+<dt>location = InputModelLocation(</dt><dd><p>longitude=10,
+latitude=50</p>
+</dd>
+</dl>
+<p>)</p>
+<dl>
+<dt>energy_demands = [</dt><dd><dl class="simple">
+<dt>InputModelDemandObject(</dt><dd><p>demand_values = [10000],
+resolution=Resolution.R1Y,
+unit=EnergyUnit.KWH,
+energy_type=EnergyType.ELECTRICAL</p>
+</dd>
+</dl>
+<p>)</p>
+</dd>
+</dl>
+<p>]</p>
+<dl>
+<dt>energy_components = [</dt><dd><dl class="simple">
+<dt>InputModelComponentPower(</dt><dd><p>component_type=PowerUnitComponent.PHOTOVOLTAIK_ROOF,
+installed_power=10,
+potential_power=20</p>
+</dd>
+</dl>
+<p>)</p>
+</dd>
+</dl>
+<p>]</p>
+<dl>
+<dt>electrical_energy_purchase = InputModelSingleTariffObject(</dt><dd><dl class="simple">
+<dt>energy=InputModelSingleTariffEnergyObject(</dt><dd><p>price_values=[0.35],
+resolution=Resolution.R1Y,
+unit=EnergyPriceUnit.EUR_PER_KWH</p>
+</dd>
+</dl>
+<p>)</p>
+</dd>
+</dl>
+<p>)</p>
+<dl class="simple">
+<dt>energy_tariffs = InputModelEnergyTariffs(</dt><dd><p>electrical_energy_purchase=electrical_energy_purchase</p>
+</dd>
+</dl>
+<p>)</p>
+<dl class="simple">
+<dt>new_input = InputModel(</dt><dd><p>location=location,
+energy_demands=energy_demands,
+energy_components=energy_components,
+energy_tariffs=energy_tariffs</p>
+</dd>
+</dl>
+<section id="id5">
+<h1>)<a class="headerlink" href="#id5" title="Link to this heading"></a></h1>
+<p>This defines the following scenario:
+- annual sum of electrical energy demand of 10.000 kWh
+- existing photovoltaic system on the roof with 10 kWp
+- potential for an additional 10 kWp of photovoltaic modules
+- electrical energy can be purchased from the grid with a static price of 35 cents per kWh</p>
+<p>## Running the optimization</p>
+<p>By running the optimization, recommendations to the following questions can be expected:
+- Should more photovoltaic modules be added to the roof system to exceed the cost minimum?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If yes: How much modules expressed in kWp should be added?</p></li>
+<li><p>What are the resulting investment cost for the photovoltaic modules?</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>How much electrical energy is still required to purchased from the electrical grid to fulfill the electrical demands?</p></li>
+<li><p>Which annual cost can be expected for electrical energy purchase from the grid?</p></li>
+</ul>
+<p>Use <a href="#id6"><span class="problematic" id="id7">:py:module:`wattadvisor.optimization_model.process_runner`</span></a> to initiate a new optimization with the created input:</p>
+<p><a href="#id8"><span class="problematic" id="id9">``</span></a><a href="#id10"><span class="problematic" id="id11">`</span></a>python
+from wattadvisor.optimization_model import process_runner</p>
+<p># use ‘export=True’ to create an Excel file of detailed results and time series to inspect
+results = process_runner.run_direct(new_input, export=True)
+<a href="#id12"><span class="problematic" id="id13">``</span></a><a href="#id14"><span class="problematic" id="id15">`</span></a></p>
+<p>The variable <cite>results</cite> contains the optimization results.
+After a short wait, there should also be a new Excel file at the project directory containing the results.</p>
+<p>## Understanding the results</p>
+<p>Let’s inspect the variable <cite>results</cite>. It is a data model which can be accessed to retrieve the optimal values of our scenario:</p>
+<p><a href="#id16"><span class="problematic" id="id17">``</span></a><a href="#id18"><span class="problematic" id="id19">`</span></a>python
+from pprint import pprint</p>
+<p>pprint(results.dict())
+<a href="#id20"><span class="problematic" id="id21">``</span></a><a href="#id22"><span class="problematic" id="id23">`</span></a></p>
+<p>&lt;details&gt;
+&lt;summary&gt;This prints out the following:&lt;/summary&gt;</p>
+<p><a href="#id24"><span class="problematic" id="id25">``</span></a><a href="#id26"><span class="problematic" id="id27">`</span></a>python
+{‘requested_input’: {‘energy_components’: [{‘capex’: None,</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>‘component_type’: &lt;PowerUnitComponent.PHOTOVOLTAIK_ROOF: ‘PHOTOVOLTAIK_ROOF’&gt;,
+‘installed_power’: 5.0,
+‘lifespan’: None,
+‘opex’: None,
+‘potential_power’: 10.0}],</p>
+</div></blockquote>
+<dl>
+<dt>‘energy_demands’: [{‘demand_values’: [10000.0],</dt><dd><p>‘energy_type’: &lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;,
+‘resolution’: &lt;Resolution.R1Y: ‘1Y’&gt;,
+‘unit’: &lt;EnergyUnit.KWH: ‘KWH’&gt;}],</p>
+</dd>
+<dt>‘energy_tariffs’: {‘electrical_energy_feedin’: {‘energy’: {‘price_values’: [0.0],</dt><dd><blockquote>
+<div><blockquote>
+<div><p>‘resolution’: &lt;Resolution.R1Y: ‘1Y’&gt;,
+‘unit’: &lt;EnergyPriceUnit.EUR_PER_KWH: ‘EUR_PER_KWH’&gt;},</p>
+</div></blockquote>
+<p>‘power’: None},</p>
+</div></blockquote>
+<dl>
+<dt>‘electrical_energy_purchase’: {‘energy’: {‘price_values’: [0.35],</dt><dd><blockquote>
+<div><p>‘resolution’: &lt;Resolution.R1Y: ‘1Y’&gt;,
+‘unit’: &lt;EnergyPriceUnit.EUR_PER_KWH: ‘EUR_PER_KWH’&gt;},</p>
+</div></blockquote>
+<p>‘power’: None},</p>
+</dd>
+</dl>
+<p>‘natural_gas_purchase’: None,
+‘thermal_energy_purchase’: None},</p>
+</dd>
+</dl>
+<p>‘interest_rate’: 0.05,
+‘location’: {‘latitude’: 50.0, ‘longitude’: 10.0}},</p>
+</div></blockquote>
+<dl>
+<dt>‘results’: {‘current_scenario’: {‘components’: [{‘annuity’: 351.5678815510371,</dt><dd><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>‘component_type’: &lt;PowerUnitComponent.PHOTOVOLTAIK_ROOF: ‘PHOTOVOLTAIK_ROOF’&gt;,
+‘installed_power’: 5.0,
+‘investment_cost’: 3750.0,
+‘operational_cost’: 107.625,
+‘produced_energy’: [{‘amount’: 5987.854562366385,</p>
+<blockquote>
+<div><p>‘energy_type’: &lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;}]},</p>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>{‘annuity’: 2007.7232143177137,</dt><dd><p>‘component_type’: &lt;PurchaseComponent.ELECTRICAL_ENERGY_PURCHASE: ‘ELECTRICAL_ENERGY_PURCHASE’&gt;,
+‘produced_energy’: [{‘amount’: 5736.352040907731,</p>
+<blockquote>
+<div><p>‘energy_type’: &lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;}],</p>
+</div></blockquote>
+<p>‘purchase_cost’: 2007.7232143177137},</p>
+</dd>
+<dt>{‘annuity’: -0.0,</dt><dd><p>‘component_type’: &lt;FeedinComponent.ELECTRICAL_ENERGY_FEEDIN: ‘ELECTRICAL_ENERGY_FEEDIN’&gt;,
+‘produced_energy’: [{‘amount’: -1724.2066032741272,</p>
+<blockquote>
+<div><p>‘energy_type’: &lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;}],</p>
+</div></blockquote>
+<p>‘purchase_cost’: -0.0}],</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>‘kpis’: {‘total_annuities’: 2359.2910958687507,</dt><dd><p>‘total_income’: -0.0,
+‘total_investment_cost’: 3750.0,
+‘total_operational_cost’: 107.625,
+‘total_purchase_cost’: 2007.7232143177137}},</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>‘target_scenario’: {‘components’: [{‘annuity’: 427.88506844356255,</dt><dd><blockquote>
+<div><blockquote>
+<div><p>‘component_type’: &lt;PowerUnitComponent.PHOTOVOLTAIK_ROOF: ‘PHOTOVOLTAIK_ROOF’&gt;,
+‘installed_power’: 6.085383376829411,
+‘investment_cost’: 4564.037532622058,
+‘operational_cost’: 130.98787718625306,
+‘produced_energy’: [{‘amount’: 7287.6781233393185,</p>
+<blockquote>
+<div><p>‘energy_type’: &lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;}]},</p>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>{‘annuity’: 1914.447492981199,</dt><dd><p>‘component_type’: &lt;PurchaseComponent.ELECTRICAL_ENERGY_PURCHASE: ‘ELECTRICAL_ENERGY_PURCHASE’&gt;,
+‘produced_energy’: [{‘amount’: 5469.84997994623,</p>
+<blockquote>
+<div><p>‘energy_type’: &lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;}],</p>
+</div></blockquote>
+<p>‘purchase_cost’: 1914.447492981199},</p>
+</dd>
+<dt>{‘annuity’: -0.0,</dt><dd><p>‘component_type’: &lt;FeedinComponent.ELECTRICAL_ENERGY_FEEDIN: ‘ELECTRICAL_ENERGY_FEEDIN’&gt;,
+‘produced_energy’: [{‘amount’: -2757.528103285579,</p>
+<blockquote>
+<div><p>‘energy_type’: &lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;}],</p>
+</div></blockquote>
+<p>‘purchase_cost’: -0.0}],</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>‘kpis’: {‘total_annuities’: 2342.3325614247615,</dt><dd><p>‘total_income’: -0.0,
+‘total_investment_cost’: 4564.037532622058,
+‘total_operational_cost’: 130.98787718625306,
+‘total_purchase_cost’: 1914.447492981199}}},</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>‘status’: {‘error_message’: None,</dt><dd><p>‘status’: &lt;OptimizationStatus.SUCCESS: ‘SUCCESS’&gt;}}</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><a href="#id28"><span class="problematic" id="id29">``</span></a>`
+&lt;/details&gt;
+&lt;br&gt;
+You can also access single values from this big result object. For example, if you just want to know the cost-minimum amount of photovoltaic modules for the scenario, do this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">pprint(results.results.target_scenario.components)</span>
+<span class="pre">`</span></code>
+<a href="#id30"><span class="problematic" id="id31">``</span></a><a href="#id32"><span class="problematic" id="id33">`</span></a>python
+[OptimizationResultsComponentObjectPower(component_type=&lt;PowerUnitComponent.PHOTOVOLTAIK_ROOF: ‘PHOTOVOLTAIK_ROOF’&gt;, installed_power=6.085383376829411, investment_cost=4564.037532622058, operational_cost=130.98787718625306, annuity=427.88506844356255, produced_energy=[OptimizationResultsComponentEnergyProductionObject(energy_type=&lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;, amount=7287.6781233393185)]),</p>
+<blockquote>
+<div><p>OptimizationResultsComponentObjectPurchaseFeedin(component_type=&lt;PurchaseComponent.ELECTRICAL_ENERGY_PURCHASE: ‘ELECTRICAL_ENERGY_PURCHASE’&gt;, purchase_cost=1914.447492981199, annuity=1914.447492981199, produced_energy=[OptimizationResultsComponentEnergyProductionObject(energy_type=&lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;, amount=5469.84997994623)]),
+OptimizationResultsComponentObjectPurchaseFeedin(component_type=&lt;FeedinComponent.ELECTRICAL_ENERGY_FEEDIN: ‘ELECTRICAL_ENERGY_FEEDIN’&gt;, purchase_cost=-0.0, annuity=-0.0, produced_energy=[OptimizationResultsComponentEnergyProductionObject(energy_type=&lt;EnergyType.ELECTRICAL: ‘ELECTRICAL’&gt;, amount=-2757.528103285579)])]</p>
+</div></blockquote>
+<p><a href="#id34"><span class="problematic" id="id35">``</span></a><a href="#id36"><span class="problematic" id="id37">`</span></a></p>
+<p>Now, the installed power (including the already installed power of 5 kW) for the photovoltaic component is accessible at list index 0:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">results.results.target_scenario.components[0].installed_power</span>
+<span class="pre">`</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">6.085383376829411</span>
+<span class="pre">`</span></code></p>
+<p>To conclude, it seems as the cost-minimum to add around 1.08 kWp of photovoltaic modules to the existing amount of 5 kWp.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Fraunhofer IOSB-AST.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
