@@ -41,22 +41,14 @@ Module Contents
    :param temperature_air: Object containing weather data with an air temperature series [°C], by default None.
                            Only required if ``energy_type`` is ``THERMAL`` or ``NATURAL_GAS`` and ``demand_profile`` is ``None``
    :type temperature_air: WeatherDataHeightSpecific | None, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: demand_profile
       :type:  pandas.Series | None
-      :value: None
-
 
 
    .. py:attribute:: demand_sum
       :type:  float | None
-      :value: None
-
 
 
    .. py:attribute:: demand_unit
@@ -73,14 +65,10 @@ Module Contents
 
    .. py:attribute:: profile_year
       :type:  int | None
-      :value: None
-
 
 
    .. py:attribute:: temperature_air
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
-      :value: None
-
 
 
    .. py:method:: check_time_series_length(series: pandas.Series | None) -> pandas.Series | None

@@ -49,58 +49,38 @@ Module Contents
    :param source_temperature_series: Object containing weather data with a temperature series [°C] of the usable cooling and heating source to calculate COP values, by default None.
                                      If not given, `cop_series` must be given.
    :type source_temperature_series: WeatherDataHeightUnspecific | WeatherDataHeightSpecific | None, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: capex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: opex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: installed_power
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: potential_power
       :type:  float | None
-      :value: None
-
 
 
    .. py:attribute:: supply_temperature_heat
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: quality_grade
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: cop_series
       :type:  list | None
-      :value: None
-
 
 
    .. py:attribute:: source_temperature_series
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
-      :value: None
-
 
 
 .. py:class:: HeatPumpAir(**data)
@@ -113,16 +93,10 @@ Module Contents
    :param quality_grade: Scale-down factor [-] to be applied on the Carnot efficiency to calculate realistic COP for the primary heat pump, by default 0.4
                          Further information can be found [here](https://oemof-thermal.readthedocs.io/en/latest/compression_heat_pumps_and_chillers.html)
    :type quality_grade: float, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: quality_grade
       :type:  float
-      :value: None
-
 
 
 .. py:class:: HeatPumpGround(**data)
@@ -135,15 +109,9 @@ Module Contents
    :param quality_grade: Scale-down factor [-] to be applied on the Carnot efficiency to calculate realistic COP for the primary heat pump, by default 0.55
                          Further information can be found [here](https://oemof-thermal.readthedocs.io/en/latest/compression_heat_pumps_and_chillers.html)
    :type quality_grade: float, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: quality_grade
       :type:  float
-      :value: None
-
 
 

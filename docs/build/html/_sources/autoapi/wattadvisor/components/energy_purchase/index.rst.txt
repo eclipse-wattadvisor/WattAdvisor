@@ -38,10 +38,6 @@ Module Contents
    :type power_price: float, optional
    :param co2_intensity: CO2 emission intensity of the energy purchase [g/kWh], by default 0
    :type co2_intensity: float, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: energy_price_scalar
@@ -52,20 +48,14 @@ Module Contents
 
    .. py:attribute:: energy_price_profile
       :type:  pandas.Series | None
-      :value: None
-
 
 
    .. py:attribute:: power_price
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: co2_intensity
       :type:  float
-      :value: None
-
 
 
    .. py:method:: check_time_series_length(value: pandas.Series | None) -> pandas.Series | None

@@ -21,7 +21,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: SolidFuelBoiler(**data)
+.. py:class:: SolidFuelBoiler
 
    Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
 
@@ -38,39 +38,25 @@ Module Contents
    :type potential_power: float | None, optional
    :param eff: Thermal efficiency of the boiler [-]
    :type eff: float
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: capex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: opex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: installed_power
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: potential_power
       :type:  float | None
-      :value: None
-
 
 
    .. py:attribute:: eff
       :type:  float
-      :value: None
-
 
 

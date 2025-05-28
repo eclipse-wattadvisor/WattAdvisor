@@ -75,34 +75,22 @@ Module Contents
    :type air_temperature: WeatherDataHeightSpecific | None, optional
    :param dni: Object containing weather data describing the direct normal irradiance at a location, by default None
    :type dni: WeatherDataHeightUnspecific | None, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: capex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: opex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: installed_power
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: potential_power
       :type:  float | None
-      :value: None
-
 
 
    .. py:attribute:: latitude
@@ -119,14 +107,10 @@ Module Contents
 
    .. py:attribute:: azimuth
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: tilt
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: elevation
@@ -137,20 +121,14 @@ Module Contents
 
    .. py:attribute:: normed_production
       :type:  pandas.Series | None
-      :value: None
-
 
 
    .. py:attribute:: ghi
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None
-      :value: None
-
 
 
    .. py:attribute:: dhi
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None
-      :value: None
-
 
 
    .. py:attribute:: surface_type
@@ -173,14 +151,10 @@ Module Contents
 
    .. py:attribute:: air_temperature
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
-      :value: None
-
 
 
    .. py:attribute:: dni
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None
-      :value: None
-
 
 
    .. py:method:: check_time_series_length(value: pandas.Series | None) -> pandas.Series | None
@@ -240,10 +214,6 @@ Module Contents
    :type air_temperature: WeatherDataHeightSpecific | None, optional
    :param dni: Object containing weather data describing the direct normal irradiance at a location, by default None
    :type dni: WeatherDataHeightUnspecific | None, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
 .. py:class:: PhotovoltaikFreeField(**data)
@@ -298,9 +268,5 @@ Module Contents
    :type air_temperature: WeatherDataHeightSpecific | None, optional
    :param dni: Object containing weather data describing the direct normal irradiance at a location, by default None
    :type dni: WeatherDataHeightUnspecific | None, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 

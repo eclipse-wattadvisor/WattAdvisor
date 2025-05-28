@@ -130,7 +130,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.components.thermal_energy_storage.</span></span><span class="sig-name descname"><span class="pre">ThermalEnergyStorage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.components.thermal_energy_storage.</span></span><span class="sig-name descname"><span class="pre">ThermalEnergyStorage</span></span><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="../investment_component/index.html#wattadvisor.components.investment_component.InvestmentComponent" title="wattadvisor.components.investment_component.InvestmentComponent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wattadvisor.components.investment_component.InvestmentComponent</span></code></a></p>
 <p>Component where thermal energy can be stored and later taken out again, due to
 efficiency some of the stored energy is lost.</p>
@@ -147,61 +147,57 @@ efficiency some of the stored energy is lost.</p>
 <li><p><strong>opex</strong> (<em>float</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Operational expenditure cost of the component per CAPEX per year [%/a], by default None, by default None</p></li>
 <li><p><strong>eff</strong> (<em>float</em>) – Storage efficiency [-]</p></li>
 <li><p><strong>relative_losses</strong> (<em>float</em>) – Losses of stored energy over time [% of the stored energy per hour]</p></li>
-<li><p><strong>arguments.</strong> (<em>Create a new model by parsing and validating input data from keyword</em>)</p></li>
-<li><p><strong>be</strong> (<em>Raises</em><em> [</em><em>ValidationError</em><em>]</em><em>[</em><em>pydantic_core.ValidationError</em><em>] </em><em>if the input data cannot</em>)</p></li>
-<li><p><strong>model.</strong> (<em>validated to form a valid</em>)</p></li>
-<li><p><strong>name.</strong> (<em>self is explicitly positional-only to allow self as a field</em>)</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.installed_capacity">
-<span class="sig-name descname"><span class="pre">installed_capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.installed_capacity" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">installed_capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.installed_capacity" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.installed_power">
-<span class="sig-name descname"><span class="pre">installed_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.installed_power" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">installed_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.installed_power" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.potential_capacity">
-<span class="sig-name descname"><span class="pre">potential_capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.potential_capacity" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">potential_capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.potential_capacity" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.potential_power">
-<span class="sig-name descname"><span class="pre">potential_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.potential_power" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">potential_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.potential_power" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.capex_power">
-<span class="sig-name descname"><span class="pre">capex_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.capex_power" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">capex_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.capex_power" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.capex_capacity">
-<span class="sig-name descname"><span class="pre">capex_capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.capex_capacity" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">capex_capacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.capex_capacity" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.initial_soc">
-<span class="sig-name descname"><span class="pre">initial_soc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.initial_soc" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">initial_soc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.initial_soc" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.opex">
-<span class="sig-name descname"><span class="pre">opex</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.opex" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">opex</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.opex" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.eff">
-<span class="sig-name descname"><span class="pre">eff</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.eff" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">eff</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.eff" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.relative_losses">
-<span class="sig-name descname"><span class="pre">relative_losses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.relative_losses" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">relative_losses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.thermal_energy_storage.ThermalEnergyStorage.relative_losses" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

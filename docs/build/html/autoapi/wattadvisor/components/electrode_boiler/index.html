@@ -130,7 +130,7 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="wattadvisor.components.electrode_boiler.ElectrodeBoiler">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.components.electrode_boiler.</span></span><span class="sig-name descname"><span class="pre">ElectrodeBoiler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wattadvisor.components.electrode_boiler.</span></span><span class="sig-name descname"><span class="pre">ElectrodeBoiler</span></span><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="../investment_component/index.html#wattadvisor.components.investment_component.InvestmentComponent" title="wattadvisor.components.investment_component.InvestmentComponent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wattadvisor.components.investment_component.InvestmentComponent</span></code></a></p>
 <p>Component to turn electricity directly into thermal power.</p>
 <dl class="field-list simple">
@@ -141,36 +141,32 @@ Use of this source code is governed by a BSD-style license that can be found in 
 <li><p><strong>installed_power</strong> (<em>float</em><em>, </em><em>optional</em>) – Already installed thermal power of the component [kW] which acts as a lower bound, by default 0</p></li>
 <li><p><strong>potential_power</strong> (<em>float</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Maximum installable thermal power of the component [kW], by default None</p></li>
 <li><p><strong>eff</strong> (<em>float</em>) – Efficiency grade of the boiler [kW heat per kW electricity]</p></li>
-<li><p><strong>arguments.</strong> (<em>Create a new model by parsing and validating input data from keyword</em>)</p></li>
-<li><p><strong>be</strong> (<em>Raises</em><em> [</em><em>ValidationError</em><em>]</em><em>[</em><em>pydantic_core.ValidationError</em><em>] </em><em>if the input data cannot</em>)</p></li>
-<li><p><strong>model.</strong> (<em>validated to form a valid</em>)</p></li>
-<li><p><strong>name.</strong> (<em>self is explicitly positional-only to allow self as a field</em>)</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.electrode_boiler.ElectrodeBoiler.capex">
-<span class="sig-name descname"><span class="pre">capex</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.capex" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">capex</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.capex" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.electrode_boiler.ElectrodeBoiler.opex">
-<span class="sig-name descname"><span class="pre">opex</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.opex" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">opex</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.opex" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.electrode_boiler.ElectrodeBoiler.installed_power">
-<span class="sig-name descname"><span class="pre">installed_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.installed_power" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">installed_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.installed_power" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.electrode_boiler.ElectrodeBoiler.potential_power">
-<span class="sig-name descname"><span class="pre">potential_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.potential_power" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">potential_power</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.potential_power" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.electrode_boiler.ElectrodeBoiler.eff">
-<span class="sig-name descname"><span class="pre">eff</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.eff" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">eff</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.electrode_boiler.ElectrodeBoiler.eff" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

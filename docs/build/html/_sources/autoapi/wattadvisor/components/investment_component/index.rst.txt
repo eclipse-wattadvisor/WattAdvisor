@@ -44,24 +44,13 @@ Module Contents
    :param interest_rate: Interest rate to determine annuity factor for investment calculation of the component
    :type interest_rate: float
 
-   Create a new model by parsing and validating input data from keyword arguments.
-
-   Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
-   validated to form a valid model.
-
-   `self` is explicitly positional-only to allow `self` as a field name.
-
 
    .. py:attribute:: lifespan
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: interest_rate
       :type:  float
-      :value: None
-
 
 
    .. py:property:: annuity_factor

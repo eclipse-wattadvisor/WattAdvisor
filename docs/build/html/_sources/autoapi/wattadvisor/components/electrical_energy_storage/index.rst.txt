@@ -21,7 +21,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: ElectricalEnergyStorage(**data)
+.. py:class:: ElectricalEnergyStorage
 
    Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
 
@@ -49,69 +49,45 @@ Module Contents
    :type eff: float
    :param relative_losses: Losses of stored energy over time [% of the stored energy per hour]
    :type relative_losses: float
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: installed_capacity
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: installed_power
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: potential_capacity
       :type:  float | None
-      :value: None
-
 
 
    .. py:attribute:: potential_power
       :type:  float | None
-      :value: None
-
 
 
    .. py:attribute:: capex_power
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: capex_capacity
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: initial_soc
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: opex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: eff
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: relative_losses
       :type:  float
-      :value: None
-
 
 

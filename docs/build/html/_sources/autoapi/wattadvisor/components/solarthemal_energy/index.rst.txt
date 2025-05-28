@@ -46,52 +46,34 @@ Module Contents
    :param eff: Efficiency grade of the solar thermal plant [-], by default None.
                Must be given if `normed_production` is None.
    :type eff: float | None, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: capex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: opex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: ghi
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightUnspecific | None
-      :value: None
-
 
 
    .. py:attribute:: installed_area
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: potential_area
       :type:  float | None
-      :value: None
-
 
 
    .. py:attribute:: normed_production
       :type:  pandas.Series | None
-      :value: None
-
 
 
    .. py:attribute:: eff
       :type:  float | None
-      :value: None
-
 
 
    .. py:method:: check_time_series_length(value: pandas.Series | None) -> pandas.Series | None

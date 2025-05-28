@@ -142,10 +142,6 @@ This component imports energy and applies a cost for the amount imported.</p>
 <li><p><strong>energy_price_profile</strong> (<em>pd.Series</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Time series containing hourly variant energy prices for one year, by default None</p></li>
 <li><p><strong>power_price</strong> (<em>float</em><em>, </em><em>optional</em>) – Price to pay for maximum grid load per year [€/(kW * a)], by default 0</p></li>
 <li><p><strong>co2_intensity</strong> (<em>float</em><em>, </em><em>optional</em>) – CO2 emission intensity of the energy purchase [g/kWh], by default 0</p></li>
-<li><p><strong>arguments.</strong> (<em>Create a new model by parsing and validating input data from keyword</em>)</p></li>
-<li><p><strong>be</strong> (<em>Raises</em><em> [</em><em>ValidationError</em><em>]</em><em>[</em><em>pydantic_core.ValidationError</em><em>] </em><em>if the input data cannot</em>)</p></li>
-<li><p><strong>model.</strong> (<em>validated to form a valid</em>)</p></li>
-<li><p><strong>name.</strong> (<em>self is explicitly positional-only to allow self as a field</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -156,17 +152,17 @@ This component imports energy and applies a cost for the amount imported.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase.energy_price_profile">
-<span class="sig-name descname"><span class="pre">energy_price_profile</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pandas.Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.energy_price_profile" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">energy_price_profile</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pandas.Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.energy_price_profile" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase.power_price">
-<span class="sig-name descname"><span class="pre">power_price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.power_price" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">power_price</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.power_price" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.energy_purchase.EnergyPurchase.co2_intensity">
-<span class="sig-name descname"><span class="pre">co2_intensity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.co2_intensity" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">co2_intensity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#wattadvisor.components.energy_purchase.EnergyPurchase.co2_intensity" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
