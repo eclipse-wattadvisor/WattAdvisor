@@ -77,7 +77,6 @@ collections = {
     "my_files": {
         "driver": "copy_folder",
         "source": "../examples/",
-        "target": "my_files/",
-        "ignore": ["!(*.ipynb)"],
+        "target": "my_files/"
     }
 }
