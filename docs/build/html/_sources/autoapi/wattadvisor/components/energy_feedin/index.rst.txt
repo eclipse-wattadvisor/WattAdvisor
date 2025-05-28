@@ -32,10 +32,6 @@ Module Contents
    :type energy_price_scalar: float | None, optional
    :param energy_price_profile: Time series containing hourly variant energy prices for one year, by default None
    :type energy_price_profile: pd.Series | None, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: energy_price_scalar
@@ -46,8 +42,6 @@ Module Contents
 
    .. py:attribute:: energy_price_profile
       :type:  pandas.Series | None
-      :value: None
-
 
 
    .. py:method:: check_time_series_length(series: pandas.Series | None) -> pandas.Series | None

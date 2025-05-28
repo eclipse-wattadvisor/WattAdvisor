@@ -55,22 +55,14 @@ Module Contents
    :type pressure: WeatherDataHeightSpecific | None, optional
    :param density: Object containing weather data describing the air density at a location, by default None
    :type density: WeatherDataHeightSpecific | None, optional
-   :param Create a new model by parsing and validating input data from keyword arguments.:
-   :param Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be:
-   :param validated to form a valid model.:
-   :param `self` is explicitly positional-only to allow `self` as a field name.:
 
 
    .. py:attribute:: installed_power
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: potential_power
       :type:  float | None
-      :value: None
-
 
 
    .. py:attribute:: latitude
@@ -93,50 +85,34 @@ Module Contents
 
    .. py:attribute:: normed_production
       :type:  pandas.Series | None
-      :value: None
-
 
 
    .. py:attribute:: capex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: opex
       :type:  float
-      :value: None
-
 
 
    .. py:attribute:: wind_speed
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
-      :value: None
-
 
 
    .. py:attribute:: roughness_length
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
-      :value: None
-
 
 
    .. py:attribute:: air_temperature
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
-      :value: None
-
 
 
    .. py:attribute:: pressure
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
-      :value: None
-
 
 
    .. py:attribute:: density
       :type:  wattadvisor.data_models.weather_data.WeatherDataHeightSpecific | None
-      :value: None
-
 
 
    .. py:method:: check_time_series_length(value: pandas.Series | None) -> pandas.Series | None

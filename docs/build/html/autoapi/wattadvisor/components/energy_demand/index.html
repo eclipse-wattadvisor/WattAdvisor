@@ -144,21 +144,17 @@ See parameter <code class="docutils literal notranslate"><span class="pre">deman
 and <code class="docutils literal notranslate"><span class="pre">..utils.demand_tools.generate_heat_demand_profile()</span></code> for more information.</p></li>
 <li><p><strong>temperature_air</strong> (<a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><em>WeatherDataHeightSpecific</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – Object containing weather data with an air temperature series [°C], by default None.
 Only required if <code class="docutils literal notranslate"><span class="pre">energy_type</span></code> is <code class="docutils literal notranslate"><span class="pre">THERMAL</span></code> or <code class="docutils literal notranslate"><span class="pre">NATURAL_GAS</span></code> and <code class="docutils literal notranslate"><span class="pre">demand_profile</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-<li><p><strong>arguments.</strong> (<em>Create a new model by parsing and validating input data from keyword</em>)</p></li>
-<li><p><strong>be</strong> (<em>Raises</em><em> [</em><em>ValidationError</em><em>]</em><em>[</em><em>pydantic_core.ValidationError</em><em>] </em><em>if the input data cannot</em>)</p></li>
-<li><p><strong>model.</strong> (<em>validated to form a valid</em>)</p></li>
-<li><p><strong>name.</strong> (<em>self is explicitly positional-only to allow self as a field</em>)</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.energy_demand.EnergyDemand.demand_profile">
-<span class="sig-name descname"><span class="pre">demand_profile</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pandas.Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_demand.EnergyDemand.demand_profile" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">demand_profile</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pandas.Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_demand.EnergyDemand.demand_profile" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.energy_demand.EnergyDemand.demand_sum">
-<span class="sig-name descname"><span class="pre">demand_sum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_demand.EnergyDemand.demand_sum" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">demand_sum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_demand.EnergyDemand.demand_sum" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -173,12 +169,12 @@ Only required if <code class="docutils literal notranslate"><span class="pre">en
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.energy_demand.EnergyDemand.profile_year">
-<span class="sig-name descname"><span class="pre">profile_year</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_demand.EnergyDemand.profile_year" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">profile_year</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_demand.EnergyDemand.profile_year" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="wattadvisor.components.energy_demand.EnergyDemand.temperature_air">
-<span class="sig-name descname"><span class="pre">temperature_air</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_demand.EnergyDemand.temperature_air" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">temperature_air</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../data_models/weather_data/index.html#wattadvisor.data_models.weather_data.WeatherDataHeightSpecific" title="wattadvisor.data_models.weather_data.WeatherDataHeightSpecific"><span class="pre">wattadvisor.data_models.weather_data.WeatherDataHeightSpecific</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#wattadvisor.components.energy_demand.EnergyDemand.temperature_air" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

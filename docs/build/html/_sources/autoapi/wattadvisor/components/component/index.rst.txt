@@ -53,13 +53,6 @@ Module Contents
 
    :raises ValueError: If values of ``interest_rate`` and ``lifespan`` (from ``parameters``) are ``None``.
 
-   Create a new model by parsing and validating input data from keyword arguments.
-
-   Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
-   validated to form a valid model.
-
-   `self` is explicitly positional-only to allow `self` as a field name.
-
 
    .. py:attribute:: names_counter
       :type:  ClassVar[dict]
@@ -73,14 +66,10 @@ Module Contents
 
    .. py:attribute:: parameters
       :type:  dict | None
-      :value: None
-
 
 
    .. py:attribute:: bilance_variables
       :type:  wattadvisor.data_models.bilance_variables.BilanceVariables
-      :value: None
-
 
 
    .. py:property:: annuity
