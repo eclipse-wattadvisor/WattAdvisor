@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import List, TYPE_CHECKING
 import logging
 from pathlib import Path
+from copy import deepcopy
 
 import pandas as pd
 import pyomo.core.base.param
@@ -86,6 +87,8 @@ def _generate_current_scenario_results(opt_model_object: OptModel, components_li
         and a list of all components used for the current scenario
         If optimization of current scenario was not feasible: tuple containing None and None is returned 
     """
+
+    opt_model_object = deepcopy(opt_model_object)
 
     for component in components_list:
         if all(hasattr(component, attr) for attr in ["potential_power", "installed_power", "potential_capacity", "installed_capacity"]):
