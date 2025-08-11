@@ -31,7 +31,7 @@ Module Contents
 
 .. py:data:: logger
 
-.. py:class:: InvestmentComponent(**data)
+.. py:class:: InvestmentComponent
 
    Bases: :py:obj:`wattadvisor.components.component.Component`
 

@@ -21,7 +21,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: SolidFuelBoiler
+.. py:class:: SolidFuelBoiler(**data)
 
    Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
 

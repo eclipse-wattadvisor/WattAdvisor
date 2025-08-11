@@ -21,7 +21,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: GasBoiler
+.. py:class:: GasBoiler(**data)
 
    Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
 

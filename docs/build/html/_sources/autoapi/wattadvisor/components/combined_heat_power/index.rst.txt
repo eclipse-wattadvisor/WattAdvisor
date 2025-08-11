@@ -21,7 +21,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: CombinedHeatPower
+.. py:class:: CombinedHeatPower(**data)
 
    Bases: :py:obj:`wattadvisor.components.investment_component.InvestmentComponent`
 
